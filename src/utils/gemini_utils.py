@@ -1,5 +1,5 @@
 import google.generativeai as genai
-import os
+import os, json
 from typing import Dict, Any, Optional
 from src.utils.logging_utils import log_event
 from src.utils.metrics import record_latency
@@ -27,8 +27,13 @@ def classify_intent(text: str) -> Dict[str, Any]:
         """
         
         t0 = time.time()
-        response = model.generate_content(prompt)
-        result = eval(response.text.strip())  # Safe for controlled JSON output
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
+        text = response.text.strip()
+        if text.startswith("```json"):
+            text = text[7:]
+        if text.endswith("```"):
+            text = text[:-3]
+        result = json.loads(text)
         record_latency("model_inference_latency_ms", (time.time()-t0)*1000.0, tags={"model":"gemini","fn":"classify_intent"})
         
         log_event("GeminiIntentClassifier", {
@@ -60,7 +65,7 @@ def analyze_sentiment(text: str) -> Dict[str, Any]:
         """
         
         t0 = time.time()
-        response = model.generate_content(prompt)
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
         response_text = response.text.strip()
         
         # Clean up the response text
@@ -69,7 +74,7 @@ def analyze_sentiment(text: str) -> Dict[str, Any]:
         if response_text.endswith("```"):
             response_text = response_text[:-3]
         
-        result = eval(response_text.strip())
+        result = json.loads(response_text.strip())
         
         # Ensure all required fields are present
         result = {
@@ -107,7 +112,8 @@ def calculate_priority_score(context: Dict[str, Any]) -> Dict[str, Any]:
         Response format: {{"priority_score": 0.85, "escalation_recommended": true, "reasoning": "High stress + complaint + VIP customer", "time_estimate": "1-4h"}}
         """
         
-        response = model.generate_content(prompt)
+        t0 = time.time()
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
         response_text = response.text.strip()
         
         # Clean up the response text
@@ -116,7 +122,7 @@ def calculate_priority_score(context: Dict[str, Any]) -> Dict[str, Any]:
         if response_text.endswith("```"):
             response_text = response_text[:-3]
         
-        result = eval(response_text.strip())
+        result = json.loads(response_text.strip())
         
         # Ensure all required fields are present
         result = {
@@ -164,7 +170,8 @@ def generate_task_plan(request: str, context: Dict[str, Any]) -> Dict[str, Any]:
         }}
         """
         
-        response = model.generate_content(prompt)
+        t0 = time.time()
+        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
         response_text = response.text.strip()
         
         # Clean up the response text
@@ -173,7 +180,7 @@ def generate_task_plan(request: str, context: Dict[str, Any]) -> Dict[str, Any]:
         if response_text.endswith("```"):
             response_text = response_text[:-3]
         
-        parsed = eval(response_text.strip())
+        parsed = json.loads(response_text.strip())
         record_latency("model_inference_latency_ms", (time.time()-t0)*1000.0, tags={"model":"gemini","fn":"generate_task_plan"})
         if isinstance(parsed, list):
             parsed = {"tasks": parsed}

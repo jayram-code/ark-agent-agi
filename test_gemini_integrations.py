@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Test script to verify all Gemini integrations work correctly"""
+"""Test script to verify Gemini integrations with multiple samples"""
 
 import sys
 import os
@@ -9,73 +9,71 @@ from utils.gemini_utils import classify_intent, analyze_sentiment, calculate_pri
 from utils.validators import valid_planner_output, high_confidence_plan, strict_mode_validator
 
 def test_gemini_integrations():
-    """Test all Gemini AI integrations"""
     print("🤖 Testing Gemini AI Integrations")
     print("=" * 50)
-    
-    # Test data
-    test_email = "I'm having trouble with my order. The shipping is delayed and I'm getting frustrated."
-    test_sentiment_text = "I'm furious, this order never arrived!"
-    test_priority_context = {
-        "sentiment": "negative",
-        "stress": 0.8,
-        "intent": "complaint",
-        "urgency": "high"
-    }
-    test_task_description = "Handle customer complaint about delayed shipping"
-    
-    print("1. Testing EmailAgent - Intent Classification...")
+
+    email_samples = [
+        "My order didn't arrive and I want a refund.",
+        "Please cancel my subscription effective immediately.",
+        "The app keeps crashing when I try to login.",
+        "Where is my package? The tracking hasn't updated.",
+        "I'm very happy with the quick delivery, thanks!",
+        "I'm frustrated with the support delays.",
+        "I'd like to change my payment method.",
+        "This is the worst experience; nothing works.",
+        "Can you help me with my account settings?",
+        "Delivery was delayed and I'm disappointed."
+    ]
+
+    sentiment_texts = [
+        "I'm furious, this order never arrived!",
+        "Thanks, everything looks great",
+        "I'm stressed about the missing package",
+        "Neutral inquiry about account options"
+    ]
+
+    print("1. Intent Classification (10 samples)")
+    successes = 0
+    for i, text in enumerate(email_samples, 1):
+        try:
+            intent_result = classify_intent(text)
+            print(f"   [{i}] intent={intent_result.get('intent')} conf={float(intent_result.get('confidence',0)):.2f} urg={intent_result.get('urgency')}")
+            successes += 1
+        except Exception as e:
+            print(f"   [{i}] ❌ classify_intent error: {e}")
+    print(f"   ✅ Classified {successes}/{len(email_samples)}")
+
+    print("\n2. Sentiment Analysis (4 samples)")
+    successes = 0
+    for i, text in enumerate(sentiment_texts, 1):
+        try:
+            s = analyze_sentiment(text)
+            print(f"   [{i}] score={float(s.get('sentiment_score',0)):.2f} emotion={s.get('emotion')} intensity={float(s.get('intensity',0)):.2f}")
+            successes += 1
+        except Exception as e:
+            print(f"   [{i}] ❌ analyze_sentiment error: {e}")
+    print(f"   ✅ Analyzed {successes}/{len(sentiment_texts)}")
+
+    print("\n3. Priority Calculation")
+    context = {"sentiment_score": -0.8, "stress": 0.8, "intent": "complaint", "urgency": "high", "customer_tier": "VIP"}
     try:
-        intent_result = classify_intent(test_email)
-        print(f"   Intent: {intent_result['intent']}")
-        print(f"   Confidence: {intent_result['confidence']}")
-        print(f"   Urgency: {intent_result['urgency']}")
-        print(f"   Key Phrases: {intent_result['key_phrases']}")
-        print("✅ EmailAgent Gemini integration working")
+        pr = calculate_priority_score(context)
+        print(f"   score={float(pr.get('priority_score',0)):.2f} escalate={pr.get('escalation_recommended')} reason={pr.get('reasoning')}")
     except Exception as e:
-        print(f"❌ EmailAgent failed: {e}")
-    
-    print("\n2. Testing SentimentAgent - Sentiment Analysis...")
+        print(f"   ❌ calculate_priority_score error: {e}")
+
+    print("\n4. Task Planning + Validation")
     try:
-        sentiment_result = analyze_sentiment(test_sentiment_text)
-        print(f"   Sentiment: {sentiment_result['sentiment']}")
-        print(f"   Confidence: {sentiment_result['confidence']}")
-        print(f"   Emotional Context: {sentiment_result['emotional_context']}")
-        print("✅ SentimentAgent Gemini integration working")
+        plan = generate_task_plan("Handle customer complaint about delayed shipping", {"strict": True})
+        steps = plan.get("tasks", [])
+        print(f"   steps={len(steps)} est_time={plan.get('estimated_time')} success={plan.get('success_criteria')}")
+        structured = {"payload": {"plan": [{"step_id": i+1, "action": s.get("action",""), "detail": s.get("expected_outcome",""), "eta": "2-4h"} for i, s in enumerate(steps)], "confidence": 0.8}}
+        print(f"   valid={valid_planner_output(structured)} high_conf={high_confidence_plan(structured)} strict={strict_mode_validator(structured)}")
     except Exception as e:
-        print(f"❌ SentimentAgent failed: {e}")
-    
-    print("\n3. Testing PriorityAgent - Priority Calculation...")
-    try:
-        priority_result = calculate_priority_score(test_priority_context)
-        print(f"   Priority Score: {priority_result['priority_score']}")
-        print(f"   Escalation: {priority_result['escalation']}")
-        print(f"   Reasoning: {priority_result['reasoning']}")
-        print("✅ PriorityAgent Gemini integration working")
-    except Exception as e:
-        print(f"❌ PriorityAgent failed: {e}")
-    
-    print("\n4. Testing PlannerAgent - Task Planning...")
-    try:
-        plan_result = generate_task_plan(test_task_description)
-        print(f"   Plan Steps: {len(plan_result['steps'])}")
-        print(f"   Estimated Duration: {plan_result['estimated_duration']}")
-        print(f"   Success Criteria: {plan_result['success_criteria']}")
-        print("✅ PlannerAgent Gemini integration working")
-        
-        # Test validation
-        print("\n5. Testing PlannerAgent Validation...")
-        print(f"   Valid Output: {valid_planner_output(plan_result)}")
-        print(f"   High Confidence: {high_confidence_plan(plan_result)}")
-        print(f"   Strict Mode: {strict_mode_validator(plan_result)}")
-        print("✅ Validation functions working")
-        
-    except Exception as e:
-        print(f"❌ PlannerAgent failed: {e}")
-    
+        print(f"   ❌ generate_task_plan error: {e}")
+
     print("\n" + "=" * 50)
     print("🎉 Gemini Integration Tests Complete!")
-    print("All agents have been successfully integrated with Gemini AI capabilities.")
 
 if __name__ == "__main__":
     test_gemini_integrations()

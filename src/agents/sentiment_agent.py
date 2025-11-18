@@ -25,7 +25,8 @@ class SentimentAgent(BaseAgent):
                 "intensity": sentiment_result["intensity"],
                 "factors": sentiment_result["factors"],
                 "original_confidence": payload.get("intent_confidence", 0.0),
-                "original_urgency": payload.get("urgency", "unknown")
+                "original_urgency": payload.get("urgency", "unknown"),
+                "escalation": (sentiment_result["sentiment_score"] < -0.6) or (sentiment_result["intensity"] > 0.75) or (sentiment_result["emotion"].lower() in {"angry","frustrated","furious","stressed"})
             }
             try:
                 emo = response_payload["emotion"].lower()
@@ -62,7 +63,8 @@ class SentimentAgent(BaseAgent):
                 "customer_id": payload.get("customer_id"),
                 "sentiment_score": sentiment_score,
                 "emotion": emotion,
-                "intensity": abs(sentiment_score)
+                "intensity": abs(sentiment_score),
+                "escalation": (sentiment_score < -0.6) or (abs(sentiment_score) > 0.75) or (str(emotion).lower() in {"angry","frustrated","furious","stressed"})
             }
             try:
                 emo = response_payload["emotion"].lower()
