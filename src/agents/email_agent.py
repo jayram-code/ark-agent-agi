@@ -26,4 +26,4 @@ class EmailAgent(BaseAgent):
             }
         }
 
-        return self.orchestrator.route(response)
+        return self.orchestrator.send_a2a(response)
