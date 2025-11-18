@@ -27,7 +27,7 @@ class ActionExecutorAgent(BaseAgent):
         
         payload = message.get("payload", {})
         plan = payload.get("plan", {})
-        tasks = plan.get("tasks", [])
+        tasks = plan if isinstance(plan, list) else plan.get("tasks", [])
         original_payload = payload.get("original_payload", {})
         
         if not tasks:
@@ -41,7 +41,7 @@ class ActionExecutorAgent(BaseAgent):
             try:
                 result = self.execute_task(task, original_payload)
                 execution_results.append({
-                    "step": task.get("step"),
+                    "step": task.get("step") or task.get("step_id"),
                     "action": task.get("action"),
                     "result": result,
                     "status": "success"
@@ -54,7 +54,7 @@ class ActionExecutorAgent(BaseAgent):
                 })
             except Exception as e:
                 execution_results.append({
-                    "step": task.get("step"),
+                    "step": task.get("step") or task.get("step_id"),
                     "action": task.get("action"),
                     "error": str(e),
                     "status": "failed"

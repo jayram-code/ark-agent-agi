@@ -2,6 +2,8 @@
 from src.agents.base_agent import BaseAgent
 from src.utils.logging_utils import log_event
 from src.utils.gemini_utils import calculate_priority_score
+from src.utils.metrics import gauge
+from src.services.session_service import SESSION
 import uuid, datetime
 
 class PriorityAgent(BaseAgent):
@@ -33,6 +35,19 @@ class PriorityAgent(BaseAgent):
         
         escalate = priority_result["escalation_recommended"]
         reasons = [priority_result["reasoning"]]
+
+        # priority consistency metric (rolling std dev over customer history)
+        try:
+            cid = context.get("customer_id")
+            if cid:
+                hist = SESSION.get_customer(cid)["priorities"]
+                if hist:
+                    mean = sum(hist)/len(hist)
+                    var = sum((p-mean)**2 for p in hist)/len(hist)
+                    std = var ** 0.5
+                    gauge("priority_scoring_consistency_std", std, tags={"customer_id": cid})
+        except Exception:
+            pass
 
         if escalate:
             # route to action_executor_agent for automated workflow execution
@@ -105,4 +120,3 @@ class PriorityAgent(BaseAgent):
                 "route": "ticket_agent"
             })
             return self.orchestrator.send_a2a(out)
-

@@ -88,10 +88,17 @@ class PlannerAgent(BaseAgent):
         payload = message.get("payload", {})
         text = payload.get("text", "") or payload.get("summary", "") or payload.get("original", {}).get("text", "")
         strict = payload.get("strict", False)
-        kb = payload.get("kb", [])  # list of kb chunks
+        kb = payload.get("kb", [])
 
-        # extract kb texts if provided as list of dicts
-        kb_texts = [p.get("text","") for p in kb] if isinstance(kb, list) else []
+        kb_texts = []
+        if isinstance(kb, list):
+            for p in kb:
+                if isinstance(p, dict):
+                    kb_texts.append(p.get("text", ""))
+                elif isinstance(p, str):
+                    kb_texts.append(p)
+                else:
+                    kb_texts.append(str(p))
         
         # Build comprehensive context for Gemini task planning
         context = {
@@ -109,15 +116,35 @@ class PlannerAgent(BaseAgent):
         # Use Gemini for intelligent task planning
         try:
             task_plan = generate_task_plan(text, context)
+            if not isinstance(task_plan, dict):
+                task_plan = {
+                    "tasks": task_plan if isinstance(task_plan, list) else [],
+                    "estimated_time": 2,
+                    "resources_needed": [],
+                    "success_criteria": [],
+                    "potential_challenges": []
+                }
             
-            # Convert Gemini output to our plan format
             plan = []
-            for idx, task in enumerate(task_plan.get("tasks", [])):
+            tasks_raw = task_plan.get("tasks", []) if isinstance(task_plan, dict) else []
+            for idx, task in enumerate(tasks_raw):
+                if isinstance(task, dict):
+                    action = task.get("action", "unknown")
+                    detail = task.get("expected_outcome", "")
+                elif isinstance(task, str):
+                    action = task
+                    detail = ""
+                elif isinstance(task, list):
+                    action = " ".join(str(x) for x in task)
+                    detail = ""
+                else:
+                    action = "unknown"
+                    detail = ""
                 plan.append({
                     "step_id": idx + 1,
-                    "action": task.get("action", "unknown"),
-                    "detail": task.get("expected_outcome", ""),
-                    "eta": task_plan.get("time_estimate", "2-4h")
+                    "action": action,
+                    "detail": detail,
+                    "eta": task_plan.get("estimated_time", "2-4h") if isinstance(task_plan, dict) else "2-4h"
                 })
             
             confidence = min(0.95, 0.7 + (0.05 * len(kb_texts))) if kb_texts else 0.7

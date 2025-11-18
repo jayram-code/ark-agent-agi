@@ -1,5 +1,6 @@
 REQUIRED_FIELDS = [
     "id",
+    "trace_id",
     "session_id",
     "sender",
     "receiver",
