@@ -1,29 +1,34 @@
 """
-ShippingAgent - example OpenAPI tool usage (calls a shipping tracker API)
-This agent demonstrates calling a shipping tracking API (mocked by the developer).
+ShippingAgent - OpenAPI tool usage (calls a shipping tracker API)
+This agent demonstrates calling a shipping tracking API using the OpenAPI tool wrapper.
 It expects payload: {"order_id": "12345", "next": "planner_agent"}
 """
 from src.agents.base_agent import BaseAgent
 from src.utils.logging_utils import log_event
-import requests, uuid, datetime, os, json
-
-MOCK_URL = os.getenv("SHIPPING_API_URL", "http://localhost:8082/track")
+from src.utils.openapi_tool import track_shipping_order, get_shipping_information
+import uuid, datetime
 
 class ShippingAgent(BaseAgent):
     def receive(self, message):
-        log_event("ShippingAgent", "Querying shipping API")
+        log_event("ShippingAgent", "Querying shipping API using OpenAPI tool")
         payload = message.get("payload", {})
         order_id = payload.get("order_id")
         if not order_id:
             return {"status":"error","reason":"no_order_id"}
 
-        try:
-            r = requests.get(MOCK_URL, params={"order_id": order_id}, timeout=5)
-            r.raise_for_status()
-            data = r.json()
-        except Exception as e:
-            log_event("ShippingAgent", f"API error: {e}")
-            data = {"status":"unknown","error": str(e)}
+        # Use OpenAPI tool to get shipping information
+        shipping_result = get_shipping_information(order_id)
+        
+        if shipping_result["success"]:
+            data = shipping_result["shipping_info"]
+            log_event("ShippingAgent", {
+                "event": "shipping_info_retrieved", 
+                "order_id": order_id,
+                "status": data.get("status", "unknown")
+            })
+        else:
+            log_event("ShippingAgent", f"Shipping API error: {shipping_result['error']}")
+            data = {"status":"unknown","error": shipping_result["error"]}
 
         response = {
             "id": str(uuid.uuid4()),
