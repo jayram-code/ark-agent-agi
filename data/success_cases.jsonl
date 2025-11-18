@@ -1,0 +1,80 @@
+{"id":"s001","customer_id":"C010","text":"Hi, can you update my email address to the new one I shared?", "expected":"account_update"}
+{"id":"s002","customer_id":"C021","text":"I want to check the status of my order #8831.", "expected":"order_status"}
+{"id":"s003","customer_id":"C099","text":"Thanks for the help earlier. Can you send me the invoice again?", "expected":"send_invoice"}
+{"id":"s004","customer_id":"C240","text":"I need a copy of my last 3 transactions.", "expected":"billing_records"}
+{"id":"s005","customer_id":"C311","text":"How do I reset my password?", "expected":"password_help"}
+{"id":"s006","customer_id":"C122","text":"Please cancel my subscription at the end of the current cycle.", "expected":"subscription_cancel"}
+{"id":"s007","customer_id":"C401","text":"I would like to update my shipping address.", "expected":"account_update"}
+{"id":"s008","customer_id":"C031","text":"Can I get the tracking link again?", "expected":"send_tracking_link"}
+{"id":"s009","customer_id":"C048","text":"I want to upgrade my plan to Premium.", "expected":"plan_upgrade"}
+{"id":"s010","customer_id":"C055","text":"Thanks! Everything works now.", "expected":"acknowledge_success"}
+{"id":"s011","customer_id":"C060","text":"Please resend the confirmation email.", "expected":"resend_email"}
+{"id":"s012","customer_id":"C395","text":"Can you confirm if my payment went through?", "expected":"payment_status"}
+{"id":"s013","customer_id":"C278","text":"I need a refund for order #5543.", "expected":"refund_request"}
+{"id":"s014","customer_id":"C303","text":"I want to reopen my ticket. Issue not fully solved.", "expected":"reopen_ticket"}
+{"id":"s015","customer_id":"C201","text":"I want to change my registered phone number.", "expected":"account_update"}
+{"id":"s016","customer_id":"C322","text":"Please help me download my purchase receipt.", "expected":"send_receipt"}
+{"id":"s017","customer_id":"C410","text":"Does my plan include priority support?", "expected":"information_request"}
+{"id":"s018","customer_id":"C127","text":"I want to pause my subscription for 2 months.", "expected":"subscription_pause"}
+{"id":"s019","customer_id":"C422","text":"Can you check why my coupon isn’t applying?", "expected":"coupon_check"}
+{"id":"s020","customer_id":"C003","text":"How long does delivery usually take?", "expected":"faq_response"}
+{"id":"s021","customer_id":"C115","text":"Can you attach the user manual here?", "expected":"send_document"}
+{"id":"s022","customer_id":"C305","text":"I want to confirm if my return request is approved.", "expected":"return_status"}
+{"id":"s023","customer_id":"C202","text":"Please activate two-factor authentication.", "expected":"account_update"}
+{"id":"s024","customer_id":"C133","text":"What is the warranty on this product?", "expected":"information_request"}
+{"id":"s025","customer_id":"C059","text":"My delivery date changed. Can you confirm the latest one?", "expected":"order_status"}
+{"id":"s026","customer_id":"C330","text":"Can I get my subscription invoice for this month?", "expected":"send_invoice"}
+{"id":"s027","customer_id":"C542","text":"Please update my address before the order ships.", "expected":"account_update"}
+{"id":"s028","customer_id":"C140","text":"I want to change my username.", "expected":"account_update"}
+{"id":"s029","customer_id":"C800","text":"Can you tell me how to apply gift cards?", "expected":"information_request"}
+{"id":"s030","customer_id":"C667","text":"I want to add an alternate contact number.", "expected":"account_update"}
+{"id":"s031","customer_id":"C977","text":"Can you verify if my refund was initiated?", "expected":"refund_status"}
+{"id":"s032","customer_id":"C200","text":"Please help me update my billing address.", "expected":"account_update"}
+{"id":"s033","customer_id":"C291","text":"Send me the steps to reinstall the app.", "expected":"tech_instructions"}
+{"id":"s034","customer_id":"C155","text":"Can you check if my ticket is assigned?", "expected":"ticket_status"}
+{"id":"s035","customer_id":"C452","text":"Where can I download previous statements?", "expected":"information_request"}
+{"id":"s036","customer_id":"C031","text":"I want to activate auto-renewal for my subscription.", "expected":"subscription_update"}
+{"id":"s037","customer_id":"C088","text":"Please correct my name in your system.", "expected":"account_update"}
+{"id":"s038","customer_id":"C004","text":"Does my order include all accessories?", "expected":"information_request"}
+{"id":"s039","customer_id":"C220","text":"Can you send the link to track my complaint?", "expected":"send_tracking_link"}
+{"id":"s040","customer_id":"C003","text":"I want to change my payment method.", "expected":"billing_update"}
+{"id":"s041","customer_id":"C014","text":"Please confirm if my account is verified.", "expected":"verification_status"}
+{"id":"s042","customer_id":"C076","text":"I want to know my next billing date.", "expected":"billing_info"}
+{"id":"s043","customer_id":"C414","text":"Send me the activation link again.", "expected":"resend_email"}
+{"id":"s044","customer_id":"C099","text":"Can you help me reset my PIN?", "expected":"tech_support"}
+{"id":"s045","customer_id":"C210","text":"I want to reorder the same product.", "expected":"reorder_assistance"}
+{"id":"s046","customer_id":"C600","text":"Please confirm the warranty period.", "expected":"information_request"}
+{"id":"s047","customer_id":"C117","text":"Could you retrieve my last ticket summary?", "expected":"ticket_summary"}
+{"id":"s048","customer_id":"C987","text":"I want to re-enable email notifications.", "expected":"notification_update"}
+{"id":"s049","customer_id":"C781","text":"Can you attach the setup guide PDF?", "expected":"send_document"}
+{"id":"s050","customer_id":"C109","text":"What's the ETA for the delivery?", "expected":"order_status"}
+{"id":"s051","customer_id":"C020","text":"Help me update my notification preferences.", "expected":"notification_update"}
+{"id":"s052","customer_id":"C188","text":"I want to confirm the price after discount.", "expected":"price_check"}
+{"id":"s053","customer_id":"C588","text":"Please generate a return label.", "expected":"return_label"}
+{"id":"s054","customer_id":"C807","text":"Can you verify my subscription benefits?", "expected":"subscription_info"}
+{"id":"s055","customer_id":"C432","text":"I want to download my tax invoice.", "expected":"send_invoice"}
+{"id":"s056","customer_id":"C051","text":"Please resend my OTP.", "expected":"resend_otp"}
+{"id":"s057","customer_id":"C310","text":"How do I install the latest update?", "expected":"tech_instructions"}
+{"id":"s058","customer_id":"C511","text":"Can I get an estimated delivery window?", "expected":"order_status"}
+{"id":"s059","customer_id":"C133","text":"I want to change my plan type.", "expected":"plan_change"}
+{"id":"s060","customer_id":"C077","text":"Please confirm my email is verified.", "expected":"verification_status"}
+{"id":"s061","customer_id":"C122","text":"Help me update my saved payment method.", "expected":"billing_update"}
+{"id":"s062","customer_id":"C204","text":"Where can I find warranty details?", "expected":"information_request"}
+{"id":"s063","customer_id":"C500","text":"I want to activate push notifications.", "expected":"notification_update"}
+{"id":"s064","customer_id":"C276","text":"Send me all details related to my subscription.", "expected":"subscription_info"}
+{"id":"s065","customer_id":"C388","text":"My ticket is resolved. You can close it.", "expected":"close_ticket"}
+{"id":"s066","customer_id":"C551","text":"Can you send the product usage tips again?", "expected":"send_document"}
+{"id":"s067","customer_id":"C841","text":"Please confirm my order was successfully placed.", "expected":"order_status"}
+{"id":"s068","customer_id":"C671","text":"I want to reset my security questions.", "expected":"account_update"}
+{"id":"s069","customer_id":"C902","text":"Can I reschedule my delivery?", "expected":"order_update"}
+{"id":"s070","customer_id":"C733","text":"Please resend the password reset steps.", "expected":"password_help"}
+{"id":"s071","customer_id":"C402","text":"Send me the tracking code again.", "expected":"send_tracking_link"}
+{"id":"s072","customer_id":"C134","text":"I want to check my refund timeline.", "expected":"refund_status"}
+{"id":"s073","customer_id":"C299","text":"Can you confirm if my account is active?", "expected":"account_status"}
+{"id":"s074","customer_id":"C088","text":"I want details on my current plan.", "expected":"subscription_info"}
+{"id":"s075","customer_id":"C140","text":"Help me change my password.", "expected":"password_help"}
+{"id":"s076","customer_id":"C290","text":"How do I track my refund?", "expected":"refund_status"}
+{"id":"s077","customer_id":"C402","text":"Please send me all my previous invoices.", "expected":"billing_records"}
+{"id":"s078","customer_id":"C728","text":"Can you verify the serial number for me?", "expected":"information_request"}
+{"id":"s079","customer_id":"C103","text":"I need instructions to pair my device.", "expected":"tech_instructions"}
+{"id":"s080","customer_id":"C919","text":"Please update my communication preferences.", "expected":"notification_update"}
