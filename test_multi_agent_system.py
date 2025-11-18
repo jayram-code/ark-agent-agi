@@ -24,6 +24,7 @@ from agents.shipping_agent import ShippingAgent
 from agents.action_executor_agent import ActionExecutorAgent
 from agents.refund_agent import RefundAgent
 from agents.email_sender_agent import EmailSenderAgent
+from agents.retryable_agent import RetryableAgent
 from utils.mcp_filesystem_tool import mcp_filesystem
 from utils.openapi_tool import check_shipping_api_health
 from utils.pretty import pretty
@@ -51,6 +52,7 @@ def test_multi_agent_chains():
         "action_executor_agent": ActionExecutorAgent("action_executor_agent", orc),
         "refund_agent": RefundAgent("refund_agent", orc),
         "email_sender_agent": EmailSenderAgent("email_sender_agent", orc),
+        "retryable_agent": RetryableAgent("retryable_agent", orc),
     }
     
     for name, agent in agents.items():
@@ -160,6 +162,7 @@ def test_a2a_protocol_compliance():
     # Test valid message
     valid_message = {
         "id": str(uuid.uuid4()),
+        "trace_id": str(uuid.uuid4()),
         "session_id": str(uuid.uuid4()),
         "sender": "email_agent",
         "receiver": "sentiment_agent",
@@ -246,7 +249,6 @@ def run_comprehensive_test():
     print("=" * 70)
     
     try:
-        # Run all tests
         chain_test = test_multi_agent_chains()
         protocol_test = test_a2a_protocol_compliance()
         tools_test = test_tool_integrations()
@@ -270,7 +272,9 @@ def run_comprehensive_test():
         return overall_success
         
     except Exception as e:
+        import traceback
         print(f"\n❌ Test suite failed with error: {e}")
+        traceback.print_exc()
         return False
 
 if __name__ == "__main__":

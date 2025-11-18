@@ -1,6 +1,7 @@
 from src.agents.base_agent import BaseAgent
 from src.utils.logging_utils import log_event
 from src.utils.gemini_utils import classify_intent
+from src.utils.metrics import gauge
 import uuid, datetime
 
 class EmailAgent(BaseAgent):
@@ -11,6 +12,10 @@ class EmailAgent(BaseAgent):
         
         # Use Gemini for intelligent intent classification
         intent_analysis = classify_intent(email_text)
+        try:
+            gauge("email_intent_confidence", float(intent_analysis.get("confidence", 0.0)), tags={"session_id": message.get("session_id")})
+        except Exception:
+            pass
         
         response = {
             "id": str(uuid.uuid4()),

@@ -2,6 +2,8 @@ import google.generativeai as genai
 import os
 from typing import Dict, Any, Optional
 from src.utils.logging_utils import log_event
+from src.utils.metrics import record_latency
+import time
 
 # Configure Gemini API
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -24,8 +26,10 @@ def classify_intent(text: str) -> Dict[str, Any]:
         Response format: {{"intent": "complaint", "confidence": 0.85, "urgency": "high", "key_phrases": ["not working", "very disappointed", "need immediate help"]}}
         """
         
+        t0 = time.time()
         response = model.generate_content(prompt)
         result = eval(response.text.strip())  # Safe for controlled JSON output
+        record_latency("model_inference_latency_ms", (time.time()-t0)*1000.0, tags={"model":"gemini","fn":"classify_intent"})
         
         log_event("GeminiIntentClassifier", {
             "intent": result.get("intent"),
@@ -55,6 +59,7 @@ def analyze_sentiment(text: str) -> Dict[str, Any]:
         Response format: {{"sentiment_score": -0.7, "emotion": "frustrated", "intensity": 0.8, "factors": ["delivery delay", "poor communication"]}}
         """
         
+        t0 = time.time()
         response = model.generate_content(prompt)
         response_text = response.text.strip()
         
@@ -168,15 +173,16 @@ def generate_task_plan(request: str, context: Dict[str, Any]) -> Dict[str, Any]:
         if response_text.endswith("```"):
             response_text = response_text[:-3]
         
-        result = eval(response_text.strip())
-        
-        # Ensure all required fields are present
+        parsed = eval(response_text.strip())
+        record_latency("model_inference_latency_ms", (time.time()-t0)*1000.0, tags={"model":"gemini","fn":"generate_task_plan"})
+        if isinstance(parsed, list):
+            parsed = {"tasks": parsed}
         result = {
-            "tasks": result.get("tasks", []),
-            "estimated_time": result.get("estimated_time", 2),
-            "resources_needed": result.get("resources_needed", ["customer_service"]),
-            "success_criteria": result.get("success_criteria", ["issue_resolved"]),
-            "potential_challenges": result.get("potential_challenges", ["complex_issue"])
+            "tasks": parsed.get("tasks", []),
+            "estimated_time": parsed.get("estimated_time", 2),
+            "resources_needed": parsed.get("resources_needed", ["customer_service"]),
+            "success_criteria": parsed.get("success_criteria", ["issue_resolved"]),
+            "potential_challenges": parsed.get("potential_challenges", ["complex_issue"])
         }
         
         log_event("GeminiTaskPlanner", {
