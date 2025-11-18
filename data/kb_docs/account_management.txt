@@ -1,0 +1,3 @@
+Account Management
+
+You can manage your account settings, update payment methods, and view order history in your account dashboard. For account-related questions, contact support.

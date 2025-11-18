@@ -1,0 +1,6 @@
+{"id": 1, "customer_id": "test_customer_123", "ts": 1763474129.4352977, "kind": "email", "text": "I'm having trouble with my order. The shipping is delayed and I'm getting frustrated."}
+{"id": 2, "customer_id": "test_customer_123", "ts": 1763474129.5047264, "kind": "chat", "text": "Thank you for helping me with the refund process. Great service!"}
+{"id": 3, "customer_id": "test_customer_123", "ts": 1763474129.536335, "kind": "email", "text": "My product arrived broken. This is terrible quality control."}
+{"id": 4, "customer_id": "test_customer_123", "ts": 1763474129.5651224, "kind": "chat", "text": "I appreciate your quick response to my technical issue."}
+{"id": 5, "customer_id": "test_customer_123", "ts": 1763474129.5950422, "kind": "email", "text": "When will my refund be processed? I need this resolved quickly."}
+{"id": 6, "customer_id": "test_customer", "ts": 1763474659.6692653, "kind": "test", "text": "This is a test interaction"}

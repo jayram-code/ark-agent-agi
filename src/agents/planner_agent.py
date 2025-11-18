@@ -1,12 +1,14 @@
 """
 PlannerAgent
 - Generates ordered resolution steps from input (email, meeting summary, KB)
+- Uses Gemini AI for intelligent task planning and breakdown
 - Supports strict mode: produce explicit, verifiable actions (useful for supervisor re-runs)
 - Returns a payload with 'plan' (list of step dicts) and an overall 'confidence' float
 """
 
 from src.agents.base_agent import BaseAgent
 from src.utils.logging_utils import log_event
+from src.utils.gemini_utils import generate_task_plan
 import uuid, datetime
 
 def simple_step_generator(text, kb_passages=None, strict=False):
@@ -23,39 +25,52 @@ def simple_step_generator(text, kb_passages=None, strict=False):
     if any(w in text_l for w in ["refund", "return", "money back"]):
         if strict:
             steps = [
-                {"action": "verify_order_id", "detail": "Ask customer for order id and proof", "eta":"within 1 business day"},
-                {"action": "check_order_status", "detail": "Verify warehouse and tracking", "eta":"within 2 business days"},
-                {"action": "initiate_refund", "detail": "Process refund if order not delivered or damaged", "eta":"within 3 business days"},
-                {"action": "confirm_with_customer", "detail": "Send final confirmation email with refund ID", "eta":"within 1 business day"}
+                {"step": 1, "action": "verify_order", "expected_outcome": "Order details confirmed", "detail": "Verify order ID and customer details"},
+                {"step": 2, "action": "initiate_refund", "expected_outcome": "Refund processed", "detail": "Process automated refund for eligible orders"},
+                {"step": 3, "action": "send_refund_confirmation", "expected_outcome": "Customer notified", "detail": "Send confirmation email with refund details"},
+                {"step": 4, "action": "schedule_followup", "expected_outcome": "Follow-up scheduled", "detail": "Schedule 3-day follow-up to confirm satisfaction"}
             ]
         else:
             steps = [
-                {"action":"verify_order","detail":"Confirm order id and status"},
-                {"action":"process_refund_or_replace","detail":"Issue refund or replacement"}
+                {"step": 1, "action": "verify_order", "expected_outcome": "Order verified", "detail": "Confirm order details"},
+                {"step": 2, "action": "initiate_refund", "expected_outcome": "Refund initiated", "detail": "Process refund request"}
             ]
     elif any(w in text_l for w in ["not delivered","not arrived","delayed","tracking"]):
         if strict:
             steps = [
-                {"action":"check_tracking","detail":"Verify carrier tracking and timestamps"},
-                {"action":"contact_warehouse","detail":"Ask operations to validate pickup and shipment"},
-                {"action":"escalate_shipping","detail":"Escalate to shipping ops if missing; request proof"},
-                {"action":"notify_customer","detail":"Inform customer with next steps & ETA"}
+                {"step": 1, "action": "contact_shipping", "expected_outcome": "Shipping status obtained", "detail": "Contact shipping carrier for status update"},
+                {"step": 2, "action": "update_customer", "expected_outcome": "Customer informed", "detail": "Send shipping update with tracking information"},
+                {"step": 3, "action": "escalate_if_needed", "expected_outcome": "Issue escalated if required", "detail": "Escalate to shipping operations if package is lost"},
+                {"step": 4, "action": "schedule_followup", "expected_outcome": "Follow-up scheduled", "detail": "Schedule 24-hour follow-up"}
             ]
         else:
             steps = [
-                {"action":"check_tracking","detail":"Review tracking status"},
-                {"action":"reply_customer","detail":"Explain next steps or escalate"}
+                {"step": 1, "action": "contact_shipping", "expected_outcome": "Status checked", "detail": "Check shipping status"},
+                {"step": 2, "action": "update_customer", "expected_outcome": "Customer updated", "detail": "Inform customer of status"}
+            ]
+    elif any(w in text_l for w in ["broken", "defective", "not working", "issue"]):
+        if strict:
+            steps = [
+                {"step": 1, "action": "send_documentation", "expected_outcome": "Troubleshooting sent", "detail": "Send relevant troubleshooting documentation"},
+                {"step": 2, "action": "verify_issue", "expected_outcome": "Issue confirmed", "detail": "Confirm the technical issue details"},
+                {"step": 3, "action": "escalate_to_human", "expected_outcome": "Human support assigned", "detail": "Escalate complex technical issues to specialist"},
+                {"step": 4, "action": "schedule_followup", "expected_outcome": "Follow-up scheduled", "detail": "Schedule 48-hour follow-up"}
+            ]
+        else:
+            steps = [
+                {"step": 1, "action": "send_documentation", "expected_outcome": "Help provided", "detail": "Provide troubleshooting help"},
+                {"step": 2, "action": "escalate_if_needed", "expected_outcome": "Escalation if required", "detail": "Escalate if issue persists"}
             ]
     else:
         # fallback: generic troubleshooting steps possibly using KB
         if strict:
             steps = [
-                {"action":"clarify_issue","detail":"Ask clarifying question to customer"},
-                {"action":"search_kb","detail":"Retrieve relevant KB passages and propose steps"},
-                {"action":"propose_resolution","detail":"Provide suggested resolution or next step"}
+                {"step": 1, "action": "send_documentation", "expected_outcome": "Resources provided", "detail": "Send relevant help documentation"},
+                {"step": 2, "action": "clarify_if_needed", "expected_outcome": "Clarity obtained", "detail": "Ask for clarification if needed"},
+                {"step": 3, "action": "schedule_followup", "expected_outcome": "Follow-up scheduled", "detail": "Schedule follow-up to ensure resolution"}
             ]
         else:
-            steps = [{"action":"clarify","detail":"Ask clarifying question"}]
+            steps = [{"step": 1, "action": "send_documentation", "expected_outcome": "Help provided", "detail": "Provide helpful information"}]
 
     # use KB to increase confidence if matching keywords
     confidence = 0.5
@@ -69,7 +84,7 @@ def simple_step_generator(text, kb_passages=None, strict=False):
 
 class PlannerAgent(BaseAgent):
     def receive(self, message):
-        log_event("PlannerAgent", "Generating plan")
+        log_event("PlannerAgent", "Generating intelligent plan with Gemini AI")
         payload = message.get("payload", {})
         text = payload.get("text", "") or payload.get("summary", "") or payload.get("original", {}).get("text", "")
         strict = payload.get("strict", False)
@@ -77,22 +92,69 @@ class PlannerAgent(BaseAgent):
 
         # extract kb texts if provided as list of dicts
         kb_texts = [p.get("text","") for p in kb] if isinstance(kb, list) else []
-
-        steps, confidence = simple_step_generator(text, kb_texts, strict=strict)
-
-        plan = [{"step_id": idx+1, "action": s["action"], "detail": s["detail"], "eta": s.get("eta","")} for idx,s in enumerate(steps)]
+        
+        # Build comprehensive context for Gemini task planning
+        context = {
+            "customer_id": payload.get("customer_id"),
+            "intent": payload.get("intent", "unknown"),
+            "sentiment_score": payload.get("sentiment_score", 0.0),
+            "emotion": payload.get("emotion", "neutral"),
+            "stress": payload.get("stress", 0.0),
+            "urgency": payload.get("urgency", "medium"),
+            "priority_score": payload.get("priority_score", 0.5),
+            "kb_passages": kb_texts[:3],  # Limit to top 3 KB passages
+            "strict_mode": strict
+        }
+        
+        # Use Gemini for intelligent task planning
+        try:
+            task_plan = generate_task_plan(text, context)
+            
+            # Convert Gemini output to our plan format
+            plan = []
+            for idx, task in enumerate(task_plan.get("tasks", [])):
+                plan.append({
+                    "step_id": idx + 1,
+                    "action": task.get("action", "unknown"),
+                    "detail": task.get("expected_outcome", ""),
+                    "eta": task_plan.get("time_estimate", "2-4h")
+                })
+            
+            confidence = min(0.95, 0.7 + (0.05 * len(kb_texts))) if kb_texts else 0.7
+            
+            log_event("PlannerAgent", {
+                "plan_steps": len(plan),
+                "confidence": confidence,
+                "estimated_time": task_plan.get("estimated_time", 2),
+                "ai_generated": True
+            })
+            
+        except Exception as e:
+            log_event("PlannerAgent", f"Gemini planning failed, falling back: {e}")
+            # Fallback to simple step generator
+            steps, confidence = simple_step_generator(text, kb_texts, strict=strict)
+            plan = [{"step_id": idx+1, "action": s["action"], "detail": s["detail"], "eta": s.get("eta","")} for idx,s in enumerate(steps)]
+            task_plan = {
+                "resources_needed": ["customer_service"],
+                "success_criteria": ["customer_satisfied"],
+                "potential_challenges": ["complex_issue"]
+            }
 
         response = {
             "id": str(uuid.uuid4()),
             "session_id": message["session_id"],
             "sender": "planner_agent",
-            "receiver": payload.get("next","ticket_agent"),
+            "receiver": "action_executor_agent",  # Route to executor for automation
             "type": "task_request",
             "timestamp": str(datetime.datetime.utcnow()),
             "payload": {
                 "plan": plan,
                 "confidence": confidence,
-                "original": payload
+                "estimated_time": task_plan.get("estimated_time", 2),
+                "resources_needed": task_plan.get("resources_needed", []),
+                "success_criteria": task_plan.get("success_criteria", []),
+                "potential_challenges": task_plan.get("potential_challenges", []),
+                "original_payload": payload  # Pass original payload for context
             }
         }
 
