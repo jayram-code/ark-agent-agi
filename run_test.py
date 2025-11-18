@@ -7,6 +7,8 @@ from src.agents.memory_agent import MemoryAgent
 from src.agents.knowledge_agent import KnowledgeAgent
 from src.agents.meeting_agent import MeetingAgent
 from src.utils.pretty import pretty
+from src.agents.planner_agent import PlannerAgent
+
 
 # create orchestrator
 orc = Orchestrator()
@@ -20,6 +22,8 @@ agents = {
     "memory_agent": MemoryAgent("memory_agent", orc),
     "knowledge_agent": KnowledgeAgent("knowledge_agent", orc),
     "meeting_agent": MeetingAgent("meeting_agent", orc),
+"planner_agent": PlannerAgent("planner_agent", orc),
+
 }
 
 for name, inst in agents.items():
