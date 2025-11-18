@@ -1,0 +1,3 @@
+Refund Policy
+
+Customers can request a refund within 30 days of purchase. To request a refund, provide order id, reason, and proof of purchase. Refunds exclude shipping costs unless the product was delivered damaged or incorrect.
