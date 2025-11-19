@@ -1,0 +1,54 @@
+{"id":"sem001","customer_id":"C021","text":"refund??", "expected":"refund_request"}
+{"id":"sem002","customer_id":"C044","text":"bro why u charge me again??", "expected":"billing_escalation"}
+{"id":"sem003","customer_id":"C300","text":"my acc no work", "expected":"tech_support"}
+{"id":"sem004","customer_id":"C129","text":"where order", "expected":"order_status"}
+{"id":"sem005","customer_id":"C991","text":"hello?? anyone??", "expected":"followup"}
+{"id":"sem006","customer_id":"C502","text":"plz fix fast", "expected":"urgent_escalation"}
+{"id":"sem007","customer_id":"C112","text":"I want cancel", "expected":"subscription_cancel"}
+{"id":"sem008","customer_id":"C078","text":"why error??", "expected":"tech_support"}
+{"id":"sem009","customer_id":"C008","text":"🤨", "expected":"human_escalation"}
+{"id":"sem010","customer_id":"C550","text":"my money gone?", "expected":"billing_escalation"}
+
+{"id":"sem011","customer_id":"C601","text":"Hola, mi pedido?", "expected":"order_status"}
+{"id":"sem012","customer_id":"C777","text":"Tamil + English: en order enga poguthu?", "expected":"order_status"}
+{"id":"sem013","customer_id":"C344","text":"bro device ded", "expected":"tech_support"}
+{"id":"sem014","customer_id":"C404","text":"why no otp??", "expected":"resend_otp"}
+{"id":"sem015","customer_id":"C002","text":"hey do u ppl even see msgs", "expected":"followup"}
+{"id":"sem016","customer_id":"C499","text":"link not wrking send new", "expected":"resend_email"}
+{"id":"sem017","customer_id":"C333","text":"need talk someone", "expected":"human_escalation"}
+{"id":"sem018","customer_id":"C801","text":"where is that thing u promised?", "expected":"followup"}
+{"id":"sem019","customer_id":"C970","text":"my address wrong?", "expected":"account_update"}
+{"id":"sem020","customer_id":"C220","text":"u charged me diff amount?? why", "expected":"billing_escalation"}
+
+{"id":"sem021","customer_id":"C011","text":"return pls", "expected":"return_request"}
+{"id":"sem022","customer_id":"C002","text":"item broke again", "expected":"replace_or_refund"}
+{"id":"sem023","customer_id":"C441","text":"i paid but no mail", "expected":"payment_status"}
+{"id":"sem024","customer_id":"C409","text":"can't login idk why", "expected":"tech_support"}
+{"id":"sem025","customer_id":"C321","text":"hurry!", "expected":"expedite"}
+{"id":"sem026","customer_id":"C552","text":"bro where is refund?", "expected":"refund_status"}
+{"id":"sem027","customer_id":"C128","text":"my ticket?", "expected":"ticket_status"}
+{"id":"sem028","customer_id":"C701","text":"what is this charge???", "expected":"billing_escalation"}
+{"id":"sem029","customer_id":"C433","text":"pls activate", "expected":"account_update"}
+{"id":"sem030","customer_id":"C556","text":"send proof", "expected":"send_document"}
+
+{"id":"sem031","customer_id":"C120","text":"lol ur app glitchy today", "expected":"tech_support"}
+{"id":"sem032","customer_id":"C342","text":"my shipment stuck?", "expected":"order_status"}
+{"id":"sem033","customer_id":"C320","text":"can u check?", "expected":"information_request"}
+{"id":"sem034","customer_id":"C067","text":"refund or what??", "expected":"refund_request"}
+{"id":"sem035","customer_id":"C288","text":"my plan?? active??", "expected":"subscription_info"}
+{"id":"sem036","customer_id":"C015","text":"is this line secure?", "expected":"security_confirmation"}
+{"id":"sem037","customer_id":"C219","text":"just fix it", "expected":"tech_support"}
+{"id":"sem038","customer_id":"C302","text":"hey need to talk urgent", "expected":"urgent_escalation"}
+{"id":"sem039","customer_id":"C802","text":"pdf??", "expected":"send_document"}
+{"id":"sem040","customer_id":"C233","text":"hello refund done?", "expected":"refund_status"}
+
+{"id":"sem041","customer_id":"C903","text":"I want to stop emails", "expected":"notification_update"}
+{"id":"sem042","customer_id":"C050","text":"chargeback??", "expected":"fraud_investigation"}
+{"id":"sem043","customer_id":"C166","text":"my ticket closed? why", "expected":"reopen_ticket"}
+{"id":"sem044","customer_id":"C627","text":"serial num check", "expected":"information_request"}
+{"id":"sem045","customer_id":"C055","text":"new code pls", "expected":"resend_otp"}
+{"id":"sem046","customer_id":"C300","text":"device not pair", "expected":"tech_support"}
+{"id":"sem047","customer_id":"C380","text":"cancel order now pls", "expected":"order_cancel"}
+{"id":"sem048","customer_id":"C511","text":"when will deliver", "expected":"order_status"}
+{"id":"sem049","customer_id":"C763","text":"resend mail", "expected":"resend_email"}
+{"id":"sem050","customer_id":"C940","text":"account active right?", "expected":"account_status"}
