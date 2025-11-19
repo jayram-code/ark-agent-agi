@@ -1,0 +1,52 @@
+{"email_text":"My package never arrived. The tracking shows 'in transit' for 10 days.","true_intent":"shipping_inquiry","true_sentiment":"frustrated","true_urgency":"high","expected_routing":"TicketAgent","notes":"delivery delay"}
+{"email_text":"Please refund my order #1234. It was the wrong size.","true_intent":"refund_request","true_sentiment":"neutral","true_urgency":"medium","expected_routing":"TicketAgent","notes":"refund request"}
+{"email_text":"I want to cancel my subscription immediately.","true_intent":"cancellation","true_sentiment":"neutral","true_urgency":"high","expected_routing":"TicketAgent","notes":"cancel subscription"}
+{"email_text":"The app keeps crashing whenever I try to log in.","true_intent":"technical_support","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"login crash"}
+{"email_text":"Where is my order? The tracking hasn't updated since last week.","true_intent":"shipping_inquiry","true_sentiment":"frustrated","true_urgency":"high","expected_routing":"TicketAgent","notes":"stale tracking"}
+{"email_text":"Thanks for the quick delivery! Really happy with the service.","true_intent":"general_query","true_sentiment":"satisfied","true_urgency":"low","expected_routing":"TicketAgent","notes":"positive feedback"}
+{"email_text":"I'm angry that nobody responded to my last email.","true_intent":"complaint","true_sentiment":"angry","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"escalation candidate"}
+{"email_text":"Can you help me change my payment method?","true_intent":"general_query","true_sentiment":"neutral","true_urgency":"medium","expected_routing":"TicketAgent","notes":"account help"}
+{"email_text":"This is the worst experience. Nothing works and I'm furious.","true_intent":"complaint","true_sentiment":"furious","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"strong negative"}
+{"email_text":"Delivery was delayed and I'm disappointed.","true_intent":"shipping_inquiry","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"delay disappointment"}
+{"email_text":"I received a broken item and need a replacement or refund.","true_intent":"refund_request","true_sentiment":"frustrated","true_urgency":"high","expected_routing":"TicketAgent","notes":"broken item"}
+{"email_text":"Please stop sending me promotional emails.","true_intent":"cancellation","true_sentiment":"neutral","true_urgency":"low","expected_routing":"TicketAgent","notes":"unsubscribe"}
+{"email_text":"The website shows error 500 when checking out.","true_intent":"technical_support","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"checkout error"}
+{"email_text":"I want my money back now.","true_intent":"refund_request","true_sentiment":"angry","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"urgent refund"}
+{"email_text":"How can I update my address?","true_intent":"general_query","true_sentiment":"neutral","true_urgency":"low","expected_routing":"TicketAgent","notes":"address update"}
+{"email_text":"My tracking number says delivered but I didn't get it.","true_intent":"shipping_inquiry","true_sentiment":"frustrated","true_urgency":"high","expected_routing":"TicketAgent","notes":"porch theft possible"}
+{"email_text":"I love the new features, great job!","true_intent":"general_query","true_sentiment":"happy","true_urgency":"low","expected_routing":"TicketAgent","notes":"positive praise"}
+{"email_text":"Confused about the billing cycle, can someone explain?","true_intent":"general_query","true_sentiment":"confused","true_urgency":"medium","expected_routing":"TicketAgent","notes":"billing confusion"}
+{"email_text":"Still waiting for support from last week. This is unacceptable.","true_intent":"complaint","true_sentiment":"angry","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"follow-up escalation"}
+{"email_text":"The app logs me out randomly every hour.","true_intent":"technical_support","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"session issue"}
+{"email_text":"Please cancel order #5678 before it ships.","true_intent":"cancellation","true_sentiment":"neutral","true_urgency":"high","expected_routing":"TicketAgent","notes":"pre-shipment cancel"}
+{"email_text":"Tracking page is blank, what should I do?","true_intent":"shipping_inquiry","true_sentiment":"confused","true_urgency":"medium","expected_routing":"TicketAgent","notes":"tracking blank"}
+{"email_text":"My refund hasn't posted after 7 days.","true_intent":"refund_request","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"refund delay"}
+{"email_text":"I keep getting an authentication error on mobile.","true_intent":"technical_support","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"mobile auth"}
+{"email_text":"Why was my account locked?","true_intent":"general_query","true_sentiment":"confused","true_urgency":"medium","expected_routing":"TicketAgent","notes":"account lock"}
+{"email_text":"My order arrived damaged. I need help.","true_intent":"technical_support","true_sentiment":"frustrated","true_urgency":"high","expected_routing":"TicketAgent","notes":"damaged item"}
+{"email_text":"Stop charging me, I canceled last month.","true_intent":"complaint","true_sentiment":"angry","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"billing dispute"}
+{"email_text":"Can you expedite my shipment? It's a gift.","true_intent":"shipping_inquiry","true_sentiment":"neutral","true_urgency":"high","expected_routing":"TicketAgent","notes":"expedite request"}
+{"email_text":"Thanks for fixing my issue so fast!","true_intent":"general_query","true_sentiment":"satisfied","true_urgency":"low","expected_routing":"TicketAgent","notes":"resolved praise"}
+{"email_text":"I am extremely stressed; this order must arrive today.","true_intent":"shipping_inquiry","true_sentiment":"stressed","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"high stress"}
+{"email_text":"Your app is terrible, nothing works and support is useless.","true_intent":"complaint","true_sentiment":"angry","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"strong complaint"}
+{"email_text":"Please help me reset my password.","true_intent":"technical_support","true_sentiment":"neutral","true_urgency":"medium","expected_routing":"TicketAgent","notes":"password reset"}
+{"email_text":"I want a partial refund due to late delivery.","true_intent":"refund_request","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"partial refund"}
+{"email_text":"Am I eligible for a student discount?","true_intent":"general_query","true_sentiment":"neutral","true_urgency":"low","expected_routing":"TicketAgent","notes":"pricing question"}
+{"email_text":"The update broke my settings, please fix.","true_intent":"technical_support","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"update issue"}
+{"email_text":"Can I change my delivery address to my office?","true_intent":"shipping_inquiry","true_sentiment":"neutral","true_urgency":"medium","expected_routing":"TicketAgent","notes":"address change"}
+{"email_text":"I already emailed twice. Why is nobody replying?","true_intent":"complaint","true_sentiment":"angry","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"repeat complaint"}
+{"email_text":"Please confirm my cancellation and stop billing.","true_intent":"cancellation","true_sentiment":"neutral","true_urgency":"medium","expected_routing":"TicketAgent","notes":"cancellation confirmation"}
+{"email_text":"The device overheats and shuts down.","true_intent":"technical_support","true_sentiment":"frustrated","true_urgency":"high","expected_routing":"TicketAgent","notes":"hardware issue"}
+{"email_text":"When will my order ship?","true_intent":"shipping_inquiry","true_sentiment":"neutral","true_urgency":"medium","expected_routing":"TicketAgent","notes":"order status"}
+{"email_text":"I feel disappointed with the delays.","true_intent":"complaint","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"mild complaint"}
+{"email_text":"Refund me or escalate to a manager.","true_intent":"refund_request","true_sentiment":"angry","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"refund escalation"}
+{"email_text":"I appreciate the quick responses, thank you.","true_intent":"general_query","true_sentiment":"satisfied","true_urgency":"low","expected_routing":"TicketAgent","notes":"positive"}
+{"email_text":"Tracking says delivered to wrong city.","true_intent":"shipping_inquiry","true_sentiment":"frustrated","true_urgency":"high","expected_routing":"TicketAgent","notes":"misdelivery"}
+{"email_text":"Confused about how to apply the promo code.","true_intent":"general_query","true_sentiment":"confused","true_urgency":"low","expected_routing":"TicketAgent","notes":"promo code"}
+{"email_text":"My account was hacked. Urgent help needed.","true_intent":"technical_support","true_sentiment":"stressed","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"security incident"}
+{"email_text":"The checkout button does nothing.","true_intent":"technical_support","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"UI bug"}
+{"email_text":"Cancel my plan and issue a full refund.","true_intent":"cancellation","true_sentiment":"angry","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"cancel + refund"}
+{"email_text":"Is same-day delivery available?","true_intent":"shipping_inquiry","true_sentiment":"neutral","true_urgency":"medium","expected_routing":"TicketAgent","notes":"delivery options"}
+{"email_text":"My replacement arrived perfect, thanks!","true_intent":"general_query","true_sentiment":"happy","true_urgency":"low","expected_routing":"TicketAgent","notes":"resolved"}
+{"email_text":"I'm frustrated that the app logs me out repeatedly.","true_intent":"technical_support","true_sentiment":"frustrated","true_urgency":"medium","expected_routing":"TicketAgent","notes":"logout issue"}
+{"email_text":"You are ignoring me; this is unacceptable.","true_intent":"complaint","true_sentiment":"angry","true_urgency":"high","expected_routing":"SupervisorAgent","notes":"service complaint"}

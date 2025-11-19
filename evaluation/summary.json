@@ -1,0 +1,17 @@
+{
+  "overall_accuracy": 0.0,
+  "intent_accuracy": 0.0,
+  "sentiment_accuracy": 0.0,
+  "urgency_accuracy": 0.0,
+  "avg_processing_time_ms": 6131.13,
+  "p95_latency_ms": 6350.77,
+  "p99_latency_ms": 6424.87,
+  "retry_rate": 0.0,
+  "escalation_rate": 0.0,
+  "false_positive_rate": 0.2308,
+  "business_impact": {
+    "hours_saved_per_week": 11.5,
+    "cost_per_ticket": 0.15,
+    "tickets_per_hour": 587.17
+  }
+}

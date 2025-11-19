@@ -1,166 +1,504 @@
-{"ts": 1763483905.1773272, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 31.57210350036621, "tags": {"category": "billing"}}
-{"ts": 1763483905.1794927, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
-{"ts": 1763483905.1822844, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 38.324594497680664, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483905.183931, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 38.324594497680664, "tags": {"trace_id": "6992333e-fada-4ec0-a35d-0123887fffed"}}
-{"ts": 1763483905.190089, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2980.574131011963, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
-{"ts": 1763483905.191292, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2980.574131011963, "tags": {"trace_id": "0af5bd24-e997-42fd-896d-dc028e225076"}}
-{"ts": 1763483905.1934044, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5910.219430923462, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
-{"ts": 1763483905.1949918, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5910.219430923462, "tags": {"trace_id": "7e425c1d-863e-4c2d-9b3b-8cc2e188f7b3"}}
-{"ts": 1763483905.1977465, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 8835.381031036377, "tags": {"sender": "user", "receiver": "email_agent"}}
-{"ts": 1763483905.198979, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 8835.381031036377, "tags": {"trace_id": "7318fdc4-99b4-4d48-ba6a-db5193a92216"}}
-{"ts": 1763483905.2061622, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3.489255905151367, "tags": {"sender": "user", "receiver": "emotion_agent"}}
-{"ts": 1763483905.2072632, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3.489255905151367, "tags": {"trace_id": "8d81e232-fa5f-4fd6-a1d2-2ec92e7a94ab"}}
-{"ts": 1763483913.8183098, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 21.15797996520996, "tags": {"category": "general"}}
-{"ts": 1763483913.819512, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483913.8225288, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 25.92921257019043, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483913.8237135, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 25.92921257019043, "tags": {"trace_id": "42d6b3c0-5fe3-4888-bf76-24476605febf"}}
-{"ts": 1763483913.851242, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 21.941184997558594, "tags": {"category": "general"}}
-{"ts": 1763483913.8523216, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483913.8558707, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 25.857210159301758, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483913.8570428, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 25.857210159301758, "tags": {"trace_id": "a294b158-e62e-434e-9725-8366c5a623b1"}}
-{"ts": 1763483913.8825762, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 19.962787628173828, "tags": {"category": "general"}}
-{"ts": 1763483913.883856, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483913.885996, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 24.52707290649414, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483913.8874686, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 24.52707290649414, "tags": {"trace_id": "1614c7bf-0412-4375-bfd1-45ef2b24686a"}}
-{"ts": 1763483913.8943386, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 101.85813903808594, "tags": {"sender": "planner_agent", "receiver": "action_executor_agent"}}
-{"ts": 1763483913.8954792, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 101.85813903808594, "tags": {"trace_id": "4f206a8f-53ae-4435-9606-be56c2a7148b"}}
-{"ts": 1763483913.8975809, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3115.0035858154297, "tags": {"sender": "knowledge_agent", "receiver": "planner_agent"}}
-{"ts": 1763483913.8984506, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3115.0035858154297, "tags": {"trace_id": "8b3f7a6e-528d-4d84-b83f-7f44975de785"}}
-{"ts": 1763483913.9005039, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 8689.918994903564, "tags": {"sender": "user", "receiver": "knowledge_agent"}}
-{"ts": 1763483913.9014394, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 8689.918994903564, "tags": {"trace_id": "6c140ff1-2659-4acd-bb3e-f2db1894a892"}}
-{"ts": 1763483921.2679205, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 43.109893798828125, "tags": {"category": "general"}}
-{"ts": 1763483921.2698386, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483921.2729316, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 49.774169921875, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483921.2741184, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 49.774169921875, "tags": {"trace_id": "422ef82e-6279-43b7-8222-e16c78afe3fa"}}
-{"ts": 1763483921.300233, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 21.208763122558594, "tags": {"category": "general"}}
-{"ts": 1763483921.301542, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483921.304223, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 25.576114654541016, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483921.3055406, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 25.576114654541016, "tags": {"trace_id": "74630a32-9728-4914-bf99-fe28a8726ec1"}}
-{"ts": 1763483921.3336911, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 22.1712589263916, "tags": {"category": "general"}}
-{"ts": 1763483921.3353992, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483921.338151, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 27.399539947509766, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483921.339345, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 27.399539947509766, "tags": {"trace_id": "084c7d98-78a9-47e3-8b76-3d7b34e19978"}}
-{"ts": 1763483921.3440566, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 126.45459175109863, "tags": {"sender": "planner_agent", "receiver": "action_executor_agent"}}
-{"ts": 1763483921.3451664, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 126.45459175109863, "tags": {"trace_id": "48f81ef3-37b9-491b-9fbd-9b11b67fa855"}}
-{"ts": 1763483921.3491058, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3252.790689468384, "tags": {"sender": "retryable_agent", "receiver": "planner_agent"}}
-{"ts": 1763483921.3507676, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3252.790689468384, "tags": {"trace_id": "df243996-7de7-409d-be1d-77a64b6648a0"}}
-{"ts": 1763483924.81031, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 20.7974910736084, "tags": {"category": "general"}}
-{"ts": 1763483924.8120255, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483924.8157268, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 26.898860931396484, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483924.8167357, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 26.898860931396484, "tags": {"trace_id": "691cb329-c893-4e45-a8e8-1c22fdb81c89"}}
-{"ts": 1763483924.838006, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.05963706970215, "tags": {"category": "general"}}
-{"ts": 1763483924.8389478, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483924.8407001, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 19.813060760498047, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483924.8417408, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 19.813060760498047, "tags": {"trace_id": "ecdb28a2-9a21-40be-b347-4584e6a65190"}}
-{"ts": 1763483924.866966, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 18.980741500854492, "tags": {"category": "general"}}
-{"ts": 1763483924.8681948, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483924.8703814, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 24.63555335998535, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483924.8713822, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 24.63555335998535, "tags": {"trace_id": "7c78ac9f-da87-4047-bb1a-8e153b839088"}}
-{"ts": 1763483924.8768702, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 91.61114692687988, "tags": {"sender": "planner_agent", "receiver": "action_executor_agent"}}
-{"ts": 1763483924.878317, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 91.61114692687988, "tags": {"trace_id": "5ceec2b1-a1be-48e8-8fe5-422571e1e184"}}
-{"ts": 1763483924.8808312, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3021.484613418579, "tags": {"sender": "retryable_agent", "receiver": "planner_agent"}}
-{"ts": 1763483924.8816226, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3021.484613418579, "tags": {"trace_id": "776ae7f1-00c2-46ef-b3f3-932355e727a5"}}
-{"ts": 1763483928.9854903, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 60.22500991821289, "tags": {"category": "general"}}
-{"ts": 1763483928.990299, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483929.0007563, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 85.96611022949219, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483929.01425, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 85.96611022949219, "tags": {"trace_id": "f6dfcf12-9f32-411a-ba8b-019bec4a7982"}}
-{"ts": 1763483929.1139843, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 63.06791305541992, "tags": {"category": "general"}}
-{"ts": 1763483929.1211, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483929.1303139, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 82.3519229888916, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483929.1373546, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 82.3519229888916, "tags": {"trace_id": "ee8a456d-870d-4331-95d7-3296b23884fa"}}
-{"ts": 1763483929.1886196, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 26.72600746154785, "tags": {"category": "general"}}
-{"ts": 1763483929.1905782, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763483929.2024434, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 41.851043701171875, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763483929.2073715, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 41.851043701171875, "tags": {"trace_id": "143491fa-3438-4e74-b257-49461aab1ce2"}}
-{"ts": 1763483929.2240074, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 347.82934188842773, "tags": {"sender": "planner_agent", "receiver": "action_executor_agent"}}
-{"ts": 1763483929.2261894, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 347.82934188842773, "tags": {"trace_id": "04742c0f-d23d-46c7-955a-737c27500ed3"}}
-{"ts": 1763483929.2306218, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3340.965747833252, "tags": {"sender": "retryable_agent", "receiver": "planner_agent"}}
-{"ts": 1763483929.232442, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3340.965747833252, "tags": {"trace_id": "49e7f0e0-3cf1-4b2d-887b-29011f25734e"}}
-{"ts": 1763483929.2420275, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 11149.640321731567, "tags": {"sender": "supervisor_agent", "receiver": "retryable_agent"}}
-{"ts": 1763483929.2445185, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 11149.640321731567, "tags": {"trace_id": "106c4d29-2049-4009-be47-ab1d724f7b33"}}
-{"ts": 1763483929.248632, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 15342.807292938232, "tags": {"sender": "user", "receiver": "supervisor_agent"}}
-{"ts": 1763483929.2505372, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 15342.807292938232, "tags": {"trace_id": "46ad7c87-af58-41c3-83d0-c36afcd3e94c"}}
-{"ts": 1763484032.065051, "metric": "email_intent_confidence", "type": "gauge", "value": 0.9, "tags": {"session_id": "8549b891-b434-4ede-81d7-1473aa47908f"}}
-{"ts": 1763484034.8597908, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "8549b891-b434-4ede-81d7-1473aa47908f"}}
-{"ts": 1763484038.226035, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 43.86162757873535, "tags": {"category": "billing"}}
-{"ts": 1763484038.2272534, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
-{"ts": 1763484038.230299, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 48.9659309387207, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484038.2314148, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 48.9659309387207, "tags": {"trace_id": "0d941455-c25f-4a1a-a782-a5f18ebfccd6"}}
-{"ts": 1763484038.233745, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3370.732545852661, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
-{"ts": 1763484038.2357037, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3370.732545852661, "tags": {"trace_id": "be9a82df-fb53-4100-9a24-1898f007b2ff"}}
-{"ts": 1763484038.239308, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6169.859409332275, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
-{"ts": 1763484038.2406447, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6169.859409332275, "tags": {"trace_id": "9dfa453b-c30a-44fa-883e-bf91a19b28c7"}}
-{"ts": 1763484038.2432287, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 9225.589752197266, "tags": {"sender": "user", "receiver": "email_agent"}}
-{"ts": 1763484038.244518, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 9225.589752197266, "tags": {"trace_id": "0ee39eaa-33a4-45be-9caa-865ca03b4adb"}}
-{"ts": 1763484038.2541003, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3.9975643157958984, "tags": {"sender": "user", "receiver": "emotion_agent"}}
-{"ts": 1763484038.2554944, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3.9975643157958984, "tags": {"trace_id": "cd1ebb57-6741-43ee-8f44-4358e881a648"}}
-{"ts": 1763484046.5968108, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 21.502256393432617, "tags": {"category": "general"}}
-{"ts": 1763484046.5979364, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484046.602178, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 26.434659957885742, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484046.6037965, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 26.434659957885742, "tags": {"trace_id": "fd7165e0-34b0-4337-9407-6af9839f6302"}}
-{"ts": 1763484046.6290066, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 19.43206787109375, "tags": {"category": "general"}}
-{"ts": 1763484046.630373, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484046.6326616, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 24.1849422454834, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484046.6343057, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 24.1849422454834, "tags": {"trace_id": "b71d1594-f5f4-431e-b6b3-bb29bea4676d"}}
-{"ts": 1763484046.6632712, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 22.538185119628906, "tags": {"category": "general"}}
-{"ts": 1763484046.664612, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484046.6666193, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 27.364015579223633, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484046.6675494, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 27.364015579223633, "tags": {"trace_id": "a719bcb6-eb62-4289-afad-3c602ede0191"}}
-{"ts": 1763484046.6714358, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 102.23245620727539, "tags": {"sender": "planner_agent", "receiver": "action_executor_agent"}}
-{"ts": 1763484046.672456, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 102.23245620727539, "tags": {"trace_id": "61d3cdc5-ae3b-4846-8742-5c549b9aa128"}}
-{"ts": 1763484046.6746805, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3149.0583419799805, "tags": {"sender": "knowledge_agent", "receiver": "planner_agent"}}
-{"ts": 1763484046.6763053, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3149.0583419799805, "tags": {"trace_id": "d0f75277-14a2-4442-94cf-734bf78b10e5"}}
-{"ts": 1763484046.6803536, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 8420.421838760376, "tags": {"sender": "user", "receiver": "knowledge_agent"}}
-{"ts": 1763484046.6814501, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 8420.421838760376, "tags": {"trace_id": "cf56b2bc-b645-4bcd-8e84-b0249c85543a"}}
-{"ts": 1763484054.6342244, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 20.349979400634766, "tags": {"category": "general"}}
-{"ts": 1763484054.6352227, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484054.6383817, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 25.341510772705078, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484054.6395874, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 25.341510772705078, "tags": {"trace_id": "2384901f-cf60-4d60-9b8b-66b634656960"}}
-{"ts": 1763484054.6660755, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 20.25747299194336, "tags": {"category": "general"}}
-{"ts": 1763484054.6671436, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484054.6691012, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 24.886369705200195, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484054.6702197, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 24.886369705200195, "tags": {"trace_id": "d0389d78-b103-4a0b-b0c8-9882e1e2beec"}}
-{"ts": 1763484054.6979105, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 21.15797996520996, "tags": {"category": "general"}}
-{"ts": 1763484054.69987, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484054.7026765, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 26.393890380859375, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484054.704656, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 26.393890380859375, "tags": {"trace_id": "0d541923-03b4-45f5-afb4-96b80ed02b84"}}
-{"ts": 1763484054.7109752, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 101.01795196533203, "tags": {"sender": "planner_agent", "receiver": "action_executor_agent"}}
-{"ts": 1763484054.711995, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 101.01795196533203, "tags": {"trace_id": "23e79441-3130-44d3-8b55-22196aba693f"}}
-{"ts": 1763484054.7149389, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3190.1779174804688, "tags": {"sender": "retryable_agent", "receiver": "planner_agent"}}
-{"ts": 1763484054.716095, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3190.1779174804688, "tags": {"trace_id": "a8fbeab6-3eab-46df-8646-44052fead649"}}
-{"ts": 1763484058.2868497, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 20.549535751342773, "tags": {"category": "general"}}
-{"ts": 1763484058.2881308, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484058.2901454, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 24.674177169799805, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484058.2915783, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 24.674177169799805, "tags": {"trace_id": "e2243f1d-0e00-48a9-9d41-e0b2073d4604"}}
-{"ts": 1763484058.3154743, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 18.221616744995117, "tags": {"category": "general"}}
-{"ts": 1763484058.3165104, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484058.3197644, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 22.739410400390625, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484058.3208556, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 22.739410400390625, "tags": {"trace_id": "7b4ae451-13ff-48f2-afa8-91efe637231f"}}
-{"ts": 1763484058.3411515, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 15.486478805541992, "tags": {"category": "general"}}
-{"ts": 1763484058.3421385, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484058.3444028, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 19.350051879882812, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484058.345473, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 19.350051879882812, "tags": {"trace_id": "32c4b268-58e1-4514-b7e7-ceda94cd37a2"}}
-{"ts": 1763484058.3497152, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 87.96477317810059, "tags": {"sender": "planner_agent", "receiver": "action_executor_agent"}}
-{"ts": 1763484058.350862, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 87.96477317810059, "tags": {"trace_id": "cf5405f1-edec-460c-bc5c-294d51ec174b"}}
-{"ts": 1763484058.3549092, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3130.7578086853027, "tags": {"sender": "retryable_agent", "receiver": "planner_agent"}}
-{"ts": 1763484058.356131, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3130.7578086853027, "tags": {"trace_id": "c63a9df8-1c47-4161-9b5a-fe51771fafc1"}}
-{"ts": 1763484062.4747326, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 15.360116958618164, "tags": {"category": "general"}}
-{"ts": 1763484062.475776, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484062.4778085, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 19.316434860229492, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484062.4788647, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 19.316434860229492, "tags": {"trace_id": "1893692c-9365-4e6b-aa56-85cf7cbc4d26"}}
-{"ts": 1763484062.5019364, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 17.20881462097168, "tags": {"category": "general"}}
-{"ts": 1763484062.5028043, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484062.5047784, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 21.238088607788086, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484062.5061038, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 21.238088607788086, "tags": {"trace_id": "28276431-ffd5-45e8-8eb6-ddbd20502bad"}}
-{"ts": 1763484062.5240138, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 13.919591903686523, "tags": {"category": "general"}}
-{"ts": 1763484062.5250623, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
-{"ts": 1763484062.5266292, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 17.139911651611328, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
-{"ts": 1763484062.5274444, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 17.139911651611328, "tags": {"trace_id": "441eb736-c562-4ede-ac80-71d209bbbb0d"}}
-{"ts": 1763484062.5314429, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 76.33566856384277, "tags": {"sender": "planner_agent", "receiver": "action_executor_agent"}}
-{"ts": 1763484062.5323882, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 76.33566856384277, "tags": {"trace_id": "26970705-8f8b-4819-bc8e-23418c423a1b"}}
-{"ts": 1763484062.5349455, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3170.912027359009, "tags": {"sender": "retryable_agent", "receiver": "planner_agent"}}
-{"ts": 1763484062.5360653, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3170.912027359009, "tags": {"trace_id": "9984950d-926a-4381-92f9-270bf167edf8"}}
-{"ts": 1763484062.541123, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 11021.055698394775, "tags": {"sender": "supervisor_agent", "receiver": "retryable_agent"}}
-{"ts": 1763484062.5420468, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 11021.055698394775, "tags": {"trace_id": "93ed5504-2ea0-4613-ba01-8835bd2537d8"}}
-{"ts": 1763484062.544577, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 15859.578847885132, "tags": {"sender": "user", "receiver": "supervisor_agent"}}
-{"ts": 1763484062.5455658, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 15859.578847885132, "tags": {"trace_id": "0d4c0231-a3e7-4cfe-812a-0613091ff0b8"}}
+{"ts": 1763560973.4290485, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_1"}}
+{"ts": 1763560976.4944727, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 31.550884246826172, "tags": {"category": "general"}}
+{"ts": 1763560976.4952407, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763560976.4968452, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 37.284135818481445, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763560976.4977088, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 37.284135818481445, "tags": {"trace_id": "f53cd1a3-eb56-47df-8bbd-df7180d8477c"}}
+{"ts": 1763560976.4991612, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3067.34299659729, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763560976.499819, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3067.34299659729, "tags": {"trace_id": "b6fd563c-8930-4f4e-b9e0-60748542ff76"}}
+{"ts": 1763560976.501333, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6153.248071670532, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763560976.5019228, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6153.248071670532, "tags": {"trace_id": "7c80852a-06a6-451e-95bc-e7ecaf1d8e5f"}}
+{"ts": 1763560979.6588051, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_2"}}
+{"ts": 1763560982.6435254, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.28708839416504, "tags": {"category": "general"}}
+{"ts": 1763560982.6445744, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763560982.64663, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 20.778179168701172, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763560982.6476538, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 20.778179168701172, "tags": {"trace_id": "c79e6aa7-1c68-4932-b8e8-2820bc51e4c8"}}
+{"ts": 1763560982.6499276, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2988.5168075561523, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763560982.651057, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2988.5168075561523, "tags": {"trace_id": "3d24638e-3e53-4689-a8f1-47b78ad29315"}}
+{"ts": 1763560982.6530788, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6123.743295669556, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763560982.65377, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6123.743295669556, "tags": {"trace_id": "1b9c0d31-03a6-4539-8ed5-a65cb725175d"}}
+{"ts": 1763560985.8004773, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_3"}}
+{"ts": 1763560989.0328813, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 34.921884536743164, "tags": {"category": "general"}}
+{"ts": 1763560989.0336823, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763560989.0352633, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 40.21286964416504, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763560989.0360322, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 40.21286964416504, "tags": {"trace_id": "81ae2f6a-da72-449c-bd97-2cfaadd68335"}}
+{"ts": 1763560989.0376701, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3235.6815338134766, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763560989.0381763, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3235.6815338134766, "tags": {"trace_id": "c28c6c05-77f6-4c0c-95fe-4dd061524d4a"}}
+{"ts": 1763560989.0400798, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6348.305225372314, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763560989.0411386, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6348.305225372314, "tags": {"trace_id": "17681359-5ea6-4897-b281-81109915487a"}}
+{"ts": 1763560992.0483475, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_4"}}
+{"ts": 1763560994.9547708, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.702890396118164, "tags": {"category": "general"}}
+{"ts": 1763560994.9558218, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763560994.9585264, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 22.71270751953125, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763560994.9592407, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 22.71270751953125, "tags": {"trace_id": "0f9f3d45-2c77-448a-b06a-3ebde89984fb"}}
+{"ts": 1763560994.9612072, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2910.0441932678223, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763560994.9626126, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2910.0441932678223, "tags": {"trace_id": "91911a5e-ac12-4de9-8c1b-e36d6fff1cd6"}}
+{"ts": 1763560994.9651146, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5895.588636398315, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763560994.9659395, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5895.588636398315, "tags": {"trace_id": "07ce4e29-84f0-4dab-aa09-9e9d785898d3"}}
+{"ts": 1763560997.9875255, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_5"}}
+{"ts": 1763561001.0790076, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 14.000177383422852, "tags": {"category": "general"}}
+{"ts": 1763561001.0817134, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561001.0858188, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 20.737648010253906, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561001.0878038, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 20.737648010253906, "tags": {"trace_id": "225233e4-86b0-4f7f-bd08-9112312b93ba"}}
+{"ts": 1763561001.0915163, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3099.8072624206543, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561001.0932477, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3099.8072624206543, "tags": {"trace_id": "8f4855a6-e211-4c73-b33c-68420b72be48"}}
+{"ts": 1763561001.0966763, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6087.069749832153, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561001.0978892, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6087.069749832153, "tags": {"trace_id": "d9883c3d-5f22-4809-a4b3-946827fe86b7"}}
+{"ts": 1763561003.9794455, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_6"}}
+{"ts": 1763561006.889589, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 33.74767303466797, "tags": {"category": "general"}}
+{"ts": 1763561006.8903782, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561006.8920052, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 38.57254981994629, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561006.8929858, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 38.57254981994629, "tags": {"trace_id": "9ef6456a-6263-40a8-bb8d-9c4002c75f3c"}}
+{"ts": 1763561006.894944, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2913.027763366699, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561006.8960588, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2913.027763366699, "tags": {"trace_id": "eaf91fda-64ec-4856-8be8-621a9869f140"}}
+{"ts": 1763561006.8981504, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5769.447803497314, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561006.899106, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5769.447803497314, "tags": {"trace_id": "2e9c8fc4-b3f0-4ba3-9828-075bb9eebd11"}}
+{"ts": 1763561009.8651335, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_7"}}
+{"ts": 1763561012.8385186, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 30.787229537963867, "tags": {"category": "general"}}
+{"ts": 1763561012.839404, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561012.8417196, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 35.86125373840332, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561012.8436973, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 35.86125373840332, "tags": {"trace_id": "91b4a6d1-9f1d-442f-bfd9-12b757e830a0"}}
+{"ts": 1763561012.8661838, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 15.22684097290039, "tags": {"category": "general"}}
+{"ts": 1763561012.8669088, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561012.868146, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 19.398927688598633, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561012.868816, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 19.398927688598633, "tags": {"trace_id": "94b37262-97f0-4568-b237-f5cfc768f442"}}
+{"ts": 1763561012.871437, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 72.10779190063477, "tags": {"sender": "priority_agent", "receiver": "action_executor_agent"}}
+{"ts": 1763561012.8720477, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 72.10779190063477, "tags": {"trace_id": "ded6411c-da2f-49ae-a05c-a15b74565582"}}
+{"ts": 1763561012.8740134, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3005.7244300842285, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561012.8755422, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3005.7244300842285, "tags": {"trace_id": "e9087394-ddb4-4c4c-949e-ccf9e1a1227b"}}
+{"ts": 1763561012.8784046, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5951.079368591309, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561012.8801122, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5951.079368591309, "tags": {"trace_id": "aa5bea18-8b63-444e-98fb-1ea7e21b43ad"}}
+{"ts": 1763561015.790058, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_8"}}
+{"ts": 1763561018.9576488, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 17.59028434753418, "tags": {"category": "general"}}
+{"ts": 1763561018.958769, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561018.9666169, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 22.81475067138672, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561018.967656, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 22.81475067138672, "tags": {"trace_id": "78a60307-1efe-443d-93b7-2858fe1ace0f"}}
+{"ts": 1763561018.9737363, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3181.9844245910645, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561018.9742336, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3181.9844245910645, "tags": {"trace_id": "e623e61a-6864-466a-be03-5854fc5ddb56"}}
+{"ts": 1763561018.9809608, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6066.750049591064, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561018.981804, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6066.750049591064, "tags": {"trace_id": "0d803eec-9ca0-4f79-b006-dd0b4afc3cb1"}}
+{"ts": 1763561021.8506331, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_9"}}
+{"ts": 1763561025.072693, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 32.96804428100586, "tags": {"category": "general"}}
+{"ts": 1763561025.073404, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561025.0747356, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 36.261558532714844, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561025.0755627, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 36.261558532714844, "tags": {"trace_id": "55d7b9b8-5eff-4126-851a-01c4ee0871d0"}}
+{"ts": 1763561025.0889163, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 9.78231430053711, "tags": {"category": "general"}}
+{"ts": 1763561025.0894883, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561025.0911815, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 12.390613555908203, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561025.0915463, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 12.390613555908203, "tags": {"trace_id": "9325f877-478f-4e8f-a357-19d9ac21cb21"}}
+{"ts": 1763561025.09393, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 57.45530128479004, "tags": {"sender": "priority_agent", "receiver": "action_executor_agent"}}
+{"ts": 1763561025.0946486, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 57.45530128479004, "tags": {"trace_id": "d83de9bd-7c3a-4fd2-8f95-59d5f0b9e27f"}}
+{"ts": 1763561025.0962155, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3242.9897785186768, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561025.0979445, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3242.9897785186768, "tags": {"trace_id": "9bf94adb-a813-46e1-9fc3-44a1255520ee"}}
+{"ts": 1763561025.1007776, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6086.752414703369, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561025.1024308, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6086.752414703369, "tags": {"trace_id": "05e4a26f-7edf-41ad-975d-b1a61912cbef"}}
+{"ts": 1763561028.2004375, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_10"}}
+{"ts": 1763561031.2845912, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 14.015913009643555, "tags": {"category": "general"}}
+{"ts": 1763561031.2875297, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561031.2909667, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 19.997119903564453, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561031.2924933, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 19.997119903564453, "tags": {"trace_id": "890ffd65-47c2-4687-b1ab-b394a6d3f26e"}}
+{"ts": 1763561031.3165622, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 14.55831527709961, "tags": {"category": "general"}}
+{"ts": 1763561031.3198605, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561031.3252368, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 25.30360221862793, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561031.3270109, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 25.30360221862793, "tags": {"trace_id": "7b532e4e-f96f-44a9-a218-18a30f6dbd10"}}
+{"ts": 1763561031.3343203, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 65.84501266479492, "tags": {"sender": "priority_agent", "receiver": "action_executor_agent"}}
+{"ts": 1763561031.3357677, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 65.84501266479492, "tags": {"trace_id": "e6bfadfe-b634-40cc-8e13-acd7fd18848a"}}
+{"ts": 1763561031.3393664, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3135.3795528411865, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561031.3413215, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3135.3795528411865, "tags": {"trace_id": "0dd809b0-2814-4de9-af6e-674694bd324b"}}
+{"ts": 1763561031.3459857, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6208.909273147583, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561031.3477736, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6208.909273147583, "tags": {"trace_id": "ed306bc6-6ecf-4b69-87fe-815f005732eb"}}
+{"ts": 1763561034.4673696, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_11"}}
+{"ts": 1763561037.3957324, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 17.120838165283203, "tags": {"category": "general"}}
+{"ts": 1763561037.3965542, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561037.3979733, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 21.82626724243164, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561037.3985772, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 21.82626724243164, "tags": {"trace_id": "06553d03-4b0b-4a20-bc8c-1b26c2498b25"}}
+{"ts": 1763561037.39983, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2930.6273460388184, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561037.4008982, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2930.6273460388184, "tags": {"trace_id": "60bebd19-4c51-4f86-b836-703321134e12"}}
+{"ts": 1763561037.4020991, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6021.378517150879, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561037.4026494, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6021.378517150879, "tags": {"trace_id": "983e0455-6a53-4231-8a06-39b2c738f2a7"}}
+{"ts": 1763561040.4374368, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_12"}}
+{"ts": 1763561043.4647496, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 13.447999954223633, "tags": {"category": "general"}}
+{"ts": 1763561043.4672067, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561043.4694614, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 19.391536712646484, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561043.470479, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 19.391536712646484, "tags": {"trace_id": "8ddd1955-537d-47ad-b56a-57962f9fd514"}}
+{"ts": 1763561043.4729402, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3033.557176589966, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561043.4738872, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3033.557176589966, "tags": {"trace_id": "35742f26-a650-4773-9526-91dedb7b50de"}}
+{"ts": 1763561043.4760716, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6043.51282119751, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561043.4770448, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6043.51282119751, "tags": {"trace_id": "99bd1e1d-240c-4468-b7a9-ab24f7c1ffe3"}}
+{"ts": 1763561046.7182999, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_13"}}
+{"ts": 1763561049.7219286, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 15.13528823852539, "tags": {"category": "general"}}
+{"ts": 1763561049.7241366, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561049.7266405, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 20.25747299194336, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561049.728155, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 20.25747299194336, "tags": {"trace_id": "ffc60dfd-0427-4152-966a-b2f59083e3e9"}}
+{"ts": 1763561049.731206, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3009.889841079712, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561049.732911, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3009.889841079712, "tags": {"trace_id": "3c397868-aac3-4ebc-98ca-a3d46a6df5ff"}}
+{"ts": 1763561049.7360084, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6227.20742225647, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561049.737487, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6227.20742225647, "tags": {"trace_id": "96bb90b7-e1e9-4d29-bff5-f5a72cf43633"}}
+{"ts": 1763561052.7637985, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_14"}}
+{"ts": 1763561055.816184, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 17.64655113220215, "tags": {"category": "general"}}
+{"ts": 1763561055.817835, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561055.820832, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 22.788047790527344, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561055.8223462, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 22.788047790527344, "tags": {"trace_id": "2527e521-5ced-4264-9400-6f7b3d743606"}}
+{"ts": 1763561055.8251934, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3058.9070320129395, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561055.8267093, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3058.9070320129395, "tags": {"trace_id": "3984fb2e-22b3-4ab3-885b-2be7f5d48411"}}
+{"ts": 1763561055.8295813, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6056.413888931274, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561055.8306813, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6056.413888931274, "tags": {"trace_id": "0576516d-4fb4-4119-8cb3-703daae1a76a"}}
+{"ts": 1763561058.8562346, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_15"}}
+{"ts": 1763561061.8842692, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 17.92430877685547, "tags": {"category": "general"}}
+{"ts": 1763561061.885043, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561061.8864343, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 22.747039794921875, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561061.8871624, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 22.747039794921875, "tags": {"trace_id": "46046be1-dfb1-455c-bb20-f6336dfaed25"}}
+{"ts": 1763561061.8891177, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3029.881477355957, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561061.8898242, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3029.881477355957, "tags": {"trace_id": "3e7edff3-7b35-458c-ba79-1eebbc7c133e"}}
+{"ts": 1763561061.8914082, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6025.162220001221, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561061.8922703, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6025.162220001221, "tags": {"trace_id": "8410bee0-5f00-4f2a-9c81-f93dfd8b9d47"}}
+{"ts": 1763561065.116064, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_16"}}
+{"ts": 1763561068.32734, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 18.230676651000977, "tags": {"category": "general"}}
+{"ts": 1763561068.3280346, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561068.3298342, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 23.41151237487793, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561068.3306217, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 23.41151237487793, "tags": {"trace_id": "066f64ea-e7df-4d58-bd63-b383661119da"}}
+{"ts": 1763561068.3421047, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3223.904609680176, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561068.3428953, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3223.904609680176, "tags": {"trace_id": "b0d9c587-1429-471a-a95f-b0121293d092"}}
+{"ts": 1763561068.346248, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6418.895483016968, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561068.3482175, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6418.895483016968, "tags": {"trace_id": "0bf0db61-491f-40e5-8f0e-3f759603fe4e"}}
+{"ts": 1763561071.5286598, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_17"}}
+{"ts": 1763561074.557655, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 15.056610107421875, "tags": {"category": "general"}}
+{"ts": 1763561074.5588024, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561074.5610154, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 20.13421058654785, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561074.5621395, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 20.13421058654785, "tags": {"trace_id": "c1559f94-e0da-4275-8a69-064bc0b7b1ac"}}
+{"ts": 1763561074.5643654, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3032.487630844116, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561074.5654323, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3032.487630844116, "tags": {"trace_id": "434867e4-171e-4787-b366-edc1aa9c870f"}}
+{"ts": 1763561074.5675545, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6176.432847976685, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561074.5685844, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6176.432847976685, "tags": {"trace_id": "3382399e-2c0d-4903-8767-391d25348a85"}}
+{"ts": 1763561077.8049548, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_18"}}
+{"ts": 1763561080.744871, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 18.816709518432617, "tags": {"category": "general"}}
+{"ts": 1763561080.7457142, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561080.7476363, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 24.532794952392578, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561080.7483401, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 24.532794952392578, "tags": {"trace_id": "ee511f0f-974f-49e3-b8b2-7ed1a8092762"}}
+{"ts": 1763561080.7501795, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2941.683530807495, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561080.7515576, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2941.683530807495, "tags": {"trace_id": "82d5bf21-e3d1-497a-8eb8-147d005b2a9f"}}
+{"ts": 1763561080.754107, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6150.608062744141, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561080.754813, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6150.608062744141, "tags": {"trace_id": "ae53ee37-def3-4da4-821e-4d0bc1785bb0"}}
+{"ts": 1763561083.7865214, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_19"}}
+{"ts": 1763561086.8273196, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 15.389204025268555, "tags": {"category": "general"}}
+{"ts": 1763561086.8277507, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561086.8299692, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 18.74256134033203, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561086.8313568, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 18.74256134033203, "tags": {"trace_id": "d0e4413d-1004-4043-b9b3-ce4b5d9cb7c2"}}
+{"ts": 1763561086.8349211, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3044.9798107147217, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561086.836598, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3044.9798107147217, "tags": {"trace_id": "21e89bbd-9baf-42ca-89d6-757c767eb058"}}
+{"ts": 1763561086.8394217, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6045.041561126709, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561086.8412848, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6045.041561126709, "tags": {"trace_id": "4badc077-7ac4-4675-acee-1006815410bb"}}
+{"ts": 1763561089.9173458, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_20"}}
+{"ts": 1763561093.0333145, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 19.780874252319336, "tags": {"category": "general"}}
+{"ts": 1763561093.035606, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561093.039718, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 27.11176872253418, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561093.0419848, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 27.11176872253418, "tags": {"trace_id": "ff11addd-1d17-4408-8a12-8df74bd31080"}}
+{"ts": 1763561093.0454447, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3124.9547004699707, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561093.047271, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3124.9547004699707, "tags": {"trace_id": "e4f031a0-17bd-4c90-b56a-324b3d63ceac"}}
+{"ts": 1763561093.0502179, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6172.555685043335, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561093.05141, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6172.555685043335, "tags": {"trace_id": "f09e1dc0-ff17-4f6d-a82d-ba598d0b9afd"}}
+{"ts": 1763561096.26675, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_21"}}
+{"ts": 1763561099.377318, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 18.162012100219727, "tags": {"category": "general"}}
+{"ts": 1763561099.3873417, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561099.3898852, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 31.896114349365234, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561099.3918877, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 31.896114349365234, "tags": {"trace_id": "583b4d02-1f3f-4d54-bd21-f00428348358"}}
+{"ts": 1763561099.3947551, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3123.9426136016846, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561099.3961334, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3123.9426136016846, "tags": {"trace_id": "2ab7f0ea-4cf6-45c8-a8c2-7aaf80fcaf29"}}
+{"ts": 1763561099.3989315, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6320.475101470947, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561099.4003072, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6320.475101470947, "tags": {"trace_id": "6afc7570-87c1-4d75-9d7e-d24a215d9f70"}}
+{"ts": 1763561102.563975, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_22"}}
+{"ts": 1763561105.591132, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 12.071847915649414, "tags": {"category": "general"}}
+{"ts": 1763561105.5924897, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561105.594658, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 17.241716384887695, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561105.5956132, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 17.241716384887695, "tags": {"trace_id": "ee34cb39-54aa-4788-be81-a289df4a9a5a"}}
+{"ts": 1763561105.5976956, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3031.593084335327, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561105.599096, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3031.593084335327, "tags": {"trace_id": "a67592ae-837f-477a-915c-f614bcafb313"}}
+{"ts": 1763561105.6011794, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6166.465759277344, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561105.6022635, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6166.465759277344, "tags": {"trace_id": "90cf8082-b734-432b-a67b-9e6cd686d142"}}
+{"ts": 1763561108.7654362, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_23"}}
+{"ts": 1763561111.6812751, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 17.672300338745117, "tags": {"category": "general"}}
+{"ts": 1763561111.6825233, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561111.6857636, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 24.646282196044922, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561111.6868043, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 24.646282196044922, "tags": {"trace_id": "cf88997e-3cf6-46d0-be2d-8308445b2536"}}
+{"ts": 1763561111.6899073, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2920.9659099578857, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561111.6925654, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2920.9659099578857, "tags": {"trace_id": "b1f16e53-dbf4-4b7b-8fb1-4d1c45101386"}}
+{"ts": 1763561111.6941705, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6060.350656509399, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561111.695204, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6060.350656509399, "tags": {"trace_id": "38715929-93d4-4307-bebf-0919acfaebac"}}
+{"ts": 1763561114.889974, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_24"}}
+{"ts": 1763561117.9395752, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 31.697511672973633, "tags": {"category": "general"}}
+{"ts": 1763561117.9407098, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561117.9423006, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 36.14687919616699, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561117.9430919, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 36.14687919616699, "tags": {"trace_id": "784aeafe-1894-410f-b203-8f04c36fd174"}}
+{"ts": 1763561117.9444754, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3053.4350872039795, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561117.9451072, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3053.4350872039795, "tags": {"trace_id": "33b91e82-25bf-4860-a681-3edb73391ffe"}}
+{"ts": 1763561117.9475665, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6217.060804367065, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561117.9486241, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6217.060804367065, "tags": {"trace_id": "72dd1f72-9ae4-4d47-a501-38af48044bfa"}}
+{"ts": 1763561121.0454571, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_25"}}
+{"ts": 1763561123.931696, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 19.417524337768555, "tags": {"category": "general"}}
+{"ts": 1763561123.9336827, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561123.936165, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 26.445627212524414, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561123.9383767, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 26.445627212524414, "tags": {"trace_id": "6d2fee7a-ba20-4be2-907b-f79d972d751a"}}
+{"ts": 1763561123.9418042, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2892.975330352783, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561123.943289, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2892.975330352783, "tags": {"trace_id": "b3fd05c2-b7ad-49f1-bce6-ba8fc35cc693"}}
+{"ts": 1763561123.9467807, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5957.674741744995, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561123.948032, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5957.674741744995, "tags": {"trace_id": "f9142717-563f-4c02-9c51-c5d73e3c5297"}}
+{"ts": 1763561127.1095378, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_26"}}
+{"ts": 1763561130.0618482, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 33.719778060913086, "tags": {"category": "general"}}
+{"ts": 1763561130.0635161, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561130.0675046, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 39.27350044250488, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561130.068686, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 39.27350044250488, "tags": {"trace_id": "c4038956-1d35-4463-8fdd-ec8f5d48e41a"}}
+{"ts": 1763561130.0712848, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2958.4450721740723, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561130.0727715, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2958.4450721740723, "tags": {"trace_id": "67b1fba5-f569-429d-a603-0dac741db042"}}
+{"ts": 1763561130.0749335, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6087.322473526001, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561130.076357, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6087.322473526001, "tags": {"trace_id": "a58dec61-650c-4960-ba2e-49973fb71391"}}
+{"ts": 1763561132.981406, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_27"}}
+{"ts": 1763561135.9467025, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 35.56227684020996, "tags": {"category": "general"}}
+{"ts": 1763561135.947398, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561135.9496632, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 41.45526885986328, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561135.950409, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 41.45526885986328, "tags": {"trace_id": "86b670bd-280e-494c-b0f2-f8a06c785079"}}
+{"ts": 1763561135.9518259, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2968.6505794525146, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561135.952426, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2968.6505794525146, "tags": {"trace_id": "01ae719a-08d6-4c09-b79e-ee1292edbe9d"}}
+{"ts": 1763561135.9537988, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5843.007802963257, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561135.9544263, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5843.007802963257, "tags": {"trace_id": "467fa769-7b12-4784-a6ce-7ef023138d99"}}
+{"ts": 1763561139.1142318, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_28"}}
+{"ts": 1763561142.2874596, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 14.596939086914062, "tags": {"category": "general"}}
+{"ts": 1763561142.2900517, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561142.2938983, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 22.796154022216797, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561142.295684, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 22.796154022216797, "tags": {"trace_id": "b719162b-8615-453f-a316-4a1c5b18b987"}}
+{"ts": 1763561142.2993054, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3181.9512844085693, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561142.3012831, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3181.9512844085693, "tags": {"trace_id": "0cd1fbf8-1a96-4c51-9cf0-c54968a1e197"}}
+{"ts": 1763561142.30416, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6314.224720001221, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561142.305819, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6314.224720001221, "tags": {"trace_id": "482ea658-094d-45d2-8318-4e8bc6f80c5d"}}
+{"ts": 1763561145.339613, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_29"}}
+{"ts": 1763561148.5306575, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 33.94341468811035, "tags": {"category": "general"}}
+{"ts": 1763561148.531426, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561148.5327883, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 39.064645767211914, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561148.5335944, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 39.064645767211914, "tags": {"trace_id": "3194dc38-90f0-4884-a4f5-5c66e17c7ee8"}}
+{"ts": 1763561148.535149, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3193.027973175049, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561148.5359626, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3193.027973175049, "tags": {"trace_id": "02e0a5f9-3ee3-4b0c-9aa1-89d2de62ad7d"}}
+{"ts": 1763561148.5372627, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6188.412427902222, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561148.5378602, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6188.412427902222, "tags": {"trace_id": "71e4772b-7c50-4bff-9ab1-ec2da22ee99d"}}
+{"ts": 1763561151.8244905, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_30"}}
+{"ts": 1763561154.8918219, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 13.796091079711914, "tags": {"category": "general"}}
+{"ts": 1763561154.8923445, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561154.8950696, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 17.2884464263916, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561154.895841, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 17.2884464263916, "tags": {"trace_id": "185dd33c-38a8-4e25-8f0b-f1b521e0beee"}}
+{"ts": 1763561154.898388, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3070.734739303589, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561154.8991375, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3070.734739303589, "tags": {"trace_id": "33d73877-af1f-4db2-9db1-c7cfefabb1be"}}
+{"ts": 1763561154.9016976, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6328.452110290527, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561154.9024415, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6328.452110290527, "tags": {"trace_id": "657af2d0-c1eb-4797-be11-32ecf49eb604"}}
+{"ts": 1763561158.0485168, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_31"}}
+{"ts": 1763561161.0862777, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.188859939575195, "tags": {"category": "general"}}
+{"ts": 1763561161.0877836, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561161.090655, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 21.822690963745117, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561161.091714, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 21.822690963745117, "tags": {"trace_id": "b9b0daf7-05fa-488c-b4e7-8dfbba5c7967"}}
+{"ts": 1763561161.1178079, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 19.27804946899414, "tags": {"category": "general"}}
+{"ts": 1763561161.1185255, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561161.1212332, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 24.91450309753418, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561161.122693, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 24.91450309753418, "tags": {"trace_id": "1fd6388c-1337-4b40-962e-15499349d857"}}
+{"ts": 1763561161.125785, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 62.684059143066406, "tags": {"sender": "priority_agent", "receiver": "action_executor_agent"}}
+{"ts": 1763561161.1269732, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 62.684059143066406, "tags": {"trace_id": "e71e4506-babb-4808-9e9f-34df6ab9c097"}}
+{"ts": 1763561161.129376, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3077.658176422119, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561161.1299937, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3077.658176422119, "tags": {"trace_id": "fca9ee8b-4f09-4846-bf54-174f79431f5b"}}
+{"ts": 1763561161.1317763, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6190.124988555908, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561161.132858, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6190.124988555908, "tags": {"trace_id": "136e01d2-d0e3-4453-870d-7fb33527a5e7"}}
+{"ts": 1763561164.171151, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_32"}}
+{"ts": 1763561167.4223657, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 13.21554183959961, "tags": {"category": "general"}}
+{"ts": 1763561167.4235346, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561167.4262352, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 18.592357635498047, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561167.4281213, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 18.592357635498047, "tags": {"trace_id": "fdd81f78-6c17-4161-8ed2-d1279eabff00"}}
+{"ts": 1763561167.4314792, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3256.767749786377, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561167.4324965, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3256.767749786377, "tags": {"trace_id": "9be1ae74-9464-43b1-a715-ea5aaf18a026"}}
+{"ts": 1763561167.4359725, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6273.192405700684, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561167.4370592, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6273.192405700684, "tags": {"trace_id": "e9d2989b-7559-4d31-9ebc-61076c5227a9"}}
+{"ts": 1763561170.6336336, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_33"}}
+{"ts": 1763561173.8477557, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 12.07113265991211, "tags": {"category": "general"}}
+{"ts": 1763561173.848613, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561173.8509624, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 15.893936157226562, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561173.8523152, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 15.893936157226562, "tags": {"trace_id": "d7e48f30-3f68-48fb-9731-cf576cfc7874"}}
+{"ts": 1763561173.8540747, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3218.7552452087402, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561173.8556576, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3218.7552452087402, "tags": {"trace_id": "9e6f6434-224d-408d-9fd7-c493afe37797"}}
+{"ts": 1763561173.8580742, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6369.746685028076, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561173.8593438, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6369.746685028076, "tags": {"trace_id": "1537c90e-111f-4d52-884c-991d8021fe65"}}
+{"ts": 1763561177.0222423, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_34"}}
+{"ts": 1763561180.0120268, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 33.216238021850586, "tags": {"category": "general"}}
+{"ts": 1763561180.0124805, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561180.0137744, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 36.008358001708984, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561180.0145311, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 36.008358001708984, "tags": {"trace_id": "2986752a-85df-499c-bae2-514b71b10a93"}}
+{"ts": 1763561180.0153632, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2990.806818008423, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561180.0159233, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2990.806818008423, "tags": {"trace_id": "7cd1be5f-e3e0-47bd-90ec-89629cd7c6f9"}}
+{"ts": 1763561180.017217, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6121.974229812622, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561180.0176287, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6121.974229812622, "tags": {"trace_id": "8a472c9d-4a9b-4bb4-b0b6-e5c7a68c54bf"}}
+{"ts": 1763561183.231817, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_35"}}
+{"ts": 1763561186.345351, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 11.556148529052734, "tags": {"category": "general"}}
+{"ts": 1763561186.3466015, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561186.3486714, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 16.479969024658203, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561186.3494103, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 16.479969024658203, "tags": {"trace_id": "04865209-37cf-4445-b157-f5fb1e10aafd"}}
+{"ts": 1763561186.3510163, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3116.7173385620117, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561186.352406, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3116.7173385620117, "tags": {"trace_id": "e91ec2ec-c36e-4781-a96a-b94710ef07a7"}}
+{"ts": 1763561186.35526, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6299.705266952515, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561186.3563285, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6299.705266952515, "tags": {"trace_id": "5782e3af-4679-4f05-9914-96a0c5e99d9f"}}
+{"ts": 1763561189.6403344, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_36"}}
+{"ts": 1763561192.6941643, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 13.665199279785156, "tags": {"category": "general"}}
+{"ts": 1763561192.6947358, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561192.6968207, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 17.507076263427734, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561192.6976252, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 17.507076263427734, "tags": {"trace_id": "46763081-7cf9-41a2-a64d-44c3be6f32a6"}}
+{"ts": 1763561192.7000885, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3057.3971271514893, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561192.701215, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3057.3971271514893, "tags": {"trace_id": "ef88fc0c-8d36-40f2-bc55-0f531dfa1b3f"}}
+{"ts": 1763561192.7044263, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6310.359716415405, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561192.705215, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6310.359716415405, "tags": {"trace_id": "9b31bd8e-d105-428f-9a6c-b987720f0ba0"}}
+{"ts": 1763561195.8871813, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_37"}}
+{"ts": 1763561198.8256667, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 33.754587173461914, "tags": {"category": "general"}}
+{"ts": 1763561198.826457, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561198.8285236, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 38.640499114990234, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561198.829323, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 38.640499114990234, "tags": {"trace_id": "cd91eecc-fdac-4c7e-a15e-e9503aed11eb"}}
+{"ts": 1763561198.8317556, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2940.544843673706, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561198.8324919, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2940.544843673706, "tags": {"trace_id": "ecda7d55-95e9-4e19-a831-31594918dd5e"}}
+{"ts": 1763561198.8349779, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6089.050769805908, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561198.8363392, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6089.050769805908, "tags": {"trace_id": "72933f39-23a4-43bf-b701-aac5c935850c"}}
+{"ts": 1763561202.0150886, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_38"}}
+{"ts": 1763561205.1426303, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 33.42127799987793, "tags": {"category": "general"}}
+{"ts": 1763561205.143158, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561205.1444044, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 37.403106689453125, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561205.1446803, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 37.403106689453125, "tags": {"trace_id": "4648520f-2200-45c8-93bb-041b6ddacfa9"}}
+{"ts": 1763561205.1462808, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3128.3960342407227, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561205.1466165, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3128.3960342407227, "tags": {"trace_id": "937aceab-b4d2-4c59-9cc1-07ae69327658"}}
+{"ts": 1763561205.1474867, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6274.419069290161, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561205.1479332, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6274.419069290161, "tags": {"trace_id": "2a454fc7-ed84-4189-ae4f-6086cf4748c6"}}
+{"ts": 1763561208.2526312, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_39"}}
+{"ts": 1763561211.2035174, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 34.715890884399414, "tags": {"category": "general"}}
+{"ts": 1763561211.2042856, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561211.2056952, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 38.18845748901367, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561211.206843, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 38.18845748901367, "tags": {"trace_id": "3fe99d3d-edf7-44ad-8857-8eddaac89e93"}}
+{"ts": 1763561211.208271, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2952.4314403533936, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561211.2096689, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2952.4314403533936, "tags": {"trace_id": "310e5438-e63d-4a75-88aa-c06614ed435a"}}
+{"ts": 1763561211.2127886, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6023.280620574951, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561211.2136521, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6023.280620574951, "tags": {"trace_id": "f7157559-82de-4655-a5fc-c5245dce623d"}}
+{"ts": 1763561214.187645, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_40"}}
+{"ts": 1763561217.1557636, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.045808792114258, "tags": {"category": "general"}}
+{"ts": 1763561217.1570034, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561217.1584935, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 21.084070205688477, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561217.159121, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 21.084070205688477, "tags": {"trace_id": "0a1d8858-981b-488c-b15a-e9c9c9bb0c2c"}}
+{"ts": 1763561217.1606324, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2970.794677734375, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561217.1613755, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2970.794677734375, "tags": {"trace_id": "e422da43-1910-4269-81bc-0b1f57440f7a"}}
+{"ts": 1763561217.1626396, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5909.436464309692, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561217.1634867, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5909.436464309692, "tags": {"trace_id": "657f6ccb-9615-4a4b-ad77-ec4cad8adec2"}}
+{"ts": 1763561220.387342, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_41"}}
+{"ts": 1763561223.2526345, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 15.163421630859375, "tags": {"category": "general"}}
+{"ts": 1763561223.253192, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561223.2546425, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 19.328832626342773, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561223.2566328, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 19.328832626342773, "tags": {"trace_id": "5e2769e5-80da-4c8a-8728-0dba944036ac"}}
+{"ts": 1763561223.2820175, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 17.97962188720703, "tags": {"category": "general"}}
+{"ts": 1763561223.283061, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561223.285696, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 23.56410026550293, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561223.2884865, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 23.56410026550293, "tags": {"trace_id": "cb994dc0-692b-4311-9dfc-fa867c72fbab"}}
+{"ts": 1763561223.2932968, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 62.75749206542969, "tags": {"sender": "priority_agent", "receiver": "action_executor_agent"}}
+{"ts": 1763561223.2940316, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 62.75749206542969, "tags": {"trace_id": "ddc2dfe3-c11c-4b51-839e-3cde54d4d99e"}}
+{"ts": 1763561223.296479, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2905.733346939087, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561223.297214, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2905.733346939087, "tags": {"trace_id": "15b42069-92b7-47c1-85eb-afbde0669ddd"}}
+{"ts": 1763561223.2997704, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6102.865219116211, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561223.300576, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6102.865219116211, "tags": {"trace_id": "af1601f9-6bb3-4756-a3e2-b894ece67239"}}
+{"ts": 1763561226.2548282, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_42"}}
+{"ts": 1763561229.3124514, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 27.849912643432617, "tags": {"category": "general"}}
+{"ts": 1763561229.3132498, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561229.315201, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 32.56845474243164, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561229.315964, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 32.56845474243164, "tags": {"trace_id": "6547aa9b-b5bb-4661-9623-084871738613"}}
+{"ts": 1763561229.3175156, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3060.0714683532715, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561229.3191996, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3060.0714683532715, "tags": {"trace_id": "5ec03036-8758-4d22-a9c3-997da0652ea1"}}
+{"ts": 1763561229.3208494, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5981.444835662842, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561229.323599, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5981.444835662842, "tags": {"trace_id": "c5c0e7bc-f199-4e75-8e50-78726c4ef7bd"}}
+{"ts": 1763561232.4648142, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_43"}}
+{"ts": 1763561235.2930765, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 17.075300216674805, "tags": {"category": "general"}}
+{"ts": 1763561235.293758, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561235.2951076, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 21.796226501464844, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561235.2957973, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 21.796226501464844, "tags": {"trace_id": "fc005756-b493-4c76-b617-7cf1f507bf39"}}
+{"ts": 1763561235.2971327, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2829.77557182312, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561235.2977705, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2829.77557182312, "tags": {"trace_id": "11ccc52d-038d-4def-99d1-452a84dba828"}}
+{"ts": 1763561235.2991543, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5929.659128189087, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561235.2999516, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5929.659128189087, "tags": {"trace_id": "05511e03-1dc6-40bb-8b20-95c3cb9c85a1"}}
+{"ts": 1763561238.4829652, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_44"}}
+{"ts": 1763561241.5209181, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 13.159513473510742, "tags": {"category": "general"}}
+{"ts": 1763561241.5212753, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561241.5221407, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 17.52448081970215, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561241.5225499, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 17.52448081970215, "tags": {"trace_id": "93817d9b-f5b6-4bb3-a7cc-1aeea5ec20e9"}}
+{"ts": 1763561241.5239613, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3038.784980773926, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561241.524616, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3038.784980773926, "tags": {"trace_id": "cc55f10d-15d9-4e75-8587-936f9b9ff897"}}
+{"ts": 1763561241.526432, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6183.34174156189, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561241.5289502, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6183.34174156189, "tags": {"trace_id": "4bc5582c-2f57-47cc-ad87-4d30773be35f"}}
+{"ts": 1763561244.4889855, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_45"}}
+{"ts": 1763561247.6935232, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 17.615556716918945, "tags": {"category": "general"}}
+{"ts": 1763561247.6948388, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561247.6985588, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 22.67289161682129, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561247.7007587, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 22.67289161682129, "tags": {"trace_id": "f2281f55-5d7f-4c17-900f-ec5c5a3acec5"}}
+{"ts": 1763561247.7055104, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3212.8987312316895, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561247.7064412, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3212.8987312316895, "tags": {"trace_id": "623bae50-66c0-47fc-b766-6aada43c2eb9"}}
+{"ts": 1763561247.7086868, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6132.558822631836, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561247.7103488, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6132.558822631836, "tags": {"trace_id": "86437f0e-f2ad-424c-8158-d61e7474e078"}}
+{"ts": 1763561250.9335244, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_46"}}
+{"ts": 1763561254.0238006, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.730785369873047, "tags": {"category": "general"}}
+{"ts": 1763561254.0250776, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561254.0288556, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 23.603200912475586, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561254.031036, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 23.603200912475586, "tags": {"trace_id": "5c276655-78d6-44cd-b3d6-50665927d7a1"}}
+{"ts": 1763561254.0345562, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3098.0303287506104, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561254.0394135, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3098.0303287506104, "tags": {"trace_id": "7afbc640-090f-4739-aeb2-1a7edb8957d5"}}
+{"ts": 1763561254.0426679, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6281.025648117065, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561254.044441, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6281.025648117065, "tags": {"trace_id": "7e8fc635-6cb7-4b01-8f37-c37f62f00597"}}
+{"ts": 1763561257.2904885, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_47"}}
+{"ts": 1763561260.1298175, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 14.364480972290039, "tags": {"category": "general"}}
+{"ts": 1763561260.1308794, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561260.1332119, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 18.841266632080078, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561260.1352344, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 18.841266632080078, "tags": {"trace_id": "ed2a59a1-2213-4253-94f9-a03655209eb8"}}
+{"ts": 1763561260.137495, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2843.505382537842, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561260.1384046, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2843.505382537842, "tags": {"trace_id": "86a9001d-e5d4-4f49-be0d-bb018bff3340"}}
+{"ts": 1763561260.1399782, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6047.844648361206, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561260.141927, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6047.844648361206, "tags": {"trace_id": "5910938f-b223-48d4-bd12-3ceb4f69cb41"}}
+{"ts": 1763561263.1644187, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_48"}}
+{"ts": 1763561266.1027029, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 15.614032745361328, "tags": {"category": "general"}}
+{"ts": 1763561266.1034405, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561266.107368, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 20.914793014526367, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561266.1081293, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 20.914793014526367, "tags": {"trace_id": "c907702c-46e1-451b-bdca-219bb18da928"}}
+{"ts": 1763561266.110969, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2944.6232318878174, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561266.1118126, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2944.6232318878174, "tags": {"trace_id": "1ba9a740-97d5-4c34-bf1c-edecf2bbf094"}}
+{"ts": 1763561266.1142993, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5917.447090148926, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561266.115025, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5917.447090148926, "tags": {"trace_id": "6d33d218-fdf2-4d57-9ae9-7b9d2152f531"}}
+{"ts": 1763561269.4431565, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_49"}}
+{"ts": 1763561272.6110647, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.577720642089844, "tags": {"category": "general"}}
+{"ts": 1763561272.6130939, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561272.616513, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 24.2922306060791, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561272.6176403, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 24.2922306060791, "tags": {"trace_id": "b1889faa-8382-41b4-8836-63e4e76fd7ef"}}
+{"ts": 1763561272.6210299, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3174.769401550293, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561272.6231081, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3174.769401550293, "tags": {"trace_id": "ebe22076-5359-4744-a4c1-d484be667285"}}
+{"ts": 1763561272.6291533, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6458.939790725708, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561272.6305094, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6458.939790725708, "tags": {"trace_id": "50e8c66d-5c57-4529-a1e7-e335f3162887"}}
+{"ts": 1763561275.7763066, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_50"}}
+{"ts": 1763561278.5942824, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 13.787508010864258, "tags": {"category": "general"}}
+{"ts": 1763561278.595411, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561278.5978484, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 18.36228370666504, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561278.5990922, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 18.36228370666504, "tags": {"trace_id": "2c091621-16af-47de-8065-2fe13e4afc1f"}}
+{"ts": 1763561278.6008375, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2822.5417137145996, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561278.6017802, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2822.5417137145996, "tags": {"trace_id": "0d743f8a-0e40-4d0b-aa34-db144368ffee"}}
+{"ts": 1763561278.603997, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 5920.978546142578, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561278.6051676, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 5920.978546142578, "tags": {"trace_id": "1820398e-dead-4c24-8dda-6511e94e9088"}}
+{"ts": 1763561281.8292105, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_51"}}
+{"ts": 1763561284.907744, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 34.38377380371094, "tags": {"category": "general"}}
+{"ts": 1763561284.9084284, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561284.9098058, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 38.935184478759766, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561284.9104066, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 38.935184478759766, "tags": {"trace_id": "790b31f9-f57a-4bf6-8b6e-ba04d3631f62"}}
+{"ts": 1763561284.9257486, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 11.892557144165039, "tags": {"category": "general"}}
+{"ts": 1763561284.9265802, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561284.9280903, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 14.940023422241211, "tags": {"sender": "action_executor_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561284.9288018, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 14.940023422241211, "tags": {"trace_id": "a214a8ff-eefb-4a45-a487-f301f5d6f33e"}}
+{"ts": 1763561284.9314013, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 65.82379341125488, "tags": {"sender": "priority_agent", "receiver": "action_executor_agent"}}
+{"ts": 1763561284.9320025, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 65.82379341125488, "tags": {"trace_id": "27b2acda-3f38-429c-bf03-b72d0438acfa"}}
+{"ts": 1763561284.9336152, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 3101.5381813049316, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561284.9340594, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 3101.5381813049316, "tags": {"trace_id": "504df2e0-5729-41ac-a4d4-3cab13a17edb"}}
+{"ts": 1763561284.9348977, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6287.457704544067, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561284.9355996, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6287.457704544067, "tags": {"trace_id": "f0e11333-88a3-490c-b2a3-08326ad84ac8"}}
+{"ts": 1763561288.0434265, "metric": "sentiment_accuracy", "type": "counter", "value": 1, "tags": {"session_id": "S_52"}}
+{"ts": 1763561290.9854498, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 13.876914978027344, "tags": {"category": "general"}}
+{"ts": 1763561290.9862568, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763561290.9876196, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 18.658161163330078, "tags": {"sender": "priority_agent", "receiver": "ticket_agent"}}
+{"ts": 1763561290.9882972, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 18.658161163330078, "tags": {"trace_id": "4dd5793a-ff57-4f1f-9015-8be8fb14c563"}}
+{"ts": 1763561290.9897044, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 2943.8467025756836, "tags": {"sender": "sentiment_agent", "receiver": "priority_agent"}}
+{"ts": 1763561290.990194, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2943.8467025756836, "tags": {"trace_id": "9b9501fc-a2b7-4e6b-94f7-25d4e7bab510"}}
+{"ts": 1763561290.991689, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6008.637189865112, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
+{"ts": 1763561290.9924011, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6008.637189865112, "tags": {"trace_id": "89f5e480-3408-4db0-885d-49954c27da92"}}
