@@ -4,7 +4,7 @@
 
 This system leverages a network of specialized AI agents to automate complex customer service workflows, including refund processing, technical support, shipping inquiries, and intelligent email categorization.
 
-## 🚀 Key Features
+##  Key Features
 
 *   **Multi-Agent Architecture**: specialized agents (Sentiment, Priority, Planner, Action, etc.) collaborate to solve complex tasks.
 *   **Async/Await Core**: Fully asynchronous event-driven architecture for high performance and non-blocking I/O.
@@ -14,7 +14,7 @@ This system leverages a network of specialized AI agents to automate complex cus
 *   **Gemini AI Integration**: Powered by Google's Gemini 1.5 Flash for advanced natural language understanding and planning.
 *   **Resilient Operations**: Built-in retry mechanisms with exponential backoff and validation frameworks.
 
-## 🛠️ System Architecture
+##  System Architecture
 
 The system is built on the **A2A Protocol**, where agents communicate via structured messages managed by a central **Orchestrator**.
 
@@ -37,7 +37,7 @@ The system is built on the **A2A Protocol**, where agents communicate via struct
 9.  **EmailAgent**: Ingests and categorizes incoming emails.
 10. **MemoryAgent**: Manages customer history and context retrieval.
 
-## 📦 Data Models
+##  Data Models
 
 Communication relies on strict Pydantic models defined in `src/models/messages.py`:
 
@@ -53,7 +53,7 @@ class AgentMessage(BaseModel):
     trace_id: Optional[str] = None
 ```
 
-## 🏃‍♂️ Usage
+##  Usage
 
 ### Prerequisites
 
@@ -86,7 +86,7 @@ This script demonstrates:
 3.  **Technical Support**: Escalating a login issue to a supervisor.
 4.  **Auto-Categorization**: Tagging incoming emails based on intent.
 
-## 🧪 Verification
+##  Verification
 
 Run the verification script to check system integrity:
 
@@ -94,7 +94,7 @@ Run the verification script to check system integrity:
 python verify_refactor.py
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ark-agent-agi/
