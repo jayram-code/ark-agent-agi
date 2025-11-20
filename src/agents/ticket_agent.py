@@ -2,14 +2,16 @@ from src.agents.base_agent import BaseAgent
 from src.utils.logging_utils import log_event
 from src.storage.ticket_db import create_ticket, derive_category
 from src.utils.metrics import record_latency, increment
+from src.models.messages import AgentMessage, MessageType
 import time
+import uuid, datetime
 
 class TicketAgent(BaseAgent):
-    def receive(self, message):
+    async def receive(self, message: AgentMessage):
         # defensive: support multiple message shapes from different agents
-        log_event("TicketAgent", {"event": "received_payload", "payload_keys": list(message.get("payload", {}).keys())})
+        payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
+        log_event("TicketAgent", {"event": "received_payload", "payload_keys": list(payload.keys())})
         start = time.time()
-        payload = message.get("payload", {}) or {}
 
         # Try multiple places for intent/text/sentiment (planner, supervisor, knowledge wrapping)
         intent = payload.get("intent")
@@ -78,4 +80,6 @@ class TicketAgent(BaseAgent):
         log_event("TicketAgent", {"event":"ticket_created", "ticket_id": ticket_id, "category": category, "tags": tags})
         record_latency("ticket_generation_time_ms", (time.time()-start)*1000.0, tags={"category": category})
         increment("tickets_created", 1, tags={"category": category})
+        
+        # Return result directly (end of chain usually)
         return {"status": "ticket_created", "ticket_id": ticket_id, "category": category, "tags": tags}

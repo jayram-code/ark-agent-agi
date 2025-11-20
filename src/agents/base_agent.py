@@ -1,7 +1,11 @@
+from src.models.messages import AgentMessage
+import asyncio
+
 class BaseAgent:
     def __init__(self, name, orchestrator):
         self.name = name
         self.orchestrator = orchestrator
 
-    def receive(self, message: dict):
+    async def receive(self, message: AgentMessage):
         raise NotImplementedError("Subclasses must implement this method.")
+

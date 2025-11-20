@@ -502,3 +502,45 @@
 {"ts": 1763561290.990194, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 2943.8467025756836, "tags": {"trace_id": "9b9501fc-a2b7-4e6b-94f7-25d4e7bab510"}}
 {"ts": 1763561290.991689, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 6008.637189865112, "tags": {"sender": "email_agent", "receiver": "sentiment_agent"}}
 {"ts": 1763561290.9924011, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 6008.637189865112, "tags": {"trace_id": "89f5e480-3408-4db0-885d-49954c27da92"}}
+{"ts": 1763643811.855071, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 66.67637825012207, "tags": {"sender": "customer_service", "receiver": "refund_agent"}}
+{"ts": 1763643811.8560088, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 66.67637825012207, "tags": {"trace_id": "62cb3e34-5fb2-4e39-b39b-5f86b5433d36"}}
+{"ts": 1763644015.1851294, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 61.61785125732422, "tags": {"sender": "customer_service", "receiver": "refund_agent"}}
+{"ts": 1763644015.1861935, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 61.61785125732422, "tags": {"trace_id": "3b312848-87c2-448d-b5e4-6529777ba2be"}}
+{"ts": 1763644015.430094, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 35.005807876586914, "tags": {"category": "billing"}}
+{"ts": 1763644015.4304342, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763644015.4321363, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 38.2692813873291, "tags": {"sender": "refund_agent", "receiver": "ticket_agent"}}
+{"ts": 1763644015.4325073, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 38.2692813873291, "tags": {"trace_id": "1e2af234-615e-4ef2-a622-670a8cfe3626"}}
+{"ts": 1763644015.541917, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 107.57112503051758, "tags": {"sender": "refund_agent", "receiver": "email_sender_agent"}}
+{"ts": 1763644015.542608, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 107.57112503051758, "tags": {"trace_id": "67cb7397-28a4-445d-9b2f-30f51322cf57"}}
+{"ts": 1763644015.543995, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 353.97958755493164, "tags": {"sender": "customer_service", "receiver": "refund_agent"}}
+{"ts": 1763644015.5444925, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 353.97958755493164, "tags": {"trace_id": "1d1c2f33-0ade-4453-9dee-4a201cb593f0"}}
+{"ts": 1763644109.0411823, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 56.80108070373535, "tags": {"sender": "customer_service", "receiver": "refund_agent"}}
+{"ts": 1763644109.0425408, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 56.80108070373535, "tags": {"trace_id": "5873d63c-3095-471e-9240-d9d2218b8ddc"}}
+{"ts": 1763644109.2401628, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 30.20930290222168, "tags": {"category": "billing"}}
+{"ts": 1763644109.241151, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763644109.2423332, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 32.90963172912598, "tags": {"sender": "refund_agent", "receiver": "ticket_agent"}}
+{"ts": 1763644109.2427015, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 32.90963172912598, "tags": {"trace_id": "3c62bfb4-ce06-4b4f-98c9-8e5017cc5d4e"}}
+{"ts": 1763644109.3509667, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 106.85372352600098, "tags": {"sender": "refund_agent", "receiver": "email_sender_agent"}}
+{"ts": 1763644109.351561, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 106.85372352600098, "tags": {"trace_id": "c1bca139-6906-44fe-a287-db5af55bd8ae"}}
+{"ts": 1763644109.353413, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 306.7131042480469, "tags": {"sender": "customer_service", "receiver": "refund_agent"}}
+{"ts": 1763644109.3539326, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 306.7131042480469, "tags": {"trace_id": "cba72dc7-785a-4e08-b509-c2839d62a511"}}
+{"ts": 1763644109.4744587, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 0.7779598236083984, "tags": {"sender": "shipping_agent", "receiver": "customer_service"}}
+{"ts": 1763644109.4748452, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 0.7779598236083984, "tags": {"trace_id": "c9f8f31b-7822-4123-9b69-8c686e55f2cd"}}
+{"ts": 1763644109.4757154, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 118.49141120910645, "tags": {"sender": "customer_service", "receiver": "shipping_agent"}}
+{"ts": 1763644109.4763901, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 118.49141120910645, "tags": {"trace_id": "6dfacabe-03ba-44ac-b137-5c0bb7b15f3a"}}
+{"ts": 1763644124.6525507, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 10934.683322906494, "tags": {"sender": "supervisor_agent", "receiver": "retryable_agent"}}
+{"ts": 1763644124.6531086, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 10934.683322906494, "tags": {"trace_id": "adeeb517-c4ca-4d54-a588-2ac2cbd94609"}}
+{"ts": 1763644124.6543362, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 15175.339460372925, "tags": {"sender": "customer_service", "receiver": "supervisor_agent"}}
+{"ts": 1763644124.654746, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 15175.339460372925, "tags": {"trace_id": "2e3c0d02-b1ce-4ec1-b487-e96b20c65345"}}
+{"ts": 1763644124.6889832, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 10.625839233398438, "tags": {"category": "billing"}}
+{"ts": 1763644124.6894503, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763644124.6907246, "metric": "a2a_message_latency_ms", "type": "latency_ms", "value": 14.058351516723633, "tags": {"sender": "test_customer", "receiver": "ticket_agent"}}
+{"ts": 1763644124.6912794, "metric": "trace_pipeline_time_ms", "type": "gauge", "value": 14.058351516723633, "tags": {"trace_id": "a1285480-89e7-42b3-b906-dc6a6fb4fd36"}}
+{"ts": 1763645244.4743235, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 19.02318000793457, "tags": {"category": "billing"}}
+{"ts": 1763645244.4746742, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763645259.2388241, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 29.372692108154297, "tags": {"category": "billing"}}
+{"ts": 1763645259.2391753, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763645304.2709236, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 28.099775314331055, "tags": {"category": "general"}}
+{"ts": 1763645304.271382, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763645304.283848, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 10.03265380859375, "tags": {"category": "general"}}
+{"ts": 1763645304.2842038, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}

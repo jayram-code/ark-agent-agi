@@ -1,36 +1,35 @@
 from src.agents.base_agent import BaseAgent
 from src.utils.logging_utils import log_event
 from src.utils.gemini_utils import classify_intent
-from src.utils.metrics import gauge
+from src.models.messages import AgentMessage, MessageType
 import uuid, datetime
 
 class EmailAgent(BaseAgent):
-    def receive(self, message):
+    async def receive(self, message: AgentMessage):
         log_event("EmailAgent", "Processing email with Gemini AI")
-
-        email_text = message["payload"]["text"]
         
-        # Use Gemini for intelligent intent classification
-        intent_analysis = classify_intent(email_text)
-        try:
-            gauge("email_intent_confidence", float(intent_analysis.get("confidence", 0.0)), tags={"session_id": message.get("session_id")})
-        except Exception:
-            pass
+        payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
+        text = payload.get("text", "")
         
-        response = {
-            "id": str(uuid.uuid4()),
-            "session_id": message["session_id"],
-            "sender": "email_agent",
-            "receiver": "sentiment_agent",
-            "type": "task_request",
-            "timestamp": str(datetime.datetime.utcnow()),
-            "payload": {
-                "intent": intent_analysis["intent"],
-                "text": email_text,
-                "intent_confidence": intent_analysis["confidence"],
-                "urgency": intent_analysis["urgency"],
-                "key_phrases": intent_analysis["key_phrases"]
+        # Use Gemini for intent classification
+        intent_result = classify_intent(text)
+        
+        # Forward to sentiment agent for next step in pipeline
+        response = AgentMessage(
+            id=str(uuid.uuid4()),
+            session_id=message.session_id,
+            sender="email_agent",
+            receiver="sentiment_agent",
+            type=MessageType.TASK_REQUEST,
+            timestamp=str(datetime.datetime.utcnow()),
+            payload={
+                "intent": intent_result["intent"],
+                "intent_confidence": intent_result["confidence"],
+                "text": text,
+                "customer_id": payload.get("customer_id"),
+                "urgency": intent_result.get("urgency", "medium"),
+                "key_phrases": intent_result.get("key_phrases", [])
             }
-        }
-
-        return self.orchestrator.send_a2a(response)
+        )
+        
+        return await self.orchestrator.send_a2a(response)

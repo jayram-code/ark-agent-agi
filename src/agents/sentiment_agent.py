@@ -2,19 +2,44 @@ from src.agents.base_agent import BaseAgent
 from src.utils.logging_utils import log_event
 from src.utils.gemini_utils import analyze_sentiment
 from src.utils.metrics import increment
+from src.models.messages import AgentMessage, MessageType
 import uuid, datetime
 
 class SentimentAgent(BaseAgent):
-    def receive(self, message):
+    async def receive(self, message: AgentMessage):
         log_event("SentimentAgent", "Scoring sentiment with Gemini AI")
 
-        payload = message.get("payload", {})
+        # Handle Pydantic model or dict payload
+        payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
         
+        # Perform Analysis
+        response_payload = await self._analyze(payload, message.session_id)
+
+        # Dynamic Routing Logic
+        if message.type == MessageType.QUERY:
+            # Return result directly to caller (Supervisor/Orchestrator)
+            return response_payload
+        else:
+            # Legacy: Forward to Priority Agent
+            response = AgentMessage(
+                id=str(uuid.uuid4()),
+                session_id=message.session_id,
+                sender="sentiment_agent",
+                receiver="priority_agent",  # Default next step
+                type=MessageType.TASK_REQUEST,
+                timestamp=str(datetime.datetime.utcnow()),
+                payload=response_payload
+            )
+            return await self.orchestrator.send_a2a(response)
+
+    async def _analyze(self, payload, session_id):
         # Handle different payload types from different agents
         if "text" in payload:
             text = payload["text"]
             
             # Use Gemini for advanced sentiment analysis
+            # Assuming analyze_sentiment is synchronous, we might want to wrap it in run_in_executor if it's slow
+            # But for now, we'll keep it simple or assume it's fast enough
             sentiment_result = analyze_sentiment(text)
             
             response_payload = {
@@ -34,7 +59,7 @@ class SentimentAgent(BaseAgent):
                 negative_emotions = {"frustrated","angry","stressed","furious","sad"}
                 is_negative_emotion = any(e in emo for e in negative_emotions)
                 accurate = (is_negative_emotion and score < 0) or ((not is_negative_emotion) and score >= 0)
-                increment("sentiment_accuracy", 1 if accurate else 0, tags={"session_id": message.get("session_id")})
+                increment("sentiment_accuracy", 1 if accurate else 0, tags={"session_id": session_id})
             except Exception:
                 pass
             
@@ -72,7 +97,7 @@ class SentimentAgent(BaseAgent):
                 negative_emotions = {"frustrated","angry","stressed","furious","sad"}
                 is_negative_emotion = any(e in emo for e in negative_emotions)
                 accurate = (is_negative_emotion and score < 0) or ((not is_negative_emotion) and score >= 0)
-                increment("sentiment_accuracy", 1 if accurate else 0, tags={"session_id": message.get("session_id")})
+                increment("sentiment_accuracy", 1 if accurate else 0, tags={"session_id": session_id})
             except Exception:
                 pass
         else:
@@ -84,15 +109,5 @@ class SentimentAgent(BaseAgent):
                 "intensity": 0.0,
                 "factors": ["no_text_available"]
             }
-
-        response = {
-            "id": str(uuid.uuid4()),
-            "session_id": message["session_id"],
-            "sender": "sentiment_agent",
-            "receiver": "priority_agent",  # Route to priority agent next
-            "type": "task_request",
-            "timestamp": str(datetime.datetime.utcnow()),
-            "payload": response_payload
-        }
-
-        return self.orchestrator.send_a2a(response)
+        
+        return response_payload

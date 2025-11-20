@@ -1,0 +1,14 @@
+[
+    {
+        "id": "refund_001",
+        "input": "I need a refund for order #123. It is broken.",
+        "expected_intent": "refund_request",
+        "expected_risk": "low"
+    },
+    {
+        "id": "shipping_001",
+        "input": "Where is my package #SHIP999?",
+        "expected_intent": "shipping_status",
+        "expected_provider": "mock"
+    }
+]

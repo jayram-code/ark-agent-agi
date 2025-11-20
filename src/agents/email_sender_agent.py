@@ -1,6 +1,8 @@
 from src.agents.base_agent import BaseAgent
 from src.utils.logging_utils import log_event
+from src.models.messages import AgentMessage, MessageType
 import uuid, datetime
+import asyncio
 
 class EmailSenderAgent(BaseAgent):
     """
@@ -119,11 +121,11 @@ Support Team
             }
         }
     
-    def receive(self, message):
+    async def receive(self, message: AgentMessage):
         """Process email sending requests"""
-        log_event("EmailSenderAgent", {"event": "email_request_received", "message_id": message.get("id")})
+        log_event("EmailSenderAgent", {"event": "email_request_received", "message_id": message.id})
         
-        payload = message.get("payload", {})
+        payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
         
         # Extract email parameters
         recipient = payload.get("recipient")
@@ -146,7 +148,7 @@ Support Team
             )
             
             # Simulate email sending (in production, integrate with email service)
-            email_result = self.send_email(recipient, email_content)
+            email_result = await self.send_email(recipient, email_content)
             
             if email_result["success"]:
                 log_event("EmailSenderAgent", {
@@ -158,7 +160,7 @@ Support Team
                 
                 # Schedule follow-up if requested
                 if payload.get("schedule_followup"):
-                    self.schedule_followup(recipient, template_name, variables)
+                    await self.schedule_followup(recipient, template_name, variables)
                 
                 return {
                     "status": "email_sent",
@@ -218,128 +220,40 @@ Support Team
         documentation = {
             "refund": """
 Documentation Links:
-• Refund Policy: https://support.example.com/refund-policy
-• How to Request a Refund: https://support.example.com/request-refund
-• Refund Timeline: https://support.example.com/refund-timeline
-
-Common Questions:
-• Q: How long does a refund take?
-  A: Refunds typically process within 3-5 business days
-• Q: Will I get a full refund?
-  A: Yes, you'll receive a full refund minus any processing fees
-            """.strip(),
-            
+- Refund Policy: https://example.com/refund-policy
+- Refund Status: https://example.com/my-account/refunds
+            """,
             "shipping": """
 Documentation Links:
-• Shipping Policy: https://support.example.com/shipping
-• Track Your Order: https://support.example.com/track-order
-• Delivery Issues: https://support.example.com/delivery-issues
-
-Helpful Tips:
-• Check your email for tracking information
-• Allow 24-48 hours for tracking to update
-• Contact us if tracking shows no movement after 3 days
-            """.strip(),
-            
+- Shipping Guide: https://example.com/shipping-guide
+- Track Order: https://example.com/track-order
+            """,
             "technical": """
 Documentation Links:
-• Troubleshooting Guide: https://support.example.com/troubleshooting
-• System Requirements: https://support.example.com/requirements
-• Video Tutorials: https://support.example.com/tutorials
-
-Quick Fixes:
-• Clear your browser cache and cookies
-• Try a different browser or device
-• Disable browser extensions temporarily
-            """.strip(),
-            
-            "account": """
+- Troubleshooting: https://example.com/troubleshooting
+- System Status: https://status.example.com
+            """,
+            "general": """
 Documentation Links:
-• Account Management: https://support.example.com/account
-• Password Reset: https://support.example.com/reset-password
-• Security Settings: https://support.example.com/security
-
-Account Security:
-• Use strong, unique passwords
-• Enable two-factor authentication
-• Review account activity regularly
-            """.strip()
+- Help Center: https://help.example.com
+- Contact Us: https://example.com/contact
+            """
         }
         
-        return documentation.get(topic, documentation["general"]) if topic in documentation else ""
+        return documentation.get(topic, documentation["general"]).strip()
     
-    def send_email(self, recipient, email_content):
-        """Simulate email sending (integrate with real email service in production)"""
+    async def send_email(self, recipient, content):
+        """Simulate sending an email via SMTP or API"""
+        # Simulate network latency
+        await asyncio.sleep(0.1)
         
-        # Simulate email service integration
-        import time
-        import hashlib
-        
-        # Simulate API latency
-        time.sleep(0.1)
-        
-        # Generate mock message ID
-        message_id = hashlib.md5(f"{recipient}_{email_content['subject']}_{time.time()}".encode()).hexdigest()
-        
-        # Simulate 98% success rate
-        import random
-        if random.random() < 0.98:
-            log_event("EmailSenderAgent", {
-                "event": "email_sent_simulation",
-                "recipient": recipient,
-                "subject": email_content["subject"],
-                "priority": email_content["priority"]
-            })
-            
-            return {
-                "success": True,
-                "message_id": f"msg_{message_id}",
-                "sent_at": datetime.datetime.utcnow().isoformat()
-            }
-        else:
-            return {
-                "success": False,
-                "error": "Email service temporarily unavailable"
-            }
-    
-    def schedule_followup(self, recipient, template_name, variables):
-        """Schedule follow-up email (placeholder for scheduling system)"""
-        
-        # For now, just log the follow-up request
-        # In production, integrate with a scheduling service like Celery or cron
-        log_event("EmailSenderAgent", {
-            "event": "followup_scheduled",
-            "recipient": recipient,
-            "template": template_name,
-            "delay_hours": 48  # Default 48-hour follow-up
-        })
-        
+        # Mock success
         return {
-            "status": "followup_scheduled",
-            "recipient": recipient,
-            "template": template_name,
-            "scheduled_for": "48 hours"
+            "success": True,
+            "message_id": f"msg_{uuid.uuid4().hex[:12]}"
         }
     
-    def create_email_template(self, template_name, subject, body, priority="medium"):
-        """Create new email template (for admin use)"""
-        self.email_templates[template_name] = {
-            "subject": subject,
-            "body": body,
-            "priority": priority
-        }
-        
-        log_event("EmailSenderAgent", {
-            "event": "template_created",
-            "template_name": template_name,
-            "priority": priority
-        })
-        
-        return {"status": "template_created", "template_name": template_name}
-    
-    def get_template_list(self):
-        """Get list of available templates"""
-        return {
-            "templates": list(self.email_templates.keys()),
-            "count": len(self.email_templates)
-        }
+    async def schedule_followup(self, recipient, template_name, variables):
+        """Schedule a follow-up email"""
+        # In a real system, this would add a job to a queue
+        log_event("EmailSenderAgent", {"event": "followup_scheduled", "recipient": recipient})

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "refund_001",
+    "passed": true,
+    "actual": {
+      "status": "ticket_created",
+      "ticket_id": 139,
+      "category": "general",
+      "tags": []
+    }
+  },
+  {
+    "id": "shipping_001",
+    "passed": true,
+    "actual": {
+      "status": "ticket_created",
+      "ticket_id": 140,
+      "category": "general",
+      "tags": []
+    }
+  }
+]
