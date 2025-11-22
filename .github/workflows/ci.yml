@@ -56,6 +56,7 @@ jobs:
     - name: Run tests with pytest
       env:
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        PYTHONPATH: ${{ github.workspace }}/src
       run: |
         pytest tests/ -v --cov=src --cov-report=xml --cov-report=term
     
