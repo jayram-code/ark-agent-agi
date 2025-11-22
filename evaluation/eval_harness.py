@@ -3,7 +3,7 @@ import json
 import time
 import uuid
 from typing import List, Dict, Any
-from src.orchestrator import Orchestrator
+from src.a2a_router import send_message
 from src.agents.email_agent import EmailAgent
 from src.agents.sentiment_agent import SentimentAgent
 from src.agents.priority_agent import PriorityAgent
@@ -103,8 +103,19 @@ def _count_retry_attempts(trace_id: str) -> int:
                         attempts += 1
     return attempts
 
-def build_orchestrator() -> Orchestrator:
-    o = Orchestrator()
+class SimpleOrchestrator:
+    def __init__(self):
+        self.agents = {}
+    def register_agent(self, name, agent):
+        self.agents[name] = agent
+    def route(self, message: dict):
+        receiver = message.get("receiver")
+        return self.agents[receiver].receive(message)
+    def send_a2a(self, message: dict):
+        return send_message(self, message)
+
+def build_orchestrator() -> SimpleOrchestrator:
+    o = SimpleOrchestrator()
     o.register_agent("email_agent", EmailAgent("email_agent", o))
     o.register_agent("sentiment_agent", SentimentAgent("sentiment_agent", o))
     o.register_agent("priority_agent", PriorityAgent("priority_agent", o))
