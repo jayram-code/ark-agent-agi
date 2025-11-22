@@ -32,7 +32,7 @@ class EmailTool:
         )
 
     def send_email(
-        self, to: List[str], subject: str, body: str, html: bool = False, from_addr: str = None
+        self, to: List[str], subject: str, body: str, html: bool = False, from_addr: Optional[str] = None
     ) -> Dict[str, Any]:
         """
         Send an email

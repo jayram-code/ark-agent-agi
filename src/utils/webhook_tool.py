@@ -23,7 +23,7 @@ class WebhookTool:
         url: str,
         payload: Dict[str, Any],
         method: str = "POST",
-        headers: Dict[str, str] = None,
+        headers: Optional[Dict[str, str]] = None,
         timeout: int = 10,
     ) -> Dict[str, Any]:
         """

@@ -66,13 +66,13 @@ class CircuitBreaker:
         """
         if self.state == CircuitState.OPEN:
             # Check if timeout has passed
-            if time.time() - self.last_failure_time >= self.timeout:
+            if self.last_failure_time and time.time() - self.last_failure_time >= self.timeout:
                 self.state = CircuitState.HALF_OPEN
                 log_event(
                     "CircuitBreaker", {"event": "state_change", "from": "open", "to": "half_open"}
                 )
             else:
-                raise Exception("Circuit breaker is OPEN - calls are blocked")
+                raise RuntimeError("Circuit breaker is OPEN - calls are blocked")
 
         try:
             result = func(*args, **kwargs)
@@ -90,10 +90,10 @@ class CircuitBreaker:
     async def call_async(self, func: Callable, *args, **kwargs) -> Any:
         """Async version of call()"""
         if self.state == CircuitState.OPEN:
-            if time.time() - self.last_failure_time >= self.timeout:
+            if self.last_failure_time and time.time() - self.last_failure_time >= self.timeout:
                 self.state = CircuitState.HALF_OPEN
             else:
-                raise Exception("Circuit breaker is OPEN - calls are blocked")
+                raise RuntimeError("Circuit breaker is OPEN - calls are blocked")
 
         try:
             result = await func(*args, **kwargs)

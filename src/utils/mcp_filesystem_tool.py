@@ -17,7 +17,7 @@ class MCPFileSystemTool:
     Allows agents to read and search files in the knowledge base directory
     """
 
-    def __init__(self, kb_directory: str = None):
+    def __init__(self, kb_directory: Optional[str] = None):
         self.kb_directory = kb_directory or os.path.join(os.getcwd(), "data", "kb_docs")
         self.ensure_kb_directory()
 

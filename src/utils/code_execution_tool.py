@@ -98,7 +98,7 @@ class CodeExecutionTool:
 
         # Execution namespace
         exec_globals = {"__builtins__": self.safe_builtins.copy()}
-        exec_locals = {}
+        exec_locals: Dict[str, Any] = {}
 
         # Optionally allow safe imports
         if allow_imports:
@@ -110,7 +110,14 @@ class CodeExecutionTool:
                 import math
                 import re
 
-                exec_globals.update({"math": math, "json": json, "datetime": datetime, "re": re})
+                exec_globals.update(
+                    {
+                        "math": math,  # type: ignore
+                        "json": json,  # type: ignore
+                        "datetime": datetime,  # type: ignore
+                        "re": re,  # type: ignore
+                    }
+                )
             except ImportError:
                 pass
 

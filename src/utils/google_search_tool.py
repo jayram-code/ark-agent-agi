@@ -18,7 +18,7 @@ class GoogleSearchTool:
     Enables agents to search the web for real-time information
     """
 
-    def __init__(self, api_key: str = None, search_engine_id: str = None):
+    def __init__(self, api_key: Optional[str] = None, search_engine_id: Optional[str] = None):
         """
         Initialize Google Search Tool
 

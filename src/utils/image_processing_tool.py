@@ -22,7 +22,7 @@ class ImageProcessingTool:
         log_event("ImageProcessingTool", {"event": "initialized", "output_dir": output_dir})
 
     def resize_image(
-        self, image_path: str, width: int, height: int, output_name: str = None
+        self, image_path: str, width: int, height: int, output_name: Optional[str] = None
     ) -> Dict[str, Any]:
         """
         Resize an image
@@ -73,7 +73,7 @@ class ImageProcessingTool:
             return {"success": False, "error": str(e)}
 
     def crop_image(
-        self, image_path: str, left: int, top: int, right: int, bottom: int, output_name: str = None
+        self, image_path: str, left: int, top: int, right: int, bottom: int, output_name: Optional[str] = None
     ) -> Dict[str, Any]:
         """Crop an image"""
         try:
@@ -98,7 +98,7 @@ class ImageProcessingTool:
             return {"success": False, "error": str(e)}
 
     def convert_format(
-        self, image_path: str, target_format: str, output_name: str = None
+        self, image_path: str, target_format: str, output_name: Optional[str] = None
     ) -> Dict[str, Any]:
         """Convert image format"""
         try:

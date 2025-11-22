@@ -18,7 +18,7 @@ class OpenAPITool:
     Currently configured for shipping tracker API
     """
 
-    def __init__(self, base_url: str = None, timeout: int = 10):
+    def __init__(self, base_url: Optional[str] = None, timeout: int = 10):
         self.base_url = base_url or os.getenv("SHIPPING_API_URL", "http://localhost:8082")
         self.timeout = timeout
         self.session = requests.Session()

@@ -4,7 +4,7 @@ Create PDFs from data and text
 """
 
 import os
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from utils.logging_utils import log_event
 
@@ -31,7 +31,7 @@ class PDFGeneratorTool:
             {"event": "initialized", "fpdf_available": FPDF_AVAILABLE, "output_dir": output_dir},
         )
 
-    def create_pdf(self, title: str, content: str, filename: str = None) -> Dict[str, Any]:
+    def create_pdf(self, title: str, content: str, filename: Optional[str] = None) -> Dict[str, Any]:
         """
         Create a simple PDF document
 
@@ -88,7 +88,7 @@ class PDFGeneratorTool:
             return {"success": False, "error": str(e), "error_type": type(e).__name__}
 
     def create_table_pdf(
-        self, title: str, headers: List[str], data: List[List[str]], filename: str = None
+        self, title: str, headers: List[str], data: List[List[str]], filename: Optional[str] = None
     ) -> Dict[str, Any]:
         """Create a PDF with a table"""
         if not self.fpdf_available:

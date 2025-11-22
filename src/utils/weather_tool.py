@@ -16,7 +16,7 @@ class WeatherTool:
     Weather information via OpenWeatherMap API
     """
 
-    def __init__(self, api_key: str = None):
+    def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or os.getenv("OPENWEATHER_API_KEY")
         self.base_url = "https://api.openweathermap.org/data/2.5/weather"
 

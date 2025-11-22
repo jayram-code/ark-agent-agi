@@ -60,7 +60,7 @@ class CalculatorTool:
             expression = expression.strip()
 
             # Create safe evaluation namespace
-            safe_dict = {"__builtins__": {}}
+            safe_dict: Dict[str, Any] = {"__builtins__": {}}
             safe_dict.update(self.safe_functions)
 
             # Evaluate the expression

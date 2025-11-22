@@ -26,3 +26,4 @@ flake8>=6.0.0
 mypy>=1.5.0
 black>=23.0.0
 isort>=5.12.0
+types-requests>=2.31.0
