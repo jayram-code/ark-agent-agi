@@ -57,7 +57,7 @@ class TestCodeExecutionTool(unittest.TestCase):
         if not result["success"]:
             print(f"ERROR: {result.get('error', 'Unknown')}")
             print(f"ERROR TYPE: {result.get('error_type', 'Unknown')}")
-            if 'traceback' in result:
+            if "traceback" in result:
                 print(f"TRACEBACK: {result['traceback']}")
         self.assertTrue(result["success"])
         self.assertIn("4", result["stdout"])
