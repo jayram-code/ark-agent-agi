@@ -1,5 +1,5 @@
 import asyncio
-from typing import List, Any, Coroutine
+from typing import Any, Coroutine, List
 
 
 async def fan_out_fan_in(coroutines: List[Coroutine]) -> List[Any]:

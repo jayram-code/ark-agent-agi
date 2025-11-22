@@ -1,18 +1,17 @@
-from src.orchestrator import Orchestrator
 from src.agents.email_agent import EmailAgent
-from src.agents.sentiment_agent import SentimentAgent
-from src.agents.ticket_agent import TicketAgent
-from src.agents.supervisor_agent import SupervisorAgent
-from src.agents.memory_agent import MemoryAgent
+from src.agents.emotion_agent import EmotionAgent
 from src.agents.knowledge_agent import KnowledgeAgent
 from src.agents.meeting_agent import MeetingAgent
-from src.utils.pretty import pretty
+from src.agents.memory_agent import MemoryAgent
 from src.agents.planner_agent import PlannerAgent
-from src.agents.retryable_agent import RetryableAgent
-from src.agents.shipping_agent import ShippingAgent
-from src.agents.emotion_agent import EmotionAgent
 from src.agents.priority_agent import PriorityAgent
-
+from src.agents.retryable_agent import RetryableAgent
+from src.agents.sentiment_agent import SentimentAgent
+from src.agents.shipping_agent import ShippingAgent
+from src.agents.supervisor_agent import SupervisorAgent
+from src.agents.ticket_agent import TicketAgent
+from src.orchestrator import Orchestrator
+from src.utils.pretty import pretty
 
 # create orchestrator
 orc = Orchestrator()

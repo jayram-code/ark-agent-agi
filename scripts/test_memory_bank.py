@@ -1,4 +1,4 @@
-from src.storage.memory_bank import init, store_interaction, get_recent, recall_relevant
+from src.storage.memory_bank import get_recent, init, recall_relevant, store_interaction
 
 print("init")
 init()

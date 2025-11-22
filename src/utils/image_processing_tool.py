@@ -4,8 +4,10 @@ Resize, crop, and convert images
 """
 
 import os
-from typing import Dict, Any, Tuple, Optional
+from typing import Any, Dict, Optional, Tuple
+
 from PIL import Image
+
 from utils.logging_utils import log_event
 
 

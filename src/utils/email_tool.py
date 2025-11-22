@@ -5,9 +5,10 @@ Send emails programmatically
 
 import os
 import smtplib
-from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from typing import Dict, Any, List, Optional
+from email.mime.text import MIMEText
+from typing import Any, Dict, List, Optional
+
 from utils.logging_utils import log_event
 
 

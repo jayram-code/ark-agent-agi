@@ -3,8 +3,9 @@ Agent Controller - Centralized agent lifecycle management
 Handles pause/resume operations and message queueing
 """
 
-from typing import Dict, List, Optional, Any
 from collections import deque
+from typing import Any, Dict, List, Optional
+
 from utils.logging_utils import log_event
 
 

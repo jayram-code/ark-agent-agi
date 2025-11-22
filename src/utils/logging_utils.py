@@ -1,4 +1,6 @@
-import os, json, time
+import json
+import os
+import time
 
 LOG_PATH = "logs/events.log"
 

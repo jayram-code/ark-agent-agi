@@ -4,8 +4,10 @@ Provides weather information using OpenWeatherMap API
 """
 
 import os
+from typing import Any, Dict, Optional
+
 import requests
-from typing import Dict, Any, Optional
+
 from utils.logging_utils import log_event
 
 

@@ -1,9 +1,11 @@
-from agents.base_agent import BaseAgent
-from utils.logging_utils import log_event
-from storage.memory_bank import store_interaction, recall_relevant, get_recent
-from models.messages import AgentMessage, MessageType
-import uuid, datetime
 import asyncio
+import datetime
+import uuid
+
+from agents.base_agent import BaseAgent
+from models.messages import AgentMessage, MessageType
+from storage.memory_bank import get_recent, recall_relevant, store_interaction
+from utils.logging_utils import log_event
 
 
 class MemoryAgent(BaseAgent):

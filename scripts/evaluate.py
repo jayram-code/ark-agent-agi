@@ -1,6 +1,9 @@
-import os, sys
+import os
+import sys
+
 sys.path.append(os.getcwd())
 from evaluation.eval_harness import run_dataset
+
 
 def main():
     ds = os.path.join(os.getcwd(), "failure_cases.jsonl")

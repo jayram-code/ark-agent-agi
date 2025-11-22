@@ -1,20 +1,22 @@
-import os
 import json
+import os
 import time
 import uuid
-from typing import List, Dict, Any
+from typing import Any, Dict, List
+
 from src.a2a_router import send_message
-from src.agents.email_agent import EmailAgent
-from src.agents.sentiment_agent import SentimentAgent
-from src.agents.priority_agent import PriorityAgent
-from src.agents.ticket_agent import TicketAgent
-from src.agents.supervisor_agent import SupervisorAgent
-from src.agents.retryable_agent import RetryableAgent
-from src.agents.planner_agent import PlannerAgent
 from src.agents.action_executor_agent import ActionExecutorAgent
-from src.agents.knowledge_agent import KnowledgeAgent
-from src.agents.shipping_agent import ShippingAgent
+from src.agents.email_agent import EmailAgent
 from src.agents.email_sender_agent import EmailSenderAgent
+from src.agents.knowledge_agent import KnowledgeAgent
+from src.agents.planner_agent import PlannerAgent
+from src.agents.priority_agent import PriorityAgent
+from src.agents.retryable_agent import RetryableAgent
+from src.agents.sentiment_agent import SentimentAgent
+from src.agents.shipping_agent import ShippingAgent
+from src.agents.supervisor_agent import SupervisorAgent
+from src.agents.ticket_agent import TicketAgent
+
 
 def _read_jsonl(path: str) -> List[Dict[str, Any]]:
     rows = []

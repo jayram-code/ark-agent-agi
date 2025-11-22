@@ -6,9 +6,9 @@ Cloud-ready structured logging with multiple sinks
 import json
 import logging
 import sys
-from typing import Dict, Any, Optional
 from datetime import datetime
 from pathlib import Path
+from typing import Any, Dict, Optional
 
 
 class CloudLogger:

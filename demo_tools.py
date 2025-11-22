@@ -4,15 +4,16 @@ Simple Built-in Tools Demo
 Demonstrates all 11 built-in tools in action
 """
 
-import sys
-import os
 import asyncio
+import os
+import sys
 
 # Add src to path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from orchestrator import Orchestrator
 from models.messages import MessageType
+from orchestrator import Orchestrator
+
 
 async def demo_tools():
     """Quick demo of all built-in tools"""
@@ -21,15 +22,15 @@ async def demo_tools():
     print("="*70)
     
     # Import tools
-    from utils.google_search_tool import google_search
-    from utils.code_execution_tool import code_executor
-    from utils.weather_tool import weather_tool
     from utils.calculator_tool import calculator
+    from utils.code_execution_tool import code_executor
     from utils.database_tool import database_tool
     from utils.file_transfer_tool import file_transfer
+    from utils.google_search_tool import google_search
     from utils.translation_tool import translation_tool
+    from utils.weather_tool import weather_tool
     from utils.webhook_tool import webhook_tool
-    
+
     # 1. Calculator
     print("\n🧮 Calculator Tool")
     result = calculator.calculate("sqrt(144) + pow(2, 4)")

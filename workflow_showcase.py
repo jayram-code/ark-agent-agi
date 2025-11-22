@@ -9,33 +9,34 @@ Demonstrates the complete workflow automation system with:
 - Comprehensive audit trails and logging
 """
 
-import sys
-import os
 import asyncio
-import uuid
 import datetime
+import os
+import sys
+import uuid
 
 # Add src to path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from orchestrator import Orchestrator
-from agents.email_agent import EmailAgent
-from agents.sentiment_agent import SentimentAgent
-from agents.priority_agent import PriorityAgent
-from agents.planner_agent import PlannerAgent
-from agents.ticket_agent import TicketAgent
 from agents.action_executor_agent import ActionExecutorAgent
-from agents.refund_agent import RefundAgent
+from agents.base_agent import BaseAgent
+from agents.email_agent import EmailAgent
 from agents.email_sender_agent import EmailSenderAgent
 from agents.emotion_agent import EmotionAgent
-from agents.shipping_agent import ShippingAgent
-from agents.supervisor_agent import SupervisorAgent
-from agents.retryable_agent import RetryableAgent
 from agents.knowledge_agent import KnowledgeAgent
 from agents.meeting_agent import MeetingAgent
 from agents.memory_agent import MemoryAgent
-from agents.base_agent import BaseAgent
+from agents.planner_agent import PlannerAgent
+from agents.priority_agent import PriorityAgent
+from agents.refund_agent import RefundAgent
+from agents.retryable_agent import RetryableAgent
+from agents.sentiment_agent import SentimentAgent
+from agents.shipping_agent import ShippingAgent
+from agents.supervisor_agent import SupervisorAgent
+from agents.ticket_agent import TicketAgent
 from models.messages import AgentMessage, MessageType
+from orchestrator import Orchestrator
+
 
 class UserProxyAgent(BaseAgent):
     async def receive(self, message: AgentMessage):

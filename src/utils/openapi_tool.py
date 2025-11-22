@@ -3,10 +3,12 @@ OpenAPI Tool Wrapper for Shipping Tracker API
 Provides a standardized interface for calling shipping tracking APIs
 """
 
-import requests
 import json
 import os
-from typing import Dict, Any, Optional
+from typing import Any, Dict, Optional
+
+import requests
+
 from utils.logging_utils import log_event
 
 
@@ -114,8 +116,8 @@ class OpenAPITool:
         """
         Generate mock tracking data for testing when API is unavailable
         """
-        import hashlib
         import datetime
+        import hashlib
 
         # Generate consistent mock data based on order_id
         order_hash = hashlib.md5(order_id.encode()).hexdigest()

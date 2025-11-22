@@ -1,9 +1,11 @@
-from agents.base_agent import BaseAgent
-from utils.logging_utils import log_event
-from models.messages import AgentMessage, MessageType
-from utils.openapi_tool import get_shipping_information
-import uuid, datetime
 import asyncio
+import datetime
+import uuid
+
+from agents.base_agent import BaseAgent
+from models.messages import AgentMessage, MessageType
+from utils.logging_utils import log_event
+from utils.openapi_tool import get_shipping_information
 
 
 class ShippingAgent(BaseAgent):

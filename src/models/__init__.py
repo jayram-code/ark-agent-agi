@@ -1,1 +1,1 @@
-from .messages import AgentMessage, MessageType, MessagePayload
+from .messages import AgentMessage, MessagePayload, MessageType

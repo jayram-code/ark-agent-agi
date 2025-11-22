@@ -3,10 +3,11 @@ MCP FileSystem Tool for reading knowledge base documents
 Provides a standardized interface for agents to access files in data/kb_docs/
 """
 
-import os
-import json
 import glob
-from typing import Dict, Any, List, Optional
+import json
+import os
+from typing import Any, Dict, List, Optional
+
 from utils.logging_utils import log_event
 
 

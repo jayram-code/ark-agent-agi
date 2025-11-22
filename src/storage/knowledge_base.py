@@ -4,14 +4,15 @@ Knowledge Base Storage
 - Uses SentenceTransformers + FAISS for semantic search
 """
 
-import os
 import glob
 import json
+import os
 import time
-from typing import List, Dict, Any
-from sentence_transformers import SentenceTransformer
+from typing import Any, Dict, List
+
 import faiss
 import numpy as np
+from sentence_transformers import SentenceTransformer
 
 KB_DIR = "data/kb_docs"
 KB_INDEX_PATH = "data/kb.index"

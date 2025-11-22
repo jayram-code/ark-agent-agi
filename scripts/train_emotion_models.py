@@ -1,14 +1,15 @@
 # scripts/train_emotion_models.py
 import os
+
 import joblib
-import pandas as pd
 import numpy as np
-from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
-from sklearn.model_selection import train_test_split
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score, classification_report, mean_squared_error
+from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import mean_squared_error, accuracy_score, classification_report
+from sklearn.preprocessing import StandardScaler
 
 CSV_PATH = "data/Hide_and_Seek_DATASET.csv"  # adjust if located elsewhere
 OUT_DIR = "src/models"
@@ -73,15 +74,16 @@ print("Saved models to:", reg_path, clf_path)
 
 # scripts/train_emotion_models.py
 import os
+
 import joblib
-import pandas as pd
 import numpy as np
-from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
-from sklearn.model_selection import train_test_split
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score, classification_report, mean_squared_error
+from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import mean_squared_error, accuracy_score, classification_report
+from sklearn.preprocessing import StandardScaler
 
 # allow override so we can point to the sample csv without editing again
 CSV_PATH = os.getenv("CSV_PATH_OVERRIDE", "data/Hide_and_Seek_DATASET.csv")

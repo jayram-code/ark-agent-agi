@@ -3,10 +3,11 @@ File Transfer Tool for ARK Agent AGI
 Handle file uploads and downloads
 """
 
+import base64
 import os
 import shutil
-import base64
-from typing import Dict, Any, Optional
+from typing import Any, Dict, Optional
+
 from utils.logging_utils import log_event
 
 

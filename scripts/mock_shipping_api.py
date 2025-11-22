@@ -3,8 +3,10 @@ Simple mock shipping tracker API (Flask).
 Run in a **separate terminal** before running the pipeline to simulate an OpenAPI tool.
 """
 
-from flask import Flask, request, jsonify
-import random, time
+import random
+import time
+
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 

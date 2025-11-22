@@ -3,12 +3,13 @@ Code Execution Tool for ARK Agent AGI
 Provides safe Python code execution in a sandboxed environment
 """
 
-import sys
 import io
-import traceback
 import signal
-from contextlib import redirect_stdout, redirect_stderr
-from typing import Dict, Any, Optional
+import sys
+import traceback
+from contextlib import redirect_stderr, redirect_stdout
+from typing import Any, Dict, Optional
+
 from utils.logging_utils import log_event
 
 
@@ -104,9 +105,9 @@ class CodeExecutionTool:
             exec_globals["__builtins__"]["__import__"] = __import__
             # Add commonly used safe modules
             try:
-                import math
-                import json
                 import datetime
+                import json
+                import math
                 import re
 
                 exec_globals.update({"math": math, "json": json, "datetime": datetime, "re": re})

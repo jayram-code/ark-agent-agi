@@ -1,4 +1,6 @@
-import sqlite3, os, json
+import json
+import os
+import sqlite3
 from datetime import datetime
 
 DB_PATH = "data/tickets.db"

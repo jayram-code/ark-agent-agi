@@ -3,11 +3,12 @@ Circuit Breaker Pattern Implementation
 Provides fault tolerance and prevents cascading failures in distributed systems
 """
 
-import time
 import asyncio
-from typing import Callable, Any, Optional
+import time
 from enum import Enum
 from functools import wraps
+from typing import Any, Callable, Optional
+
 from utils.logging_utils import log_event
 
 

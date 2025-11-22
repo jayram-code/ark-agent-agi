@@ -1,8 +1,8 @@
-import json
+import asyncio
 import datetime
+import json
 from pathlib import Path
 from typing import Any, Dict, Optional
-import asyncio
 
 
 class TraceLogger:

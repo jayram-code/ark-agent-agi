@@ -3,7 +3,8 @@ Translation Tool for ARK Agent AGI
 Multi-language translation (simple implementation)
 """
 
-from typing import Dict, Any
+from typing import Any, Dict
+
 from utils.logging_utils import log_event
 
 

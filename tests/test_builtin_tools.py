@@ -3,17 +3,17 @@ Unit Tests for Built-in Tools
 Tests all 11 built-in tools and agent lifecycle management
 """
 
-import unittest
-import sys
 import os
+import sys
+import unittest
 
 # Add src to path
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "src"))
 
+from utils.agent_controller import agent_controller
 from utils.calculator_tool import calculator
 from utils.code_execution_tool import code_executor
 from utils.database_tool import database_tool
-from utils.agent_controller import agent_controller
 
 
 class TestCalculatorTool(unittest.TestCase):

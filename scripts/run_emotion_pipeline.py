@@ -1,20 +1,26 @@
 # scripts/run_emotion_pipeline.py
-import sys, os, json
+import json
+import os
+import sys
+
 sys.path.append(os.getcwd())
 
 # ensure working dir is repo root
 os.chdir(os.getcwd())
 
+import datetime
+import uuid
+
 import pandas as pd
-from src.orchestrator import Orchestrator
+
 from src.agents.emotion_agent import EmotionAgent
-from src.agents.priority_agent import PriorityAgent
 from src.agents.planner_agent import PlannerAgent
-from src.agents.ticket_agent import TicketAgent
+from src.agents.priority_agent import PriorityAgent
 from src.agents.retryable_agent import RetryableAgent
 from src.agents.sentiment_agent import SentimentAgent
+from src.agents.ticket_agent import TicketAgent
+from src.orchestrator import Orchestrator
 from src.utils.pretty import pretty
-import uuid, datetime
 
 SAMPLE_CSV = "data/Hide_and_Seek_SAMPLE.csv"
 

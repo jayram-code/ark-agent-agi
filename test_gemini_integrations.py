@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 """Test script to verify Gemini integrations with multiple samples"""
 
-import sys
 import os
+import sys
+
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from utils.gemini_utils import classify_intent, analyze_sentiment, calculate_priority_score, generate_task_plan
-from utils.validators import valid_planner_output, high_confidence_plan, strict_mode_validator
+from utils.gemini_utils import (
+    analyze_sentiment,
+    calculate_priority_score,
+    classify_intent,
+    generate_task_plan,
+)
+from utils.validators import high_confidence_plan, strict_mode_validator, valid_planner_output
+
 
 def test_gemini_integrations():
     print("🤖 Testing Gemini AI Integrations")

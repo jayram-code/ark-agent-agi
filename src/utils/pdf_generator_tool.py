@@ -4,7 +4,8 @@ Create PDFs from data and text
 """
 
 import os
-from typing import Dict, Any, List
+from typing import Any, Dict, List
+
 from utils.logging_utils import log_event
 
 try:

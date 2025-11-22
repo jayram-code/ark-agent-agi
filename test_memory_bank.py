@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
 """Test script for Memory Bank functionality"""
 
-import sys
 import os
+import sys
+
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from storage.memory_bank import init, store_interaction, get_recent, recall_relevant, get_customer_profile
+from storage.memory_bank import (
+    get_customer_profile,
+    get_recent,
+    init,
+    recall_relevant,
+    store_interaction,
+)
+
 
 def test_memory_bank():
     """Test all Memory Bank functions"""

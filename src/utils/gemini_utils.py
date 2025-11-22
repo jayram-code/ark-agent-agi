@@ -1,10 +1,13 @@
+import json
+import os
+import time
+from typing import Any, Dict, List, Optional
+
 import google.generativeai as genai
-import os, json
 import typing_extensions as typing
-from typing import Dict, Any, Optional, List
+
 from utils.logging_utils import log_event
 from utils.metrics import record_latency
-import time
 
 # Configure Gemini API
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))

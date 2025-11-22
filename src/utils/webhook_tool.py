@@ -3,8 +3,10 @@ Webhook Tool for ARK Agent AGI
 Send HTTP webhooks to external services
 """
 
+from typing import Any, Dict, Optional
+
 import requests
-from typing import Dict, Any, Optional
+
 from utils.logging_utils import log_event
 
 

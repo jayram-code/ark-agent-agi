@@ -1,9 +1,11 @@
-from agents.base_agent import BaseAgent
-from utils.logging_utils import log_event
-from storage.knowledge_base import search_kb, initialize_kb
-from models.messages import AgentMessage, MessageType
-import uuid, datetime
 import asyncio
+import datetime
+import uuid
+
+from agents.base_agent import BaseAgent
+from models.messages import AgentMessage, MessageType
+from storage.knowledge_base import initialize_kb, search_kb
+from utils.logging_utils import log_event
 
 
 class KnowledgeAgent(BaseAgent):

@@ -1,4 +1,6 @@
-import sqlite3, os, time
+import os
+import sqlite3
+import time
 
 DB = "data/memory.db"
 

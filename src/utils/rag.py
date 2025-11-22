@@ -1,7 +1,9 @@
-import os, json
-from sentence_transformers import SentenceTransformer
-import numpy as np
+import json
+import os
+
 import faiss
+import numpy as np
+from sentence_transformers import SentenceTransformer
 
 MODEL = None
 INDEX_FILE = "data/faiss.index"

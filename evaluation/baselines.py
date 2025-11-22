@@ -4,7 +4,8 @@ Rule-based approaches for intent, sentiment, and priority classification
 """
 
 import re
-from typing import Dict, Any, List
+from typing import Any, Dict, List
+
 
 class RuleBasedIntentClassifier:
     """Rule-based intent classification using keyword matching"""

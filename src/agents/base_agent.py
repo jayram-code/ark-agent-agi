@@ -1,5 +1,6 @@
-from models.messages import AgentMessage
 import asyncio
+
+from models.messages import AgentMessage
 
 
 class BaseAgent:

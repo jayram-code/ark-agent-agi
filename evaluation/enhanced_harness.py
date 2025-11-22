@@ -4,11 +4,12 @@ Direct capture of agent predictions and routing decisions for reliable metrics
 """
 
 import asyncio
-import uuid
 import datetime
-from typing import List, Dict, Any
-from dataclasses import dataclass, asdict
 import json
+import uuid
+from dataclasses import asdict, dataclass
+from typing import Any, Dict, List
+
 
 @dataclass
 class PredictionCapture:

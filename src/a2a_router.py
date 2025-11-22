@@ -1,10 +1,12 @@
+import asyncio
+import time
+import uuid
+
+from models.messages import AgentMessage
+from services.session_service import SESSION
 from utils.a2a_schema import validate_message
 from utils.logging_utils import log_event
-from utils.metrics import record_latency, accumulate_trace_time, ensure_trace
-from services.session_service import SESSION
-from models.messages import AgentMessage
-import time, uuid
-import asyncio
+from utils.metrics import accumulate_trace_time, ensure_trace, record_latency
 
 
 async def send_message(orchestrator, message):

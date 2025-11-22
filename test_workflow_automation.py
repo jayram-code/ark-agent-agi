@@ -8,22 +8,26 @@ Tests the new workflow automation features including:
 - Action execution and plan interpretation
 """
 
-import sys
 import os
+import sys
+
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from orchestrator import Orchestrator
-from agents.email_agent import EmailAgent
-from agents.sentiment_agent import SentimentAgent
-from agents.priority_agent import PriorityAgent
-from agents.planner_agent import PlannerAgent
-from agents.ticket_agent import TicketAgent
+import datetime
+import uuid
+
 from agents.action_executor_agent import ActionExecutorAgent
-from agents.refund_agent import RefundAgent
+from agents.email_agent import EmailAgent
 from agents.email_sender_agent import EmailSenderAgent
 from agents.emotion_agent import EmotionAgent
+from agents.planner_agent import PlannerAgent
+from agents.priority_agent import PriorityAgent
+from agents.refund_agent import RefundAgent
+from agents.sentiment_agent import SentimentAgent
+from agents.ticket_agent import TicketAgent
+from orchestrator import Orchestrator
 from utils.pretty import pretty
-import uuid, datetime
+
 
 def test_workflow_automation():
     """Test the complete workflow automation pipeline"""

@@ -1,6 +1,6 @@
-import json
 import asyncio
-from typing import Dict, Any, Callable
+import json
+from typing import Any, Callable, Dict
 
 
 class OpenAPIHandler:

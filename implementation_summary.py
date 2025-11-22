@@ -5,8 +5,9 @@
 This script demonstrates all the completed enhancements to the multi-agent customer service system.
 """
 
-import sys
 import os
+import sys
+
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
 def show_implementation_summary():
@@ -86,14 +87,14 @@ def test_core_functionality():
     
     try:
         # Test Memory Bank
-        from storage.memory_bank import init, store_interaction, get_customer_profile
+        from storage.memory_bank import get_customer_profile, init, store_interaction
         init()
         test_id = store_interaction("test_customer", "test", "This is a test interaction")
         profile = get_customer_profile("test_customer")
         print(f"✅ Memory Bank: Stored interaction {test_id}, retrieved profile with {profile['total_interactions']} interactions")
         
         # Test Validators
-        from utils.validators import valid_planner_output, high_confidence_plan
+        from utils.validators import high_confidence_plan, valid_planner_output
         test_plan = {
             "tasks": [{"step": 1, "action": "Test", "expected_outcome": "Success"}],
             "estimated_time": 1,
@@ -104,7 +105,7 @@ def test_core_functionality():
         print(f"✅ Validation: Plan validation = {valid_planner_output(test_plan)}")
         
         # Test Gemini Utils (with fallbacks)
-        from utils.gemini_utils import classify_intent, analyze_sentiment
+        from utils.gemini_utils import analyze_sentiment, classify_intent
         intent_result = classify_intent("I need help with my order")
         sentiment_result = analyze_sentiment("I'm happy with the service")
         print(f"✅ Gemini: Intent = {intent_result['intent']}, Sentiment = {sentiment_result['emotion']}")

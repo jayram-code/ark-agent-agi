@@ -1,6 +1,8 @@
-import os, json, time
-import uuid
+import json
+import os
 import threading
+import time
+import uuid
 
 METRICS_LOG = "logs/metrics.jsonl"
 _TRACE_ACCUM = {}

@@ -1,17 +1,19 @@
 import asyncio
 import json
-import sys
 import os
+import sys
 
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-from orchestrator import Orchestrator
+import datetime
+import uuid
+
 from agents.ticket_agent import TicketAgent
 from models.messages import AgentMessage, MessageType
-import uuid
-import datetime
+from orchestrator import Orchestrator
+
 
 async def run_evals():
     print("🧪 Running Evaluations...")

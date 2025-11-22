@@ -9,10 +9,15 @@ APIs:
 - get_recent(customer_id, limit=5)
 """
 
-import os, sqlite3, time, json, datetime
-from sentence_transformers import SentenceTransformer
-import numpy as np
+import datetime
+import json
+import os
+import sqlite3
+import time
+
 import faiss
+import numpy as np
+from sentence_transformers import SentenceTransformer
 
 DB_PATH = "data/memory_bank.db"
 EMBED_INDEX = "data/memory_embeddings.index"

@@ -1,9 +1,13 @@
-from agents.base_agent import BaseAgent
-from utils.logging_utils import log_event
-from sentence_transformers import SentenceTransformer
-from models.messages import AgentMessage, MessageType
-import numpy as np, uuid, datetime
+import datetime
 import json
+import uuid
+
+import numpy as np
+from sentence_transformers import SentenceTransformer
+
+from agents.base_agent import BaseAgent
+from models.messages import AgentMessage, MessageType
+from utils.logging_utils import log_event
 
 MODEL = None
 

@@ -1,8 +1,10 @@
+import datetime
+import uuid
+
 from agents.base_agent import BaseAgent
-from utils.logging_utils import log_event
-from utils.gemini_utils import classify_intent
 from models.messages import AgentMessage, MessageType
-import uuid, datetime
+from utils.gemini_utils import classify_intent
+from utils.logging_utils import log_event
 
 
 class EmailAgent(BaseAgent):

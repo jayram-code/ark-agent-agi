@@ -1,10 +1,12 @@
-from agents.base_agent import BaseAgent
-from utils.logging_utils import log_event
-from models.messages import AgentMessage, MessageType
-import uuid, datetime
 import asyncio
+import datetime
 import json
 import os
+import uuid
+
+from agents.base_agent import BaseAgent
+from models.messages import AgentMessage, MessageType
+from utils.logging_utils import log_event
 
 
 class SchedulerAgent(BaseAgent):

@@ -3,10 +3,12 @@ Google Search Tool for ARK Agent AGI
 Provides web search capabilities using Google Custom Search API
 """
 
-import os
 import json
+import os
+from typing import Any, Dict, List, Optional
+
 import requests
-from typing import Dict, Any, List, Optional
+
 from utils.logging_utils import log_event
 
 

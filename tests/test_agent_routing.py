@@ -3,16 +3,16 @@ Unit Tests for Agent Routing
 Tests orchestrator routing logic, broadcasts, and agent registration
 """
 
-import unittest
 import asyncio
-import sys
 import os
+import sys
+import unittest
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from orchestrator import Orchestrator
 from agents.base_agent import BaseAgent
 from models.messages import AgentMessage, MessageType
+from orchestrator import Orchestrator
 
 
 class MockAgent(BaseAgent):

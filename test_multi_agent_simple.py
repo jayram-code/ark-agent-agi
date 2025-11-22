@@ -7,27 +7,30 @@ Simplified test suite to verify:
 3. Tool integrations (OpenAPI, MCP FileSystem)
 """
 
-import sys
 import os
+import sys
+
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from orchestrator import Orchestrator
-from agents.email_agent import EmailAgent
-from agents.sentiment_agent import SentimentAgent
-from agents.planner_agent import PlannerAgent
-from agents.ticket_agent import TicketAgent
-from agents.emotion_agent import EmotionAgent
-from agents.priority_agent import PriorityAgent
-from agents.knowledge_agent import KnowledgeAgent
-from agents.supervisor_agent import SupervisorAgent
-from agents.shipping_agent import ShippingAgent
+import uuid
+
 from agents.action_executor_agent import ActionExecutorAgent
-from agents.refund_agent import RefundAgent
+from agents.email_agent import EmailAgent
 from agents.email_sender_agent import EmailSenderAgent
+from agents.emotion_agent import EmotionAgent
+from agents.knowledge_agent import KnowledgeAgent
+from agents.planner_agent import PlannerAgent
+from agents.priority_agent import PriorityAgent
+from agents.refund_agent import RefundAgent
+from agents.sentiment_agent import SentimentAgent
+from agents.shipping_agent import ShippingAgent
+from agents.supervisor_agent import SupervisorAgent
+from agents.ticket_agent import TicketAgent
+from orchestrator import Orchestrator
+from utils.a2a_schema import validate_message
 from utils.mcp_filesystem_tool import mcp_filesystem
 from utils.openapi_tool import check_shipping_api_health, track_shipping_order
-from utils.a2a_schema import validate_message
-import uuid
+
 
 def test_a2a_protocol_compliance():
     """Test A2A protocol compliance"""
