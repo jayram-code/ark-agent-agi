@@ -10,10 +10,10 @@ import os
 # Add src to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-from utils.calculator_tool import calculator
-from utils.code_execution_tool import code_executor
-from utils.database_tool import database_tool
-from utils.agent_controller import agent_controller
+from src.utils.calculator_tool import calculator
+from src.utils.code_execution_tool import code_executor
+from src.utils.database_tool import database_tool
+from src.utils.agent_controller import agent_controller
 
 class TestCalculatorTool(unittest.TestCase):
     """Test Calculator Tool"""
@@ -188,7 +188,7 @@ class TestGoogleSearchTool(unittest.TestCase):
     """Test Google Search Tool (graceful failure without API key)"""
     
     def test_search_without_api_key(self):
-        from utils.google_search_tool import google_search
+        from src.utils.google_search_tool import google_search
         result = google_search.search("test query", num_results=1)
         # Should fail gracefully with fallback
         self.assertIn('results', result)
@@ -198,7 +198,7 @@ class TestWeatherTool(unittest.TestCase):
     """Test Weather Tool (graceful failure without API key)"""
     
     def test_weather_without_api_key(self):
-        from utils.weather_tool import weather_tool
+        from src.utils.weather_tool import weather_tool
         result = weather_tool.get_weather("London")
         # Should fail gracefully
         self.assertIn('success', result)
@@ -208,7 +208,7 @@ class TestEmailTool(unittest.TestCase):
     """Test Email Tool (graceful failure without SMTP config)"""
     
     def test_email_without_config(self):
-        from utils.email_tool import email_tool
+        from src.utils.email_tool import email_tool
         result = email_tool.send_email(["test@example.com"], "Test", "Body")
         self.assertFalse(result['success'])
         self.assertIn('credentials', result['error'])
@@ -218,7 +218,7 @@ class TestTranslationTool(unittest.TestCase):
     """Test Translation Tool"""
     
     def test_translation_simple_phrase(self):
-        from utils.translation_tool import translation_tool
+        from src.utils.translation_tool import translation_tool
         result = translation_tool.translate("hello", target_lang="es")
         self.assertTrue(result['success'])
         self.assertEqual(result['translated'], "hola")
@@ -233,7 +233,7 @@ class TestWebhookTool(unittest.TestCase):
     """Test Webhook Tool"""
     
     def test_invalid_method(self):
-        from utils.webhook_tool import webhook_tool
+        from src.utils.webhook_tool import webhook_tool
         result = webhook_tool.send_webhook(
             url="https://example.com/webhook",
             payload={"test": "data"},
