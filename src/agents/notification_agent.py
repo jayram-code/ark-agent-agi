@@ -4,20 +4,22 @@ from models.messages import AgentMessage, MessageType
 import uuid, datetime
 import asyncio
 
+
 class NotificationAgent(BaseAgent):
     """
     Agent responsible for sending external notifications (Email, SMS, Slack).
     Currently mocks the actual delivery but logs the intent.
     """
+
     async def receive(self, message: AgentMessage):
         log_event("NotificationAgent", f"Received notification request from {message.sender}")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        
+
         channel = payload.get("channel", "email").lower()
         recipient = payload.get("recipient")
         content = payload.get("content") or payload.get("text")
         subject = payload.get("subject", "Notification")
-        
+
         if not recipient or not content:
             error_msg = "Missing recipient or content"
             log_event("NotificationAgent", f"Error: {error_msg}")
@@ -26,7 +28,7 @@ class NotificationAgent(BaseAgent):
         # Mock delivery logic
         success = True
         delivery_details = {}
-        
+
         try:
             if channel == "email":
                 self._send_email(recipient, subject, content)
@@ -48,12 +50,15 @@ class NotificationAgent(BaseAgent):
 
         status = "sent" if success else "failed"
         log_event("NotificationAgent", f"Notification {status} to {recipient} via {channel}")
-        
-        return await self._send_response(message, {
-            "status": status,
-            "details": delivery_details,
-            "timestamp": str(datetime.datetime.utcnow())
-        })
+
+        return await self._send_response(
+            message,
+            {
+                "status": status,
+                "details": delivery_details,
+                "timestamp": str(datetime.datetime.utcnow()),
+            },
+        )
 
     async def _send_response(self, original_message, payload):
         response = AgentMessage(
@@ -63,7 +68,7 @@ class NotificationAgent(BaseAgent):
             receiver=original_message.sender,
             type=MessageType.TASK_RESPONSE,
             timestamp=str(datetime.datetime.utcnow()),
-            payload=payload
+            payload=payload,
         )
         return await self.orchestrator.send_a2a(response)
 

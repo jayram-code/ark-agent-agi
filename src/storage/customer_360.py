@@ -1,5 +1,6 @@
 from storage.memory_bank import get_customer_profile
 
+
 def generate_customer_360(customer_id: str):
     profile = get_customer_profile(customer_id)
     sentiment = profile.get("sentiment_summary", {})
@@ -25,5 +26,5 @@ def generate_customer_360(customer_id: str):
         "vip_status": vip_status,
         "risk_flag": risk_flag,
         "summary": profile.get("profile_summary"),
-        "recent_interactions": profile.get("recent_interactions", [])
+        "recent_interactions": profile.get("recent_interactions", []),
     }

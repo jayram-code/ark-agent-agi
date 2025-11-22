@@ -7,6 +7,7 @@ from services.session_service import SESSION
 from models.messages import AgentMessage, MessageType
 import uuid, datetime
 
+
 class PriorityAgent(BaseAgent):
     """
     Intelligent priority agent using Gemini AI for escalation decisions.
@@ -15,17 +16,17 @@ class PriorityAgent(BaseAgent):
 
     async def receive(self, message: AgentMessage):
         log_event("PriorityAgent", "Deciding priority with Gemini AI")
-        
+
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        
+
         result = await self._analyze(payload, message.session_id)
-        
+
         if message.type == MessageType.QUERY:
             return result
-            
+
         # Legacy routing logic
         escalate = result.get("escalation_recommended", False)
-        
+
         if escalate:
             # route to action_executor_agent for automated workflow execution
             out = AgentMessage(
@@ -38,13 +39,23 @@ class PriorityAgent(BaseAgent):
                 payload={
                     "plan": {
                         "tasks": [
-                            {"step": 1, "action": "escalate_to_human", "expected_outcome": "Human support assigned", "detail": "Escalate complex issue to human agent"},
-                            {"step": 2, "action": "schedule_followup", "expected_outcome": "Follow-up scheduled", "detail": "Schedule high-priority follow-up"}
+                            {
+                                "step": 1,
+                                "action": "escalate_to_human",
+                                "expected_outcome": "Human support assigned",
+                                "detail": "Escalate complex issue to human agent",
+                            },
+                            {
+                                "step": 2,
+                                "action": "schedule_followup",
+                                "expected_outcome": "Follow-up scheduled",
+                                "detail": "Schedule high-priority follow-up",
+                            },
                         ],
                         "estimated_time": 1,
                         "resources_needed": ["human_agent"],
                         "success_criteria": ["human_assigned", "customer_contacted"],
-                        "potential_challenges": ["agent_availability"]
+                        "potential_challenges": ["agent_availability"],
                     },
                     "priority_score": result["priority_score"],
                     "time_estimate": result["time_estimate"],
@@ -58,16 +69,19 @@ class PriorityAgent(BaseAgent):
                         "emotion": payload.get("emotion"),
                         "intensity": payload.get("intensity"),
                         "key_phrases": payload.get("key_phrases"),
-                        "escalation_reason": result["reasoning"]
-                    }
-                }
+                        "escalation_reason": result["reasoning"],
+                    },
+                },
             )
-            log_event("PriorityAgent", {
-                "escalate": True, 
-                "priority_score": result["priority_score"],
-                "reasoning": result["reasoning"],
-                "time_estimate": result["time_estimate"]
-            })
+            log_event(
+                "PriorityAgent",
+                {
+                    "escalate": True,
+                    "priority_score": result["priority_score"],
+                    "reasoning": result["reasoning"],
+                    "time_estimate": result["time_estimate"],
+                },
+            )
             return await self.orchestrator.send_a2a(out)
         else:
             # route to ticket_agent normally
@@ -88,14 +102,17 @@ class PriorityAgent(BaseAgent):
                     "emotion": payload.get("emotion"),
                     "time_estimate": result["time_estimate"],
                     "key_phrases": payload.get("key_phrases"),  # Preserve key_phrases for tagging
-                    "factors": payload.get("factors")  # Preserve factors for context
-                }
+                    "factors": payload.get("factors"),  # Preserve factors for context
+                },
             )
-            log_event("PriorityAgent", {
-                "escalate": False,
-                "priority_score": result["priority_score"],
-                "route": "ticket_agent"
-            })
+            log_event(
+                "PriorityAgent",
+                {
+                    "escalate": False,
+                    "priority_score": result["priority_score"],
+                    "route": "ticket_agent",
+                },
+            )
             return await self.orchestrator.send_a2a(out)
 
     async def _analyze(self, payload, session_id):
@@ -110,24 +127,23 @@ class PriorityAgent(BaseAgent):
             "urgency": payload.get("urgency", "medium"),
             "intent_confidence": payload.get("intent_confidence", 0.0),
             "key_phrases": payload.get("key_phrases", []),
-            "factors": payload.get("factors", [])
+            "factors": payload.get("factors", []),
         }
-        
+
         # Use Gemini for intelligent priority calculation
         priority_result = calculate_priority_score(context)
-        
+
         # priority consistency metric (rolling std dev over customer history)
         try:
             cid = context.get("customer_id")
             if cid:
                 hist = SESSION.get_customer(cid)["priorities"]
                 if hist:
-                    mean = sum(hist)/len(hist)
-                    var = sum((p-mean)**2 for p in hist)/len(hist)
-                    std = var ** 0.5
+                    mean = sum(hist) / len(hist)
+                    var = sum((p - mean) ** 2 for p in hist) / len(hist)
+                    std = var**0.5
                     gauge("priority_scoring_consistency_std", std, tags={"customer_id": cid})
         except Exception:
             pass
-            
-        return priority_result
 
+        return priority_result

@@ -5,13 +5,14 @@ from utils.openapi_tool import get_shipping_information
 import uuid, datetime
 import asyncio
 
+
 class ShippingAgent(BaseAgent):
     async def receive(self, message: AgentMessage):
         log_event("ShippingAgent", "Checking shipping status")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        
+
         order_id = payload.get("order_id")
-        
+
         # Simulate shipping check or use tool
         # In reality, get_shipping_information might be synchronous
         try:
@@ -25,20 +26,20 @@ class ShippingAgent(BaseAgent):
             status = "unknown"
             tracking_number = None
             estimated_delivery = None
-        
+
         response = AgentMessage(
             id=str(uuid.uuid4()),
             session_id=message.session_id,
             sender="shipping_agent",
-            receiver=message.sender, # Reply to sender
+            receiver=message.sender,  # Reply to sender
             type=MessageType.TASK_RESPONSE,
             timestamp=str(datetime.datetime.utcnow()),
             payload={
                 "order_id": order_id,
                 "status": status,
                 "tracking_number": tracking_number,
-                "estimated_delivery": estimated_delivery
-            }
+                "estimated_delivery": estimated_delivery,
+            },
         )
-        
+
         return await self.orchestrator.send_a2a(response)

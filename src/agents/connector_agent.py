@@ -4,11 +4,13 @@ from models.messages import AgentMessage, MessageType
 import uuid, datetime
 import asyncio
 
+
 class ConnectorAgent(BaseAgent):
     """
     Agent responsible for integrating with external systems (e.g., CRM, Ticketing).
     Mocks an OpenAPI client wrapper.
     """
+
     def __init__(self, agent_id, orchestrator):
         super().__init__(agent_id, orchestrator)
         # Mock database for tickets
@@ -17,11 +19,11 @@ class ConnectorAgent(BaseAgent):
     async def receive(self, message: AgentMessage):
         log_event("ConnectorAgent", f"Received request from {message.sender}")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        
+
         action = payload.get("action")
-        
+
         response_payload = {}
-        
+
         if action == "create_ticket":
             ticket = self._create_ticket(payload)
             response_payload = {"status": "success", "ticket": ticket}
@@ -42,7 +44,7 @@ class ConnectorAgent(BaseAgent):
                 response_payload = {"status": "error", "message": "Ticket not found"}
         else:
             response_payload = {"status": "error", "message": f"Unknown action: {action}"}
-            
+
         response = AgentMessage(
             id=str(uuid.uuid4()),
             session_id=message.session_id,
@@ -50,9 +52,9 @@ class ConnectorAgent(BaseAgent):
             receiver=message.sender,
             type=MessageType.TASK_RESPONSE,
             timestamp=str(datetime.datetime.utcnow()),
-            payload=response_payload
+            payload=response_payload,
         )
-        
+
         return await self.orchestrator.send_a2a(response)
 
     def _create_ticket(self, payload):
@@ -63,7 +65,7 @@ class ConnectorAgent(BaseAgent):
             "description": payload.get("description", ""),
             "priority": payload.get("priority", "medium"),
             "status": "open",
-            "created_at": str(datetime.datetime.utcnow())
+            "created_at": str(datetime.datetime.utcnow()),
         }
         self.tickets[ticket_id] = ticket
         log_event("ConnectorAgent", f"Created ticket {ticket_id}")

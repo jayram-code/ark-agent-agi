@@ -6,10 +6,12 @@ import asyncio
 import json
 import os
 
+
 class FeedbackAgent(BaseAgent):
     """
     Agent responsible for collecting and storing customer feedback (CSAT).
     """
+
     def __init__(self, agent_id, orchestrator, storage_path="evaluation/feedback.json"):
         super().__init__(agent_id, orchestrator)
         self.storage_path = storage_path
@@ -32,11 +34,11 @@ class FeedbackAgent(BaseAgent):
     async def receive(self, message: AgentMessage):
         log_event("FeedbackAgent", f"Received request from {message.sender}")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        
+
         action = payload.get("action")
-        
+
         response_payload = {}
-        
+
         if action == "send_survey":
             survey_id = self._send_survey(payload.get("customer_id"), payload.get("ticket_id"))
             response_payload = {"status": "sent", "survey_id": survey_id}
@@ -48,7 +50,7 @@ class FeedbackAgent(BaseAgent):
             response_payload = {"status": "success", "summary": summary}
         else:
             response_payload = {"status": "error", "message": f"Unknown action: {action}"}
-            
+
         response = AgentMessage(
             id=str(uuid.uuid4()),
             session_id=message.session_id,
@@ -56,14 +58,16 @@ class FeedbackAgent(BaseAgent):
             receiver=message.sender,
             type=MessageType.TASK_RESPONSE,
             timestamp=str(datetime.datetime.utcnow()),
-            payload=response_payload
+            payload=response_payload,
         )
-        
+
         return await self.orchestrator.send_a2a(response)
 
     def _send_survey(self, customer_id, ticket_id):
         survey_id = f"SURVEY-{uuid.uuid4().hex[:6]}"
-        log_event("FeedbackAgent", f"Sent CSAT survey {survey_id} to {customer_id} for ticket {ticket_id}")
+        log_event(
+            "FeedbackAgent", f"Sent CSAT survey {survey_id} to {customer_id} for ticket {ticket_id}"
+        )
         # In a real system, this would trigger an email/SMS via NotificationAgent
         return survey_id
 
@@ -71,21 +75,23 @@ class FeedbackAgent(BaseAgent):
         entry = {
             "id": str(uuid.uuid4()),
             "ticket_id": payload.get("ticket_id"),
-            "score": payload.get("score"), # 1-5
+            "score": payload.get("score"),  # 1-5
             "comment": payload.get("comment", ""),
-            "timestamp": str(datetime.datetime.utcnow())
+            "timestamp": str(datetime.datetime.utcnow()),
         }
         self.feedback_data.append(entry)
         self._save_feedback()
-        log_event("FeedbackAgent", f"Recorded feedback score {entry['score']} for ticket {entry['ticket_id']}")
+        log_event(
+            "FeedbackAgent",
+            f"Recorded feedback score {entry['score']} for ticket {entry['ticket_id']}",
+        )
 
     def _get_summary(self):
         if not self.feedback_data:
             return {"average_score": 0, "count": 0}
-        
-        total_score = sum(item["score"] for item in self.feedback_data if isinstance(item["score"], (int, float)))
+
+        total_score = sum(
+            item["score"] for item in self.feedback_data if isinstance(item["score"], (int, float))
+        )
         count = len(self.feedback_data)
-        return {
-            "average_score": round(total_score / count, 2) if count > 0 else 0,
-            "count": count
-        }
+        return {"average_score": round(total_score / count, 2) if count > 0 else 0, "count": count}

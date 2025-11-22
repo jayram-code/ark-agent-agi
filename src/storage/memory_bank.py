@@ -8,6 +8,7 @@ APIs:
 - recall_relevant(customer_id, query, k=3) -> list of {id, text, score}
 - get_recent(customer_id, limit=5)
 """
+
 import os, sqlite3, time, json, datetime
 from sentence_transformers import SentenceTransformer
 import numpy as np
@@ -20,17 +21,20 @@ EMBED_MODEL_NAME = "all-MiniLM-L6-v2"
 
 _MODEL = None
 
+
 def _ensure_model():
     global _MODEL
     if _MODEL is None:
         _MODEL = SentenceTransformer(EMBED_MODEL_NAME)
     return _MODEL
 
+
 def init(db_path=DB_PATH):
     os.makedirs("data", exist_ok=True)
     conn = sqlite3.connect(db_path)
     c = conn.cursor()
-    c.execute("""
+    c.execute(
+        """
     CREATE TABLE IF NOT EXISTS interactions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         customer_id TEXT,
@@ -38,7 +42,8 @@ def init(db_path=DB_PATH):
         kind TEXT,
         text TEXT
     )
-    """)
+    """
+    )
     conn.commit()
     conn.close()
     # ensure index files exist (may be empty)
@@ -51,13 +56,16 @@ def init(db_path=DB_PATH):
         index = faiss.IndexFlatL2(dim)
         faiss.write_index(index, EMBED_INDEX)
 
+
 def store_interaction(customer_id, kind, text):
     init()
     ts = time.time()
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute("INSERT INTO interactions (customer_id, ts, kind, text) VALUES (?,?,?,?)",
-              (customer_id, ts, kind, text))
+    c.execute(
+        "INSERT INTO interactions (customer_id, ts, kind, text) VALUES (?,?,?,?)",
+        (customer_id, ts, kind, text),
+    )
     rowid = c.lastrowid
     conn.commit()
     conn.close()
@@ -74,15 +82,19 @@ def store_interaction(customer_id, kind, text):
     faiss.write_index(index, EMBED_INDEX)
     return rowid
 
+
 def get_recent(customer_id, limit=5):
     init()
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute("SELECT id, ts, kind, text FROM interactions WHERE customer_id=? ORDER BY ts DESC LIMIT ?",
-              (customer_id, limit))
+    c.execute(
+        "SELECT id, ts, kind, text FROM interactions WHERE customer_id=? ORDER BY ts DESC LIMIT ?",
+        (customer_id, limit),
+    )
     rows = c.fetchall()
     conn.close()
     return [{"id": r[0], "ts": r[1], "kind": r[2], "text": r[3]} for r in rows]
+
 
 def recall_relevant(customer_id, query, k=3):
     init()
@@ -97,13 +109,16 @@ def recall_relevant(customer_id, query, k=3):
     with open(EMBED_STORE, "r", encoding="utf-8") as f:
         entries = [json.loads(l) for l in f if l.strip()]
     results = []
-    for dist,idx in zip(D[0], I[0]):
+    for dist, idx in zip(D[0], I[0]):
         if 0 <= idx < len(entries):
             e = entries[idx]
             # only return matches for same customer if customer_id provided
             if customer_id is None or e.get("customer_id") == customer_id:
-                results.append({"id": e.get("id"), "text": e.get("text"), "score": float(1.0/(1.0+dist))})
+                results.append(
+                    {"id": e.get("id"), "text": e.get("text"), "score": float(1.0 / (1.0 + dist))}
+                )
     return results
+
 
 def get_customer_profile(customer_id):
     """
@@ -111,19 +126,22 @@ def get_customer_profile(customer_id):
     Returns profile with interaction summary, sentiment trends, and key metrics.
     """
     init()
-    
+
     # Get all interactions for this customer
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute("""
+    c.execute(
+        """
         SELECT id, ts, kind, text 
         FROM interactions 
         WHERE customer_id = ? 
         ORDER BY ts DESC
-    """, (customer_id,))
+    """,
+        (customer_id,),
+    )
     rows = c.fetchall()
     conn.close()
-    
+
     if not rows:
         return {
             "customer_id": customer_id,
@@ -133,35 +151,56 @@ def get_customer_profile(customer_id):
             "interaction_types": {},
             "sentiment_summary": {"positive": 0, "negative": 0, "neutral": 0},
             "key_issues": [],
-            "profile_summary": "No interaction history found"
+            "profile_summary": "No interaction history found",
         }
-    
+
     # Analyze interaction patterns
     interaction_types = {}
     sentiment_counts = {"positive": 0, "negative": 0, "neutral": 0}
     key_issues = []
-    
+
     for row in rows:
         _, ts, kind, text = row
-        
+
         # Count interaction types
         interaction_types[kind] = interaction_types.get(kind, 0) + 1
-        
+
         # Simple sentiment analysis
         text_lower = text.lower()
-        negative_words = ["angry", "frustrated", "terrible", "worst", "awful", "horrible", "disappointed", "furious", "not working", "broken", "error"]
-        positive_words = ["happy", "satisfied", "great", "excellent", "good", "pleased", "thank", "appreciate"]
-        
+        negative_words = [
+            "angry",
+            "frustrated",
+            "terrible",
+            "worst",
+            "awful",
+            "horrible",
+            "disappointed",
+            "furious",
+            "not working",
+            "broken",
+            "error",
+        ]
+        positive_words = [
+            "happy",
+            "satisfied",
+            "great",
+            "excellent",
+            "good",
+            "pleased",
+            "thank",
+            "appreciate",
+        ]
+
         negative_count = sum(1 for word in negative_words if word in text_lower)
         positive_count = sum(1 for word in positive_words if word in text_lower)
-        
+
         if negative_count > positive_count:
             sentiment_counts["negative"] += 1
         elif positive_count > negative_count:
             sentiment_counts["positive"] += 1
         else:
             sentiment_counts["neutral"] += 1
-        
+
         # Extract key issues (simple keyword matching)
         if "refund" in text_lower:
             key_issues.append("refund_request")
@@ -171,19 +210,23 @@ def get_customer_profile(customer_id):
             key_issues.append("order_issue")
         if "technical" in text_lower or "not working" in text_lower:
             key_issues.append("technical_issue")
-    
+
     # Get unique key issues
     key_issues = list(set(key_issues))
-    
+
     # Calculate time metrics
     timestamps = [row[1] for row in rows]
-    first_interaction = datetime.datetime.fromtimestamp(min(timestamps)).isoformat() if timestamps else None
-    last_interaction = datetime.datetime.fromtimestamp(max(timestamps)).isoformat() if timestamps else None
-    
+    first_interaction = (
+        datetime.datetime.fromtimestamp(min(timestamps)).isoformat() if timestamps else None
+    )
+    last_interaction = (
+        datetime.datetime.fromtimestamp(max(timestamps)).isoformat() if timestamps else None
+    )
+
     # Generate profile summary
     total_interactions = len(rows)
     dominant_sentiment = max(sentiment_counts, key=sentiment_counts.get)
-    
+
     if dominant_sentiment == "negative":
         summary = f"Customer has had {total_interactions} interactions with predominantly negative sentiment. "
         if key_issues:
@@ -193,7 +236,7 @@ def get_customer_profile(customer_id):
         summary = f"Customer has had {total_interactions} interactions with positive sentiment. Generally satisfied customer."
     else:
         summary = f"Customer has had {total_interactions} interactions with neutral sentiment. Standard customer profile."
-    
+
     return {
         "customer_id": customer_id,
         "total_interactions": total_interactions,
@@ -203,5 +246,5 @@ def get_customer_profile(customer_id):
         "sentiment_summary": sentiment_counts,
         "key_issues": key_issues,
         "profile_summary": summary,
-        "recent_interactions": get_recent(customer_id, limit=5)  # Include recent interactions
+        "recent_interactions": get_recent(customer_id, limit=5),  # Include recent interactions
     }

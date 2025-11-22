@@ -5,6 +5,7 @@ from models.messages import AgentMessage, MessageType
 import uuid, datetime
 import asyncio
 
+
 class KnowledgeAgent(BaseAgent):
     def __init__(self, agent_id: str, orchestrator):
         super().__init__(agent_id, orchestrator)
@@ -14,9 +15,9 @@ class KnowledgeAgent(BaseAgent):
     async def receive(self, message: AgentMessage):
         log_event("KnowledgeAgent", "Searching knowledge base")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        
+
         query = payload.get("query") or payload.get("text")
-        
+
         if not query:
             results = []
             log_event("KnowledgeAgent", "No query provided")
@@ -28,19 +29,19 @@ class KnowledgeAgent(BaseAgent):
             except Exception as e:
                 log_event("KnowledgeAgent", f"Error searching KB: {e}")
                 results = []
-        
+
         response = AgentMessage(
             id=str(uuid.uuid4()),
             session_id=message.session_id,
             sender="knowledge_agent",
-            receiver=message.sender, # Reply to sender
+            receiver=message.sender,  # Reply to sender
             type=MessageType.TASK_RESPONSE,
             timestamp=str(datetime.datetime.utcnow()),
             payload={
                 "results": results,
                 "query": query,
-                "status": "success" if results else "no_results"
-            }
+                "status": "success" if results else "no_results",
+            },
         )
-        
+
         return await self.orchestrator.send_a2a(response)

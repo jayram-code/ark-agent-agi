@@ -6,20 +6,23 @@ import numpy as np, uuid, datetime
 import json
 
 MODEL = None
+
+
 def _ensure_model():
     global MODEL
     if MODEL is None:
         MODEL = SentenceTransformer("all-MiniLM-L6-v2")
     return MODEL
 
+
 class SupervisorAgent(BaseAgent):
     def score_reply_against_kb(self, reply_text, kb_passages):
         model = _ensure_model()
-        texts = [reply_text] + [p.get("text","") for p in kb_passages]
+        texts = [reply_text] + [p.get("text", "") for p in kb_passages]
         embs = model.encode(texts, convert_to_numpy=True)
         reply_emb = embs[0]
         kb_embs = embs[1:]
-        if len(kb_embs)==0:
+        if len(kb_embs) == 0:
             return 0.0
         kb_norm = np.linalg.norm(kb_embs, axis=1)
         reply_norm = np.linalg.norm(reply_emb)
@@ -29,7 +32,7 @@ class SupervisorAgent(BaseAgent):
     async def receive(self, message: AgentMessage):
         log_event("SupervisorAgent", "Auto-eval incoming payload")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        candidate_reply = payload.get("candidate_reply", "") or payload.get("text","")
+        candidate_reply = payload.get("candidate_reply", "") or payload.get("text", "")
         kb = payload.get("kb", [])  # list of passages
 
         # compute score
@@ -56,11 +59,14 @@ class SupervisorAgent(BaseAgent):
                         "kb": kb,
                         "strict": True,
                         "intent": payload.get("intent"),
-                        "customer_id": payload.get("customer_id")
-                    }
-                }
+                        "customer_id": payload.get("customer_id"),
+                    },
+                },
             )
-            log_event("SupervisorAgent", {"action":"invoke_retryable","payload_preview": str(retry_msg.payload)[:300]})
+            log_event(
+                "SupervisorAgent",
+                {"action": "invoke_retryable", "payload_preview": str(retry_msg.payload)[:300]},
+            )
             return await self.orchestrator.send_a2a(retry_msg)
         else:
             # OK — forward to ticket agent (keep same behavior)
@@ -76,8 +82,7 @@ class SupervisorAgent(BaseAgent):
                     "text": candidate_reply,
                     "sentiment_score": payload.get("sentiment_score", 0.0),
                     "kb": kb,
-                    "customer_id": payload.get("customer_id")
-                }
+                    "customer_id": payload.get("customer_id"),
+                },
             )
             return await self.orchestrator.send_a2a(route)
-

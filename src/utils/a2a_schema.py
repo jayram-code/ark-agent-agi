@@ -6,8 +6,9 @@ REQUIRED_FIELDS = [
     "receiver",
     "type",
     "timestamp",
-    "payload"
+    "payload",
 ]
+
 
 def validate_message(msg):
     for key in REQUIRED_FIELDS:

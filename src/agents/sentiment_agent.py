@@ -5,13 +5,14 @@ from utils.metrics import increment
 from models.messages import AgentMessage, MessageType
 import uuid, datetime
 
+
 class SentimentAgent(BaseAgent):
     async def receive(self, message: AgentMessage):
         log_event("SentimentAgent", "Scoring sentiment with Gemini AI")
 
         # Handle Pydantic model or dict payload
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        
+
         # Perform Analysis
         response_payload = await self._analyze(payload, message.session_id)
 
@@ -28,7 +29,7 @@ class SentimentAgent(BaseAgent):
                 receiver="priority_agent",  # Default next step
                 type=MessageType.TASK_REQUEST,
                 timestamp=str(datetime.datetime.utcnow()),
-                payload=response_payload
+                payload=response_payload,
             )
             return await self.orchestrator.send_a2a(response)
 
@@ -36,12 +37,12 @@ class SentimentAgent(BaseAgent):
         # Handle different payload types from different agents
         if "text" in payload:
             text = payload["text"]
-            
+
             # Use Gemini for advanced sentiment analysis
             # Assuming analyze_sentiment is synchronous, we might want to wrap it in run_in_executor if it's slow
             # But for now, we'll keep it simple or assume it's fast enough
             sentiment_result = analyze_sentiment(text)
-            
+
             response_payload = {
                 "intent": payload.get("intent", "unknown"),
                 "text": text,
@@ -51,22 +52,31 @@ class SentimentAgent(BaseAgent):
                 "factors": sentiment_result["factors"],
                 "original_confidence": payload.get("intent_confidence", 0.0),
                 "original_urgency": payload.get("urgency", "unknown"),
-                "escalation": (sentiment_result["sentiment_score"] < -0.6) or (sentiment_result["intensity"] > 0.75) or (sentiment_result["emotion"].lower() in {"angry","frustrated","furious","stressed"})
+                "escalation": (sentiment_result["sentiment_score"] < -0.6)
+                or (sentiment_result["intensity"] > 0.75)
+                or (
+                    sentiment_result["emotion"].lower()
+                    in {"angry", "frustrated", "furious", "stressed"}
+                ),
             }
             try:
                 emo = response_payload["emotion"].lower()
                 score = response_payload["sentiment_score"]
-                negative_emotions = {"frustrated","angry","stressed","furious","sad"}
+                negative_emotions = {"frustrated", "angry", "stressed", "furious", "sad"}
                 is_negative_emotion = any(e in emo for e in negative_emotions)
-                accurate = (is_negative_emotion and score < 0) or ((not is_negative_emotion) and score >= 0)
-                increment("sentiment_accuracy", 1 if accurate else 0, tags={"session_id": session_id})
+                accurate = (is_negative_emotion and score < 0) or (
+                    (not is_negative_emotion) and score >= 0
+                )
+                increment(
+                    "sentiment_accuracy", 1 if accurate else 0, tags={"session_id": session_id}
+                )
             except Exception:
                 pass
-            
+
         elif "stress" in payload or "call_label" in payload:
             # Handle emotion agent output - combine with text sentiment if available
             stress = payload.get("stress", 0.0)
-            
+
             # If we have text from emotion agent, analyze it too
             if "text" in payload:
                 sentiment_result = analyze_sentiment(payload["text"])
@@ -78,9 +88,9 @@ class SentimentAgent(BaseAgent):
                     sentiment_score = -0.8  # High stress = negative sentiment
                     emotion = "stressed"
                 else:
-                    sentiment_score = 0.2   # Low stress = neutral/positive sentiment
+                    sentiment_score = 0.2  # Low stress = neutral/positive sentiment
                     emotion = "calm"
-            
+
             response_payload = {
                 "intent": "emotion_analysis",
                 "stress": stress,
@@ -89,15 +99,21 @@ class SentimentAgent(BaseAgent):
                 "sentiment_score": sentiment_score,
                 "emotion": emotion,
                 "intensity": abs(sentiment_score),
-                "escalation": (sentiment_score < -0.6) or (abs(sentiment_score) > 0.75) or (str(emotion).lower() in {"angry","frustrated","furious","stressed"})
+                "escalation": (sentiment_score < -0.6)
+                or (abs(sentiment_score) > 0.75)
+                or (str(emotion).lower() in {"angry", "frustrated", "furious", "stressed"}),
             }
             try:
                 emo = response_payload["emotion"].lower()
                 score = response_payload["sentiment_score"]
-                negative_emotions = {"frustrated","angry","stressed","furious","sad"}
+                negative_emotions = {"frustrated", "angry", "stressed", "furious", "sad"}
                 is_negative_emotion = any(e in emo for e in negative_emotions)
-                accurate = (is_negative_emotion and score < 0) or ((not is_negative_emotion) and score >= 0)
-                increment("sentiment_accuracy", 1 if accurate else 0, tags={"session_id": session_id})
+                accurate = (is_negative_emotion and score < 0) or (
+                    (not is_negative_emotion) and score >= 0
+                )
+                increment(
+                    "sentiment_accuracy", 1 if accurate else 0, tags={"session_id": session_id}
+                )
             except Exception:
                 pass
         else:
@@ -107,7 +123,7 @@ class SentimentAgent(BaseAgent):
                 "sentiment_score": 0.0,
                 "emotion": "neutral",
                 "intensity": 0.0,
-                "factors": ["no_text_available"]
+                "factors": ["no_text_available"],
             }
-        
+
         return response_payload

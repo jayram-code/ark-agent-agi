@@ -7,11 +7,13 @@ MODEL = None
 INDEX_FILE = "data/faiss.index"
 DOC_STORE = "data/kb_chunks.jsonl"
 
+
 def _ensure_model():
     global MODEL
     if MODEL is None:
         MODEL = SentenceTransformer("all-MiniLM-L6-v2")
     return MODEL
+
 
 def build_index():
     os.makedirs("data/kb_docs", exist_ok=True)
@@ -19,7 +21,7 @@ def build_index():
     chunks = []
     for fn in sorted(os.listdir("data/kb_docs")):
         path = os.path.join("data/kb_docs", fn)
-        if not os.path.isfile(path): 
+        if not os.path.isfile(path):
             continue
         with open(path, "r", encoding="utf-8") as f:
             text = f.read().strip()
@@ -28,7 +30,7 @@ def build_index():
         parts = [p.strip() for p in text.split("\n\n") if p.strip()]
         if not parts:
             parts = [text]
-        for i,p in enumerate(parts):
+        for i, p in enumerate(parts):
             chunks.append({"id": f"{fn}#{i}", "text": p, "source": fn})
     # save chunks
     with open(DOC_STORE, "w", encoding="utf-8") as out:
@@ -46,9 +48,12 @@ def build_index():
     faiss.write_index(index, INDEX_FILE)
     return len(chunks)
 
+
 def retrieve(query, k=3):
     if not os.path.exists(INDEX_FILE) or not os.path.exists(DOC_STORE):
-        raise RuntimeError("Index not found — run build_index() after adding docs into data/kb_docs/")
+        raise RuntimeError(
+            "Index not found — run build_index() after adding docs into data/kb_docs/"
+        )
     model = _ensure_model()
     emb = model.encode([query], convert_to_numpy=True).astype("float32")
     index = faiss.read_index(INDEX_FILE)

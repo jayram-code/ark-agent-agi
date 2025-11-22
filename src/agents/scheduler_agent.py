@@ -6,10 +6,12 @@ import asyncio
 import json
 import os
 
+
 class SchedulerAgent(BaseAgent):
     """
     Agent responsible for scheduling and managing long-running tasks.
     """
+
     def __init__(self, agent_id, orchestrator, storage_path="data/scheduler_tasks.json"):
         super().__init__(agent_id, orchestrator)
         self.storage_path = storage_path
@@ -32,11 +34,11 @@ class SchedulerAgent(BaseAgent):
     async def receive(self, message: AgentMessage):
         log_event("SchedulerAgent", f"Received request from {message.sender}")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        
+
         action = payload.get("action")
-        
+
         response_payload = {}
-        
+
         if action == "schedule_task":
             task_id = self._schedule_task(payload)
             response_payload = {"status": "scheduled", "task_id": task_id}
@@ -45,7 +47,7 @@ class SchedulerAgent(BaseAgent):
             response_payload = {"status": "checked", "due_tasks": due_tasks}
         else:
             response_payload = {"status": "error", "message": f"Unknown action: {action}"}
-            
+
         response = AgentMessage(
             id=str(uuid.uuid4()),
             session_id=message.session_id,
@@ -53,9 +55,9 @@ class SchedulerAgent(BaseAgent):
             receiver=message.sender,
             type=MessageType.TASK_RESPONSE,
             timestamp=str(datetime.datetime.utcnow()),
-            payload=response_payload
+            payload=response_payload,
         )
-        
+
         return await self.orchestrator.send_a2a(response)
 
     def _schedule_task(self, payload):
@@ -64,9 +66,9 @@ class SchedulerAgent(BaseAgent):
             "id": task_id,
             "type": payload.get("task_type", "generic"),
             "payload": payload.get("task_payload", {}),
-            "due_time": payload.get("due_time"), # ISO format string
+            "due_time": payload.get("due_time"),  # ISO format string
             "status": "pending",
-            "created_at": str(datetime.datetime.utcnow())
+            "created_at": str(datetime.datetime.utcnow()),
         }
         self.tasks.append(task)
         self._save_tasks()
@@ -81,14 +83,14 @@ class SchedulerAgent(BaseAgent):
                 try:
                     due_time = datetime.datetime.fromisoformat(task["due_time"])
                     if now >= due_time:
-                        task["status"] = "executed" # Mark as executed for now
+                        task["status"] = "executed"  # Mark as executed for now
                         task["executed_at"] = str(now)
                         due.append(task)
                 except ValueError:
                     log_event("SchedulerAgent", f"Invalid date format for task {task['id']}")
-        
+
         if due:
             self._save_tasks()
             log_event("SchedulerAgent", f"Found {len(due)} due tasks")
-            
+
         return due

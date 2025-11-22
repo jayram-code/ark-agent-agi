@@ -4,6 +4,7 @@ Each validator accepts (result_payload: dict) and returns True (accept) or False
 Includes specific validators for PlannerAgent output validation.
 """
 
+
 def non_empty_plan(result_payload):
     """Accept if payload contains 'plan' with at least one step."""
     p = result_payload.get("payload", {}) if isinstance(result_payload, dict) else {}
@@ -12,8 +13,10 @@ def non_empty_plan(result_payload):
         return True
     return False
 
+
 def supervisor_score_above(threshold):
     """Return a validator function that checks supervisor_score >= threshold."""
+
     def validator(result_payload):
         p = result_payload.get("payload", {}) if isinstance(result_payload, dict) else {}
         score = p.get("supervisor_score")
@@ -21,13 +24,16 @@ def supervisor_score_above(threshold):
             return float(score) >= float(threshold)
         except Exception:
             return False
+
     return validator
+
 
 def contains_action_items(result_payload):
     """Accept if payload contains 'action_items' with at least one item."""
     p = result_payload.get("payload", {}) if isinstance(result_payload, dict) else {}
     actions = p.get("action_items") or p.get("payload", {}).get("action_items")
     return bool(actions)
+
 
 def valid_planner_output(result_payload):
     """
@@ -36,43 +42,43 @@ def valid_planner_output(result_payload):
     """
     if not isinstance(result_payload, dict):
         return False
-    
+
     payload = result_payload.get("payload", {})
     if not isinstance(payload, dict):
         return False
-    
+
     # Check for required top-level keys
     required_keys = ["plan", "confidence"]
     for key in required_keys:
         if key not in payload:
             return False
-    
+
     # Validate plan structure
     plan = payload.get("plan")
     if not isinstance(plan, list) or len(plan) == 0:
         return False
-    
+
     # Validate each plan step
     for step in plan:
         if not isinstance(step, dict):
             return False
-        
+
         # Required step fields
         step_required = ["step_id", "action", "detail"]
         for field in step_required:
             if field not in step:
                 return False
-        
+
         # Validate step field types and content
         if not isinstance(step["step_id"], int) or step["step_id"] <= 0:
             return False
-        
+
         if not isinstance(step["action"], str) or len(step["action"].strip()) == 0:
             return False
-        
+
         if not isinstance(step["detail"], str) or len(step["detail"].strip()) == 0:
             return False
-    
+
     # Validate confidence score
     confidence = payload.get("confidence")
     try:
@@ -81,8 +87,9 @@ def valid_planner_output(result_payload):
             return False
     except (ValueError, TypeError):
         return False
-    
+
     return True
+
 
 def high_confidence_plan(result_payload):
     """
@@ -90,10 +97,11 @@ def high_confidence_plan(result_payload):
     """
     if not valid_planner_output(result_payload):
         return False
-    
+
     payload = result_payload.get("payload", {})
     confidence = float(payload.get("confidence", 0))
     return confidence >= 0.7
+
 
 def strict_mode_validator(result_payload):
     """
@@ -101,25 +109,26 @@ def strict_mode_validator(result_payload):
     """
     if not valid_planner_output(result_payload):
         return False
-    
+
     payload = result_payload.get("payload", {})
     plan = payload.get("plan", [])
     confidence = float(payload.get("confidence", 0))
-    
+
     # Require higher confidence in strict mode
     if confidence < 0.8:
         return False
-    
+
     # Require ETA in each step for strict mode
     for step in plan:
         if "eta" not in step or not isinstance(step["eta"], str) or len(step["eta"].strip()) == 0:
             return False
-    
+
     # Require minimum number of steps for comprehensive planning
     if len(plan) < 3:
         return False
-    
+
     return True
+
 
 def non_empty_malformed_safe(result_payload):
     """
@@ -128,15 +137,15 @@ def non_empty_malformed_safe(result_payload):
     """
     if not isinstance(result_payload, dict):
         return False
-    
+
     # Check if result is empty or contains obvious error indicators
     if result_payload.get("status") == "error":
         return False
-    
+
     payload = result_payload.get("payload", {})
     if not payload:
         return False
-    
+
     # Check for empty strings, None values, or malformed data
     def check_malformed(obj):
         if isinstance(obj, dict):
@@ -149,5 +158,5 @@ def non_empty_malformed_safe(result_payload):
             return False
         else:
             return True
-    
+
     return check_malformed(payload)

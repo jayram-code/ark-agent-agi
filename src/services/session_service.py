@@ -1,29 +1,36 @@
 import time
 
+
 class InMemorySessionService:
     def __init__(self):
         self.sessions = {}
         self.by_customer = {}
 
     def _get_s(self, session_id):
-        return self.sessions.setdefault(session_id, {
-            "messages": [],
-            "tickets": [],
-            "sentiments": [],
-            "emotions": [],
-            "priorities": [],
-            "kv": {}
-        })
+        return self.sessions.setdefault(
+            session_id,
+            {
+                "messages": [],
+                "tickets": [],
+                "sentiments": [],
+                "emotions": [],
+                "priorities": [],
+                "kv": {},
+            },
+        )
 
     def _get_c(self, customer_id):
-        return self.by_customer.setdefault(customer_id, {
-            "messages": [],
-            "tickets": [],
-            "sentiments": [],
-            "emotions": [],
-            "priorities": [],
-            "kv": {}
-        })
+        return self.by_customer.setdefault(
+            customer_id,
+            {
+                "messages": [],
+                "tickets": [],
+                "sentiments": [],
+                "emotions": [],
+                "priorities": [],
+                "kv": {},
+            },
+        )
 
     def update_from_message(self, message, output=None, latency_ms=None):
         session_id = message.get("session_id")
@@ -100,6 +107,7 @@ class InMemorySessionService:
 
     def get_customer(self, customer_id):
         return self._get_c(customer_id)
+
 
 # singleton
 SESSION = InMemorySessionService()

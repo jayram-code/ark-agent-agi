@@ -4,33 +4,35 @@ from models.messages import AgentMessage, MessageType
 import uuid, datetime
 import asyncio
 
+
 class HumanEscalationAgent(BaseAgent):
     """
     Agent responsible for handling requests that require human intervention.
     Creates a 'ticket' for human review and returns a pending status.
     """
+
     async def receive(self, message: AgentMessage):
         log_event("HumanEscalationAgent", f"Received escalation request from {message.sender}")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        
+
         reason = payload.get("reason", "Unknown reason")
         context = payload.get("context", {})
         customer_id = payload.get("customer_id", "Unknown")
         severity = payload.get("severity", "medium")
-        
+
         # Create a unique ticket ID for this escalation
         ticket_id = f"HIL-{uuid.uuid4().hex[:8].upper()}"
-        
+
         # Log the escalation (mocking the creation of a task in a dashboard)
         self._create_human_task(ticket_id, customer_id, reason, severity, context)
-        
+
         response_payload = {
             "status": "escalated_to_human",
             "ticket_id": ticket_id,
             "estimated_wait_time": "24h",
-            "message": "Your request has been forwarded to a human specialist."
+            "message": "Your request has been forwarded to a human specialist.",
         }
-        
+
         response = AgentMessage(
             id=str(uuid.uuid4()),
             session_id=message.session_id,
@@ -38,9 +40,9 @@ class HumanEscalationAgent(BaseAgent):
             receiver=message.sender,
             type=MessageType.TASK_RESPONSE,
             timestamp=str(datetime.datetime.utcnow()),
-            payload=response_payload
+            payload=response_payload,
         )
-        
+
         return await self.orchestrator.send_a2a(response)
 
     def _create_human_task(self, ticket_id, customer_id, reason, severity, context):

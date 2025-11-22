@@ -5,34 +5,36 @@ import uuid, datetime
 import asyncio
 import random
 
+
 class TrainingAgent(BaseAgent):
     """
     Agent responsible for automating the evaluation and retraining loop.
     Mocks the process of running test sets and triggering model updates.
     """
+
     async def receive(self, message: AgentMessage):
         log_event("TrainingAgent", f"Received request from {message.sender}")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
-        
+
         action = payload.get("action")
-        
+
         response_payload = {}
-        
+
         if action == "run_evaluation":
             results = self._run_evaluation(payload.get("dataset", "default"))
             response_payload = {"status": "completed", "results": results}
-            
+
             # Auto-trigger retrain if score is low
             if results["accuracy"] < payload.get("threshold", 0.8):
                 retrain_job = self._trigger_retrain(results)
                 response_payload["retrain_job"] = retrain_job
-                
+
         elif action == "trigger_retrain":
             job_id = self._trigger_retrain(payload.get("reason"))
             response_payload = {"status": "started", "job_id": job_id}
         else:
             response_payload = {"status": "error", "message": f"Unknown action: {action}"}
-            
+
         response = AgentMessage(
             id=str(uuid.uuid4()),
             session_id=message.session_id,
@@ -40,9 +42,9 @@ class TrainingAgent(BaseAgent):
             receiver=message.sender,
             type=MessageType.TASK_RESPONSE,
             timestamp=str(datetime.datetime.utcnow()),
-            payload=response_payload
+            payload=response_payload,
         )
-        
+
         return await self.orchestrator.send_a2a(response)
 
     def _run_evaluation(self, dataset):
@@ -53,7 +55,7 @@ class TrainingAgent(BaseAgent):
             "dataset": dataset,
             "accuracy": round(accuracy, 2),
             "latency_ms": random.randint(100, 500),
-            "timestamp": str(datetime.datetime.utcnow())
+            "timestamp": str(datetime.datetime.utcnow()),
         }
 
     def _trigger_retrain(self, context):
