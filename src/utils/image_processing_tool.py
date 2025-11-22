@@ -73,7 +73,13 @@ class ImageProcessingTool:
             return {"success": False, "error": str(e)}
 
     def crop_image(
-        self, image_path: str, left: int, top: int, right: int, bottom: int, output_name: Optional[str] = None
+        self,
+        image_path: str,
+        left: int,
+        top: int,
+        right: int,
+        bottom: int,
+        output_name: Optional[str] = None,
     ) -> Dict[str, Any]:
         """Crop an image"""
         try:

@@ -31,7 +31,9 @@ class PDFGeneratorTool:
             {"event": "initialized", "fpdf_available": FPDF_AVAILABLE, "output_dir": output_dir},
         )
 
-    def create_pdf(self, title: str, content: str, filename: Optional[str] = None) -> Dict[str, Any]:
+    def create_pdf(
+        self, title: str, content: str, filename: Optional[str] = None
+    ) -> Dict[str, Any]:
         """
         Create a simple PDF document
 
