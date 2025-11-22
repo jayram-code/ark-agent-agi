@@ -52,19 +52,24 @@ class TestCodeExecutionTool(unittest.TestCase):
     """Test Code Execution Tool"""
 
     def test_simple_execution(self):
-        code = "result = 2 + 2\\nprint(result)"
+        code = "result = 2 + 2\nprint(result)"
         result = code_executor.execute(code, allow_imports=False)
+        if not result["success"]:
+            print(f"ERROR: {result.get('error', 'Unknown')}")
+            print(f"ERROR TYPE: {result.get('error_type', 'Unknown')}")
+            if 'traceback' in result:
+                print(f"TRACEBACK: {result['traceback']}")
         self.assertTrue(result["success"])
         self.assertIn("4", result["stdout"])
 
     def test_execution_with_variables(self):
-        code = "x = 10\\ny = 20\\nresult = x + y\\nprint(result)"
+        code = "x = 10\ny = 20\nresult = x + y\nprint(result)"
         result = code_executor.execute(code, allow_imports=False)
         self.assertTrue(result["success"])
         self.assertIn("30", result["stdout"])
 
     def test_execution_with_loops(self):
-        code = "total = 0\\nfor i in range(5):\\n    total += i\\nprint(total)"
+        code = "total = 0\nfor i in range(5):\n    total += i\nprint(total)"
         result = code_executor.execute(code, allow_imports=False)
         self.assertTrue(result["success"])
         self.assertIn("10", result["stdout"])
@@ -76,7 +81,7 @@ class TestCodeExecutionTool(unittest.TestCase):
         self.assertEqual(result["error_type"], "SyntaxError")
 
     def test_execution_with_imports_allowed(self):
-        code = "import math\\nresult = math.sqrt(16)\\nprint(result)"
+        code = "import math\nresult = math.sqrt(16)\nprint(result)"
         result = code_executor.execute(code, allow_imports=True)
         self.assertTrue(result["success"])
         self.assertIn("4.0", result["stdout"])
