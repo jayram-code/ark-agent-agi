@@ -119,7 +119,7 @@ class ImageProcessingTool:
 
             # Handle RGBA for JPEG
             if target_format.upper() == "JPEG" and img.mode == "RGBA":
-                img = img.convert("RGB")
+                img = img.convert("RGB")  # type: ignore[assignment]
 
             img.save(output_path, format=target_format.upper())
 

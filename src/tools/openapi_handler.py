@@ -36,7 +36,7 @@ class OpenAPIHandler:
 
     async def execute_tool(self, tool_name: str, **kwargs) -> Dict[str, Any]:
         if tool_name in self.tools:
-            return await self.tools[tool_name](**kwargs)
+            return await self.tools[tool_name](**kwargs)  # type: ignore[no-any-return]
         raise ValueError(f"Tool {tool_name} not found")
 
 

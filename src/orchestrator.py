@@ -99,7 +99,7 @@ class Orchestrator:
 
     def pause_agent(self, agent_name: str) -> Dict[str, Any]:
         """Pause an agent - messages will be queued"""
-        return self.controller.pause_agent(agent_name)
+        return self.controller.pause_agent(agent_name)  # type: ignore[no-any-return]
 
     async def resume_agent(self, agent_name: str) -> Dict[str, Any]:
         """Resume a paused agent and deliver queued messages"""
@@ -120,12 +120,12 @@ class Orchestrator:
                             f"Error delivering queued message: {str(e)}",
                         )
 
-        return result
+        return result  # type: ignore[no-any-return]
 
     def get_agent_status(self, agent_name: str) -> Dict[str, Any]:
         """Get the status of an agent"""
-        return self.controller.get_agent_status(agent_name)
+        return self.controller.get_agent_status(agent_name)  # type: ignore[no-any-return]
 
     def get_all_agent_statuses(self) -> Dict[str, Dict[str, Any]]:
         """Get status of all tracked agents"""
-        return self.controller.get_all_statuses()
+        return self.controller.get_all_statuses()  # type: ignore[no-any-return]
