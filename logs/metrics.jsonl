@@ -544,3 +544,53 @@
 {"ts": 1763645304.271382, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
 {"ts": 1763645304.283848, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 10.03265380859375, "tags": {"category": "general"}}
 {"ts": 1763645304.2842038, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "general"}}
+{"ts": 1763814501.3229208, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 23.65279197692871, "tags": {"category": "billing"}}
+{"ts": 1763814501.323746, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763814515.6854894, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 8.068323135375977, "tags": {"category": "billing"}}
+{"ts": 1763814515.6858869, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763814651.6036756, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 11.856555938720703, "tags": {"category": "billing"}}
+{"ts": 1763814651.6043205, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763814811.8029723, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.897201538085938, "tags": {"category": "billing"}}
+{"ts": 1763814811.8042705, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763814934.4865448, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 21.42810821533203, "tags": {"category": "billing"}}
+{"ts": 1763814934.4873116, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763814950.8723187, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 32.16433525085449, "tags": {"category": "billing"}}
+{"ts": 1763814950.8740363, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815071.6468127, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 20.323753356933594, "tags": {"category": "billing"}}
+{"ts": 1763815071.647534, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815087.3444383, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 33.21433067321777, "tags": {"category": "billing"}}
+{"ts": 1763815087.3452919, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815246.730734, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 31.174421310424805, "tags": {"category": "billing"}}
+{"ts": 1763815246.7311964, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815262.7010462, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 9.267091751098633, "tags": {"category": "billing"}}
+{"ts": 1763815262.7014942, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815290.1424801, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.989946365356445, "tags": {"category": "billing"}}
+{"ts": 1763815290.1444209, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815305.0509615, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.59393310546875, "tags": {"category": "billing"}}
+{"ts": 1763815305.056483, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815390.0311959, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 10.619401931762695, "tags": {"category": "billing"}}
+{"ts": 1763815390.031724, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815405.365579, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 25.990724563598633, "tags": {"category": "billing"}}
+{"ts": 1763815405.3659565, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815436.5144486, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 10.815858840942383, "tags": {"category": "billing"}}
+{"ts": 1763815436.514973, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815451.724698, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 20.607709884643555, "tags": {"category": "billing"}}
+{"ts": 1763815451.725472, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815494.104497, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 9.789466857910156, "tags": {"category": "billing"}}
+{"ts": 1763815494.1050599, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815628.585131, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 8.524894714355469, "tags": {"category": "billing"}}
+{"ts": 1763815628.585677, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763815643.6783588, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 5.08570671081543, "tags": {"category": "billing"}}
+{"ts": 1763815643.6786788, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763816160.7650614, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 16.458749771118164, "tags": {"category": "billing"}}
+{"ts": 1763816160.7661521, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763816177.1466868, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 10.102033615112305, "tags": {"category": "billing"}}
+{"ts": 1763816177.1470206, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763816668.5512965, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 47.38306999206543, "tags": {"category": "billing"}}
+{"ts": 1763816668.553689, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763816684.099652, "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 22.89295196533203, "tags": {"category": "billing"}}
+{"ts": 1763816684.099995, "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}}
+{"ts": 1763816734.22761, "iso_ts": "2025-11-22T13:05:34Z", "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 12.244939804077148, "tags": {"category": "billing"}, "event_id": "a4f90d21-0e6a-41bc-9d8b-2843f86846c6"}
+{"ts": 1763816734.228148, "iso_ts": "2025-11-22T13:05:34Z", "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}, "event_id": "11946da6-8b87-4d87-87d3-9a23f20df356"}
+{"ts": 1763816750.703029, "iso_ts": "2025-11-22T13:05:50Z", "metric": "ticket_generation_time_ms", "type": "latency_ms", "value": 12.594223022460938, "tags": {"category": "billing"}, "event_id": "b0e8067a-ce7b-484f-a1ca-58d80c79e2fa"}
+{"ts": 1763816750.7033048, "iso_ts": "2025-11-22T13:05:50Z", "metric": "tickets_created", "type": "counter", "value": 1, "tags": {"category": "billing"}, "event_id": "b7a31623-a0cf-43e2-bc6e-c009419aadd6"}

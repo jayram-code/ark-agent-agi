@@ -3,6 +3,7 @@ from typing import Dict, Any, Union
 from agents.base_agent import BaseAgent
 from models.messages import AgentMessage, MessageType
 from utils.tracing import tracer
+from utils.agent_controller import agent_controller
 from config import config
 import uuid
 import datetime
@@ -10,12 +11,29 @@ import datetime
 class Orchestrator:
     def __init__(self):
         self.agents: Dict[str, BaseAgent] = {}
+        self.controller = agent_controller
 
     def register_agent(self, name: str, agent: BaseAgent):
         self.agents[name] = agent
 
     async def route(self, message: AgentMessage) -> Union[Dict[str, Any], AgentMessage]:
         if message.receiver in self.agents:
+            # Check if agent is paused
+            if self.controller.is_agent_paused(message.receiver):
+                # Queue the message instead of delivering
+                self.controller.queue_message(message.receiver, message)
+                
+                if config.enable_tracing:
+                    tracer.log(message.trace_id, "queued", message.sender, message.receiver, 
+                              {"reason": "agent_paused"})
+                
+                return {
+                    "status": "queued",
+                    "message": f"Agent {message.receiver} is paused. Message queued.",
+                    "agent": message.receiver,
+                    "queue_size": len(self.controller.message_queues.get(message.receiver, []))
+                }
+            
             # Log the routing event
             if config.enable_tracing:
                 tracer.log(message.trace_id, "route", message.sender, message.receiver, message.payload)
@@ -60,3 +78,31 @@ class Orchestrator:
             timestamp=str(datetime.datetime.utcnow()),
             payload=payload
         )
+    
+    def pause_agent(self, agent_name: str) -> Dict[str, Any]:
+        """Pause an agent - messages will be queued"""
+        return self.controller.pause_agent(agent_name)
+    
+    async def resume_agent(self, agent_name: str) -> Dict[str, Any]:
+        """Resume a paused agent and deliver queued messages"""
+        result = self.controller.resume_agent(agent_name)
+        
+        # Deliver queued messages
+        if result["success"] and result["queued_messages"]:
+            for queued_msg in result["queued_messages"]:
+                try:
+                    await self.route(queued_msg)
+                except Exception as e:
+                    if config.enable_tracing:
+                        tracer.log(queued_msg.trace_id, "error", "orchestrator", queued_msg.receiver, 
+                                 f"Error delivering queued message: {str(e)}")
+        
+        return result
+    
+    def get_agent_status(self, agent_name: str) -> Dict[str, Any]:
+        """Get the status of an agent"""
+        return self.controller.get_agent_status(agent_name)
+    
+    def get_all_agent_statuses(self) -> Dict[str, Dict[str, Any]]:
+        """Get status of all tracked agents"""
+        return self.controller.get_all_statuses()

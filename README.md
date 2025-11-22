@@ -11,8 +11,12 @@ This system leverages a network of specialized AI agents to automate complex cus
 *   **Type-Safe Communication**: Uses **Pydantic** models (`AgentMessage`) for robust and validated inter-agent messaging.
 *   **Intelligent Routing**: Dynamic message routing based on intent, sentiment, and priority scores.
 *   **Hybrid Memory Bank**: Persistent customer context using SQLite (structured) and FAISS (semantic vector search).
-*   **Gemini AI Integration**: Powered by Google's Gemini 1.5 Flash for advanced natural language understanding and planning.
+*   **Gemini AI Integration**: Powered by **Google's Gemini 1.5 Flash** for advanced natural language understanding, planning, and sentiment analysis with fallback mechanisms.
 *   **Resilient Operations**: Built-in retry mechanisms with exponential backoff and validation frameworks.
+*   **Business Analytics**: Real-time tracking of KPIs, agent performance, and customer satisfaction scores via `AnalyticsAgent`.
+*   **Compliance & Privacy**: Automated PII redaction and compliance checks.
+*   **Built-in Tools**: 11 production-ready tools including Google Search, Code Execution, Weather API, Calculator, Database Query, Email/SMTP, File Transfer, Translation, Image Processing, PDF Generation, and Webhooks.
+*   **Agent Lifecycle Management**: Full pause/resume agent control with message queueing and automatic delivery on resume.
 
 ##  System Architecture
 
@@ -36,6 +40,14 @@ The system is built on the **A2A Protocol**, where agents communicate via struct
 8.  **SupervisorAgent**: Validates plans and oversees complex workflows.
 9.  **EmailAgent**: Ingests and categorizes incoming emails.
 10. **MemoryAgent**: Manages customer history and context retrieval.
+11. **ConnectorAgent**: Integrates with external CRM/Ticketing systems (OpenAPI).
+12. **SchedulerAgent**: Manages long-running tasks and reminders.
+13. **TrainingAgent**: Automates evaluation and self-improvement loops.
+14. **ComplianceAgent**: Ensures data privacy and PII redaction.
+15. **FeedbackAgent**: Collects and analyzes customer feedback (CSAT).
+16. **AnalyticsAgent**: Tracks system performance and business metrics.
+17. **NotificationAgent**: Handles multi-channel notifications (Email, SMS, Slack).
+18. **HumanEscalationAgent**: Manages handoffs to human agents.
 
 ##  Data Models
 
@@ -85,6 +97,8 @@ This script demonstrates:
 2.  **Shipping Inquiry**: Tracking a package status.
 3.  **Technical Support**: Escalating a login issue to a supervisor.
 4.  **Auto-Categorization**: Tagging incoming emails based on intent.
+5.  **Built-in Tools**: Google Search, Code Execution, Weather, Calculator, Database, Email, File Transfer, Translation, Image Processing, PDF, and Webhooks.
+6.  **Agent Control**: Pause/resume agents with message queueing.
 
 ##  Verification
 

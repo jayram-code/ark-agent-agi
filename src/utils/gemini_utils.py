@@ -1,6 +1,7 @@
 import google.generativeai as genai
 import os, json
-from typing import Dict, Any, Optional
+import typing_extensions as typing
+from typing import Dict, Any, Optional, List
 from src.utils.logging_utils import log_event
 from src.utils.metrics import record_latency
 import time
@@ -11,29 +12,54 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 # Initialize the model
 model = genai.GenerativeModel('gemini-1.5-flash')
 
+# Define Schemas for Structured Output
+class IntentSchema(typing.TypedDict):
+    intent: str
+    confidence: float
+    urgency: str
+    key_phrases: List[str]
+
+class SentimentSchema(typing.TypedDict):
+    sentiment_score: float
+    emotion: str
+    intensity: float
+    factors: List[str]
+
+class PrioritySchema(typing.TypedDict):
+    priority_score: float
+    escalation_recommended: bool
+    reasoning: str
+    time_estimate: str
+
+class TaskStep(typing.TypedDict):
+    step: int
+    action: str
+    expected_outcome: str
+
+class TaskPlanSchema(typing.TypedDict):
+    tasks: List[TaskStep]
+    estimated_time: float
+    resources_needed: List[str]
+    success_criteria: List[str]
+    potential_challenges: List[str]
+
 def classify_intent(text: str) -> Dict[str, Any]:
-    """Use Gemini to classify email intent with confidence scoring."""
+    """Use Gemini to classify email intent with native structured output."""
     try:
         prompt = f"""
-        Analyze this customer email and classify the intent. Return ONLY a JSON object with:
-        - "intent": One of: complaint, refund_request, shipping_inquiry, general_query, cancellation, technical_support
-        - "confidence": Float 0.0-1.0 indicating classification confidence
-        - "urgency": One of: low, medium, high
-        - "key_phrases": List of 3-5 key phrases that support this classification
-        
+        Analyze this customer email and classify the intent.
         Email: "{text}"
-        
-        Response format: {{"intent": "complaint", "confidence": 0.85, "urgency": "high", "key_phrases": ["not working", "very disappointed", "need immediate help"]}}
         """
         
         t0 = time.time()
-        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
-        text = response.text.strip()
-        if text.startswith("```json"):
-            text = text[7:]
-        if text.endswith("```"):
-            text = text[:-3]
-        result = json.loads(text)
+        response = model.generate_content(
+            prompt,
+            generation_config=genai.GenerationConfig(
+                response_mime_type="application/json",
+                response_schema=IntentSchema
+            )
+        )
+        result = json.loads(response.text)
         record_latency("model_inference_latency_ms", (time.time()-t0)*1000.0, tags={"model":"gemini","fn":"classify_intent"})
         
         log_event("GeminiIntentClassifier", {
@@ -46,162 +72,96 @@ def classify_intent(text: str) -> Dict[str, Any]:
         
     except Exception as e:
         log_event("GeminiIntentClassifier", f"Error: {e}")
-        # Fallback to rule-based classification
         return fallback_intent_classification(text)
 
 def analyze_sentiment(text: str) -> Dict[str, Any]:
-    """Use Gemini for advanced sentiment analysis with emotional context."""
+    """Use Gemini for advanced sentiment analysis with native structured output."""
     try:
         prompt = f"""
-        Analyze the sentiment of this customer text. Return ONLY a JSON object with:
-        - "sentiment_score": Float -1.0 to 1.0 (-1 very negative, 1 very positive)
-        - "emotion": Primary emotion (angry, frustrated, neutral, satisfied, happy)
-        - "intensity": Float 0.0-1.0 indicating emotional intensity
-        - "factors": List of factors contributing to this sentiment
-        
+        Analyze the sentiment of this customer text.
         Text: "{text}"
-        
-        Response format: {{"sentiment_score": -0.7, "emotion": "frustrated", "intensity": 0.8, "factors": ["delivery delay", "poor communication"]}}
         """
         
         t0 = time.time()
-        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
-        response_text = response.text.strip()
-        
-        # Clean up the response text
-        if response_text.startswith("```json"):
-            response_text = response_text[7:]
-        if response_text.endswith("```"):
-            response_text = response_text[:-3]
-        
-        result = json.loads(response_text.strip())
-        
-        # Ensure all required fields are present
-        result = {
-            "sentiment_score": result.get("sentiment_score", 0.0),
-            "emotion": result.get("emotion", "neutral"),
-            "intensity": result.get("intensity", 0.5),
-            "factors": result.get("factors", [])
-        }
+        response = model.generate_content(
+            prompt,
+            generation_config=genai.GenerationConfig(
+                response_mime_type="application/json",
+                response_schema=SentimentSchema
+            )
+        )
+        result = json.loads(response.text)
         
         log_event("GeminiSentimentAnalyzer", {
-            "sentiment_score": result["sentiment_score"],
-            "emotion": result["emotion"],
-            "intensity": result["intensity"]
+            "sentiment_score": result.get("sentiment_score"),
+            "emotion": result.get("emotion"),
+            "intensity": result.get("intensity")
         })
         
         return result
         
     except Exception as e:
         log_event("GeminiSentimentAnalyzer", f"Error: {e}")
-        # Fallback to rule-based sentiment analysis
         return fallback_sentiment_analysis(text)
 
 def calculate_priority_score(context: Dict[str, Any]) -> Dict[str, Any]:
-    """Use Gemini to calculate escalation priority based on multiple factors."""
+    """Use Gemini to calculate escalation priority with native structured output."""
     try:
         prompt = f"""
-        Calculate escalation priority for this customer service case. Return ONLY a JSON object with:
-        - "priority_score": Float 0.0-1.0 (higher = more urgent)
-        - "escalation_recommended": Boolean
-        - "reasoning": Brief explanation of the score
-        - "time_estimate": Estimated resolution time ("<1h", "1-4h", "4-24h", ">24h")
-        
+        Calculate escalation priority for this customer service case.
         Context: {context}
-        
-        Response format: {{"priority_score": 0.85, "escalation_recommended": true, "reasoning": "High stress + complaint + VIP customer", "time_estimate": "1-4h"}}
         """
         
         t0 = time.time()
-        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
-        response_text = response.text.strip()
-        
-        # Clean up the response text
-        if response_text.startswith("```json"):
-            response_text = response_text[7:]
-        if response_text.endswith("```"):
-            response_text = response_text[:-3]
-        
-        result = json.loads(response_text.strip())
-        
-        # Ensure all required fields are present
-        result = {
-            "priority_score": result.get("priority_score", 0.5),
-            "escalation_recommended": result.get("escalation_recommended", False),
-            "reasoning": result.get("reasoning", "Rule-based calculation"),
-            "time_estimate": result.get("time_estimate", "4-24h")
-        }
+        response = model.generate_content(
+            prompt,
+            generation_config=genai.GenerationConfig(
+                response_mime_type="application/json",
+                response_schema=PrioritySchema
+            )
+        )
+        result = json.loads(response.text)
         
         log_event("GeminiPriorityCalculator", {
-            "priority_score": result["priority_score"],
-            "escalation_recommended": result["escalation_recommended"]
+            "priority_score": result.get("priority_score"),
+            "escalation_recommended": result.get("escalation_recommended")
         })
         
         return result
         
     except Exception as e:
         log_event("GeminiPriorityCalculator", f"Error: {e}")
-        # Fallback to rule-based priority calculation
         return fallback_priority_calculation(context)
 
 def generate_task_plan(request: str, context: Dict[str, Any]) -> Dict[str, Any]:
-    """Use Gemini to generate structured task plans for customer service requests."""
+    """Use Gemini to generate structured task plans with native structured output."""
     try:
         prompt = f"""
-        Create a detailed task plan for this customer service request. Return ONLY a JSON object with:
-        - "tasks": List of task objects with "step", "action", "expected_outcome"
-        - "estimated_time": Total estimated time in hours
-        - "resources_needed": List of required resources/departments
-        - "success_criteria": List of success criteria
-        - "potential_challenges": List of potential challenges
-        
+        Create a detailed task plan for this customer service request.
         Request: "{request}"
         Context: {context}
-        
-        Response format: {{
-            "tasks": [
-                {{"step": 1, "action": "Verify order status", "expected_outcome": "Order location confirmed"}},
-                {{"step": 2, "action": "Contact shipping department", "expected_outcome": "Shipping issue identified"}}
-            ],
-            "estimated_time": 2,
-            "resources_needed": ["shipping_team", "order_database"],
-            "success_criteria": ["customer_informed", "issue_resolved"],
-            "potential_challenges": ["delayed_response_from_shipping"]
-        }}
         """
         
         t0 = time.time()
-        response = model.generate_content(prompt, generation_config={"response_mime_type": "application/json"})
-        response_text = response.text.strip()
-        
-        # Clean up the response text
-        if response_text.startswith("```json"):
-            response_text = response_text[7:]
-        if response_text.endswith("```"):
-            response_text = response_text[:-3]
-        
-        parsed = json.loads(response_text.strip())
+        response = model.generate_content(
+            prompt,
+            generation_config=genai.GenerationConfig(
+                response_mime_type="application/json",
+                response_schema=TaskPlanSchema
+            )
+        )
+        result = json.loads(response.text)
         record_latency("model_inference_latency_ms", (time.time()-t0)*1000.0, tags={"model":"gemini","fn":"generate_task_plan"})
-        if isinstance(parsed, list):
-            parsed = {"tasks": parsed}
-        result = {
-            "tasks": parsed.get("tasks", []),
-            "estimated_time": parsed.get("estimated_time", 2),
-            "resources_needed": parsed.get("resources_needed", ["customer_service"]),
-            "success_criteria": parsed.get("success_criteria", ["issue_resolved"]),
-            "potential_challenges": parsed.get("potential_challenges", ["complex_issue"])
-        }
         
         log_event("GeminiTaskPlanner", {
-            "task_count": len(result["tasks"]),
-            "estimated_time": result["estimated_time"]
+            "task_count": len(result.get("tasks", [])),
+            "estimated_time": result.get("estimated_time")
         })
         
         return result
         
     except Exception as e:
         log_event("GeminiTaskPlanner", f"Error: {e}")
-        # Fallback to basic task generation
         return fallback_task_plan(request, context)
 
 # Fallback functions for when Gemini is unavailable

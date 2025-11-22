@@ -4,6 +4,7 @@ from src.models.messages import AgentMessage, MessageType
 from src.utils import validators
 import uuid, datetime
 import asyncio
+import random
 
 VALIDATOR_MAP = {
     "non_empty_plan": validators.non_empty_plan,
@@ -27,9 +28,10 @@ class RetryableAgent(BaseAgent):
         return VALIDATOR_MAP.get(name, validators.non_empty_plan)
 
     def _calculate_backoff(self, attempt, base_delay=0.5, exponential=True):
+        jitter = random.uniform(0, 0.1 * base_delay)
         if exponential:
-            return base_delay * (2 ** (attempt - 1))
-        return base_delay * attempt
+            return (base_delay * (2 ** (attempt - 1))) + jitter
+        return (base_delay * attempt) + jitter
 
     async def receive(self, message: AgentMessage):
         log_event("RetryableAgent", "Starting enhanced retryable execution")

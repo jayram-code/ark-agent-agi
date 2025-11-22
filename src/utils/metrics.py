@@ -1,42 +1,46 @@
 import os, json, time
+import uuid
+import threading
 
 METRICS_LOG = "logs/metrics.jsonl"
 _TRACE_ACCUM = {}
+_LOCK = threading.Lock()
 
-def _write(entry):
-    os.makedirs("logs", exist_ok=True)
-    with open(METRICS_LOG, "a") as f:
-        f.write(json.dumps(entry) + "\n")
+class StructuredLogger:
+    """
+    Production-grade structured logger for metrics.
+    Writes NDJSON (Newline Delimited JSON) to a log file.
+    Thread-safe.
+    """
+    def __init__(self, log_path=METRICS_LOG):
+        self.log_path = log_path
+        os.makedirs(os.path.dirname(self.log_path), exist_ok=True)
+
+    def log(self, metric_name, metric_type, value, tags=None):
+        entry = {
+            "ts": time.time(),
+            "iso_ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "metric": metric_name,
+            "type": metric_type,
+            "value": value,
+            "tags": tags or {},
+            "event_id": str(uuid.uuid4())
+        }
+        
+        with _LOCK:
+            with open(self.log_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(entry) + "\n")
+
+_LOGGER = StructuredLogger()
 
 def record_latency(name, value_ms, tags=None):
-    entry = {
-        "ts": time.time(),
-        "metric": name,
-        "type": "latency_ms",
-        "value": float(value_ms),
-        "tags": tags or {}
-    }
-    _write(entry)
+    _LOGGER.log(name, "latency_ms", float(value_ms), tags)
 
 def increment(name, value=1, tags=None):
-    entry = {
-        "ts": time.time(),
-        "metric": name,
-        "type": "counter",
-        "value": int(value),
-        "tags": tags or {}
-    }
-    _write(entry)
+    _LOGGER.log(name, "counter", int(value), tags)
 
 def gauge(name, value, tags=None):
-    entry = {
-        "ts": time.time(),
-        "metric": name,
-        "type": "gauge",
-        "value": float(value),
-        "tags": tags or {}
-    }
-    _write(entry)
+    _LOGGER.log(name, "gauge", float(value), tags)
 
 def ensure_trace(trace_id):
     if trace_id and trace_id not in _TRACE_ACCUM:

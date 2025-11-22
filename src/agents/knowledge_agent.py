@@ -1,25 +1,33 @@
 from src.agents.base_agent import BaseAgent
 from src.utils.logging_utils import log_event
-from src.storage.memory_bank import recall_relevant
+from src.storage.knowledge_base import search_kb, initialize_kb
 from src.models.messages import AgentMessage, MessageType
 import uuid, datetime
 import asyncio
 
 class KnowledgeAgent(BaseAgent):
+    def __init__(self, agent_id: str, orchestrator):
+        super().__init__(agent_id, orchestrator)
+        # Ensure KB is ready on startup
+        initialize_kb()
+
     async def receive(self, message: AgentMessage):
         log_event("KnowledgeAgent", "Searching knowledge base")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
         
         query = payload.get("query") or payload.get("text")
         
-        # Simulate async search
-        # In reality, recall_relevant might be synchronous, so we might want to wrap it
-        # or just run it if it's fast.
-        try:
-            # Use recall_relevant from memory_bank (acting as KB search)
-            results = recall_relevant(None, query, k=3)
-        except Exception:
+        if not query:
             results = []
+            log_event("KnowledgeAgent", "No query provided")
+        else:
+            try:
+                # Run search (synchronous FAISS op)
+                results = search_kb(query, k=3)
+                log_event("KnowledgeAgent", f"Found {len(results)} results")
+            except Exception as e:
+                log_event("KnowledgeAgent", f"Error searching KB: {e}")
+                results = []
         
         response = AgentMessage(
             id=str(uuid.uuid4()),
@@ -30,7 +38,8 @@ class KnowledgeAgent(BaseAgent):
             timestamp=str(datetime.datetime.utcnow()),
             payload={
                 "results": results,
-                "query": query
+                "query": query,
+                "status": "success" if results else "no_results"
             }
         )
         

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "3ba4ea42-43dc-42a6-9e7f-c7974ac4d0a5",
+    "ticket_id": "TKT-123",
+    "score": 5,
+    "comment": "Great service!",
+    "timestamp": "2025-11-22 12:56:22.365779"
+  },
+  {
+    "id": "4e23bd5e-b703-4213-b8be-626548766226",
+    "ticket_id": "TKT-123",
+    "score": 5,
+    "comment": "Great service!",
+    "timestamp": "2025-11-22 13:04:50.308232"
+  },
+  {
+    "id": "bfc7ce78-f1cd-48c5-a237-e0ad3bcfad9c",
+    "ticket_id": "TKT-123",
+    "score": 5,
+    "comment": "Great service!",
+    "timestamp": "2025-11-22 13:05:58.225265"
+  }
+]
