@@ -8,7 +8,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from typing import Dict, Any, List, Optional
-from src.utils.logging_utils import log_event
+from utils.logging_utils import log_event
 
 class EmailTool:
     """

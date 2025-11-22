@@ -146,7 +146,7 @@ class JSONFormatter(logging.Formatter):
 
 # Global logger instance
 try:
-    from src.config.environment import get_config
+    from config.environment import get_config
     env_config = get_config()
     cloud_logger = CloudLogger(
         log_level=env_config.log_level,

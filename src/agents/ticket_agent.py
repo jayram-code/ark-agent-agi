@@ -1,8 +1,8 @@
-from src.agents.base_agent import BaseAgent
-from src.utils.logging_utils import log_event
-from src.storage.ticket_db import create_ticket, derive_category
-from src.utils.metrics import record_latency, increment
-from src.models.messages import AgentMessage, MessageType
+from agents.base_agent import BaseAgent
+from utils.logging_utils import log_event
+from storage.ticket_db import create_ticket, derive_category
+from utils.metrics import record_latency, increment
+from models.messages import AgentMessage, MessageType
 import time
 import uuid, datetime
 

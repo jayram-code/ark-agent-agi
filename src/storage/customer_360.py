@@ -1,4 +1,4 @@
-from src.storage.memory_bank import get_customer_profile
+from storage.memory_bank import get_customer_profile
 
 def generate_customer_360(customer_id: str):
     profile = get_customer_profile(customer_id)

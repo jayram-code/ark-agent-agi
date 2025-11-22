@@ -1,5 +1,5 @@
-from src.agents.base_agent import BaseAgent
-from src.models.messages import AgentMessage, MessageType
+from agents.base_agent import BaseAgent
+from models.messages import AgentMessage, MessageType
 from orchestrator import Orchestrator
 import asyncio
 import uuid

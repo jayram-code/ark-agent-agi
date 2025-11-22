@@ -1,7 +1,7 @@
-from src.agents.base_agent import BaseAgent
-from src.utils.logging_utils import log_event
-from src.models.messages import AgentMessage, MessageType
-from src.utils import validators
+from agents.base_agent import BaseAgent
+from utils.logging_utils import log_event
+from models.messages import AgentMessage, MessageType
+from utils import validators
 import uuid, datetime
 import asyncio
 import random

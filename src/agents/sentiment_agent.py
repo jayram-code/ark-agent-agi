@@ -1,8 +1,8 @@
-from src.agents.base_agent import BaseAgent
-from src.utils.logging_utils import log_event
-from src.utils.gemini_utils import analyze_sentiment
-from src.utils.metrics import increment
-from src.models.messages import AgentMessage, MessageType
+from agents.base_agent import BaseAgent
+from utils.logging_utils import log_event
+from utils.gemini_utils import analyze_sentiment
+from utils.metrics import increment
+from models.messages import AgentMessage, MessageType
 import uuid, datetime
 
 class SentimentAgent(BaseAgent):

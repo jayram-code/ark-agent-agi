@@ -9,7 +9,7 @@ import traceback
 import signal
 from contextlib import redirect_stdout, redirect_stderr
 from typing import Dict, Any, Optional
-from src.utils.logging_utils import log_event
+from utils.logging_utils import log_event
 
 class CodeExecutionTool:
     """

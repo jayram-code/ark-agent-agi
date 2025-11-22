@@ -6,7 +6,7 @@ Resize, crop, and convert images
 import os
 from typing import Dict, Any, Tuple, Optional
 from PIL import Image
-from src.utils.logging_utils import log_event
+from utils.logging_utils import log_event
 
 class ImageProcessingTool:
     """

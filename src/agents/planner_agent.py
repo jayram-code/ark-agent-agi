@@ -1,7 +1,7 @@
-from src.agents.base_agent import BaseAgent
-from src.utils.logging_utils import log_event
-from src.utils.gemini_utils import generate_task_plan
-from src.models.messages import AgentMessage, MessageType
+from agents.base_agent import BaseAgent
+from utils.logging_utils import log_event
+from utils.gemini_utils import generate_task_plan
+from models.messages import AgentMessage, MessageType
 import uuid, datetime
 
 class PlannerAgent(BaseAgent):

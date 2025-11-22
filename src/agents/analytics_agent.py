@@ -1,6 +1,6 @@
-from src.agents.base_agent import BaseAgent
-from src.utils.logging_utils import log_event
-from src.models.messages import AgentMessage, MessageType
+from agents.base_agent import BaseAgent
+from utils.logging_utils import log_event
+from models.messages import AgentMessage, MessageType
 import uuid, datetime
 import json
 import os
@@ -53,7 +53,7 @@ class AnalyticsAgent(BaseAgent):
             value = payload.get("value", 1)
             source = payload.get("source", "unknown")
             
-            from src.utils.metrics import increment
+            from utils.metrics import increment
             
             increment("total_messages", 1)
             increment("agent_activity", 1, tags={"agent": source})

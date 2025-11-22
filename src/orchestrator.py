@@ -1,10 +1,10 @@
 import asyncio
 from typing import Dict, Any, Union
-from src.agents.base_agent import BaseAgent
-from src.models.messages import AgentMessage, MessageType
-from src.utils.tracing import tracer
-from src.utils.agent_controller import agent_controller
-from src.config import config
+from agents.base_agent import BaseAgent
+from models.messages import AgentMessage, MessageType
+from utils.tracing import tracer
+from utils.agent_controller import agent_controller
+from config import config
 import uuid
 import datetime
 

@@ -1,8 +1,8 @@
-from src.utils.a2a_schema import validate_message
-from src.utils.logging_utils import log_event
-from src.utils.metrics import record_latency, accumulate_trace_time, ensure_trace
-from src.services.session_service import SESSION
-from src.models.messages import AgentMessage
+from utils.a2a_schema import validate_message
+from utils.logging_utils import log_event
+from utils.metrics import record_latency, accumulate_trace_time, ensure_trace
+from services.session_service import SESSION
+from models.messages import AgentMessage
 import time, uuid
 import asyncio
 

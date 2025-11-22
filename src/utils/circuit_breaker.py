@@ -8,7 +8,7 @@ import asyncio
 from typing import Callable, Any, Optional
 from enum import Enum
 from functools import wraps
-from src.utils.logging_utils import log_event
+from utils.logging_utils import log_event
 
 class CircuitState(Enum):
     """Circuit breaker states"""

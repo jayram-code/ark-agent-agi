@@ -6,7 +6,7 @@ Provides advanced mathematical operations
 import math
 import re
 from typing import Dict, Any, Union
-from src.utils.logging_utils import log_event
+from utils.logging_utils import log_event
 
 class CalculatorTool:
     """

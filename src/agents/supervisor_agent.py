@@ -1,7 +1,7 @@
-from src.agents.base_agent import BaseAgent
-from src.utils.logging_utils import log_event
+from agents.base_agent import BaseAgent
+from utils.logging_utils import log_event
 from sentence_transformers import SentenceTransformer
-from src.models.messages import AgentMessage, MessageType
+from models.messages import AgentMessage, MessageType
 import numpy as np, uuid, datetime
 import json
 

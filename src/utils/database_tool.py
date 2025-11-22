@@ -5,7 +5,7 @@ Execute safe read-only SQL queries
 
 import sqlite3
 from typing import Dict, Any, List
-from src.utils.logging_utils import log_event
+from utils.logging_utils import log_event
 
 class DatabaseTool:
     """

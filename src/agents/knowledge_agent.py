@@ -1,7 +1,7 @@
-from src.agents.base_agent import BaseAgent
-from src.utils.logging_utils import log_event
-from src.storage.knowledge_base import search_kb, initialize_kb
-from src.models.messages import AgentMessage, MessageType
+from agents.base_agent import BaseAgent
+from utils.logging_utils import log_event
+from storage.knowledge_base import search_kb, initialize_kb
+from models.messages import AgentMessage, MessageType
 import uuid, datetime
 import asyncio
 

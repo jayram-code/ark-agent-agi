@@ -6,7 +6,7 @@ Provides weather information using OpenWeatherMap API
 import os
 import requests
 from typing import Dict, Any, Optional
-from src.utils.logging_utils import log_event
+from utils.logging_utils import log_event
 
 class WeatherTool:
     """

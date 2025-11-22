@@ -5,7 +5,7 @@ Handles pause/resume operations and message queueing
 
 from typing import Dict, List, Optional, Any
 from collections import deque
-from src.utils.logging_utils import log_event
+from utils.logging_utils import log_event
 
 class AgentController:
     """
