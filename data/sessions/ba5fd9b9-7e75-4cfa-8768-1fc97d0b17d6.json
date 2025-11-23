@@ -1,0 +1,68 @@
+[
+  {
+    "id": "0872ab54-7294-479b-88f4-2ec5ab2b9e1c",
+    "session_id": "ba5fd9b9-7e75-4cfa-8768-1fc97d0b17d6",
+    "trace_id": "0872ab54-7294-479b-88f4-2ec5ab2b9e1c",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:12:46.205645",
+    "payload": {
+      "text": "Still waiting for support from last week. This is unacceptable.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:12:46.206180"
+  },
+  {
+    "id": "2055807a-0d8e-44b4-98a4-f99c77d87ca0",
+    "session_id": "ba5fd9b9-7e75-4cfa-8768-1fc97d0b17d6",
+    "trace_id": "2055807a-0d8e-44b4-98a4-f99c77d87ca0",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:12:49.434888",
+    "payload": {
+      "text": "Still waiting for support from last week. This is unacceptable.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:12:49.435582"
+  },
+  {
+    "id": "02928ba6-8f64-4c2d-8906-8b00d0c634a9",
+    "session_id": "ba5fd9b9-7e75-4cfa-8768-1fc97d0b17d6",
+    "trace_id": "02928ba6-8f64-4c2d-8906-8b00d0c634a9",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:12:52.479032",
+    "payload": {
+      "text": "Still waiting for support from last week. This is unacceptable.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:12:52.480070"
+  }
+]

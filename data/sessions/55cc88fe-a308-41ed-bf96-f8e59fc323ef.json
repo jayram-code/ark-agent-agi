@@ -1,0 +1,47 @@
+[
+  {
+    "id": "ba12904e-b87f-492d-b5e3-b4909e4db87b",
+    "session_id": "55cc88fe-a308-41ed-bf96-f8e59fc323ef",
+    "trace_id": "ba12904e-b87f-492d-b5e3-b4909e4db87b",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:10:09.810421",
+    "payload": {
+      "text": "Please stop sending me promotional emails.",
+      "intent": "cancellation",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.9,
+      "urgency": "medium",
+      "key_phrases": [
+        "cancel"
+      ]
+    },
+    "logged_at": "2025-11-23T06:10:09.810613"
+  },
+  {
+    "id": "2caaccac-e862-43ff-984b-cd38b68b35f6",
+    "session_id": "55cc88fe-a308-41ed-bf96-f8e59fc323ef",
+    "trace_id": "2caaccac-e862-43ff-984b-cd38b68b35f6",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:10:12.723382",
+    "payload": {
+      "text": "Please stop sending me promotional emails.",
+      "intent": "cancellation",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.9,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:10:12.723799"
+  }
+]

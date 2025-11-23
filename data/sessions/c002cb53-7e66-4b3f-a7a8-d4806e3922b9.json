@@ -1,0 +1,68 @@
+[
+  {
+    "id": "f27cc32d-0a0d-4dc9-ba73-38dcb0c06927",
+    "session_id": "c002cb53-7e66-4b3f-a7a8-d4806e3922b9",
+    "trace_id": "f27cc32d-0a0d-4dc9-ba73-38dcb0c06927",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:39:16.767786",
+    "payload": {
+      "text": "I already emailed twice. Why is nobody replying?",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:39:16.768014"
+  },
+  {
+    "id": "cd559ff1-344c-4283-a828-5828b301fa2d",
+    "session_id": "c002cb53-7e66-4b3f-a7a8-d4806e3922b9",
+    "trace_id": "cd559ff1-344c-4283-a828-5828b301fa2d",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:39:20.004874",
+    "payload": {
+      "text": "I already emailed twice. Why is nobody replying?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:39:20.005312"
+  },
+  {
+    "id": "05d4a9cc-493b-4642-a71f-b4cde00ace09",
+    "session_id": "c002cb53-7e66-4b3f-a7a8-d4806e3922b9",
+    "trace_id": "05d4a9cc-493b-4642-a71f-b4cde00ace09",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:39:23.012180",
+    "payload": {
+      "text": "I already emailed twice. Why is nobody replying?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:39:23.013244"
+  }
+]

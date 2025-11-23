@@ -4,7 +4,8 @@ import uuid
 
 from agents.base_agent import BaseAgent
 from models.messages import AgentMessage, MessageType
-from orchestrator import Orchestrator
+from core.orchestrator import Orchestrator
+from utils.observability.logging_utils import log_event
 
 
 class ResearchGroupAgent(BaseAgent):

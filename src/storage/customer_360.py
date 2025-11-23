@@ -1,8 +1,8 @@
-from storage.memory_bank import get_customer_profile
+from storage.memory_bank import memory_bank
 
 
 def generate_customer_360(customer_id: str):
-    profile = get_customer_profile(customer_id)
+    profile = memory_bank.get_customer_profile(customer_id)
     sentiment = profile.get("sentiment_summary", {})
     total = profile.get("total_interactions", 0)
     issues = profile.get("key_issues", [])

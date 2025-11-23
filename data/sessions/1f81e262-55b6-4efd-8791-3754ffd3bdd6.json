@@ -1,0 +1,70 @@
+[
+  {
+    "id": "4905cc35-393d-401c-83be-f61526f50e4d",
+    "session_id": "1f81e262-55b6-4efd-8791-3754ffd3bdd6",
+    "trace_id": "4905cc35-393d-401c-83be-f61526f50e4d",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:40:02.915530",
+    "payload": {
+      "text": "Refund me or escalate to a manager.",
+      "intent": "refund_request",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.9,
+      "urgency": "medium",
+      "key_phrases": [
+        "refund"
+      ]
+    },
+    "logged_at": "2025-11-23T06:40:02.916167"
+  },
+  {
+    "id": "7320caed-47a7-4ff5-bfef-dd8933d393ec",
+    "session_id": "1f81e262-55b6-4efd-8791-3754ffd3bdd6",
+    "trace_id": "7320caed-47a7-4ff5-bfef-dd8933d393ec",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:40:06.069361",
+    "payload": {
+      "text": "Refund me or escalate to a manager.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.9,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:40:06.069993"
+  },
+  {
+    "id": "15a28ec4-a986-4357-b63d-a3fb48c43955",
+    "session_id": "1f81e262-55b6-4efd-8791-3754ffd3bdd6",
+    "trace_id": "15a28ec4-a986-4357-b63d-a3fb48c43955",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:40:09.105660",
+    "payload": {
+      "text": "Refund me or escalate to a manager.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:40:09.106590"
+  }
+]

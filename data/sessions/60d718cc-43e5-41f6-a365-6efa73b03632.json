@@ -1,0 +1,68 @@
+[
+  {
+    "id": "36bc9da8-9aad-4d72-b534-cd2b17e61d9a",
+    "session_id": "60d718cc-43e5-41f6-a365-6efa73b03632",
+    "trace_id": "36bc9da8-9aad-4d72-b534-cd2b17e61d9a",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:40:48.547830",
+    "payload": {
+      "text": "The checkout button does nothing.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:40:48.548056"
+  },
+  {
+    "id": "15b4ae29-1601-473c-86db-cc73e2680116",
+    "session_id": "60d718cc-43e5-41f6-a365-6efa73b03632",
+    "trace_id": "15b4ae29-1601-473c-86db-cc73e2680116",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:40:51.619384",
+    "payload": {
+      "text": "The checkout button does nothing.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:40:51.619817"
+  },
+  {
+    "id": "bda5add7-6770-49c0-9bad-eb39b742ff77",
+    "session_id": "60d718cc-43e5-41f6-a365-6efa73b03632",
+    "trace_id": "bda5add7-6770-49c0-9bad-eb39b742ff77",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:40:54.798102",
+    "payload": {
+      "text": "The checkout button does nothing.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:40:54.800039"
+  }
+]

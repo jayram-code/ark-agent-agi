@@ -1,0 +1,68 @@
+[
+  {
+    "id": "eeddd60c-ddbe-4f27-b5f1-9cef721c20ce",
+    "session_id": "58d7a91c-8455-4afb-b024-927beebf929a",
+    "trace_id": "eeddd60c-ddbe-4f27-b5f1-9cef721c20ce",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:08:56.133246",
+    "payload": {
+      "text": "The app keeps crashing whenever I try to log in.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:08:56.133632"
+  },
+  {
+    "id": "740fadff-12e6-4c37-be3f-0437d122b3aa",
+    "session_id": "58d7a91c-8455-4afb-b024-927beebf929a",
+    "trace_id": "740fadff-12e6-4c37-be3f-0437d122b3aa",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:08:59.249790",
+    "payload": {
+      "text": "The app keeps crashing whenever I try to log in.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:08:59.250211"
+  },
+  {
+    "id": "3e4f10eb-15f4-4006-a456-e8b4ca3660ad",
+    "session_id": "58d7a91c-8455-4afb-b024-927beebf929a",
+    "trace_id": "3e4f10eb-15f4-4006-a456-e8b4ca3660ad",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:09:02.088963",
+    "payload": {
+      "text": "The app keeps crashing whenever I try to log in.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:09:02.090432"
+  }
+]

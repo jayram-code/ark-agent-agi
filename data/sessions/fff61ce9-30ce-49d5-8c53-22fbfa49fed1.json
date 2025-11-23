@@ -1,0 +1,68 @@
+[
+  {
+    "id": "b0297e6f-472a-4a0d-962d-5b4f59267c66",
+    "session_id": "fff61ce9-30ce-49d5-8c53-22fbfa49fed1",
+    "trace_id": "b0297e6f-472a-4a0d-962d-5b4f59267c66",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:10:20.624474",
+    "payload": {
+      "text": "Confused about how to apply the promo code.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:10:20.624859"
+  },
+  {
+    "id": "36c033e0-4147-4f0f-94ac-25e347cf4ce1",
+    "session_id": "fff61ce9-30ce-49d5-8c53-22fbfa49fed1",
+    "trace_id": "36c033e0-4147-4f0f-94ac-25e347cf4ce1",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:10:23.681910",
+    "payload": {
+      "text": "Confused about how to apply the promo code.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:10:23.682606"
+  },
+  {
+    "id": "f5bfb513-38df-4df7-9405-22014c61fdc8",
+    "session_id": "fff61ce9-30ce-49d5-8c53-22fbfa49fed1",
+    "trace_id": "f5bfb513-38df-4df7-9405-22014c61fdc8",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:10:26.741525",
+    "payload": {
+      "text": "Confused about how to apply the promo code.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:10:26.743026"
+  }
+]

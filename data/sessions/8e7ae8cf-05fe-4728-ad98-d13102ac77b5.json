@@ -1,0 +1,68 @@
+[
+  {
+    "id": "3f0ed2d7-19b2-4bb6-a638-b9024824da68",
+    "session_id": "8e7ae8cf-05fe-4728-ad98-d13102ac77b5",
+    "trace_id": "3f0ed2d7-19b2-4bb6-a638-b9024824da68",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:05:43.619122",
+    "payload": {
+      "text": "How can I update my address?",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:05:43.619325"
+  },
+  {
+    "id": "3f62b7d3-c111-4768-8142-f7b9cea4d34c",
+    "session_id": "8e7ae8cf-05fe-4728-ad98-d13102ac77b5",
+    "trace_id": "3f62b7d3-c111-4768-8142-f7b9cea4d34c",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:05:46.514264",
+    "payload": {
+      "text": "How can I update my address?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:05:46.514726"
+  },
+  {
+    "id": "1594abce-47bb-4992-aba4-e5cadfc53492",
+    "session_id": "8e7ae8cf-05fe-4728-ad98-d13102ac77b5",
+    "trace_id": "1594abce-47bb-4992-aba4-e5cadfc53492",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:05:49.625868",
+    "payload": {
+      "text": "How can I update my address?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:05:49.627040"
+  }
+]

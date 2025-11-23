@@ -1,0 +1,70 @@
+[
+  {
+    "id": "33548ec3-61d4-47d8-8eb1-8eb7c617a532",
+    "session_id": "4fc079f9-a524-4a86-a5e0-4cb9ba8d5379",
+    "trace_id": "33548ec3-61d4-47d8-8eb1-8eb7c617a532",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:17:14.567340",
+    "payload": {
+      "text": "Cancel my plan and issue a full refund.",
+      "intent": "refund_request",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.9,
+      "urgency": "medium",
+      "key_phrases": [
+        "refund"
+      ]
+    },
+    "logged_at": "2025-11-23T06:17:14.567540"
+  },
+  {
+    "id": "924d24e3-ed2d-422f-90d4-33927377a6e2",
+    "session_id": "4fc079f9-a524-4a86-a5e0-4cb9ba8d5379",
+    "trace_id": "924d24e3-ed2d-422f-90d4-33927377a6e2",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:17:17.787273",
+    "payload": {
+      "text": "Cancel my plan and issue a full refund.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.9,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:17:17.787697"
+  },
+  {
+    "id": "33bc4477-5d36-4b66-b1b9-3b35e692a34b",
+    "session_id": "4fc079f9-a524-4a86-a5e0-4cb9ba8d5379",
+    "trace_id": "33bc4477-5d36-4b66-b1b9-3b35e692a34b",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:17:20.942603",
+    "payload": {
+      "text": "Cancel my plan and issue a full refund.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:17:20.944860"
+  }
+]

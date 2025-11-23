@@ -1,0 +1,70 @@
+[
+  {
+    "id": "51fcdaf1-9ace-4b14-94e9-83cffec23545",
+    "session_id": "6fd42a7b-1c38-4901-82bb-19a317493d40",
+    "trace_id": "51fcdaf1-9ace-4b14-94e9-83cffec23545",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:10:00.722000",
+    "payload": {
+      "text": "I received a broken item and need a replacement or refund.",
+      "intent": "refund_request",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.9,
+      "urgency": "medium",
+      "key_phrases": [
+        "refund"
+      ]
+    },
+    "logged_at": "2025-11-23T06:10:00.722253"
+  },
+  {
+    "id": "01ea2bc0-e2a9-4be6-9415-71cb171983cb",
+    "session_id": "6fd42a7b-1c38-4901-82bb-19a317493d40",
+    "trace_id": "01ea2bc0-e2a9-4be6-9415-71cb171983cb",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:10:03.697850",
+    "payload": {
+      "text": "I received a broken item and need a replacement or refund.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.9,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:10:03.698469"
+  },
+  {
+    "id": "c0bdba34-6182-4508-a099-b44989af2027",
+    "session_id": "6fd42a7b-1c38-4901-82bb-19a317493d40",
+    "trace_id": "c0bdba34-6182-4508-a099-b44989af2027",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:10:06.664681",
+    "payload": {
+      "text": "I received a broken item and need a replacement or refund.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:10:06.667051"
+  }
+]

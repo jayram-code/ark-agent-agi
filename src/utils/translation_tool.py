@@ -5,7 +5,7 @@ Multi-language translation (simple implementation)
 
 from typing import Any, Dict
 
-from utils.logging_utils import log_event
+from utils.observability.logging_utils import log_event
 
 
 class TranslationTool:

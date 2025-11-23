@@ -1,4 +1,3 @@
-# src/agents/priority_agent.py
 import datetime
 import uuid
 
@@ -6,8 +5,8 @@ from agents.base_agent import BaseAgent
 from models.messages import AgentMessage, MessageType
 from services.session_service import SESSION
 from utils.gemini_utils import calculate_priority_score
-from utils.logging_utils import log_event
-from utils.metrics import gauge
+from utils.observability.logging_utils import log_event
+from utils.observability.metrics import gauge
 
 
 class PriorityAgent(BaseAgent):

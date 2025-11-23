@@ -1,0 +1,24 @@
+graph TD
+    User[User / External System] -->|Message| Orch[Orchestrator]
+    
+    subgraph "Core System"
+        Orch -->|Route| Router[A2A Router]
+        Router -->|Policy| RoutingPolicy[Routing Policy]
+        Orch -->|Store/Retrieve| Memory[Memory Bank (SQLite + FAISS)]
+    end
+    
+    subgraph "Specialized Agents"
+        Orch -->|Dispatch| Sentiment[Sentiment Agent]
+        Orch -->|Dispatch| Ticket[Ticket Agent]
+        Orch -->|Dispatch| Refund[Refund Agent]
+        Orch -->|Dispatch| Shipping[Shipping Agent]
+        Orch -->|Dispatch| Tech[Tech Support Agent]
+        Orch -->|Dispatch| Supervisor[Supervisor Agent]
+    end
+    
+    subgraph "Tools & Integrations"
+        Refund -->|Use| DB[Database Tool]
+        Shipping -->|Use| API[Shipping API]
+        Tech -->|Use| Search[Google Search]
+        All -->|Notify| Email[Email/Webhook]
+    end

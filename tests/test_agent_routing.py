@@ -12,7 +12,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "..", "src"))
 
 from agents.base_agent import BaseAgent
 from models.messages import AgentMessage, MessageType
-from orchestrator import Orchestrator
+from core.orchestrator import Orchestrator
 
 
 class MockAgent(BaseAgent):

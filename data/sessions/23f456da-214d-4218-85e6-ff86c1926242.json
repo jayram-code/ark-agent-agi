@@ -1,0 +1,153 @@
+[
+  {
+    "id": "40bcad39-318c-4e60-8a06-82184e46a2cd",
+    "session_id": "23f456da-214d-4218-85e6-ff86c1926242",
+    "trace_id": "40bcad39-318c-4e60-8a06-82184e46a2cd",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:17:42.294180",
+    "payload": {
+      "text": "I'm frustrated that the app logs me out repeatedly.",
+      "intent": "complaint",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.85,
+      "urgency": "high",
+      "key_phrases": [
+        "angry"
+      ]
+    },
+    "logged_at": "2025-11-23T06:17:42.294618"
+  },
+  {
+    "id": "3f92d002-6a94-4d93-94d0-2b2a858f0831",
+    "session_id": "23f456da-214d-4218-85e6-ff86c1926242",
+    "trace_id": "3f92d002-6a94-4d93-94d0-2b2a858f0831",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:17:45.285417",
+    "payload": {
+      "text": "I'm frustrated that the app logs me out repeatedly.",
+      "intent": "complaint",
+      "sentiment_score": -0.6,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "frustrated",
+      "intensity": 0.7,
+      "factors": [
+        "negative language"
+      ],
+      "original_confidence": 0.85,
+      "original_urgency": "high",
+      "escalation": true
+    },
+    "logged_at": "2025-11-23T06:17:45.286264"
+  },
+  {
+    "id": "898062a6-2bd5-4930-a938-7dc471532e50",
+    "session_id": "23f456da-214d-4218-85e6-ff86c1926242",
+    "trace_id": "898062a6-2bd5-4930-a938-7dc471532e50",
+    "sender": "priority_agent",
+    "receiver": "action_executor_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:17:48.207904",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "plan": {
+        "tasks": [
+          {
+            "step": 1,
+            "action": "escalate_to_human",
+            "expected_outcome": "Human support assigned",
+            "detail": "Escalate complex issue to human agent"
+          },
+          {
+            "step": 2,
+            "action": "schedule_followup",
+            "expected_outcome": "Follow-up scheduled",
+            "detail": "Schedule high-priority follow-up"
+          }
+        ],
+        "estimated_time": 1,
+        "resources_needed": [
+          "human_agent"
+        ],
+        "success_criteria": [
+          "human_assigned",
+          "customer_contacted"
+        ],
+        "potential_challenges": [
+          "agent_availability"
+        ]
+      },
+      "priority_score": 1.0,
+      "time_estimate": "2-4h",
+      "original_payload": {
+        "text": "I'm frustrated that the app logs me out repeatedly.",
+        "kb": null,
+        "strict": true,
+        "intent": "complaint",
+        "customer_id": null,
+        "reason": [
+          "Rule-based calculation"
+        ],
+        "emotion": "frustrated",
+        "intensity": 0.7,
+        "key_phrases": null,
+        "escalation_reason": "Rule-based calculation"
+      }
+    },
+    "logged_at": "2025-11-23T06:17:48.209784"
+  },
+  {
+    "id": "cc175bd2-8111-4655-8220-4457ea55160f",
+    "session_id": "23f456da-214d-4218-85e6-ff86c1926242",
+    "trace_id": "cc175bd2-8111-4655-8220-4457ea55160f",
+    "sender": "action_executor_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:17:48.440661",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "status": "execution_complete",
+      "results": [
+        {
+          "step": 1,
+          "status": "completed",
+          "outcome": "Human support assigned"
+        },
+        {
+          "step": 2,
+          "status": "completed",
+          "outcome": "Follow-up scheduled"
+        }
+      ],
+      "original_payload": {
+        "text": "I'm frustrated that the app logs me out repeatedly.",
+        "kb": null,
+        "strict": true,
+        "intent": "complaint",
+        "customer_id": null,
+        "reason": [
+          "Rule-based calculation"
+        ],
+        "emotion": "frustrated",
+        "intensity": 0.7,
+        "key_phrases": null,
+        "escalation_reason": "Rule-based calculation"
+      }
+    },
+    "logged_at": "2025-11-23T06:17:48.455931"
+  }
+]

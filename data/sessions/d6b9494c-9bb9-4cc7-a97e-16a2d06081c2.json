@@ -1,0 +1,68 @@
+[
+  {
+    "id": "0c47eb95-ef31-43c7-b20b-2063497b62c2",
+    "session_id": "d6b9494c-9bb9-4cc7-a97e-16a2d06081c2",
+    "trace_id": "0c47eb95-ef31-43c7-b20b-2063497b62c2",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:11:03.487287",
+    "payload": {
+      "text": "Can you help me change my payment method?",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:11:03.487641"
+  },
+  {
+    "id": "199731ea-c2c2-4958-960e-ab98cd0c7d25",
+    "session_id": "d6b9494c-9bb9-4cc7-a97e-16a2d06081c2",
+    "trace_id": "199731ea-c2c2-4958-960e-ab98cd0c7d25",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:11:06.530368",
+    "payload": {
+      "text": "Can you help me change my payment method?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:11:06.531248"
+  },
+  {
+    "id": "fda08d70-989b-4717-83fd-3ea9026d524c",
+    "session_id": "d6b9494c-9bb9-4cc7-a97e-16a2d06081c2",
+    "trace_id": "fda08d70-989b-4717-83fd-3ea9026d524c",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:11:09.798370",
+    "payload": {
+      "text": "Can you help me change my payment method?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:11:09.799852"
+  }
+]

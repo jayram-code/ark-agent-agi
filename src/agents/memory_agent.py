@@ -4,8 +4,8 @@ import uuid
 
 from agents.base_agent import BaseAgent
 from models.messages import AgentMessage, MessageType
-from storage.memory_bank import get_recent, recall_relevant, store_interaction
-from utils.logging_utils import log_event
+from storage.memory_bank import memory_bank
+from utils.observability.logging_utils import log_event
 
 
 class MemoryAgent(BaseAgent):
@@ -23,17 +23,17 @@ class MemoryAgent(BaseAgent):
             kind = payload.get("kind", "note")
             content = payload.get("content", "")
             # Use store_interaction from memory_bank
-            rowid = store_interaction(customer_id, kind, content)
+            rowid = memory_bank.store_interaction(customer_id, kind, content)
             result_payload = {"status": "memory_added", "id": rowid}
 
         elif action == "recent":
-            rows = get_recent(customer_id, limit=payload.get("limit", 5))
+            rows = memory_bank.get_recent(customer_id, limit=payload.get("limit", 5))
             result_payload = {"status": "memory_recent", "rows": rows}
 
         else:  # query
             q = payload.get("query", "")
             # Use recall_relevant from memory_bank
-            rows = recall_relevant(
+            rows = memory_bank.recall_relevant(
                 customer_id if customer_id != "" else None, q, k=payload.get("k", 3)
             )
             result_payload = {"status": "memory_recall", "rows": rows}

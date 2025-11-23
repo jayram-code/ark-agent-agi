@@ -1,0 +1,68 @@
+[
+  {
+    "id": "76fed5af-fc8c-4fa4-8c83-942ba4a42957",
+    "session_id": "b6ca71ef-14d2-47a1-b1ba-ccb18e2769a9",
+    "trace_id": "76fed5af-fc8c-4fa4-8c83-942ba4a42957",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:37:36.348295",
+    "payload": {
+      "text": "My order arrived damaged. I need help.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:37:36.348669"
+  },
+  {
+    "id": "941cefc2-8b8a-440d-b1f5-845d46aab12b",
+    "session_id": "b6ca71ef-14d2-47a1-b1ba-ccb18e2769a9",
+    "trace_id": "941cefc2-8b8a-440d-b1f5-845d46aab12b",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:37:39.315793",
+    "payload": {
+      "text": "My order arrived damaged. I need help.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:37:39.316129"
+  },
+  {
+    "id": "503a73c8-8dd3-430a-9a66-898ac92bca34",
+    "session_id": "b6ca71ef-14d2-47a1-b1ba-ccb18e2769a9",
+    "trace_id": "503a73c8-8dd3-430a-9a66-898ac92bca34",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:37:42.125341",
+    "payload": {
+      "text": "My order arrived damaged. I need help.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:37:42.126211"
+  }
+]

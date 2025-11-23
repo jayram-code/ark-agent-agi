@@ -1,0 +1,68 @@
+[
+  {
+    "id": "2a5821f4-75cf-434d-9109-501ef29d5c58",
+    "session_id": "2f31f40f-d564-4b9d-af44-392accff4e4c",
+    "trace_id": "2a5821f4-75cf-434d-9109-501ef29d5c58",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:15:22.776225",
+    "payload": {
+      "text": "Can I change my delivery address to my office?",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:15:22.776585"
+  },
+  {
+    "id": "230cd109-364c-412a-baf6-d7f74b545c87",
+    "session_id": "2f31f40f-d564-4b9d-af44-392accff4e4c",
+    "trace_id": "230cd109-364c-412a-baf6-d7f74b545c87",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:15:26.000241",
+    "payload": {
+      "text": "Can I change my delivery address to my office?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:15:26.002150"
+  },
+  {
+    "id": "80ee9388-cddc-499b-81ea-a303402ea9f5",
+    "session_id": "2f31f40f-d564-4b9d-af44-392accff4e4c",
+    "trace_id": "80ee9388-cddc-499b-81ea-a303402ea9f5",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:15:29.172656",
+    "payload": {
+      "text": "Can I change my delivery address to my office?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:15:29.175675"
+  }
+]

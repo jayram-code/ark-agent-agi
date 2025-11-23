@@ -1,0 +1,72 @@
+[
+  {
+    "id": "410526b4-5ef1-4687-a612-a7a0dd736f0a",
+    "session_id": "5989cf59-df78-4481-b554-a213069e559d",
+    "trace_id": "410526b4-5ef1-4687-a612-a7a0dd736f0a",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:09:14.344349",
+    "payload": {
+      "text": "Thanks for the quick delivery! Really happy with the service.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:09:14.344640"
+  },
+  {
+    "id": "691d3a5c-1641-432f-bf54-1fd82d3afe38",
+    "session_id": "5989cf59-df78-4481-b554-a213069e559d",
+    "trace_id": "691d3a5c-1641-432f-bf54-1fd82d3afe38",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:09:17.463064",
+    "payload": {
+      "text": "Thanks for the quick delivery! Really happy with the service.",
+      "intent": "general_query",
+      "sentiment_score": 0.6,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "satisfied",
+      "intensity": 0.5,
+      "factors": [
+        "positive language"
+      ],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:09:17.463971"
+  },
+  {
+    "id": "3618417e-a064-4b2a-b95f-1343c08c8bff",
+    "session_id": "5989cf59-df78-4481-b554-a213069e559d",
+    "trace_id": "3618417e-a064-4b2a-b95f-1343c08c8bff",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:09:20.578781",
+    "payload": {
+      "text": "Thanks for the quick delivery! Really happy with the service.",
+      "intent": "general_query",
+      "sentiment_score": 0.6,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "satisfied",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": [
+        "positive language"
+      ]
+    },
+    "logged_at": "2025-11-23T06:09:20.580208"
+  }
+]

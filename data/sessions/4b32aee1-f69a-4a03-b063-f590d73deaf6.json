@@ -1,0 +1,70 @@
+[
+  {
+    "id": "727ebbf4-4907-44dc-b83c-df9320fa0cc8",
+    "session_id": "4b32aee1-f69a-4a03-b063-f590d73deaf6",
+    "trace_id": "727ebbf4-4907-44dc-b83c-df9320fa0cc8",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:11:50.309004",
+    "payload": {
+      "text": "The website shows error 500 when checking out.",
+      "intent": "technical_support",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.8,
+      "urgency": "medium",
+      "key_phrases": [
+        "not working"
+      ]
+    },
+    "logged_at": "2025-11-23T06:11:50.309260"
+  },
+  {
+    "id": "5670ba10-8828-4c9f-9587-435d25b047f2",
+    "session_id": "4b32aee1-f69a-4a03-b063-f590d73deaf6",
+    "trace_id": "5670ba10-8828-4c9f-9587-435d25b047f2",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:11:53.385345",
+    "payload": {
+      "text": "The website shows error 500 when checking out.",
+      "intent": "technical_support",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.8,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:11:53.385853"
+  },
+  {
+    "id": "9d86eea2-37b7-4435-ad57-5053052973f0",
+    "session_id": "4b32aee1-f69a-4a03-b063-f590d73deaf6",
+    "trace_id": "9d86eea2-37b7-4435-ad57-5053052973f0",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:11:56.548963",
+    "payload": {
+      "text": "The website shows error 500 when checking out.",
+      "intent": "technical_support",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:11:56.550525"
+  }
+]

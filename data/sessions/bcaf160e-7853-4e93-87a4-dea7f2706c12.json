@@ -1,0 +1,68 @@
+[
+  {
+    "id": "def3b973-29ff-46f1-ae7a-331e9f034d40",
+    "session_id": "bcaf160e-7853-4e93-87a4-dea7f2706c12",
+    "trace_id": "def3b973-29ff-46f1-ae7a-331e9f034d40",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:40:39.140015",
+    "payload": {
+      "text": "My account was hacked. Urgent help needed.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:40:39.140347"
+  },
+  {
+    "id": "06d79b56-7ab9-4e58-815c-ae2d9f9e8f8b",
+    "session_id": "bcaf160e-7853-4e93-87a4-dea7f2706c12",
+    "trace_id": "06d79b56-7ab9-4e58-815c-ae2d9f9e8f8b",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:40:42.104665",
+    "payload": {
+      "text": "My account was hacked. Urgent help needed.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:40:42.105592"
+  },
+  {
+    "id": "d03be0be-f969-40e3-bd78-188e18299479",
+    "session_id": "bcaf160e-7853-4e93-87a4-dea7f2706c12",
+    "trace_id": "d03be0be-f969-40e3-bd78-188e18299479",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:40:45.216634",
+    "payload": {
+      "text": "My account was hacked. Urgent help needed.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:40:45.218412"
+  }
+]

@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer
 
 from agents.base_agent import BaseAgent
 from models.messages import AgentMessage, MessageType
-from utils.logging_utils import log_event
+from utils.observability.logging_utils import log_event
 
 MODEL = None
 
@@ -20,7 +20,21 @@ def _ensure_model():
 
 
 class SupervisorAgent(BaseAgent):
+    """
+    Supervisor Agent responsible for quality assurance and self-correction.
+    
+    Functions:
+    1. Reviews candidate replies against Knowledge Base (KB) for factual consistency.
+    2. Calculates a semantic similarity score.
+    3. If score is below threshold, triggers a retry loop via RetryableAgent.
+    4. If score is sufficient, approves and forwards to TicketAgent.
+    """
+
     def score_reply_against_kb(self, reply_text, kb_passages):
+        """
+        Calculate semantic similarity between reply and KB passages.
+        Uses SentenceTransformer embeddings and cosine similarity.
+        """
         model = _ensure_model()
         texts = [reply_text] + [p.get("text", "") for p in kb_passages]
         embs = model.encode(texts, convert_to_numpy=True)
@@ -34,6 +48,10 @@ class SupervisorAgent(BaseAgent):
         return float(np.max(sims))
 
     async def receive(self, message: AgentMessage):
+        """
+        Evaluate incoming message payload.
+        Expects 'candidate_reply' and 'kb' in payload.
+        """
         log_event("SupervisorAgent", "Auto-eval incoming payload")
         payload = message.payload.dict() if hasattr(message.payload, "dict") else message.payload
         candidate_reply = payload.get("candidate_reply", "") or payload.get("text", "")

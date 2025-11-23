@@ -1,0 +1,70 @@
+[
+  {
+    "id": "42aba10f-cd2e-4267-8f99-6e5b9663e4a8",
+    "session_id": "ee96c806-a601-4354-8038-849d7706e2a3",
+    "trace_id": "42aba10f-cd2e-4267-8f99-6e5b9663e4a8",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:09:16.567363",
+    "payload": {
+      "text": "Please confirm my cancellation and stop billing.",
+      "intent": "cancellation",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.9,
+      "urgency": "medium",
+      "key_phrases": [
+        "cancel"
+      ]
+    },
+    "logged_at": "2025-11-23T07:09:16.567718"
+  },
+  {
+    "id": "f0cdbc9f-84c8-4574-9f33-ba4f40ec1d03",
+    "session_id": "ee96c806-a601-4354-8038-849d7706e2a3",
+    "trace_id": "f0cdbc9f-84c8-4574-9f33-ba4f40ec1d03",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:09:19.466905",
+    "payload": {
+      "text": "Please confirm my cancellation and stop billing.",
+      "intent": "cancellation",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.9,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:09:19.467415"
+  },
+  {
+    "id": "9b90a9fc-ae92-49e7-9e90-9f52dabc7873",
+    "session_id": "ee96c806-a601-4354-8038-849d7706e2a3",
+    "trace_id": "9b90a9fc-ae92-49e7-9e90-9f52dabc7873",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:09:22.354025",
+    "payload": {
+      "text": "Please confirm my cancellation and stop billing.",
+      "intent": "cancellation",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:09:22.356910"
+  }
+]

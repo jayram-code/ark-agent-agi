@@ -1,0 +1,153 @@
+[
+  {
+    "id": "d1e75aaf-ae09-4969-ade3-cf6083f6ba2b",
+    "session_id": "21f6758d-4cc5-49b9-8ccb-8e2cffe2b9ee",
+    "trace_id": "d1e75aaf-ae09-4969-ade3-cf6083f6ba2b",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:04:47.610922",
+    "payload": {
+      "text": "This is the worst experience. Nothing works and I'm furious.",
+      "intent": "complaint",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.85,
+      "urgency": "high",
+      "key_phrases": [
+        "angry"
+      ]
+    },
+    "logged_at": "2025-11-23T07:04:47.611469"
+  },
+  {
+    "id": "2dfd207f-4400-4f2d-8584-90e060dbff37",
+    "session_id": "21f6758d-4cc5-49b9-8ccb-8e2cffe2b9ee",
+    "trace_id": "2dfd207f-4400-4f2d-8584-90e060dbff37",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:04:50.649581",
+    "payload": {
+      "text": "This is the worst experience. Nothing works and I'm furious.",
+      "intent": "complaint",
+      "sentiment_score": -0.6,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "frustrated",
+      "intensity": 0.7,
+      "factors": [
+        "negative language"
+      ],
+      "original_confidence": 0.85,
+      "original_urgency": "high",
+      "escalation": true
+    },
+    "logged_at": "2025-11-23T07:04:50.650686"
+  },
+  {
+    "id": "7b9bbc39-c688-49e0-a117-4b1274e5464e",
+    "session_id": "21f6758d-4cc5-49b9-8ccb-8e2cffe2b9ee",
+    "trace_id": "7b9bbc39-c688-49e0-a117-4b1274e5464e",
+    "sender": "priority_agent",
+    "receiver": "action_executor_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:04:53.817579",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "plan": {
+        "tasks": [
+          {
+            "step": 1,
+            "action": "escalate_to_human",
+            "expected_outcome": "Human support assigned",
+            "detail": "Escalate complex issue to human agent"
+          },
+          {
+            "step": 2,
+            "action": "schedule_followup",
+            "expected_outcome": "Follow-up scheduled",
+            "detail": "Schedule high-priority follow-up"
+          }
+        ],
+        "estimated_time": 1,
+        "resources_needed": [
+          "human_agent"
+        ],
+        "success_criteria": [
+          "human_assigned",
+          "customer_contacted"
+        ],
+        "potential_challenges": [
+          "agent_availability"
+        ]
+      },
+      "priority_score": 1.0,
+      "time_estimate": "2-4h",
+      "original_payload": {
+        "text": "This is the worst experience. Nothing works and I'm furious.",
+        "kb": null,
+        "strict": true,
+        "intent": "complaint",
+        "customer_id": null,
+        "reason": [
+          "Rule-based calculation"
+        ],
+        "emotion": "frustrated",
+        "intensity": 0.7,
+        "key_phrases": null,
+        "escalation_reason": "Rule-based calculation"
+      }
+    },
+    "logged_at": "2025-11-23T07:04:53.818898"
+  },
+  {
+    "id": "2210b1c1-631d-471c-b675-f9462b03ec29",
+    "session_id": "21f6758d-4cc5-49b9-8ccb-8e2cffe2b9ee",
+    "trace_id": "2210b1c1-631d-471c-b675-f9462b03ec29",
+    "sender": "action_executor_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:04:54.044670",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "status": "execution_complete",
+      "results": [
+        {
+          "step": 1,
+          "status": "completed",
+          "outcome": "Human support assigned"
+        },
+        {
+          "step": 2,
+          "status": "completed",
+          "outcome": "Follow-up scheduled"
+        }
+      ],
+      "original_payload": {
+        "text": "This is the worst experience. Nothing works and I'm furious.",
+        "kb": null,
+        "strict": true,
+        "intent": "complaint",
+        "customer_id": null,
+        "reason": [
+          "Rule-based calculation"
+        ],
+        "emotion": "frustrated",
+        "intensity": 0.7,
+        "key_phrases": null,
+        "escalation_reason": "Rule-based calculation"
+      }
+    },
+    "logged_at": "2025-11-23T07:04:54.069314"
+  }
+]

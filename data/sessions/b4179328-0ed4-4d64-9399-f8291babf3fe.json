@@ -1,0 +1,68 @@
+[
+  {
+    "id": "c05395fd-f069-46ba-a7c5-5e10c6beedb0",
+    "session_id": "b4179328-0ed4-4d64-9399-f8291babf3fe",
+    "trace_id": "c05395fd-f069-46ba-a7c5-5e10c6beedb0",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:16:37.201373",
+    "payload": {
+      "text": "Tracking says delivered to wrong city.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:16:37.201589"
+  },
+  {
+    "id": "ce530327-1970-4eae-b013-6c804aaa1cea",
+    "session_id": "b4179328-0ed4-4d64-9399-f8291babf3fe",
+    "trace_id": "ce530327-1970-4eae-b013-6c804aaa1cea",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:16:40.278785",
+    "payload": {
+      "text": "Tracking says delivered to wrong city.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:16:40.279146"
+  },
+  {
+    "id": "951b6d12-8e36-47dd-b5a8-352b56db2a56",
+    "session_id": "b4179328-0ed4-4d64-9399-f8291babf3fe",
+    "trace_id": "951b6d12-8e36-47dd-b5a8-352b56db2a56",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:16:43.098331",
+    "payload": {
+      "text": "Tracking says delivered to wrong city.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:16:43.099477"
+  }
+]

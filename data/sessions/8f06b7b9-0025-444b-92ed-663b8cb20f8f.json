@@ -1,0 +1,68 @@
+[
+  {
+    "id": "f2e2d9e7-bbab-4631-9ad0-084afaf1a64d",
+    "session_id": "8f06b7b9-0025-444b-92ed-663b8cb20f8f",
+    "trace_id": "f2e2d9e7-bbab-4631-9ad0-084afaf1a64d",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:09:34.183177",
+    "payload": {
+      "text": "When will my order ship?",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:09:34.183326"
+  },
+  {
+    "id": "4c99eb26-8dbe-4951-835a-deed8e83121c",
+    "session_id": "8f06b7b9-0025-444b-92ed-663b8cb20f8f",
+    "trace_id": "4c99eb26-8dbe-4951-835a-deed8e83121c",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:09:37.170523",
+    "payload": {
+      "text": "When will my order ship?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:09:37.171113"
+  },
+  {
+    "id": "18310181-caa6-447c-b5f6-212edbd06533",
+    "session_id": "8f06b7b9-0025-444b-92ed-663b8cb20f8f",
+    "trace_id": "18310181-caa6-447c-b5f6-212edbd06533",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:09:40.356995",
+    "payload": {
+      "text": "When will my order ship?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:09:40.358659"
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "id": "a196a319-89f8-4ec8-82d8-cf1d2d2d0b90",
+    "session_id": "09bceb4b-4f7a-4d14-9100-8ee11aaff513",
+    "trace_id": "a196a319-89f8-4ec8-82d8-cf1d2d2d0b90",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:07:33.936225",
+    "payload": {
+      "text": "Stop charging me, I canceled last month.",
+      "intent": "cancellation",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.9,
+      "urgency": "medium",
+      "key_phrases": [
+        "cancel"
+      ]
+    },
+    "logged_at": "2025-11-23T07:07:33.936938"
+  },
+  {
+    "id": "1fd71601-81e8-4529-a238-3c146e4cb8d2",
+    "session_id": "09bceb4b-4f7a-4d14-9100-8ee11aaff513",
+    "trace_id": "1fd71601-81e8-4529-a238-3c146e4cb8d2",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:07:36.987883",
+    "payload": {
+      "text": "Stop charging me, I canceled last month.",
+      "intent": "cancellation",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.9,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:07:36.988318"
+  },
+  {
+    "id": "82b69683-c19d-442e-ad26-7235f7852821",
+    "session_id": "09bceb4b-4f7a-4d14-9100-8ee11aaff513",
+    "trace_id": "82b69683-c19d-442e-ad26-7235f7852821",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:07:40.027436",
+    "payload": {
+      "text": "Stop charging me, I canceled last month.",
+      "intent": "cancellation",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:07:40.028467"
+  }
+]

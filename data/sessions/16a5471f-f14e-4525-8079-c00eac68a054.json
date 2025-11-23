@@ -1,0 +1,68 @@
+[
+  {
+    "id": "415d438e-f3ac-442c-953e-63340e9a4038",
+    "session_id": "16a5471f-f14e-4525-8079-c00eac68a054",
+    "trace_id": "415d438e-f3ac-442c-953e-63340e9a4038",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:06:29.567382",
+    "payload": {
+      "text": "The app logs me out randomly every hour.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:06:29.567560"
+  },
+  {
+    "id": "25674177-7ac8-4872-854b-0fc1f87117c0",
+    "session_id": "16a5471f-f14e-4525-8079-c00eac68a054",
+    "trace_id": "25674177-7ac8-4872-854b-0fc1f87117c0",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:06:32.635735",
+    "payload": {
+      "text": "The app logs me out randomly every hour.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:06:32.636536"
+  },
+  {
+    "id": "b46f337a-7670-4a84-ab2d-c3a222df7fb7",
+    "session_id": "16a5471f-f14e-4525-8079-c00eac68a054",
+    "trace_id": "b46f337a-7670-4a84-ab2d-c3a222df7fb7",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:06:35.779965",
+    "payload": {
+      "text": "The app logs me out randomly every hour.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:06:35.781364"
+  }
+]

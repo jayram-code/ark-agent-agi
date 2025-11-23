@@ -1,0 +1,68 @@
+[
+  {
+    "id": "24553ca2-737c-4189-9b58-8e255eeb400b",
+    "session_id": "ee44a157-ef22-4097-bba7-b8ae4ed72899",
+    "trace_id": "24553ca2-737c-4189-9b58-8e255eeb400b",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:08:20.268626",
+    "payload": {
+      "text": "Please help me reset my password.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:08:20.268939"
+  },
+  {
+    "id": "c081e251-161e-4228-8dc0-7d2f44eafc8c",
+    "session_id": "ee44a157-ef22-4097-bba7-b8ae4ed72899",
+    "trace_id": "c081e251-161e-4228-8dc0-7d2f44eafc8c",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:08:23.495225",
+    "payload": {
+      "text": "Please help me reset my password.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:08:23.495869"
+  },
+  {
+    "id": "29788c82-fe74-4160-9132-7a2cee61e514",
+    "session_id": "ee44a157-ef22-4097-bba7-b8ae4ed72899",
+    "trace_id": "29788c82-fe74-4160-9132-7a2cee61e514",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:08:26.631700",
+    "payload": {
+      "text": "Please help me reset my password.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:08:26.632475"
+  }
+]

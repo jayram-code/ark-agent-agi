@@ -1,0 +1,151 @@
+[
+  {
+    "id": "0c5f4a23-ebce-4503-b7d3-adfa30e0e942",
+    "session_id": "d4751873-24f5-4760-9657-1df917cc3844",
+    "trace_id": "0c5f4a23-ebce-4503-b7d3-adfa30e0e942",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:04:56.987870",
+    "payload": {
+      "text": "Delivery was delayed and I'm disappointed.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:04:56.988332"
+  },
+  {
+    "id": "7273d4cd-d387-45e5-8257-b3870f6a6d1c",
+    "session_id": "d4751873-24f5-4760-9657-1df917cc3844",
+    "trace_id": "7273d4cd-d387-45e5-8257-b3870f6a6d1c",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:05:00.047466",
+    "payload": {
+      "text": "Delivery was delayed and I'm disappointed.",
+      "intent": "general_query",
+      "sentiment_score": -0.6,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "frustrated",
+      "intensity": 0.7,
+      "factors": [
+        "negative language"
+      ],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": true
+    },
+    "logged_at": "2025-11-23T07:05:00.048789"
+  },
+  {
+    "id": "d0bb59fa-0946-4cc7-8e1c-78ea56043def",
+    "session_id": "d4751873-24f5-4760-9657-1df917cc3844",
+    "trace_id": "d0bb59fa-0946-4cc7-8e1c-78ea56043def",
+    "sender": "priority_agent",
+    "receiver": "action_executor_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:05:03.146974",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "plan": {
+        "tasks": [
+          {
+            "step": 1,
+            "action": "escalate_to_human",
+            "expected_outcome": "Human support assigned",
+            "detail": "Escalate complex issue to human agent"
+          },
+          {
+            "step": 2,
+            "action": "schedule_followup",
+            "expected_outcome": "Follow-up scheduled",
+            "detail": "Schedule high-priority follow-up"
+          }
+        ],
+        "estimated_time": 1,
+        "resources_needed": [
+          "human_agent"
+        ],
+        "success_criteria": [
+          "human_assigned",
+          "customer_contacted"
+        ],
+        "potential_challenges": [
+          "agent_availability"
+        ]
+      },
+      "priority_score": 0.8,
+      "time_estimate": "2-4h",
+      "original_payload": {
+        "text": "Delivery was delayed and I'm disappointed.",
+        "kb": null,
+        "strict": true,
+        "intent": "general_query",
+        "customer_id": null,
+        "reason": [
+          "Rule-based calculation"
+        ],
+        "emotion": "frustrated",
+        "intensity": 0.7,
+        "key_phrases": null,
+        "escalation_reason": "Rule-based calculation"
+      }
+    },
+    "logged_at": "2025-11-23T07:05:03.149521"
+  },
+  {
+    "id": "b8b14135-92d7-4116-9efb-a7db456cee7d",
+    "session_id": "d4751873-24f5-4760-9657-1df917cc3844",
+    "trace_id": "b8b14135-92d7-4116-9efb-a7db456cee7d",
+    "sender": "action_executor_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:05:03.379314",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "status": "execution_complete",
+      "results": [
+        {
+          "step": 1,
+          "status": "completed",
+          "outcome": "Human support assigned"
+        },
+        {
+          "step": 2,
+          "status": "completed",
+          "outcome": "Follow-up scheduled"
+        }
+      ],
+      "original_payload": {
+        "text": "Delivery was delayed and I'm disappointed.",
+        "kb": null,
+        "strict": true,
+        "intent": "general_query",
+        "customer_id": null,
+        "reason": [
+          "Rule-based calculation"
+        ],
+        "emotion": "frustrated",
+        "intensity": 0.7,
+        "key_phrases": null,
+        "escalation_reason": "Rule-based calculation"
+      }
+    },
+    "logged_at": "2025-11-23T07:05:03.399028"
+  }
+]

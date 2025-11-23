@@ -1,0 +1,68 @@
+[
+  {
+    "id": "180de82b-aeaa-4a75-aecf-898bb48ed854",
+    "session_id": "2ab85845-d6fb-4c21-a56c-3648edd1e4e0",
+    "trace_id": "180de82b-aeaa-4a75-aecf-898bb48ed854",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:08:39.153103",
+    "payload": {
+      "text": "Am I eligible for a student discount?",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:08:39.153603"
+  },
+  {
+    "id": "3088775b-1039-4ec6-9b2e-6a88310a78cc",
+    "session_id": "2ab85845-d6fb-4c21-a56c-3648edd1e4e0",
+    "trace_id": "3088775b-1039-4ec6-9b2e-6a88310a78cc",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:08:42.189252",
+    "payload": {
+      "text": "Am I eligible for a student discount?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:08:42.190259"
+  },
+  {
+    "id": "be33573c-3998-4685-a0ca-e4399407c548",
+    "session_id": "2ab85845-d6fb-4c21-a56c-3648edd1e4e0",
+    "trace_id": "be33573c-3998-4685-a0ca-e4399407c548",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:08:45.202437",
+    "payload": {
+      "text": "Am I eligible for a student discount?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:08:45.203449"
+  }
+]

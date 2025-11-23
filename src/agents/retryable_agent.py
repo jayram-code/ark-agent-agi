@@ -6,7 +6,7 @@ import uuid
 from agents.base_agent import BaseAgent
 from models.messages import AgentMessage, MessageType
 from utils import validators
-from utils.logging_utils import log_event
+from utils.observability.logging_utils import log_event
 
 VALIDATOR_MAP = {
     "non_empty_plan": validators.non_empty_plan,

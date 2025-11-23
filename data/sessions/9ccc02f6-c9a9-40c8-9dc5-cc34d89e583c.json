@@ -1,0 +1,68 @@
+[
+  {
+    "id": "61beb71f-100d-442d-9168-76e2819e44a5",
+    "session_id": "9ccc02f6-c9a9-40c8-9dc5-cc34d89e583c",
+    "trace_id": "61beb71f-100d-442d-9168-76e2819e44a5",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:17:24.102275",
+    "payload": {
+      "text": "Is same-day delivery available?",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:17:24.102474"
+  },
+  {
+    "id": "d320bf0a-6ff5-477a-b0e3-d3aea8d9e8bf",
+    "session_id": "9ccc02f6-c9a9-40c8-9dc5-cc34d89e583c",
+    "trace_id": "d320bf0a-6ff5-477a-b0e3-d3aea8d9e8bf",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:17:26.989627",
+    "payload": {
+      "text": "Is same-day delivery available?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:17:26.990454"
+  },
+  {
+    "id": "e375a5f8-2f2c-48ff-8ed3-f510f3d78e62",
+    "session_id": "9ccc02f6-c9a9-40c8-9dc5-cc34d89e583c",
+    "trace_id": "e375a5f8-2f2c-48ff-8ed3-f510f3d78e62",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:17:30.028644",
+    "payload": {
+      "text": "Is same-day delivery available?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:17:30.030256"
+  }
+]

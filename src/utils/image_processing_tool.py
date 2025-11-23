@@ -8,7 +8,7 @@ from typing import Any, Dict, Optional, Tuple
 
 from PIL import Image
 
-from utils.logging_utils import log_event
+from utils.observability.logging_utils import log_event
 
 
 class ImageProcessingTool:

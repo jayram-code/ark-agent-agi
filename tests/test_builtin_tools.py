@@ -11,9 +11,10 @@ import unittest
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "src"))
 
 from utils.agent_controller import agent_controller
-from utils.calculator_tool import calculator
-from utils.code_execution_tool import code_executor
-from utils.database_tool import database_tool
+from tools.calculator_tool import calculator
+from tools.code_execution_tool import code_executor
+from tools.weather_tool import weather_tool
+from tools.database_tool import database_tool
 
 
 class TestCalculatorTool(unittest.TestCase):
@@ -53,7 +54,7 @@ class TestCodeExecutionTool(unittest.TestCase):
 
     def test_simple_execution(self):
         code = "result = 2 + 2\nprint(result)"
-        result = code_executor.execute(code, allow_imports=False)
+        result = code_executor.run_code(code, allow_imports=False)
         if not result["success"]:
             print(f"ERROR: {result.get('error', 'Unknown')}")
             print(f"ERROR TYPE: {result.get('error_type', 'Unknown')}")
@@ -64,58 +65,72 @@ class TestCodeExecutionTool(unittest.TestCase):
 
     def test_execution_with_variables(self):
         code = "x = 10\ny = 20\nresult = x + y\nprint(result)"
-        result = code_executor.execute(code, allow_imports=False)
+        result = code_executor.run_code(code, allow_imports=False)
         self.assertTrue(result["success"])
         self.assertIn("30", result["stdout"])
 
     def test_execution_with_loops(self):
         code = "total = 0\nfor i in range(5):\n    total += i\nprint(total)"
-        result = code_executor.execute(code, allow_imports=False)
+        result = code_executor.run_code(code, allow_imports=False)
         self.assertTrue(result["success"])
         self.assertIn("10", result["stdout"])
 
     def test_syntax_error(self):
         code = "print('missing closing quote"
-        result = code_executor.execute(code, allow_imports=False)
+        result = code_executor.run_code(code, allow_imports=False)
         self.assertFalse(result["success"])
         self.assertEqual(result["error_type"], "SyntaxError")
 
     def test_execution_with_imports_allowed(self):
         code = "import math\nresult = math.sqrt(16)\nprint(result)"
-        result = code_executor.execute(code, allow_imports=True)
+        result = code_executor.run_code(code, allow_imports=True)
         self.assertTrue(result["success"])
         self.assertIn("4.0", result["stdout"])
 
 
 class TestDatabaseTool(unittest.TestCase):
-    """Test Database Query Tool"""
+    """Test Database Query Tool (CRUD)"""
 
-    def test_simple_select(self):
-        result = database_tool.query("SELECT 1 as test_value")
+    def setUp(self):
+        # Create a test table
+        database_tool.query("CREATE TABLE IF NOT EXISTS test_users (id INTEGER PRIMARY KEY, name TEXT, email TEXT)")
+        database_tool.query("DELETE FROM test_users") # Clean up
+
+    def test_crud_operations(self):
+        # 1. INSERT
+        result = database_tool.query("INSERT INTO test_users (name, email) VALUES (?, ?)", ("Alice", "alice@example.com"))
         self.assertTrue(result["success"])
-        self.assertEqual(result["count"], 1)
-        self.assertEqual(result["rows"][0]["test_value"], 1)
-
-    def test_multiple_columns(self):
-        result = database_tool.query("SELECT 'test' as name, 42 as value")
+        
+        # 2. SELECT
+        result = database_tool.query("SELECT * FROM test_users WHERE name = ?", ("Alice",))
         self.assertTrue(result["success"])
-        self.assertEqual(result["rows"][0]["name"], "test")
-        self.assertEqual(result["rows"][0]["value"], 42)
+        self.assertEqual(len(result["rows"]), 1)
+        self.assertEqual(result["rows"][0]["name"], "Alice")
 
-    def test_security_prevent_insert(self):
-        result = database_tool.query("INSERT INTO test VALUES (1)")
-        self.assertFalse(result["success"])
-        self.assertIn("SELECT", result["error"])
+        # 3. UPDATE
+        result = database_tool.query("UPDATE test_users SET email = ? WHERE name = ?", ("alice_new@example.com", "Alice"))
+        self.assertTrue(result["success"])
 
-    def test_security_prevent_update(self):
-        result = database_tool.query("UPDATE test SET value=1")
-        self.assertFalse(result["success"])
-        self.assertIn("SELECT", result["error"])
+        # Verify Update
+        result = database_tool.query("SELECT email FROM test_users WHERE name = ?", ("Alice",))
+        self.assertEqual(result["rows"][0]["email"], "alice_new@example.com")
 
-    def test_security_prevent_delete(self):
-        result = database_tool.query("DELETE FROM test")
+        # 4. DELETE
+        result = database_tool.query("DELETE FROM test_users WHERE name = ?", ("Alice",))
+        self.assertTrue(result["success"])
+
+        # Verify Delete
+        result = database_tool.query("SELECT * FROM test_users")
+        self.assertEqual(len(result["rows"]), 0)
+
+    def test_read_only_mode(self):
+        # Create a read-only instance
+        from tools.database_tool import DatabaseTool
+        ro_tool = DatabaseTool(read_only=True)
+        
+        result = ro_tool.query("INSERT INTO test_users (name) VALUES ('Bob')")
         self.assertFalse(result["success"])
-        self.assertIn("SELECT", result["error"])
+        self.assertIn("read-only", result["error"])
 
 
 class TestAgentController(unittest.TestCase):
@@ -194,7 +209,7 @@ class TestGoogleSearchTool(unittest.TestCase):
     """Test Google Search Tool (graceful failure without API key)"""
 
     def test_search_without_api_key(self):
-        from utils.google_search_tool import google_search
+        from tools.google_search_tool import google_search
 
         result = google_search.search("test query", num_results=1)
         # Should fail gracefully with fallback
@@ -205,7 +220,7 @@ class TestWeatherTool(unittest.TestCase):
     """Test Weather Tool (graceful failure without API key)"""
 
     def test_weather_without_api_key(self):
-        from utils.weather_tool import weather_tool
+        from tools.weather_tool import weather_tool
 
         result = weather_tool.get_weather("London")
         # Should fail gracefully
@@ -216,7 +231,7 @@ class TestEmailTool(unittest.TestCase):
     """Test Email Tool (graceful failure without SMTP config)"""
 
     def test_email_without_config(self):
-        from utils.email_tool import email_tool
+        from tools.email_tool import email_tool
 
         result = email_tool.send_email(["test@example.com"], "Test", "Body")
         self.assertFalse(result["success"])
@@ -244,7 +259,7 @@ class TestWebhookTool(unittest.TestCase):
     """Test Webhook Tool"""
 
     def test_invalid_method(self):
-        from utils.webhook_tool import webhook_tool
+        from tools.webhook_tool import webhook_tool
 
         result = webhook_tool.send_webhook(
             url="https://example.com/webhook", payload={"test": "data"}, method="DELETE"

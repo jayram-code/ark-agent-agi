@@ -9,7 +9,7 @@ from typing import Any, Dict, Optional
 
 import requests
 
-from utils.logging_utils import log_event
+from utils.observability.logging_utils import log_event
 
 
 class OpenAPITool:

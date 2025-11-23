@@ -1,0 +1,68 @@
+[
+  {
+    "id": "5345e1ea-bb60-40cc-a7ce-d3ecfbf9a9ce",
+    "session_id": "f6c5af2c-2bc0-481f-b47c-9acaff1d948c",
+    "trace_id": "5345e1ea-bb60-40cc-a7ce-d3ecfbf9a9ce",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:15:13.652587",
+    "payload": {
+      "text": "The update broke my settings, please fix.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T06:15:13.652904"
+  },
+  {
+    "id": "4ef56e0b-fc0e-4152-8b0e-69fd3d112d1a",
+    "session_id": "f6c5af2c-2bc0-481f-b47c-9acaff1d948c",
+    "trace_id": "4ef56e0b-fc0e-4152-8b0e-69fd3d112d1a",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:15:16.710871",
+    "payload": {
+      "text": "The update broke my settings, please fix.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:15:16.711522"
+  },
+  {
+    "id": "8af60998-7fa2-4955-92f1-7d0cd7a935c3",
+    "session_id": "f6c5af2c-2bc0-481f-b47c-9acaff1d948c",
+    "trace_id": "8af60998-7fa2-4955-92f1-7d0cd7a935c3",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:15:19.768167",
+    "payload": {
+      "text": "The update broke my settings, please fix.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:15:19.770613"
+  }
+]

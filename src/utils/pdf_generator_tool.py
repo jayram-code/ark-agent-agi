@@ -6,7 +6,7 @@ Create PDFs from data and text
 import os
 from typing import Any, Dict, List, Optional
 
-from utils.logging_utils import log_event
+from utils.observability.logging_utils import log_event
 
 try:
     from fpdf import FPDF

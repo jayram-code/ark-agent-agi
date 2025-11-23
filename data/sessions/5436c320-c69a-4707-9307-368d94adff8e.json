@@ -1,0 +1,70 @@
+[
+  {
+    "id": "5d0210de-9ac5-4062-8248-978d1aab333e",
+    "session_id": "5436c320-c69a-4707-9307-368d94adff8e",
+    "trace_id": "5d0210de-9ac5-4062-8248-978d1aab333e",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:13:23.495212",
+    "payload": {
+      "text": "My refund hasn't posted after 7 days.",
+      "intent": "refund_request",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.9,
+      "urgency": "medium",
+      "key_phrases": [
+        "refund"
+      ]
+    },
+    "logged_at": "2025-11-23T06:13:23.495445"
+  },
+  {
+    "id": "b34355f8-7260-461b-bff4-ea4cc8260197",
+    "session_id": "5436c320-c69a-4707-9307-368d94adff8e",
+    "trace_id": "b34355f8-7260-461b-bff4-ea4cc8260197",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:13:26.551697",
+    "payload": {
+      "text": "My refund hasn't posted after 7 days.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.9,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T06:13:26.552233"
+  },
+  {
+    "id": "50a16bc1-1233-4bdf-adea-08e98cfb9bc5",
+    "session_id": "5436c320-c69a-4707-9307-368d94adff8e",
+    "trace_id": "50a16bc1-1233-4bdf-adea-08e98cfb9bc5",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 06:13:29.721455",
+    "payload": {
+      "text": "My refund hasn't posted after 7 days.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T06:13:29.722519"
+  }
+]

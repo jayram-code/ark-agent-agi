@@ -6,8 +6,8 @@ from typing import Any, Dict, List, Optional
 import google.generativeai as genai
 import typing_extensions as typing
 
-from utils.logging_utils import log_event
-from utils.metrics import record_latency
+from utils.observability.logging_utils import log_event
+from utils.observability.metrics import record_latency
 
 # Configure Gemini API
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
