@@ -1,0 +1,153 @@
+[
+  {
+    "id": "80d76d8c-4ce0-4292-a15e-3ab720fa5872",
+    "session_id": "58cb8adb-409e-416b-b5bb-ccce6f4a0704",
+    "trace_id": "80d76d8c-4ce0-4292-a15e-3ab720fa5872",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:19:35.256193",
+    "payload": {
+      "text": "Your app is terrible, nothing works and support is useless.",
+      "intent": "complaint",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.85,
+      "urgency": "high",
+      "key_phrases": [
+        "angry"
+      ]
+    },
+    "logged_at": "2025-11-23T09:19:35.256693"
+  },
+  {
+    "id": "023ccecd-aaf6-48c8-a253-f64f0f0f0cf2",
+    "session_id": "58cb8adb-409e-416b-b5bb-ccce6f4a0704",
+    "trace_id": "023ccecd-aaf6-48c8-a253-f64f0f0f0cf2",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:19:38.218712",
+    "payload": {
+      "text": "Your app is terrible, nothing works and support is useless.",
+      "intent": "complaint",
+      "sentiment_score": -0.6,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "frustrated",
+      "intensity": 0.7,
+      "factors": [
+        "negative language"
+      ],
+      "original_confidence": 0.85,
+      "original_urgency": "high",
+      "escalation": true
+    },
+    "logged_at": "2025-11-23T09:19:38.220048"
+  },
+  {
+    "id": "67bb761e-3def-41c7-961c-07b74c72c459",
+    "session_id": "58cb8adb-409e-416b-b5bb-ccce6f4a0704",
+    "trace_id": "67bb761e-3def-41c7-961c-07b74c72c459",
+    "sender": "priority_agent",
+    "receiver": "action_executor_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:19:41.103402",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "plan": {
+        "tasks": [
+          {
+            "step": 1,
+            "action": "escalate_to_human",
+            "expected_outcome": "Human support assigned",
+            "detail": "Escalate complex issue to human agent"
+          },
+          {
+            "step": 2,
+            "action": "schedule_followup",
+            "expected_outcome": "Follow-up scheduled",
+            "detail": "Schedule high-priority follow-up"
+          }
+        ],
+        "estimated_time": 1,
+        "resources_needed": [
+          "human_agent"
+        ],
+        "success_criteria": [
+          "human_assigned",
+          "customer_contacted"
+        ],
+        "potential_challenges": [
+          "agent_availability"
+        ]
+      },
+      "priority_score": 1.0,
+      "time_estimate": "2-4h",
+      "original_payload": {
+        "text": "Your app is terrible, nothing works and support is useless.",
+        "kb": null,
+        "strict": true,
+        "intent": "complaint",
+        "customer_id": null,
+        "reason": [
+          "Rule-based calculation"
+        ],
+        "emotion": "frustrated",
+        "intensity": 0.7,
+        "key_phrases": null,
+        "escalation_reason": "Rule-based calculation"
+      }
+    },
+    "logged_at": "2025-11-23T09:19:41.105368"
+  },
+  {
+    "id": "e195abd2-0c32-47c0-8838-8fa8cb73f9bf",
+    "session_id": "58cb8adb-409e-416b-b5bb-ccce6f4a0704",
+    "trace_id": "e195abd2-0c32-47c0-8838-8fa8cb73f9bf",
+    "sender": "action_executor_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:19:41.335204",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "status": "execution_complete",
+      "results": [
+        {
+          "step": 1,
+          "status": "completed",
+          "outcome": "Human support assigned"
+        },
+        {
+          "step": 2,
+          "status": "completed",
+          "outcome": "Follow-up scheduled"
+        }
+      ],
+      "original_payload": {
+        "text": "Your app is terrible, nothing works and support is useless.",
+        "kb": null,
+        "strict": true,
+        "intent": "complaint",
+        "customer_id": null,
+        "reason": [
+          "Rule-based calculation"
+        ],
+        "emotion": "frustrated",
+        "intensity": 0.7,
+        "key_phrases": null,
+        "escalation_reason": "Rule-based calculation"
+      }
+    },
+    "logged_at": "2025-11-23T09:19:41.370380"
+  }
+]

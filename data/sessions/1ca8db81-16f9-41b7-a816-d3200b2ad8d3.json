@@ -1,0 +1,68 @@
+[
+  {
+    "id": "92b41c78-65ed-483b-8cbd-488f7aadd5d9",
+    "session_id": "1ca8db81-16f9-41b7-a816-d3200b2ad8d3",
+    "trace_id": "92b41c78-65ed-483b-8cbd-488f7aadd5d9",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:15:33.554866",
+    "payload": {
+      "text": "Where is my order? The tracking hasn't updated since last week.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T09:15:33.555266"
+  },
+  {
+    "id": "5ee29a79-8c54-4082-b04e-4b0c85d78eb2",
+    "session_id": "1ca8db81-16f9-41b7-a816-d3200b2ad8d3",
+    "trace_id": "5ee29a79-8c54-4082-b04e-4b0c85d78eb2",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:15:36.667662",
+    "payload": {
+      "text": "Where is my order? The tracking hasn't updated since last week.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T09:15:36.668824"
+  },
+  {
+    "id": "d9c02808-0a4b-4445-a030-096773dafb89",
+    "session_id": "1ca8db81-16f9-41b7-a816-d3200b2ad8d3",
+    "trace_id": "d9c02808-0a4b-4445-a030-096773dafb89",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:15:39.879880",
+    "payload": {
+      "text": "Where is my order? The tracking hasn't updated since last week.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T09:15:39.882746"
+  }
+]

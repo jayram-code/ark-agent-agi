@@ -1,0 +1,70 @@
+[
+  {
+    "id": "50312643-180e-4da8-b750-a44cb52ab8cb",
+    "session_id": "7fd254c5-3ea0-4c13-8263-5de531ec6282",
+    "trace_id": "50312643-180e-4da8-b750-a44cb52ab8cb",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:16:57.986331",
+    "payload": {
+      "text": "I want my money back now.",
+      "intent": "refund_request",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.9,
+      "urgency": "medium",
+      "key_phrases": [
+        "refund"
+      ]
+    },
+    "logged_at": "2025-11-23T09:16:57.987094"
+  },
+  {
+    "id": "e36db055-4e95-427f-a3a8-3237362ca706",
+    "session_id": "7fd254c5-3ea0-4c13-8263-5de531ec6282",
+    "trace_id": "e36db055-4e95-427f-a3a8-3237362ca706",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:17:01.012088",
+    "payload": {
+      "text": "I want my money back now.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.9,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T09:17:01.013151"
+  },
+  {
+    "id": "1bbfe2cc-b9ab-4a33-aac1-5e0d9dc55651",
+    "session_id": "7fd254c5-3ea0-4c13-8263-5de531ec6282",
+    "trace_id": "1bbfe2cc-b9ab-4a33-aac1-5e0d9dc55651",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:17:04.111662",
+    "payload": {
+      "text": "I want my money back now.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T09:17:04.113977"
+  }
+]

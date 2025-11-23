@@ -1,0 +1,68 @@
+[
+  {
+    "id": "4eebd2cd-f9b7-49b4-8836-1ab1c920958b",
+    "session_id": "fc9887fe-8718-43a0-b400-e2a8c9fe06a7",
+    "trace_id": "4eebd2cd-f9b7-49b4-8836-1ab1c920958b",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:17:16.406275",
+    "payload": {
+      "text": "My tracking number says delivered but I didn't get it.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T09:17:16.406651"
+  },
+  {
+    "id": "a1adba11-faac-4d8d-9de5-768aa2041b0f",
+    "session_id": "fc9887fe-8718-43a0-b400-e2a8c9fe06a7",
+    "trace_id": "a1adba11-faac-4d8d-9de5-768aa2041b0f",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:17:19.714197",
+    "payload": {
+      "text": "My tracking number says delivered but I didn't get it.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T09:17:19.715608"
+  },
+  {
+    "id": "81017f95-b25f-4a6d-9ea2-5bd6bd737f56",
+    "session_id": "fc9887fe-8718-43a0-b400-e2a8c9fe06a7",
+    "trace_id": "81017f95-b25f-4a6d-9ea2-5bd6bd737f56",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:17:22.717168",
+    "payload": {
+      "text": "My tracking number says delivered but I didn't get it.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T09:17:22.719504"
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "id": "6a5fc7e0-e558-420f-8aa8-82447e3ed1a0",
+    "session_id": "f99fa285-e453-456b-9fc7-e87281ce7d7c",
+    "trace_id": "6a5fc7e0-e558-420f-8aa8-82447e3ed1a0",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:19:54.115378",
+    "payload": {
+      "text": "I want a partial refund due to late delivery.",
+      "intent": "refund_request",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.9,
+      "urgency": "medium",
+      "key_phrases": [
+        "refund"
+      ]
+    },
+    "logged_at": "2025-11-23T09:19:54.115836"
+  },
+  {
+    "id": "424558d9-a741-4f88-a7ba-b55ee43b6db9",
+    "session_id": "f99fa285-e453-456b-9fc7-e87281ce7d7c",
+    "trace_id": "424558d9-a741-4f88-a7ba-b55ee43b6db9",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:19:57.205654",
+    "payload": {
+      "text": "I want a partial refund due to late delivery.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.9,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T09:19:57.206600"
+  },
+  {
+    "id": "1b8cb057-daac-4583-8fc6-d95656d2dbe9",
+    "session_id": "f99fa285-e453-456b-9fc7-e87281ce7d7c",
+    "trace_id": "1b8cb057-daac-4583-8fc6-d95656d2dbe9",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:20:00.259498",
+    "payload": {
+      "text": "I want a partial refund due to late delivery.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T09:20:00.263119"
+  }
+]

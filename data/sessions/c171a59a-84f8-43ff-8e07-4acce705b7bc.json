@@ -1,0 +1,68 @@
+[
+  {
+    "id": "28f037b2-70a7-44cf-b42f-2c16a8dc7cde",
+    "session_id": "c171a59a-84f8-43ff-8e07-4acce705b7bc",
+    "trace_id": "28f037b2-70a7-44cf-b42f-2c16a8dc7cde",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:18:11.187565",
+    "payload": {
+      "text": "Tracking page is blank, what should I do?",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T09:18:11.188011"
+  },
+  {
+    "id": "3264bdcf-c7cf-45b3-b031-02536f545792",
+    "session_id": "c171a59a-84f8-43ff-8e07-4acce705b7bc",
+    "trace_id": "3264bdcf-c7cf-45b3-b031-02536f545792",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:18:14.433920",
+    "payload": {
+      "text": "Tracking page is blank, what should I do?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T09:18:14.435025"
+  },
+  {
+    "id": "428d4464-61a0-47b8-b21d-688eac205cff",
+    "session_id": "c171a59a-84f8-43ff-8e07-4acce705b7bc",
+    "trace_id": "428d4464-61a0-47b8-b21d-688eac205cff",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:18:17.487724",
+    "payload": {
+      "text": "Tracking page is blank, what should I do?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T09:18:17.489726"
+  }
+]

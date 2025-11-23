@@ -1,0 +1,68 @@
+[
+  {
+    "id": "eb716c1f-6c7a-4c63-8938-d619b622dc8a",
+    "session_id": "788c9044-61d9-46de-b3bb-97ef71a7cd64",
+    "trace_id": "eb716c1f-6c7a-4c63-8938-d619b622dc8a",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:20:48.987088",
+    "payload": {
+      "text": "The device overheats and shuts down.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T09:20:48.987568"
+  },
+  {
+    "id": "a1f4a80e-677c-4805-a6d5-8f8db10a8bd4",
+    "session_id": "788c9044-61d9-46de-b3bb-97ef71a7cd64",
+    "trace_id": "a1f4a80e-677c-4805-a6d5-8f8db10a8bd4",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:20:51.930821",
+    "payload": {
+      "text": "The device overheats and shuts down.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T09:20:51.932034"
+  },
+  {
+    "id": "c5f72b49-1b92-4e7a-9e7b-7b7168b2b529",
+    "session_id": "788c9044-61d9-46de-b3bb-97ef71a7cd64",
+    "trace_id": "c5f72b49-1b92-4e7a-9e7b-7b7168b2b529",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:20:54.854918",
+    "payload": {
+      "text": "The device overheats and shuts down.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T09:20:54.858388"
+  }
+]

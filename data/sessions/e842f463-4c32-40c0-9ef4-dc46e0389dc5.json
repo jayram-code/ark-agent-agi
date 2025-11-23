@@ -1,0 +1,68 @@
+[
+  {
+    "id": "abcc50c5-f857-4050-bfdb-1214044b8e1c",
+    "session_id": "e842f463-4c32-40c0-9ef4-dc46e0389dc5",
+    "trace_id": "abcc50c5-f857-4050-bfdb-1214044b8e1c",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:18:39.411737",
+    "payload": {
+      "text": "Why was my account locked?",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T09:18:39.412351"
+  },
+  {
+    "id": "38e5b237-bcd5-4dc1-b483-93db50e1f3bf",
+    "session_id": "e842f463-4c32-40c0-9ef4-dc46e0389dc5",
+    "trace_id": "38e5b237-bcd5-4dc1-b483-93db50e1f3bf",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:18:42.578768",
+    "payload": {
+      "text": "Why was my account locked?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T09:18:42.580084"
+  },
+  {
+    "id": "578841c8-b5ac-4c0d-ad3c-11caedf6640b",
+    "session_id": "e842f463-4c32-40c0-9ef4-dc46e0389dc5",
+    "trace_id": "578841c8-b5ac-4c0d-ad3c-11caedf6640b",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:18:45.732747",
+    "payload": {
+      "text": "Why was my account locked?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T09:18:45.734930"
+  }
+]
