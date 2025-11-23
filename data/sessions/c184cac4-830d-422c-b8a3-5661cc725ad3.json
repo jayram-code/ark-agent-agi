@@ -1,0 +1,70 @@
+[
+  {
+    "id": "81d5bf99-df4b-4357-abc0-c27b78d73e7e",
+    "session_id": "c184cac4-830d-422c-b8a3-5661cc725ad3",
+    "trace_id": "81d5bf99-df4b-4357-abc0-c27b78d73e7e",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:34:49.869986",
+    "payload": {
+      "text": "I keep getting an authentication error on mobile.",
+      "intent": "technical_support",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.8,
+      "urgency": "medium",
+      "key_phrases": [
+        "not working"
+      ]
+    },
+    "logged_at": "2025-11-23T07:34:49.870354"
+  },
+  {
+    "id": "563e22a9-b64a-4c1c-8e33-43061857e136",
+    "session_id": "c184cac4-830d-422c-b8a3-5661cc725ad3",
+    "trace_id": "563e22a9-b64a-4c1c-8e33-43061857e136",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:34:52.942051",
+    "payload": {
+      "text": "I keep getting an authentication error on mobile.",
+      "intent": "technical_support",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.8,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:34:52.942680"
+  },
+  {
+    "id": "a33e4458-93ca-4bc7-89df-35bf2fe608f8",
+    "session_id": "c184cac4-830d-422c-b8a3-5661cc725ad3",
+    "trace_id": "a33e4458-93ca-4bc7-89df-35bf2fe608f8",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:34:56.288425",
+    "payload": {
+      "text": "I keep getting an authentication error on mobile.",
+      "intent": "technical_support",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:34:56.290396"
+  }
+]

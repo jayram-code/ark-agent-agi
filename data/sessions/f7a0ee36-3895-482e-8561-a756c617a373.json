@@ -1,0 +1,68 @@
+[
+  {
+    "id": "ef4a4668-5d9d-4bb9-9065-10d03a56a1b7",
+    "session_id": "f7a0ee36-3895-482e-8561-a756c617a373",
+    "trace_id": "ef4a4668-5d9d-4bb9-9065-10d03a56a1b7",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:05:32.601063",
+    "payload": {
+      "text": "",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T09:05:32.601757"
+  },
+  {
+    "id": "d38bcc51-2a9e-4a94-88d8-8053f39e4b81",
+    "session_id": "f7a0ee36-3895-482e-8561-a756c617a373",
+    "trace_id": "d38bcc51-2a9e-4a94-88d8-8053f39e4b81",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:05:35.698694",
+    "payload": {
+      "text": "",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T09:05:35.699945"
+  },
+  {
+    "id": "c8d0f069-aa49-4893-a6d3-8dcb3171e13d",
+    "session_id": "f7a0ee36-3895-482e-8561-a756c617a373",
+    "trace_id": "c8d0f069-aa49-4893-a6d3-8dcb3171e13d",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 09:05:38.776085",
+    "payload": {
+      "text": null,
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T09:05:38.780327"
+  }
+]

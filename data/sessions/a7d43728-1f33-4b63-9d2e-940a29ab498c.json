@@ -1,0 +1,70 @@
+[
+  {
+    "id": "838bd6c4-27c0-40f9-a168-8c604a3e3be3",
+    "session_id": "a7d43728-1f33-4b63-9d2e-940a29ab498c",
+    "trace_id": "838bd6c4-27c0-40f9-a168-8c604a3e3be3",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:35:35.862664",
+    "payload": {
+      "text": "Thanks for fixing my issue so fast!",
+      "intent": "technical_support",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.8,
+      "urgency": "medium",
+      "key_phrases": [
+        "not working"
+      ]
+    },
+    "logged_at": "2025-11-23T07:35:35.862939"
+  },
+  {
+    "id": "62956598-de43-4327-97e8-83763e6b8e2f",
+    "session_id": "a7d43728-1f33-4b63-9d2e-940a29ab498c",
+    "trace_id": "62956598-de43-4327-97e8-83763e6b8e2f",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:35:38.784998",
+    "payload": {
+      "text": "Thanks for fixing my issue so fast!",
+      "intent": "technical_support",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.8,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:35:38.785450"
+  },
+  {
+    "id": "4ef0e0bb-413d-4bc0-bd0b-6af4953b0d99",
+    "session_id": "a7d43728-1f33-4b63-9d2e-940a29ab498c",
+    "trace_id": "4ef0e0bb-413d-4bc0-bd0b-6af4953b0d99",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:35:41.794727",
+    "payload": {
+      "text": "Thanks for fixing my issue so fast!",
+      "intent": "technical_support",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:35:41.796526"
+  }
+]

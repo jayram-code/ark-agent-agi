@@ -1,0 +1,70 @@
+[
+  {
+    "id": "1e6ea5fe-e30f-4d3a-b391-ce4f41f5fcbb",
+    "session_id": "a53cfa87-7ba2-47e8-b935-581d882d0257",
+    "trace_id": "1e6ea5fe-e30f-4d3a-b391-ce4f41f5fcbb",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:31:27.008510",
+    "payload": {
+      "text": "Please refund my order #1234. It was the wrong size.",
+      "intent": "refund_request",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.9,
+      "urgency": "medium",
+      "key_phrases": [
+        "refund"
+      ]
+    },
+    "logged_at": "2025-11-23T07:31:27.028590"
+  },
+  {
+    "id": "3b0dc2d3-9bfa-4822-b5b4-925a8fdd8ad0",
+    "session_id": "a53cfa87-7ba2-47e8-b935-581d882d0257",
+    "trace_id": "3b0dc2d3-9bfa-4822-b5b4-925a8fdd8ad0",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:31:30.295472",
+    "payload": {
+      "text": "Please refund my order #1234. It was the wrong size.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.9,
+      "original_urgency": "medium",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:31:30.296318"
+  },
+  {
+    "id": "b3eb9969-2238-4159-b4f6-8de2faf01d95",
+    "session_id": "a53cfa87-7ba2-47e8-b935-581d882d0257",
+    "trace_id": "b3eb9969-2238-4159-b4f6-8de2faf01d95",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:31:33.245604",
+    "payload": {
+      "text": "Please refund my order #1234. It was the wrong size.",
+      "intent": "refund_request",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:31:33.247435"
+  }
+]

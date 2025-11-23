@@ -1,0 +1,153 @@
+[
+  {
+    "id": "418c31f1-0199-4c58-9102-b3203c8d4298",
+    "session_id": "84e0d779-1b0d-45db-bca9-3cfb6de6fd06",
+    "trace_id": "418c31f1-0199-4c58-9102-b3203c8d4298",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:32:13.901666",
+    "payload": {
+      "text": "I'm angry that nobody responded to my last email.",
+      "intent": "complaint",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.85,
+      "urgency": "high",
+      "key_phrases": [
+        "angry"
+      ]
+    },
+    "logged_at": "2025-11-23T07:32:13.902094"
+  },
+  {
+    "id": "cc2f8443-7028-41fc-8f64-54d6154fa383",
+    "session_id": "84e0d779-1b0d-45db-bca9-3cfb6de6fd06",
+    "trace_id": "cc2f8443-7028-41fc-8f64-54d6154fa383",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:32:16.997706",
+    "payload": {
+      "text": "I'm angry that nobody responded to my last email.",
+      "intent": "complaint",
+      "sentiment_score": -0.6,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "frustrated",
+      "intensity": 0.7,
+      "factors": [
+        "negative language"
+      ],
+      "original_confidence": 0.85,
+      "original_urgency": "high",
+      "escalation": true
+    },
+    "logged_at": "2025-11-23T07:32:16.998832"
+  },
+  {
+    "id": "77a81103-4968-42fd-ada2-954c78ca3e87",
+    "session_id": "84e0d779-1b0d-45db-bca9-3cfb6de6fd06",
+    "trace_id": "77a81103-4968-42fd-ada2-954c78ca3e87",
+    "sender": "priority_agent",
+    "receiver": "action_executor_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:32:20.195217",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "plan": {
+        "tasks": [
+          {
+            "step": 1,
+            "action": "escalate_to_human",
+            "expected_outcome": "Human support assigned",
+            "detail": "Escalate complex issue to human agent"
+          },
+          {
+            "step": 2,
+            "action": "schedule_followup",
+            "expected_outcome": "Follow-up scheduled",
+            "detail": "Schedule high-priority follow-up"
+          }
+        ],
+        "estimated_time": 1,
+        "resources_needed": [
+          "human_agent"
+        ],
+        "success_criteria": [
+          "human_assigned",
+          "customer_contacted"
+        ],
+        "potential_challenges": [
+          "agent_availability"
+        ]
+      },
+      "priority_score": 1.0,
+      "time_estimate": "2-4h",
+      "original_payload": {
+        "text": "I'm angry that nobody responded to my last email.",
+        "kb": null,
+        "strict": true,
+        "intent": "complaint",
+        "customer_id": null,
+        "reason": [
+          "Rule-based calculation"
+        ],
+        "emotion": "frustrated",
+        "intensity": 0.7,
+        "key_phrases": null,
+        "escalation_reason": "Rule-based calculation"
+      }
+    },
+    "logged_at": "2025-11-23T07:32:20.217446"
+  },
+  {
+    "id": "3ee1d56e-f050-4263-adf5-d713bbcde420",
+    "session_id": "84e0d779-1b0d-45db-bca9-3cfb6de6fd06",
+    "trace_id": "3ee1d56e-f050-4263-adf5-d713bbcde420",
+    "sender": "action_executor_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:32:20.456847",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "status": "execution_complete",
+      "results": [
+        {
+          "step": 1,
+          "status": "completed",
+          "outcome": "Human support assigned"
+        },
+        {
+          "step": 2,
+          "status": "completed",
+          "outcome": "Follow-up scheduled"
+        }
+      ],
+      "original_payload": {
+        "text": "I'm angry that nobody responded to my last email.",
+        "kb": null,
+        "strict": true,
+        "intent": "complaint",
+        "customer_id": null,
+        "reason": [
+          "Rule-based calculation"
+        ],
+        "emotion": "frustrated",
+        "intensity": 0.7,
+        "key_phrases": null,
+        "escalation_reason": "Rule-based calculation"
+      }
+    },
+    "logged_at": "2025-11-23T07:32:20.478942"
+  }
+]

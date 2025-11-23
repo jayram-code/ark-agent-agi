@@ -1,53 +1,53 @@
 email_text,true_intent,pred_intent,intent_correct,true_sentiment,pred_sentiment,sentiment_correct,expected_routing,actual_routing,routing_correct,latency_ms
-My package never arrived. The tracking shows 'in t...,shipping_inquiry,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9269.58
-Please refund my order #1234. It was the wrong siz...,refund_request,refund_request,True,neutral,neutral,True,TicketAgent,ticket_agent,True,9003.61
-I want to cancel my subscription immediately....,cancellation,cancellation,True,neutral,neutral,True,TicketAgent,ticket_agent,True,9096.82
-The app keeps crashing whenever I try to log in....,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9380.39
-Where is my order? The tracking hasn't updated sin...,shipping_inquiry,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9480.83
-Thanks for the quick delivery! Really happy with t...,general_query,general_query,True,satisfied,satisfied,True,TicketAgent,ticket_agent,True,8929.55
-I'm angry that nobody responded to my last email....,complaint,complaint,True,angry,frustrated,False,SupervisorAgent,ticket_agent,False,9786.73
-Can you help me change my payment method?...,general_query,general_query,True,neutral,neutral,True,TicketAgent,ticket_agent,True,9160.69
-This is the worst experience. Nothing works and I'...,complaint,complaint,True,furious,frustrated,False,SupervisorAgent,ticket_agent,False,9645.08
-Delivery was delayed and I'm disappointed....,shipping_inquiry,general_query,False,frustrated,frustrated,True,TicketAgent,ticket_agent,True,9481.43
-I received a broken item and need a replacement or...,refund_request,refund_request,True,frustrated,neutral,False,TicketAgent,ticket_agent,True,9383.92
-Please stop sending me promotional emails....,cancellation,cancellation,True,neutral,neutral,True,TicketAgent,ticket_agent,True,9274.55
-The website shows error 500 when checking out....,technical_support,technical_support,True,frustrated,neutral,False,TicketAgent,ticket_agent,True,9100.92
-I want my money back now....,refund_request,refund_request,True,angry,neutral,False,SupervisorAgent,ticket_agent,False,9146.53
-How can I update my address?...,general_query,general_query,True,neutral,neutral,True,TicketAgent,ticket_agent,True,9141.77
-My tracking number says delivered but I didn't get...,shipping_inquiry,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9047.13
-I love the new features; great job!...,general_query,general_query,True,happy,satisfied,True,TicketAgent,ticket_agent,True,9458.18
-Confused about the billing cycle; can someone expl...,general_query,general_query,True,confused,neutral,False,TicketAgent,ticket_agent,True,9221.71
-Still waiting for support from last week. This is ...,complaint,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9185.81
-The app logs me out randomly every hour....,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9289.72
-Please cancel order #5678 before it ships....,cancellation,cancellation,True,neutral,neutral,True,TicketAgent,ticket_agent,True,8951.77
-Tracking page is blank; what should I do?...,shipping_inquiry,general_query,False,confused,neutral,False,TicketAgent,ticket_agent,True,9368.57
-My refund hasn't posted after 7 days....,refund_request,refund_request,True,frustrated,neutral,False,TicketAgent,ticket_agent,True,9230.02
-I keep getting an authentication error on mobile....,technical_support,technical_support,True,frustrated,neutral,False,TicketAgent,ticket_agent,True,8809.18
-Why was my account locked?...,general_query,general_query,True,confused,neutral,False,TicketAgent,ticket_agent,True,9245.3
-My order arrived damaged. I need help....,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9321.9
-Stop charging me; I canceled last month....,complaint,cancellation,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9301.47
-Can you expedite my shipment? It's a gift....,shipping_inquiry,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9161.76
-Thanks for fixing my issue so fast!...,general_query,technical_support,False,satisfied,neutral,False,TicketAgent,ticket_agent,True,9285.73
-I am extremely stressed; this order must arrive to...,shipping_inquiry,general_query,False,stressed,neutral,False,SupervisorAgent,ticket_agent,False,9067.69
-Your app is terrible; nothing works and support is...,complaint,complaint,True,angry,frustrated,False,SupervisorAgent,ticket_agent,False,9504.77
-Please help me reset my password....,technical_support,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9559.72
-I want a partial refund due to late delivery....,refund_request,refund_request,True,frustrated,neutral,False,TicketAgent,ticket_agent,True,9480.1
-Am I eligible for a student discount?...,general_query,general_query,True,neutral,neutral,True,TicketAgent,ticket_agent,True,9073.92
-The update broke my settings; please fix....,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,8936.25
-Can I change my delivery address to my office?...,shipping_inquiry,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9407.12
-I already emailed twice. Why is nobody replying?...,complaint,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9772.12
-Please confirm my cancellation and stop billing....,cancellation,cancellation,True,neutral,neutral,True,TicketAgent,ticket_agent,True,9036.91
-The device overheats and shuts down....,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,8937.59
-When will my order ship?...,shipping_inquiry,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9108.67
-I feel disappointed with the delays....,complaint,general_query,False,frustrated,frustrated,True,TicketAgent,ticket_agent,True,9497.39
-Refund me or escalate to a manager....,refund_request,refund_request,True,angry,neutral,False,SupervisorAgent,ticket_agent,False,9397.85
-I appreciate the quick responses; thank you....,general_query,general_query,True,satisfied,neutral,False,TicketAgent,ticket_agent,True,9053.01
-Tracking says delivered to wrong city....,shipping_inquiry,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9425.64
-Confused about how to apply the promo code....,general_query,general_query,True,confused,neutral,False,TicketAgent,ticket_agent,True,8982.3
-My account was hacked. Urgent help needed....,technical_support,general_query,False,stressed,neutral,False,SupervisorAgent,ticket_agent,False,9000.64
-The checkout button does nothing....,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9215.47
-Cancel my plan and issue a full refund....,cancellation,refund_request,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9333.41
-Is same-day delivery available?...,shipping_inquiry,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9299.89
-My replacement arrived perfect; thanks!...,general_query,general_query,True,happy,neutral,False,TicketAgent,ticket_agent,True,9456.49
-I'm frustrated that the app logs me out repeatedly...,technical_support,complaint,False,frustrated,frustrated,True,TicketAgent,ticket_agent,True,9418.79
-You are ignoring me; this is unacceptable....,complaint,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9293.24
+...,shipping_inquiry,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9201.05
+...,refund_request,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9017.09
+...,cancellation,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9284.61
+...,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9259.2
+...,shipping_inquiry,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9238.29
+...,general_query,general_query,True,satisfied,neutral,False,TicketAgent,ticket_agent,True,9383.53
+...,complaint,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9107.34
+...,general_query,general_query,True,neutral,neutral,True,TicketAgent,ticket_agent,True,9001.5
+...,complaint,general_query,False,furious,neutral,False,SupervisorAgent,ticket_agent,False,9178.6
+...,shipping_inquiry,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9527.67
+...,refund_request,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9209.76
+...,cancellation,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9115.23
+...,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,8947.67
+...,refund_request,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9345.92
+...,general_query,general_query,True,neutral,neutral,True,TicketAgent,ticket_agent,True,9435.92
+...,shipping_inquiry,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,8998.38
+...,general_query,general_query,True,happy,neutral,False,TicketAgent,ticket_agent,True,9189.23
+...,general_query,general_query,True,confused,neutral,False,TicketAgent,ticket_agent,True,9303.16
+...,complaint,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9283.84
+...,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9631.31
+...,cancellation,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9174.44
+...,shipping_inquiry,general_query,False,confused,neutral,False,TicketAgent,ticket_agent,True,9678.63
+...,refund_request,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,8856.33
+...,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9295.07
+...,general_query,general_query,True,confused,neutral,False,TicketAgent,ticket_agent,True,9228.94
+...,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9368.22
+...,complaint,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9106.68
+...,shipping_inquiry,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,8927.59
+...,general_query,general_query,True,satisfied,neutral,False,TicketAgent,ticket_agent,True,9171.36
+...,shipping_inquiry,general_query,False,stressed,neutral,False,SupervisorAgent,ticket_agent,False,9433.63
+...,complaint,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9369.24
+...,technical_support,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9218.25
+...,refund_request,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9301.7
+...,general_query,general_query,True,neutral,neutral,True,TicketAgent,ticket_agent,True,9319.45
+...,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9502.49
+...,shipping_inquiry,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9119.74
+...,complaint,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,8893.16
+...,cancellation,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9200.77
+...,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,8874.5
+...,shipping_inquiry,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9733.76
+...,complaint,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9069.65
+...,refund_request,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9387.75
+...,general_query,general_query,True,satisfied,neutral,False,TicketAgent,ticket_agent,True,8791.46
+...,shipping_inquiry,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9199.58
+...,general_query,general_query,True,confused,neutral,False,TicketAgent,ticket_agent,True,8910.8
+...,technical_support,general_query,False,stressed,neutral,False,SupervisorAgent,ticket_agent,False,9226.89
+...,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9226.98
+...,cancellation,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9445.87
+...,shipping_inquiry,general_query,False,neutral,neutral,True,TicketAgent,ticket_agent,True,9386.33
+...,general_query,general_query,True,happy,neutral,False,TicketAgent,ticket_agent,True,9184.72
+...,technical_support,general_query,False,frustrated,neutral,False,TicketAgent,ticket_agent,True,9214.62
+...,complaint,general_query,False,angry,neutral,False,SupervisorAgent,ticket_agent,False,9272.2

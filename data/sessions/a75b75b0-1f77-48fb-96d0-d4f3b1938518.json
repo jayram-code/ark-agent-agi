@@ -1,0 +1,72 @@
+[
+  {
+    "id": "8fe9e2b6-9586-45bf-8934-558a62b9ee9b",
+    "session_id": "a75b75b0-1f77-48fb-96d0-d4f3b1938518",
+    "trace_id": "8fe9e2b6-9586-45bf-8934-558a62b9ee9b",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:33:46.427710",
+    "payload": {
+      "text": "I love the new features, great job!",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:33:46.428020"
+  },
+  {
+    "id": "107e1825-6789-4672-928c-a9f56f76e47f",
+    "session_id": "a75b75b0-1f77-48fb-96d0-d4f3b1938518",
+    "trace_id": "107e1825-6789-4672-928c-a9f56f76e47f",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:33:49.447707",
+    "payload": {
+      "text": "I love the new features, great job!",
+      "intent": "general_query",
+      "sentiment_score": 0.6,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "satisfied",
+      "intensity": 0.5,
+      "factors": [
+        "positive language"
+      ],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:33:49.448744"
+  },
+  {
+    "id": "881bad5a-dff4-4740-8c92-916753b47dba",
+    "session_id": "a75b75b0-1f77-48fb-96d0-d4f3b1938518",
+    "trace_id": "881bad5a-dff4-4740-8c92-916753b47dba",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:33:52.484977",
+    "payload": {
+      "text": "I love the new features, great job!",
+      "intent": "general_query",
+      "sentiment_score": 0.6,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "satisfied",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": [
+        "positive language"
+      ]
+    },
+    "logged_at": "2025-11-23T07:33:52.485995"
+  }
+]

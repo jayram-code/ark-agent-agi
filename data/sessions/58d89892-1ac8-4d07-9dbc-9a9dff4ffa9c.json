@@ -1,0 +1,68 @@
+[
+  {
+    "id": "28747e2a-a7b1-44f9-a8e1-e3c009c28883",
+    "session_id": "58d89892-1ac8-4d07-9dbc-9a9dff4ffa9c",
+    "trace_id": "28747e2a-a7b1-44f9-a8e1-e3c009c28883",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:31:17.765208",
+    "payload": {
+      "text": "My package never arrived. The tracking shows 'in transit' for 10 days.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:31:17.768834"
+  },
+  {
+    "id": "9c1191fb-913a-44eb-89d0-cff783d765ac",
+    "session_id": "58d89892-1ac8-4d07-9dbc-9a9dff4ffa9c",
+    "trace_id": "9c1191fb-913a-44eb-89d0-cff783d765ac",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:31:21.000752",
+    "payload": {
+      "text": "My package never arrived. The tracking shows 'in transit' for 10 days.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:31:21.001171"
+  },
+  {
+    "id": "e0979b6c-3d56-470d-90d1-6d353f33ff27",
+    "session_id": "58d89892-1ac8-4d07-9dbc-9a9dff4ffa9c",
+    "trace_id": "e0979b6c-3d56-470d-90d1-6d353f33ff27",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:31:23.858614",
+    "payload": {
+      "text": "My package never arrived. The tracking shows 'in transit' for 10 days.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:31:23.859416"
+  }
+]

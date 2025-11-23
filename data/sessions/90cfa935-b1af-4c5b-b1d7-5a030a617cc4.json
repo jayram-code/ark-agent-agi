@@ -1,0 +1,68 @@
+[
+  {
+    "id": "a16ad6d3-f8cc-4218-8daf-42cb26802f1b",
+    "session_id": "90cfa935-b1af-4c5b-b1d7-5a030a617cc4",
+    "trace_id": "a16ad6d3-f8cc-4218-8daf-42cb26802f1b",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:35:26.767441",
+    "payload": {
+      "text": "Can you expedite my shipment? It's a gift.",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:35:26.767772"
+  },
+  {
+    "id": "935f3a4a-1e28-4413-b1ac-4bc509816634",
+    "session_id": "90cfa935-b1af-4c5b-b1d7-5a030a617cc4",
+    "trace_id": "935f3a4a-1e28-4413-b1ac-4bc509816634",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:35:29.976475",
+    "payload": {
+      "text": "Can you expedite my shipment? It's a gift.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:35:29.977477"
+  },
+  {
+    "id": "3e26d638-d702-47e6-9078-d1662f1b155b",
+    "session_id": "90cfa935-b1af-4c5b-b1d7-5a030a617cc4",
+    "trace_id": "3e26d638-d702-47e6-9078-d1662f1b155b",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:35:32.827186",
+    "payload": {
+      "text": "Can you expedite my shipment? It's a gift.",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:35:32.829365"
+  }
+]

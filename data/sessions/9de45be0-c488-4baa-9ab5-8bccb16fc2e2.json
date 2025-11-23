@@ -1,0 +1,68 @@
+[
+  {
+    "id": "687f4f18-1a30-4576-85ec-f01820985c03",
+    "session_id": "9de45be0-c488-4baa-9ab5-8bccb16fc2e2",
+    "trace_id": "687f4f18-1a30-4576-85ec-f01820985c03",
+    "sender": "email_agent",
+    "receiver": "sentiment_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:33:55.318817",
+    "payload": {
+      "text": "Confused about the billing cycle, can someone explain?",
+      "intent": "general_query",
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "intent_confidence": 0.7,
+      "urgency": "low",
+      "key_phrases": []
+    },
+    "logged_at": "2025-11-23T07:33:55.319230"
+  },
+  {
+    "id": "9dd8e070-133c-4d6e-bda8-bbc8f7e8be0c",
+    "session_id": "9de45be0-c488-4baa-9ab5-8bccb16fc2e2",
+    "trace_id": "9dd8e070-133c-4d6e-bda8-bbc8f7e8be0c",
+    "sender": "sentiment_agent",
+    "receiver": "priority_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:33:58.584324",
+    "payload": {
+      "text": "Confused about the billing cycle, can someone explain?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "emotion": "neutral",
+      "intensity": 0.3,
+      "factors": [],
+      "original_confidence": 0.7,
+      "original_urgency": "low",
+      "escalation": false
+    },
+    "logged_at": "2025-11-23T07:33:58.585277"
+  },
+  {
+    "id": "4e8e6915-8a91-4994-812d-e24576e419c9",
+    "session_id": "9de45be0-c488-4baa-9ab5-8bccb16fc2e2",
+    "trace_id": "4e8e6915-8a91-4994-812d-e24576e419c9",
+    "sender": "priority_agent",
+    "receiver": "ticket_agent",
+    "type": "task_request",
+    "timestamp": "2025-11-23 07:34:01.483374",
+    "payload": {
+      "text": "Confused about the billing cycle, can someone explain?",
+      "intent": "general_query",
+      "sentiment_score": 0.0,
+      "customer_id": null,
+      "metadata": {},
+      "stress": 0.0,
+      "priority_score": 0.5,
+      "emotion": "neutral",
+      "time_estimate": "4-24h",
+      "key_phrases": null,
+      "factors": []
+    },
+    "logged_at": "2025-11-23T07:34:01.485214"
+  }
+]
