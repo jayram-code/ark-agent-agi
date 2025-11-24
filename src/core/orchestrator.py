@@ -4,15 +4,15 @@ import time
 import uuid
 from typing import Any, Dict, Union
 
-from agents.base_agent import BaseAgent
-from config import config
-from models.messages import AgentMessage, MessageType
-from utils.agent_controller import agent_controller
-from utils.observability.tracing import tracer
-from utils.observability.metrics import metrics_collector
-from utils.observability.session_logger import session_logger
+from src.agents.base_agent import BaseAgent
+from src.config import config
+from src.models.messages import AgentMessage, MessageType
+from src.utils.agent_controller import agent_controller
+from src.utils.observability.tracing import tracer
+from src.utils.observability.metrics import metrics_collector
+from src.utils.observability.session_logger import session_logger
 
-from policies.routing_policy import RoutingPolicy
+from src.policies.routing_policy import RoutingPolicy
 
 class Orchestrator:
     def __init__(self):

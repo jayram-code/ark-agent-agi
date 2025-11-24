@@ -4,20 +4,20 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Dict, Any, Optional
 
-from core.orchestrator import Orchestrator
-from models.messages import AgentMessage, MessageType
-from agents.email_agent import EmailAgent
-from agents.sentiment_agent import SentimentAgent
-from agents.priority_agent import PriorityAgent
-from agents.ticket_agent import TicketAgent
-from agents.supervisor_agent import SupervisorAgent
-from agents.retryable_agent import RetryableAgent
-from agents.planner_agent import PlannerAgent
-from agents.action_executor_agent import ActionExecutorAgent
-from agents.knowledge_agent import KnowledgeAgent
-from agents.shipping_agent import ShippingAgent
-from agents.integration_agent import IntegrationAgent
-from agents.human_escalation_agent import HumanEscalationAgent
+from src.core.orchestrator import Orchestrator
+from src.models.messages import AgentMessage, MessageType
+from src.agents.email_agent import EmailAgent
+from src.agents.sentiment_agent import SentimentAgent
+from src.agents.priority_agent import PriorityAgent
+from src.agents.ticket_agent import TicketAgent
+from src.agents.supervisor_agent import SupervisorAgent
+from src.agents.retryable_agent import RetryableAgent
+from src.agents.planner_agent import PlannerAgent
+from src.agents.action_executor_agent import ActionExecutorAgent
+from src.agents.knowledge_agent import KnowledgeAgent
+from src.agents.shipping_agent import ShippingAgent
+from src.agents.integration_agent import IntegrationAgent
+from src.agents.human_escalation_agent import HumanEscalationAgent
 
 app = FastAPI(title="ARK Agent AGI", version="1.0.0")
 
@@ -44,8 +44,12 @@ class MessageRequest(BaseModel):
     session_id: Optional[str] = None
 
 @app.get("/")
-async def health_check():
+async def root():
     return {"status": "healthy", "service": "ark-agent-agi"}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
 
 @app.post("/chat")
 async def chat(request: MessageRequest):
@@ -72,6 +76,11 @@ async def chat(request: MessageRequest):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/v1/run")
+async def run_agent(request: MessageRequest):
+    """API endpoint for web UI"""
+    return await chat(request)
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8080))

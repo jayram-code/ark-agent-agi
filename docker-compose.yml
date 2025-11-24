@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  # Backend API (Orchestrator + Agents)
+  api:
+    build:
+      context: .
+      dockerfile: infra/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-1.5-pro}
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./evaluation:/app/evaluation
+    command: uvicorn src.api:app --host 0.0.0.0 --port 8000
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - ark-network
+
+  # Web UI (FastAPI + HTML)
+  web:
+    build:
+      context: .
+      dockerfile: infra/Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8001
+    networks:
+      - ark-network
+  # Optional: Database (if using PostgreSQL instead of SQLite)
+  # db:
+  #   image: postgres:15
+  #   environment:
+  #     - POSTGRES_USER=ark_user
+  #     - POSTGRES_PASSWORD=ark_pass
+  #     - POSTGRES_DB=ark_agent
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - ark-network
+
+networks:
+  ark-network:
+    driver: bridge
+
+# volumes:
+#   postgres_data:

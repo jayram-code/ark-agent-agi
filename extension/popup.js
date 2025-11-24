@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const loader = document.getElementById('loader');
 
     // API URL - Change this to your Cloud Run URL after deployment
-    const API_URL = "http://localhost:8080/api/v1/run";
+    const API_URL = "http://localhost:8000/api/v1/run";
 
     extractBtn.addEventListener('click', async () => {
         const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -48,19 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
             responseDiv.style.display = 'block';
 
             if (data.ok) {
-                // Format the response nicely
-                const result = data.result;
-                let output = "";
-
-                if (result.payload && result.payload.response) {
-                    output = result.payload.response;
-                } else if (result.payload && result.payload.text) {
-                    output = result.payload.text;
-                } else {
-                    output = JSON.stringify(result, null, 2);
-                }
-
-                responseDiv.textContent = output;
+                // demo_api returns data directly, not nested in result.payload
+                responseDiv.textContent = JSON.stringify(data, null, 2);
             } else {
                 responseDiv.textContent = "Error: " + (data.error || "Unknown error");
             }
