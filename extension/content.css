@@ -1,0 +1,95 @@
+/* ARK Enterprise - Gmail Content Styles */
+
+.ark-action-bar {
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    align-items: center;
+}
+
+tr.zA:hover .ark-action-bar {
+    opacity: 1;
+}
+
+.ark-btn {
+    background: #3B82F6;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.ark-btn:hover {
+    background: #2563EB;
+    transform: translateY(-1px);
+}
+
+.ark-analyze {
+    background: #8B5CF6;
+}
+
+.ark-analyze:hover {
+    background: #7C3AED;
+}
+
+.ark-reply {
+    background: #10B981;
+}
+
+.ark-reply:hover {
+    background: #059669;
+}
+
+.ark-ticket {
+    background: #F59E0B;
+}
+
+.ark-ticket:hover {
+    background: #D97706;
+}
+
+.ark-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 10000;
+    animation: slideIn 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ark-info {
+    background: #3B82F6;
+    color: white;
+}
+
+.ark-success {
+    background: #10B981;
+    color: white;
+}
+
+.ark-error {
+    background: #EF4444;
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

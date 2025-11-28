@@ -1,10 +1,10 @@
 import datetime
 import uuid
 
-from agents.base_agent import BaseAgent
-from models.messages import AgentMessage, MessageType
-from utils.gemini_utils import generate_task_plan
-from utils.observability.logging_utils import log_event
+from src.agents.base_agent import BaseAgent
+from src.models.messages import AgentMessage, MessageType
+from src.utils.gemini_utils import generate_task_plan
+from src.utils.observability.logging_utils import log_event
 
 
 class PlannerAgent(BaseAgent):

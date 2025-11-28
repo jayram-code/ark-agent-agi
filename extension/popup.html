@@ -1,174 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
 <head>
-  <title>ARK Agent AGI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <title>ARK Enterprise</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* Minimal styling - you can reuse your dark theme */
     body {
-      width: 380px;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      padding: 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: Inter, Arial;
+      margin: 0;
+      padding: 12px;
+      background: #071018;
+      color: #e6eef6;
     }
 
-    .header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 24px 20px;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .subtitle {
-      font-size: 12px;
-      opacity: 0.95;
-      font-weight: 500;
-    }
-
-    .content {
-      background: white;
-      padding: 20px;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 14px;
+    .tabs {
+      display: flex;
+      gap: 12px;
       margin-bottom: 12px;
-      transition: all 0.3s ease;
-      font-family: inherit;
     }
 
-    button.primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    .tab {
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      background: transparent;
+      color: #aebfd3;
     }
 
-    button.primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
-    }
-
-    button.secondary {
-      background: #f1f5f9;
-      color: #475569;
-      border: 2px solid #e2e8f0;
-    }
-
-    button.secondary:hover {
-      background: #e2e8f0;
-      border-color: #cbd5e1;
-    }
-
-    button:active {
-      transform: translateY(0);
+    .tab.active {
+      background: #0b2b4a;
+      color: #fff;
     }
 
     textarea {
       width: 100%;
       height: 120px;
-      padding: 12px;
-      border: 2px solid #e2e8f0;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      font-family: inherit;
-      font-size: 13px;
-      resize: vertical;
-      transition: all 0.3s ease;
-      background: #f8fafc;
+      background: #08141e;
+      color: #e6eef6;
+      border: 1px solid #102233;
+      padding: 10px;
+      border-radius: 8px;
     }
 
-    textarea:focus {
-      outline: none;
-      border-color: #667eea;
-      background: white;
-      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    button {
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #3b82f6, #9b5cf6);
+      color: #fff;
+      border: none;
+      cursor: pointer;
     }
 
-    #response {
-      margin-top: 16px;
-      white-space: pre-wrap;
-      background: #1e293b;
-      color: #e2e8f0;
-      padding: 14px;
-      border-radius: 10px;
-      font-size: 11px;
-      display: none;
-      max-height: 300px;
-      overflow-y: auto;
-      font-family: 'Courier New', monospace;
-      line-height: 1.5;
-      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
-    }
-
-    .loader {
-      border: 3px solid #e2e8f0;
-      border-top: 3px solid #667eea;
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      animation: spin 1s linear infinite;
-      margin: 16px auto;
-      display: none;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 600;
+    .secondary {
+      background: #0b2b4a;
+      color: #b7cce0;
+      border: 1px solid #1e394f;
       margin-top: 8px;
+    }
+
+    .small {
+      font-size: 12px;
+      color: #9fb0c3;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .progress {
+      width: 100%;
+      background: #081a24;
+      border-radius: 8px;
+      height: 10px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, #36d1dc, #5b86e5);
+      width: 0%;
+    }
+
+    .history {
+      height: 220px;
+      overflow: auto;
+      border: 1px solid #0f2b3f;
+      padding: 8px;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+
+    .muted {
+      color: #87a0b8;
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
-  <div class="header">
-    <h2>ARK Agent AGI</h2>
-    <p class="subtitle">AI Customer Service Assistant</p>
-    <span class="badge">Powered by Gemini</span>
+  <h3 style="margin:0 0 6px 0">ARK Enterprise</h3>
+  <div class="tabs">
+    <div id="tab-single" class="tab active">Single Email</div>
+    <div id="tab-batch" class="tab">Inbox Batch</div>
+    <div id="tab-history" class="tab">History</div>
   </div>
 
-  <div class="content">
-    <button id="extractBtn" class="secondary">Extract Email Content</button>
+  <div id="single-view">
+    <button id="btn-extract">Extract from Gmail</button>
+    <div style="height:8px"></div>
+    <textarea id="email-text" placeholder="Paste email or click 'Extract from Gmail'"></textarea>
+    <div class="row">
+      <select id="quick-route">
+        <option value="auto">Auto-Route</option>
+        <option value="support">Support</option>
+        <option value="tech">Tech</option>
+        <option value="finance">Finance</option>
+        <option value="hr">HR</option>
+      </select>
+      <button id="btn-analyze">Analyze & Route</button>
+      <button id="btn-template" class="secondary">Use Template</button>
+    </div>
 
-    <textarea id="input" placeholder="Enter text or extract from email..."></textarea>
-
-    <button id="sendBtn" class="primary">Analyze with AI</button>
-
-    <div id="loader" class="loader"></div>
-    <div id="response"></div>
+    <div id="single-result" style="margin-top:12px"></div>
   </div>
+
+  <div id="batch-view" style="display:none">
+    <div class="muted">Scan your last 200-300 emails, categorize them, and auto-route to teams.</div>
+    <div style="height:12px"></div>
+    <button id="btn-scan">Scan Inbox (200-300)</button>
+    <div style="height:8px"></div>
+    <div class="muted">Or upload a CSV file:</div>
+    <input type="file" id="csv-file" accept=".csv" style="margin-top:8px" />
+    <button id="btn-upload" class="secondary">Upload CSV & Process</button>
+    <div style="height:12px"></div>
+    <div class="progress">
+      <div id="progress-bar" class="bar"></div>
+    </div>
+    <div id="batch-status" class="muted" style="margin-top:8px"></div>
+    <div style="height:12px"></div>
+    <button id="btn-daily" style="width:100%">Generate Daily Briefing</button>
+  </div>
+
+  <div id="history-view" style="display:none">
+    <div class="history" id="history-list"></div>
+    <div style="display:flex; gap:10px; margin-top:8px">
+      <button id="btn-export-csv" class="secondary">Export CSV</button>
+      <button id="btn-export-json" class="secondary">Export JSON</button>
+      <button id="btn-clear-history" class="secondary">Clear History</button>
+    </div>
+  </div>
+
+  <div style="height:10px"></div>
+  <div class="muted small">Version v1.1 — API & settings in Options</div>
 
   <script src="popup.js"></script>
 </body>

@@ -1,12 +1,12 @@
 import datetime
 import uuid
 
-from agents.base_agent import BaseAgent
-from models.messages import AgentMessage, MessageType
-from services.session_service import SESSION
-from utils.gemini_utils import calculate_priority_score
-from utils.observability.logging_utils import log_event
-from utils.observability.metrics import gauge
+from src.agents.base_agent import BaseAgent
+from src.models.messages import AgentMessage, MessageType
+from src.services.session_service import SESSION
+from src.utils.gemini_utils import calculate_priority_score
+from src.utils.observability.logging_utils import log_event
+from src.utils.observability.metrics import gauge
 
 
 class PriorityAgent(BaseAgent):

@@ -7,21 +7,24 @@ from typing import Any, Dict, List, Optional
 
 # Add src to path
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), "..", "src"))
+# Add project root
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+# Add src directory (for imports like 'from agents...')
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
-from agents.email_agent import EmailAgent
-from agents.sentiment_agent import SentimentAgent
-from agents.priority_agent import PriorityAgent
-from agents.ticket_agent import TicketAgent
-from agents.supervisor_agent import SupervisorAgent
-from agents.retryable_agent import RetryableAgent
-from agents.planner_agent import PlannerAgent
-from agents.action_executor_agent import ActionExecutorAgent
-from agents.knowledge_agent import KnowledgeAgent
-from agents.shipping_agent import ShippingAgent
-from agents.base_agent import BaseAgent
-from core.orchestrator import Orchestrator
-from models.messages import AgentMessage, MessageType
+from src.agents.email_agent import EmailAgent
+from src.agents.sentiment_agent import SentimentAgent
+from src.agents.priority_agent import PriorityAgent
+from src.agents.ticket_agent import TicketAgent
+from src.agents.supervisor_agent import SupervisorAgent
+from src.agents.retryable_agent import RetryableAgent
+from src.agents.planner_agent import PlannerAgent
+from src.agents.action_executor_agent import ActionExecutorAgent
+from src.agents.knowledge_agent import KnowledgeAgent
+from src.agents.shipping_agent import ShippingAgent
+from src.agents.base_agent import BaseAgent
+from src.core.orchestrator import Orchestrator
+from src.models.messages import AgentMessage, MessageType
 
 # Helper: Normalize agent names for comparison
 def normalize_agent_name(name: str) -> str:
@@ -153,14 +156,14 @@ async def evaluate_case(orchestrator: InstrumentedOrchestrator, case: Dict[str, 
     # Find what EmailAgent sent to SentimentAgent (contains Intent)
     for m in orchestrator.history:
         if m.sender == "email_agent" and m.receiver == "sentiment_agent":
-            payload = m.payload if isinstance(m.payload, dict) else m.payload.dict()
+            payload = m.payload if isinstance(m.payload, dict) else m.payload.model_dump()
             pred_intent = payload.get("intent", "unknown")
             pred_urgency = payload.get("urgency", "unknown")
             
     # Find what SentimentAgent sent to PriorityAgent (contains Sentiment)
     for m in orchestrator.history:
         if m.sender == "sentiment_agent" and m.receiver == "priority_agent":
-            payload = m.payload if isinstance(m.payload, dict) else m.payload.dict()
+            payload = m.payload if isinstance(m.payload, dict) else m.payload.model_dump()
             pred_sentiment = payload.get("emotion", "neutral")
             
     # Find final routing decision (The last decision in the chain usually points to the handler)

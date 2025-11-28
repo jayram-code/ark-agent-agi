@@ -139,5 +139,52 @@
     "timestamp": "2025-11-23 05:58:43.089283",
     "payload": {},
     "logged_at": "2025-11-23T05:58:43.106909"
+  },
+  {
+    "id": "bf09b9b5-5ac2-4b0f-90c3-66e9ca5a21ae",
+    "session_id": "global",
+    "trace_id": "bf09b9b5-5ac2-4b0f-90c3-66e9ca5a21ae",
+    "sender": "test",
+    "receiver": "agent1",
+    "type": "info",
+    "timestamp": "2025-11-28 10:53:29.011751",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "broadcast": "data"
+    },
+    "logged_at": "2025-11-28T10:53:29.035430"
+  },
+  {
+    "id": "bf09b9b5-5ac2-4b0f-90c3-66e9ca5a21ae",
+    "session_id": "global",
+    "trace_id": "bf09b9b5-5ac2-4b0f-90c3-66e9ca5a21ae",
+    "sender": "test",
+    "receiver": "agent2",
+    "type": "info",
+    "timestamp": "2025-11-28 10:53:29.011751",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "broadcast": "data"
+    },
+    "logged_at": "2025-11-28T10:53:29.061740"
+  },
+  {
+    "id": "beb465a0-bfd2-4aff-b141-d4609cdf3cca",
+    "session_id": "global",
+    "trace_id": "beb465a0-bfd2-4aff-b141-d4609cdf3cca",
+    "sender": "test",
+    "receiver": "agent1",
+    "type": "task_request",
+    "timestamp": "2025-11-28 10:53:29.079277",
+    "payload": {},
+    "logged_at": "2025-11-28T10:53:29.102224"
   }
 ]

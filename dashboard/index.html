@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARK Enterprise | Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>ARK Enterprise</span>
+            </div>
+            <nav>
+                <a href="#" class="active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+                <a href="#"><i class="fa-solid fa-inbox"></i> Inbox Stream</a>
+                <a href="#"><i class="fa-solid fa-users-gear"></i> Agents</a>
+                <a href="#"><i class="fa-solid fa-sliders"></i> Settings</a>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <div class="info">
+                    <span class="name">Admin User</span>
+                    <span class="role">Super Admin</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div class="header-left">
+                    <h1>Analytics Overview</h1>
+                    <p class="subtitle">Real-time email intelligence insights</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn-secondary" onclick="exportReport()"><i class="fa-solid fa-download"></i> Export
+                        Report</button>
+                    <button class="btn-primary" onclick="refreshData()"><i class="fa-solid fa-rotate"></i>
+                        Refresh</button>
+                </div>
+            </header>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon-box blue"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Total Processed</span>
+                        <span class="value" id="totalEmails">0</span>
+                        <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 12% vs last week</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-box red"><i class="fa-solid fa-fire"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Urgent Issues</span>
+                        <span class="value" id="urgentCount">0</span>
+                        <span class="trend negative"><i class="fa-solid fa-arrow-up"></i> 5% vs last week</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-box green"><i class="fa-solid fa-check-circle"></i></div>
+                    <div class="stat-info">
+                        <span class="label">Auto-Resolved</span>
+                        <span class="value" id="resolvedCount">0</span>
+                        <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 8% vs last week</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-box purple"><i class="fa-solid fa-robot"></i></div>
+                    <div class="stat-info">
+                        <span class="label">AI Accuracy</span>
+                        <span class="value">98.5%</span>
+                        <span class="trend positive"><i class="fa-solid fa-minus"></i> Stable</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-container">
+                <div class="chart-card large">
+                    <h3><i class="fa-solid fa-chart-area"></i> Email Volume & Intent Trends</h3>
+                    <canvas id="volumeChart"></canvas>
+                </div>
+                <div class="chart-card small">
+                    <h3><i class="fa-solid fa-chart-doughnut"></i> Intent Distribution</h3>
+                    <canvas id="intentChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Activity Table -->
+            <div class="table-card">
+                <div class="card-header">
+                    <h3>Recent Analysis</h3>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Intent</th>
+                            <th>Urgency</th>
+                            <th>Confidence</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activityTable">
+                        <tr>
+                            <td colspan="5" style="text-align:center; color: #64748B;">Loading data...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

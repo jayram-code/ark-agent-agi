@@ -9,7 +9,7 @@ from enum import Enum
 from functools import wraps
 from typing import Any, Callable, Optional
 
-from utils.observability.logging_utils import log_event
+from src.utils.observability.logging_utils import log_event
 
 
 class CircuitState(Enum):

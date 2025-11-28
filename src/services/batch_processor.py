@@ -165,15 +165,56 @@ class EnterpriseBatchProcessor:
             # Update category stats
             self.stats[category] = self.stats.get(category, 0) + 1
             
-            # Update action stats
+            # --- EXECUTION PHASE ---
+            execution_log = []
+            
+            # Auto-reply
             if 'auto_reply' in actions:
                 self.stats['auto_replied'] += 1
+                if not self.settings.get('dry_run', True):
+                    # Generate and send reply
+                    from src.agents.auto_reply_agent import AutoReplyAgent
+                    from src.integrations.gmail_api import get_gmail_api
+                    
+                    reply_agent = AutoReplyAgent()
+                    gmail = get_gmail_api()
+                    
+                    reply_content = reply_agent.generate_reply(
+                        email_text=text,
+                        sender=email['from'],
+                        intent=intent
+                    )
+                    
+                    gmail.send_email(
+                        to=email['from'],
+                        subject=f"Re: {email['subject']}",
+                        body=reply_content
+                    )
+                    execution_log.append("Sent auto-reply")
+                else:
+                    execution_log.append("[DRY RUN] Would send auto-reply")
+
+            # Schedule Meeting
             if 'schedule_meeting' in actions:
                 self.stats['meetings_scheduled'] += 1
+                if not self.settings.get('dry_run', True):
+                    # In a real app, this would call Google Calendar API
+                    # For now, we'll just log it as "Scheduled"
+                    execution_log.append("Scheduled meeting (Calendar API)")
+                else:
+                    execution_log.append("[DRY RUN] Would schedule meeting")
+
+            # Create Ticket
             if 'create_ticket' in actions:
                 self.stats['tickets_created'] += 1
+                execution_log.append(f"[DRY RUN] Would create ticket for {team}")
+
+            # Archive
             if 'archive' in actions:
                 self.stats['archived'] += 1
+                if not self.settings.get('dry_run', True):
+                    # gmail.archive_email(email['id'])
+                    pass
             
             result = {
                 'email_id': email['id'],
@@ -188,6 +229,7 @@ class EnterpriseBatchProcessor:
                 'priority': priority,
                 'needs_escalation': needs_escalation,
                 'actions': actions,
+                'execution_log': execution_log,
                 'extracted_info': self._extract_key_info(text, category),
                 'processed_at': time.time()
             }

@@ -1,8 +1,8 @@
 {
   "total_cases": 52,
-  "intent_accuracy": 0.48,
-  "sentiment_accuracy": 0.35,
+  "intent_accuracy": 0.0,
+  "sentiment_accuracy": 0.25,
   "routing_accuracy": 0.77,
-  "avg_latency_ms": 562.44,
-  "timestamp": "2025-11-23 22:46:55.422300"
+  "avg_latency_ms": 438.06,
+  "timestamp": "2025-11-25 23:37:30.923239"
 }
