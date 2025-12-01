@@ -19,13 +19,12 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Initialize the model with smart fallback
-# Priority: gemini-1.5-flash (fastest, lowest latency) -> gemini-2.0-flash
 model_name = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
 try:
     model = genai.GenerativeModel(model_name)
-    print(f"✅ Using model: {model_name}")
+    print(f"Using model: {model_name}")
 except Exception as e:
-    print(f"⚠️  {model_name} unavailable, falling back to gemini-1.5-pro")
+    print(f"{model_name} unavailable, falling back to gemini-1.5-pro")
     model_name = "gemini-1.5-pro"
     model = genai.GenerativeModel(model_name)
 

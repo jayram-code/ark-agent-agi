@@ -4,7 +4,8 @@ Simple Demo API - Bypasses complex imports for quick demo
 import os
 import sys
 import json
-from fastapi import FastAPI
+import uuid
+from fastapi import FastAPI, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
@@ -41,6 +42,15 @@ async def root():
 @app.get("/health")
 async def health():
     return {"status": "ok"}
+
+class AnalyzeRequest(BaseModel):
+    text: str
+    route: Optional[str] = None
+
+@app.post("/api/v1/analyze")
+async def analyze_endpoint(request: AnalyzeRequest):
+    """Alias for run_agent to support extension"""
+    return await run_agent(MessageRequest(text=request.text))
 
 @app.post("/api/v1/run")
 async def run_agent(request: MessageRequest):
@@ -243,6 +253,20 @@ async def get_batch_results():
     return {
         "ok": True,
         "results": batch_state['results']
+    }
+
+@app.get("/api/v1/batch/status")
+async def get_batch_status():
+    """Get global batch status (Legacy/Global)"""
+    # Find any running job
+    running = [j for j in jobs.values() if j['status'] == 'running']
+    status = "running" if running else "idle"
+    
+    return {
+        "ok": True,
+        "status": status,
+        "progress": running[0]['progress'] if running else 0,
+        "total": running[0]['total'] if running else 0
     }
 
 @app.post("/api/v1/batch/summarize")

@@ -9,6 +9,17 @@
 
 ---
 
+## 🏆 Kaggle Capstone Submission
+
+This repo contains the **ARK Agent AGI** capstone project.
+
+- **Kaggle Writeup & Submission**: [Link to Kaggle Project](https://www.kaggle.com/) (Please update with your actual link)
+- **Demo Video**: [YouTube Link](https://youtube.com) (Optional)
+
+> **Note**: A private `SUBMISSION.md` draft was removed from the public repo prior to final submission to protect sensitive data.
+
+---
+
 ## 🚀 What is ARK?
 
 **ARK (Autonomous Response & Knowledge)** is an enterprise-grade email intelligence platform that uses **multi-agent AI** to process, categorize, and automate responses to hundreds of emails daily.

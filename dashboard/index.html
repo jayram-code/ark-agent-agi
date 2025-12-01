@@ -36,89 +36,152 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <header>
-                <div class="header-left">
-                    <h1>Analytics Overview</h1>
-                    <p class="subtitle">Real-time email intelligence insights</p>
-                </div>
-                <div class="header-right">
-                    <button class="btn-secondary" onclick="exportReport()"><i class="fa-solid fa-download"></i> Export
-                        Report</button>
-                    <button class="btn-primary" onclick="refreshData()"><i class="fa-solid fa-rotate"></i>
-                        Refresh</button>
-                </div>
-            </header>
+            <!-- Dashboard View -->
+            <div id="view-dashboard" class="view-section active">
+                <header>
+                    <div class="header-left">
+                        <h1>Analytics Overview</h1>
+                        <p class="subtitle">Real-time email intelligence insights</p>
+                    </div>
+                    <div class="header-right">
+                        <button class="btn-secondary" onclick="exportReport()"><i class="fa-solid fa-download"></i>
+                            Export
+                            Report</button>
+                        <button class="btn-primary" onclick="refreshData()"><i class="fa-solid fa-rotate"></i>
+                            Refresh</button>
+                    </div>
+                </header>
 
-            <!-- Stats Grid -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="icon-box blue"><i class="fa-solid fa-envelope"></i></div>
-                    <div class="stat-info">
-                        <span class="label">Total Processed</span>
-                        <span class="value" id="totalEmails">0</span>
-                        <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 12% vs last week</span>
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="icon-box blue"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="stat-info">
+                            <span class="label">Total Processed</span>
+                            <span class="value" id="totalEmails">0</span>
+                            <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 12% vs last week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-box red"><i class="fa-solid fa-fire"></i></div>
+                        <div class="stat-info">
+                            <span class="label">Urgent Issues</span>
+                            <span class="value" id="urgentCount">0</span>
+                            <span class="trend negative"><i class="fa-solid fa-arrow-up"></i> 5% vs last week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-box green"><i class="fa-solid fa-check-circle"></i></div>
+                        <div class="stat-info">
+                            <span class="label">Auto-Resolved</span>
+                            <span class="value" id="resolvedCount">0</span>
+                            <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 8% vs last week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-box purple"><i class="fa-solid fa-robot"></i></div>
+                        <div class="stat-info">
+                            <span class="label">AI Accuracy</span>
+                            <span class="value">98.5%</span>
+                            <span class="trend positive"><i class="fa-solid fa-minus"></i> Stable</span>
+                        </div>
                     </div>
                 </div>
-                <div class="stat-card">
-                    <div class="icon-box red"><i class="fa-solid fa-fire"></i></div>
-                    <div class="stat-info">
-                        <span class="label">Urgent Issues</span>
-                        <span class="value" id="urgentCount">0</span>
-                        <span class="trend negative"><i class="fa-solid fa-arrow-up"></i> 5% vs last week</span>
+
+                <!-- Charts Section -->
+                <div class="charts-container">
+                    <div class="chart-card large">
+                        <h3><i class="fa-solid fa-chart-area"></i> Email Volume & Intent Trends</h3>
+                        <canvas id="volumeChart"></canvas>
+                    </div>
+                    <div class="chart-card small">
+                        <h3><i class="fa-solid fa-chart-doughnut"></i> Intent Distribution</h3>
+                        <canvas id="intentChart"></canvas>
                     </div>
                 </div>
-                <div class="stat-card">
-                    <div class="icon-box green"><i class="fa-solid fa-check-circle"></i></div>
-                    <div class="stat-info">
-                        <span class="label">Auto-Resolved</span>
-                        <span class="value" id="resolvedCount">0</span>
-                        <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 8% vs last week</span>
+
+                <!-- Recent Activity Table -->
+                <div class="table-card">
+                    <div class="card-header">
+                        <h3>Recent Analysis</h3>
+                        <a href="#" class="view-all">View All</a>
                     </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Intent</th>
+                                <th>Urgency</th>
+                                <th>Confidence</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activityTable">
+                            <tr>
+                                <td colspan="5" style="text-align:center; color: #64748B;">Loading data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="stat-card">
-                    <div class="icon-box purple"><i class="fa-solid fa-robot"></i></div>
-                    <div class="stat-info">
-                        <span class="label">AI Accuracy</span>
-                        <span class="value">98.5%</span>
-                        <span class="trend positive"><i class="fa-solid fa-minus"></i> Stable</span>
+            </div>
+
+            <!-- Inbox View -->
+            <div id="view-inbox" class="view-section" style="display: none;">
+                <header>
+                    <div class="header-left">
+                        <h1>Inbox Stream</h1>
+                        <p class="subtitle">Live feed of incoming messages</p>
+                    </div>
+                </header>
+                <div class="table-card">
+                    <div style="padding: 40px; text-align: center; color: #94A3B8;">
+                        <i class="fa-solid fa-inbox" style="font-size: 48px; margin-bottom: 20px;"></i>
+                        <h3>Inbox Integration Active</h3>
+                        <p>Real-time message stream is synchronized with Gmail.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Charts Section -->
-            <div class="charts-container">
-                <div class="chart-card large">
-                    <h3><i class="fa-solid fa-chart-area"></i> Email Volume & Intent Trends</h3>
-                    <canvas id="volumeChart"></canvas>
-                </div>
-                <div class="chart-card small">
-                    <h3><i class="fa-solid fa-chart-doughnut"></i> Intent Distribution</h3>
-                    <canvas id="intentChart"></canvas>
+            <!-- Agents View -->
+            <div id="view-agents" class="view-section" style="display: none;">
+                <header>
+                    <div class="header-left">
+                        <h1>Agent Fleet</h1>
+                        <p class="subtitle">Manage your AI workforce</p>
+                    </div>
+                    <div class="header-right">
+                        <button class="btn-primary"><i class="fa-solid fa-plus"></i> Deploy Agent</button>
+                    </div>
+                </header>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="icon-box purple"><i class="fa-solid fa-robot"></i></div>
+                        <div class="stat-info">
+                            <span class="label">Active Agents</span>
+                            <span class="value">4</span>
+                            <span class="trend positive">All Systems Operational</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Recent Activity Table -->
-            <div class="table-card">
-                <div class="card-header">
-                    <h3>Recent Analysis</h3>
-                    <a href="#" class="view-all">View All</a>
+            <!-- Settings View -->
+            <div id="view-settings" class="view-section" style="display: none;">
+                <header>
+                    <div class="header-left">
+                        <h1>System Settings</h1>
+                        <p class="subtitle">Configuration and preferences</p>
+                    </div>
+                </header>
+                <div class="table-card">
+                    <div style="padding: 20px;">
+                        <h3>API Configuration</h3>
+                        <p style="color: #94A3B8; margin-bottom: 20px;">Manage your LLM provider settings.</p>
+                        <div style="background: #0F172A; padding: 15px; border-radius: 8px; border: 1px solid #1E293B;">
+                            <code style="color: #10B981;">CONNECTED: Gemini 1.5 Pro</code>
+                        </div>
+                    </div>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Intent</th>
-                            <th>Urgency</th>
-                            <th>Confidence</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="activityTable">
-                        <tr>
-                            <td colspan="5" style="text-align:center; color: #64748B;">Loading data...</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </main>
     </div>

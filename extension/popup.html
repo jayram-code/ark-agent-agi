@@ -1,162 +1,383 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <title>ARK Enterprise</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Minimal styling - you can reuse your dark theme */
+    :root {
+      --bg-app: #111111;
+      --bg-panel: #1C1C1C;
+      --border: #333333;
+      --text-main: #EDEDED;
+      --text-muted: #A1A1A1;
+      --primary: #FFFFFF;
+      --primary-fg: #000000;
+      --accent: #3B82F6;
+    }
+
     body {
-      font-family: Inter, Arial;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0;
-      padding: 12px;
-      background: #071018;
-      color: #e6eef6;
-    }
-
-    .tabs {
+      background-color: var(--bg-app);
+      color: var(--text-main);
+      width: 380px;
+      height: 550px;
       display: flex;
-      gap: 12px;
-      margin-bottom: 12px;
+      flex-direction: column;
     }
 
-    .tab {
-      padding: 8px 14px;
-      border-radius: 6px;
+    /* Header */
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-app);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-main);
+    }
+
+    .brand i {
+      color: var(--text-main);
+    }
+
+    /* Navigation */
+    .nav-tabs {
+      display: flex;
+      padding: 0 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-app);
+    }
+
+    .nav-item {
+      padding: 12px 4px;
+      margin-right: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
       cursor: pointer;
-      background: transparent;
-      color: #aebfd3;
+      position: relative;
+      transition: color 0.2s;
     }
 
-    .tab.active {
-      background: #0b2b4a;
-      color: #fff;
+    .nav-item:hover {
+      color: var(--text-main);
+    }
+
+    .nav-item.active {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .nav-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    /* Form Elements */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-weight: 500;
     }
 
     textarea {
       width: 100%;
       height: 120px;
-      background: #08141e;
-      color: #e6eef6;
-      border: 1px solid #102233;
-      padding: 10px;
-      border-radius: 8px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 12px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 13px;
+      line-height: 1.5;
+      resize: none;
+      box-sizing: border-box;
     }
 
-    button {
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: linear-gradient(90deg, #3b82f6, #9b5cf6);
-      color: #fff;
-      border: none;
+    textarea:focus {
+      outline: none;
+      border-color: var(--text-muted);
+    }
+
+    select {
+      width: 100%;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 13px;
       cursor: pointer;
     }
 
-    .secondary {
-      background: #0b2b4a;
-      color: #b7cce0;
-      border: 1px solid #1e394f;
-      margin-top: 8px;
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    .small {
-      font-size: 12px;
-      color: #9fb0c3;
+    .btn-primary {
+      background: var(--primary);
+      color: var(--primary-fg);
     }
 
-    .row {
+    .btn-primary:hover {
+      background: #E0E0E0;
+    }
+
+    .btn-secondary {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-muted);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      width: auto;
+    }
+
+    .btn-ghost:hover {
+      color: var(--text-main);
+    }
+
+    /* Cards & Results */
+    .card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge {
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-blue {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60A5FA;
+    }
+
+    .badge-green {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ADE80;
+    }
+
+    .badge-red {
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    /* Utilities */
+    .hidden {
+      display: none;
+    }
+
+    .text-sm {
+      font-size: 13px;
+    }
+
+    .text-xs {
+      font-size: 11px;
+    }
+
+    .text-muted {
+      color: var(--text-muted);
+    }
+
+    .mt-4 {
+      margin-top: 16px;
+    }
+
+    .mb-4 {
+      margin-bottom: 16px;
+    }
+
+    .flex-row {
       display: flex;
       gap: 10px;
-      align-items: center;
-      margin-top: 8px;
     }
 
-    .progress {
-      width: 100%;
-      background: #081a24;
-      border-radius: 8px;
-      height: 10px;
-      overflow: hidden;
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
     }
 
-    .bar {
-      height: 100%;
-      background: linear-gradient(90deg, #36d1dc, #5b86e5);
-      width: 0%;
-    }
-
-    .history {
-      height: 220px;
-      overflow: auto;
-      border: 1px solid #0f2b3f;
-      padding: 8px;
-      border-radius: 8px;
-      margin-top: 8px;
-    }
-
-    .muted {
-      color: #87a0b8;
-      font-size: 13px;
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
     }
   </style>
 </head>
 
 <body>
-  <h3 style="margin:0 0 6px 0">ARK Enterprise</h3>
-  <div class="tabs">
-    <div id="tab-single" class="tab active">Single Email</div>
-    <div id="tab-batch" class="tab">Inbox Batch</div>
-    <div id="tab-history" class="tab">History</div>
+  <header>
+    <div class="brand">
+      <i class="fa-solid fa-cube"></i>
+      <span>ARK Enterprise</span>
+    </div>
+    <div class="text-xs text-muted">v1.2</div>
+  </header>
+
+  <div class="nav-tabs">
+    <div id="tab-single" class="nav-item active">Analysis</div>
+    <div id="tab-batch" class="nav-item">Batch Processing</div>
+    <div id="tab-history" class="nav-item">History</div>
   </div>
 
-  <div id="single-view">
-    <button id="btn-extract">Extract from Gmail</button>
-    <div style="height:8px"></div>
-    <textarea id="email-text" placeholder="Paste email or click 'Extract from Gmail'"></textarea>
-    <div class="row">
-      <select id="quick-route">
-        <option value="auto">Auto-Route</option>
-        <option value="support">Support</option>
-        <option value="tech">Tech</option>
-        <option value="finance">Finance</option>
-        <option value="hr">HR</option>
-      </select>
-      <button id="btn-analyze">Analyze & Route</button>
-      <button id="btn-template" class="secondary">Use Template</button>
+  <main>
+    <!-- Single Analysis View -->
+    <div id="single-view">
+      <div class="form-group">
+        <button id="btn-extract" class="btn btn-secondary">
+          <i class="fa-brands fa-google"></i> Insert from Gmail
+        </button>
+      </div>
+
+      <div class="form-group">
+        <label>EMAIL CONTENT</label>
+        <textarea id="email-text" placeholder="Paste email content here for analysis..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>ROUTING PREFERENCE</label>
+        <div class="flex-row">
+          <select id="quick-route">
+            <option value="auto">Auto-Detect Department</option>
+            <option value="support">Customer Support</option>
+            <option value="tech">Technical Engineering</option>
+            <option value="finance">Finance & Billing</option>
+            <option value="hr">Human Resources</option>
+          </select>
+          <button id="btn-analyze" class="btn btn-primary" style="flex-shrink: 0;">
+            Analyze
+          </button>
+        </div>
+      </div>
+
+      <div id="single-result" class="hidden card mt-4">
+        <!-- Result populated via JS -->
+      </div>
     </div>
 
-    <div id="single-result" style="margin-top:12px"></div>
-  </div>
+    <!-- Batch View -->
+    <div id="batch-view" class="hidden">
+      <div class="card mb-4">
+        <div class="stat-row">
+          <span class="text-muted">Target</span>
+          <span>Inbox (Primary)</span>
+        </div>
+        <div class="stat-row">
+          <span class="text-muted">Limit</span>
+          <span>200 Emails</span>
+        </div>
+        <button id="btn-scan" class="btn btn-primary mt-4">
+          <i class="fa-solid fa-play"></i> Start Batch Scan
+        </button>
+      </div>
 
-  <div id="batch-view" style="display:none">
-    <div class="muted">Scan your last 200-300 emails, categorize them, and auto-route to teams.</div>
-    <div style="height:12px"></div>
-    <button id="btn-scan">Scan Inbox (200-300)</button>
-    <div style="height:8px"></div>
-    <div class="muted">Or upload a CSV file:</div>
-    <input type="file" id="csv-file" accept=".csv" style="margin-top:8px" />
-    <button id="btn-upload" class="secondary">Upload CSV & Process</button>
-    <div style="height:12px"></div>
-    <div class="progress">
-      <div id="progress-bar" class="bar"></div>
+      <div class="form-group">
+        <label>OR UPLOAD DATA</label>
+        <input type="file" id="csv-file" accept=".csv" class="hidden" />
+        <button onclick="document.getElementById('csv-file').click()" class="btn btn-secondary">
+          <i class="fa-solid fa-upload"></i> Upload CSV File
+        </button>
+        <button id="btn-upload" class="btn btn-primary mt-2 hidden">Process Uploaded File</button>
+      </div>
+
+      <div id="batch-progress-container" class="hidden card">
+        <div class="stat-row">
+          <span>Processing Status</span>
+          <span id="progress-text">0%</span>
+        </div>
+        <div style="height:4px; background:#333; border-radius:2px; overflow:hidden; margin:8px 0;">
+          <div id="progress-bar" style="height:100%; width:0%; background:var(--primary); transition:width 0.3s;"></div>
+        </div>
+        <div id="batch-status" class="text-xs text-muted">Initializing agent swarm...</div>
+      </div>
+
+      <button id="btn-daily" class="btn btn-secondary mt-4" style="width:100%">
+        Generate Daily Executive Brief
+      </button>
     </div>
-    <div id="batch-status" class="muted" style="margin-top:8px"></div>
-    <div style="height:12px"></div>
-    <button id="btn-daily" style="width:100%">Generate Daily Briefing</button>
-  </div>
 
-  <div id="history-view" style="display:none">
-    <div class="history" id="history-list"></div>
-    <div style="display:flex; gap:10px; margin-top:8px">
-      <button id="btn-export-csv" class="secondary">Export CSV</button>
-      <button id="btn-export-json" class="secondary">Export JSON</button>
-      <button id="btn-clear-history" class="secondary">Clear History</button>
+    <!-- History View -->
+    <div id="history-view" class="hidden">
+      <div class="flex-row" style="justify-content: flex-end; margin-bottom: 16px;">
+        <button id="btn-export-csv" class="btn btn-ghost text-xs">Export CSV</button>
+        <button id="btn-clear-history" class="btn btn-ghost text-xs" style="color:#F87171">Clear</button>
+      </div>
+      <div id="history-list">
+        <!-- History items -->
+      </div>
     </div>
-  </div>
-
-  <div style="height:10px"></div>
-  <div class="muted small">Version v1.1 — API & settings in Options</div>
+  </main>
 
   <script src="popup.js"></script>
 </body>

@@ -5,6 +5,7 @@ let volumeChart, intentChart;
 
 document.addEventListener('DOMContentLoaded', () => {
     initCharts();
+    initInteractions();
     refreshData();
 });
 
@@ -56,6 +57,21 @@ function initCharts() {
             cutout: '70%'
         }
     });
+    if (refreshBtn) {
+        refreshBtn.onclick = () => {
+            console.log('Refresh button clicked');
+            refreshData();
+        };
+    }
+
+    // Export Button
+    const exportBtn = document.querySelector('.btn-secondary');
+    if (exportBtn) {
+        exportBtn.onclick = () => {
+            console.log('Export button clicked');
+            exportReport();
+        };
+    }
 }
 
 async function refreshData() {
@@ -73,18 +89,37 @@ async function refreshData() {
             updateTable(resultsData.results);
             updateCharts(resultsData.results);
         } else {
-            console.log('No results found');
+            showEmptyState();
         }
 
     } catch (error) {
         console.error('Error fetching data:', error);
+        showEmptyState();
     }
+}
+
+function showEmptyState() {
+    const tbody = document.getElementById('activityTable');
+    tbody.innerHTML = `
+        <tr>
+            <td colspan="5" style="text-align:center; padding: 40px; color: #94A3B8;">
+                <i class="fa-solid fa-inbox" style="font-size: 24px; margin-bottom: 10px; display: block;"></i>
+                No analysis data found.<br>
+                <span style="font-size: 12px;">Run a "Batch Scan" from the Chrome Extension to populate this dashboard.</span>
+            </td>
+        </tr>
+    `;
+
+    // Reset stats
+    document.getElementById('totalEmails').textContent = '0';
+    document.getElementById('urgentCount').textContent = '0';
+    document.getElementById('resolvedCount').textContent = '0';
 }
 
 function updateStats(results) {
     const total = results.length;
     const urgent = results.filter(r => r.urgency === 'high' || r.urgency === 'critical').length;
-    const resolved = Math.floor(total * 0.4); // Mock data for resolved
+    const resolved = results.filter(r => r.intent === 'general_query' || r.intent === 'product_question').length;
 
     document.getElementById('totalEmails').textContent = total;
     document.getElementById('urgentCount').textContent = urgent;
@@ -95,16 +130,18 @@ function updateTable(results) {
     const tbody = document.getElementById('activityTable');
     tbody.innerHTML = '';
 
-    // Show last 5 results
-    const recent = results.slice(0, 5);
+    // Show last 10 results
+    const recent = results.slice(0, 10);
 
     recent.forEach(r => {
         const tr = document.createElement('tr');
+        const urgencyClass = r.urgency === 'high' || r.urgency === 'critical' ? 'badge-red' : (r.urgency === 'medium' ? 'badge-blue' : 'badge-green');
+
         tr.innerHTML = `
-            <td style="color: #94A3B8;">${r.id || 'N/A'}</td>
+            <td style="color: #94A3B8; font-family: monospace; font-size: 12px;">${(r.ticket_id || r.id || 'N/A').substring(0, 8)}</td>
             <td>${formatIntent(r.intent)}</td>
             <td><span class="badge ${r.urgency}">${r.urgency}</span></td>
-            <td>${Math.round(r.confidence * 100)}%</td>
+            <td>${Math.round((r.confidence || 0) * 100)}%</td>
             <td><span class="badge processed">Auto-Routed</span></td>
         `;
         tbody.appendChild(tr);
@@ -122,12 +159,18 @@ function updateCharts(results) {
     const labels = Object.keys(intents).map(formatIntent);
     const data = Object.values(intents);
 
-    intentChart.data.labels = labels;
-    intentChart.data.datasets[0].data = data;
-    intentChart.update();
+    if (intentChart) {
+        intentChart.data.labels = labels;
+        intentChart.data.datasets[0].data = data;
+        intentChart.update();
+    }
 }
 
 function formatIntent(intent) {
     if (!intent) return 'Unknown';
     return intent.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+
+function exportReport() {
+    alert("Exporting PDF report... (Demo Feature)");
 }

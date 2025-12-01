@@ -46,13 +46,17 @@ class RoutingPolicy:
         """
         Determines the receiver based on the message content.
         """
-        # 1. Check if receiver is already set and valid (not 'router')
-        if message.receiver and message.receiver != "router":
+        # 1. Check if receiver is already set and valid
+        if message.receiver and message.receiver not in {"router", "auto"}:
             return message.receiver
 
-        payload = message.payload or {}
-        text = payload.get("text", "").lower()
-        intent = payload.get("intent", "").lower()
+        payload_obj = message.payload or {}
+        if isinstance(payload_obj, dict):
+            text = (payload_obj.get("text", "") or "").lower()
+            intent = (payload_obj.get("intent", "") or "").lower()
+        else:
+            text = (getattr(payload_obj, "text", "") or "").lower()
+            intent = (getattr(payload_obj, "intent", "") or "").lower()
 
         # 2. Check Intent Rules
         if intent in self.intent_rules:

@@ -186,5 +186,52 @@
     "timestamp": "2025-11-28 10:53:29.079277",
     "payload": {},
     "logged_at": "2025-11-28T10:53:29.102224"
+  },
+  {
+    "id": "cc32301d-2e9e-4ab9-a473-c67f2a696176",
+    "session_id": "global",
+    "trace_id": "cc32301d-2e9e-4ab9-a473-c67f2a696176",
+    "sender": "test",
+    "receiver": "agent1",
+    "type": "info",
+    "timestamp": "2025-11-28 11:11:01.106371",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "broadcast": "data"
+    },
+    "logged_at": "2025-11-28T11:11:01.121329"
+  },
+  {
+    "id": "cc32301d-2e9e-4ab9-a473-c67f2a696176",
+    "session_id": "global",
+    "trace_id": "cc32301d-2e9e-4ab9-a473-c67f2a696176",
+    "sender": "test",
+    "receiver": "agent2",
+    "type": "info",
+    "timestamp": "2025-11-28 11:11:01.106371",
+    "payload": {
+      "text": null,
+      "intent": null,
+      "sentiment_score": null,
+      "customer_id": null,
+      "metadata": {},
+      "broadcast": "data"
+    },
+    "logged_at": "2025-11-28T11:11:01.162296"
+  },
+  {
+    "id": "89c32de1-abd5-4498-b7d9-de04e1dae2ae",
+    "session_id": "global",
+    "trace_id": "89c32de1-abd5-4498-b7d9-de04e1dae2ae",
+    "sender": "test",
+    "receiver": "agent1",
+    "type": "task_request",
+    "timestamp": "2025-11-28 11:11:01.210487",
+    "payload": {},
+    "logged_at": "2025-11-28T11:11:01.231856"
   }
 ]

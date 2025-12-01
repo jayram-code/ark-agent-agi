@@ -6,3 +6,4 @@ aiofiles
 google-generativeai
 pytest
 requests
+Pillow
